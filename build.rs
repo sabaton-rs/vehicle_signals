@@ -112,6 +112,8 @@ fn add_signal(s : &Signal) -> TokenStream {
     let ty = &s.datatype;
      quote!{
         #[doc=#documentation]
+        #[allow(non_camel_case_types)]
+        #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct #signal_name {
             v : #ty,
             timestamp : u64,
@@ -141,7 +143,7 @@ fn add_signal(s : &Signal) -> TokenStream {
 
 fn add_module(g: &Graph<(String, Vec<Signal>), (), Directed, u32>, module_index : NodeIndex) -> TokenStream {
     
-    let module_name =  quote::format_ident!("{}",  &g[module_index].0);
+    let module_name =  quote::format_ident!("{}",  &g[module_index].0.to_lowercase());
     let mut module_ts = TokenStream::new();
 
     for c in g.neighbors(module_index) {
@@ -151,11 +153,14 @@ fn add_module(g: &Graph<(String, Vec<Signal>), (), Directed, u32>, module_index 
     let mut signal_contents = TokenStream::new();
 
     for s in  &g[module_index].1 {
+        
         signal_contents.extend(add_signal(s))
     }
 
     quote! {
+        #[allow(non_snake_case)]
         pub mod #module_name {
+            use cyclonedds_rs::{*};
             #signal_contents
             #module_ts
         }
