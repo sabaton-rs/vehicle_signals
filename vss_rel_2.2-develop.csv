@@ -115,7 +115,7 @@
 "Vehicle.Powertrain.ElectricMotor.MaxRegenPower","attribute","uint16","","false","kW","","","Peak regen/brake power, in kilowatts, that motor(s) can generate.","","7f2cb2650ba95485b7156ffe76e27366"
 "Vehicle.Powertrain.ElectricMotor.MaxRegenTorque","attribute","uint16","","false","Nm","","","Peak regen/brake torque, in newton meter, that the motor(s) can generate.","","0e5190c2517b55aa80fcb9bf698e02d6"
 "Vehicle.Powertrain.ElectricMotor.Motor","branch","","","false","","","","motor signals","","af1521cbe56b599fa9fff8c6171e645c"
-"Vehicle.Powertrain.ElectricMotor.Motor.Rpm","sensor","uint32","","false","rpm","-100000","100000","Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.","","96259c99dc105266bbe7aba70e16f1ef"
+"Vehicle.Powertrain.ElectricMotor.Motor.Rpm","sensor","int32","","false","rpm","-100000","100000","Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.","","96259c99dc105266bbe7aba70e16f1ef"
 "Vehicle.Powertrain.ElectricMotor.Motor.Temperature","sensor","int16","","false","celsius","-50","200","Motor temperature.","","6ae826db62d552c5b9fe2701f5655455"
 "Vehicle.Powertrain.ElectricMotor.Motor.CoolantTemperature","sensor","int16","","false","celsius","-50","200","Motor coolant temperature (if applicable).","","ff978ffe8e615fada4b6423d5ba25e25"
 "Vehicle.Powertrain.ElectricMotor.Motor.Power","sensor","int16","","false","kW","-2000","2000","Current motor power output. Negative values indicate regen mode.","","630a478781b95ad8b012ce52f745f3e8"
