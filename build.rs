@@ -156,47 +156,89 @@ fn add_signal(s : &Signal) -> TokenStream {
         }
     };
 
-     quote!{
-        #[doc=#documentation]
-        #[allow(non_camel_case_types)]
-        #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct #signal_name {
-            v : #ty,
-            timestamp : u64,
-        }
-
-        impl #signal_name {
-            pub fn timestamp(&self) -> u64 {
-                self.timestamp
+    if s.kind == "attribute" {
+        // attributes don't have timestamps
+        quote!{
+            #[doc=#documentation]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct #signal_name {
+                v : #ty,
             }
 
-            /// Get the value stored in this type
-            pub fn value(&self) -> &#ty {
-                &self.v
-            }
+            impl #signal_name {
+                /// Get the value stored in this type
+                pub fn value(&self) -> &#ty {
+                    &self.v
+                }
 
-            /// set the value. Ensure that the value is within bounds as per the
-            /// specification. This function will panic in case the value is out
-            /// of bounds.
-            pub fn set(&mut self, value: #ty, maybe_timestamp : Option<u64>) {
-                assert!(Self::bounds_check(&value));
-                self.v = value;
-                if let Some(ts) = maybe_timestamp {
-                    self.timestamp = ts;
+                /// set the value. Ensure that the value is within bounds as per the
+                /// specification. This function will panic in case the value is out
+                /// of bounds.
+                pub fn set(&mut self, value: #ty) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                }
+
+                #verify
+
+                /// create a new instance
+                pub fn new(value : #ty) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                        })
+                    }   else {
+                        None
+                    }
                 }
             }
+        }
 
-            #verify
+    } else {
 
-            /// create a new instance
-            pub fn new(value : #ty, timestamp: Option<u64>) -> Option<Self> {
-                if Self::bounds_check(&value) {
-                    Some(Self {
-                        v: value,
-                        timestamp : timestamp.unwrap_or(0),
-                    })
-                }   else {
-                    None
+        quote!{
+            #[doc=#documentation]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct #signal_name {
+                v : #ty,
+                timestamp : u64,
+            }
+
+            impl #signal_name {
+                pub fn timestamp(&self) -> u64 {
+                    self.timestamp
+                }
+
+                /// Get the value stored in this type
+                pub fn value(&self) -> &#ty {
+                    &self.v
+                }
+
+                /// set the value. Ensure that the value is within bounds as per the
+                /// specification. This function will panic in case the value is out
+                /// of bounds.
+                pub fn set(&mut self, value: #ty, maybe_timestamp : Option<u64>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+
+                #verify
+
+                /// create a new instance
+                pub fn new(value : #ty, timestamp: Option<u64>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp : timestamp.unwrap_or(0),
+                        })
+                    }   else {
+                        None
+                    }
                 }
             }
         }
