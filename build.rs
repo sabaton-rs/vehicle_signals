@@ -19,13 +19,14 @@ use petgraph::visit::Dfs;
 use quote::{quote,format_ident,TokenStreamExt};
 use proc_macro2::TokenStream;
 use itertools::Itertools;
+use std::hash::{Hash, Hasher};
 
 //use petgraph::algo::{dijkstra, min_spanning_tree};
 //use petgraph::data::FromElements;
 
 const VSS_CSV_FILE : &str= "vss_rel_2.2-develop.csv";
 
-#[derive(Debug)]
+#[derive(Debug,Clone)]
 struct Signal {
     module : Vec<String>,
     name : String,
@@ -42,6 +43,20 @@ struct Signal {
     // key types to include into this type
     keys : Vec<(String,TokenStream)>
 }
+
+impl PartialEq for Signal {
+    fn eq(&self, other: &Self) -> bool {
+        self.name == other.name
+    }
+}
+impl Eq for Signal {}
+
+impl Hash for Signal {
+    fn hash<H: Hasher>(&self, state: &mut H) {
+        self.name.hash(state);
+    }
+}
+
 
 fn parse_csv() -> Result<Vec<Signal>, Box<dyn Error>> {
     // Build the CSV reader and iterate over each record.
@@ -144,6 +159,13 @@ fn add_signal(s : &Signal) -> TokenStream {
         quote!{true}
     };
 
+    let mut key_type = Vec::new();
+    let mut key_var = Vec::new();
+    for (k,ty) in &s.keys {
+        key_type.push(quote::quote!{#ty});
+        key_var.push(quote::format_ident!("{}",k));
+    }
+
     let verify = 
     if s.max.is_some() || s.min.is_some() {
         quote!{
@@ -173,6 +195,7 @@ fn add_signal(s : &Signal) -> TokenStream {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct #signal_name {
                 v : #ty,
+                #(#key_var : #key_type),*
             }
 
             impl #signal_name {
@@ -184,18 +207,20 @@ fn add_signal(s : &Signal) -> TokenStream {
                 /// set the value. Ensure that the value is within bounds as per the
                 /// specification. This function will panic in case the value is out
                 /// of bounds.
-                pub fn set(&mut self, value: #ty) {
+                pub fn set(&mut self, value: #ty,#(#key_var : #key_type),*) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
+                    #(self.#key_var = #key_var);*
                 }
 
                 #verify
 
                 /// create a new instance
-                pub fn new(value : #ty) -> Option<Self> {
+                pub fn new(value : #ty, #(#key_var : #key_type),*) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
+                            #(#key_var),*
                         })
                     }   else {
                         None
@@ -213,6 +238,7 @@ fn add_signal(s : &Signal) -> TokenStream {
             pub struct #signal_name {
                 v : #ty,
                 timestamp : u64,
+                #(#key_var : #key_type),*
             }
 
             impl #signal_name {
@@ -228,9 +254,10 @@ fn add_signal(s : &Signal) -> TokenStream {
                 /// set the value. Ensure that the value is within bounds as per the
                 /// specification. This function will panic in case the value is out
                 /// of bounds.
-                pub fn set(&mut self, value: #ty, maybe_timestamp : Option<u64>) {
+                pub fn set(&mut self, value: #ty,maybe_timestamp : Option<u64>, #(#key_var : #key_type),*) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
+                    #(self.#key_var = #key_var;)*
                     if let Some(ts) = maybe_timestamp {
                         self.timestamp = ts;
                     }
@@ -239,11 +266,12 @@ fn add_signal(s : &Signal) -> TokenStream {
                 #verify
 
                 /// create a new instance
-                pub fn new(value : #ty, timestamp: Option<u64>) -> Option<Self> {
+                pub fn new(value : #ty, timestamp: Option<u64>, #(#key_var : #key_type),*) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
                             timestamp : timestamp.unwrap_or(0),
+                            #(#key_var),*
                         })
                     }   else {
                         None
@@ -484,7 +512,7 @@ fn rustfmt_generated_code<'a>(
             for s in  &mut g[nx].1  {
                 // This is a branch we need to mark for removal
                 //inject key into this signal
-                s.keys.push((key_name.to_owned(),quote!{Side}));
+                s.keys.push((key_name.to_owned(),quote!{crate::Side}));
              }
          }
         }
@@ -499,7 +527,7 @@ fn rustfmt_generated_code<'a>(
             for s in  &mut g[nx].1  {
                 // This is a branch we need to mark for removal
                 //inject key into this signal
-                s.keys.push((key_name.to_owned(),quote!{Position}));
+                s.keys.push((key_name.to_owned(),quote!{crate::Position}));
              }
         }
         }
@@ -548,7 +576,19 @@ fn rustfmt_generated_code<'a>(
         
         for child in children.iter() {
             g = remove_duplicate_modules(g, *child);
+            g = if g.node_weight(*child).is_some() {
+                remove_duplicate_structs(g,*child)
+            } else { g}
         }
+
+        g
+    }
+
+    fn remove_duplicate_structs(mut g: Graph<(String, Vec<Signal>), (), Directed, u32>, root: NodeIndex ) ->  Graph<(String, Vec<Signal>), (), Directed, u32> {
+
+        let v = g[root].1.clone();
+        let uniq : Vec<Signal> = v.into_iter().unique().collect();
+        g[root].1 = uniq;
 
         g
     }
