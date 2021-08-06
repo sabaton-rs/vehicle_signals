@@ -195,7 +195,7 @@ fn add_signal(s : &Signal) -> TokenStream {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct #signal_name {
                 v : #ty,
-                #(#key_var : #key_type),*
+                #(#[topic_key] #key_var : #key_type),*
             }
 
             impl #signal_name {
@@ -238,7 +238,7 @@ fn add_signal(s : &Signal) -> TokenStream {
             pub struct #signal_name {
                 v : #ty,
                 timestamp : u64,
-                #(#key_var : #key_type),*
+                #( #[topic_key] #key_var : #key_type),*
             }
 
             impl #signal_name {
@@ -497,7 +497,7 @@ fn rustfmt_generated_code<'a>(
                 for s in  &mut g[nx].1  {
                     // This is a branch we need to mark for removal
                     //inject key into this signal
-                    s.keys.push((key_name.to_owned(),quote!{u8}));
+                    s.keys.push((key_name.to_owned().to_lowercase(),quote!{u8}));
                  }
              }
        }
