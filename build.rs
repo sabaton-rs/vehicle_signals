@@ -9,12 +9,16 @@ use std::io::{self, Write};
 use std::path::{Path, PathBuf};
 use std::process::{self, Command, Stdio};
 use csv;
+use petgraph::EdgeDirection::{Incoming, Outgoing};
 use which;
+use regex::{self, Regex};
 
 use petgraph::Directed;
 use petgraph::graph::{NodeIndex, Graph};
+use petgraph::visit::Dfs;
 use quote::{quote,format_ident,TokenStreamExt};
 use proc_macro2::TokenStream;
+use itertools::Itertools;
 
 //use petgraph::algo::{dijkstra, min_spanning_tree};
 //use petgraph::data::FromElements;
@@ -35,6 +39,8 @@ struct Signal {
     enumeration : String,
     id : String,
     default: Option<String>,
+    // key types to include into this type
+    keys : Vec<(String,TokenStream)>
 }
 
 fn parse_csv() -> Result<Vec<Signal>, Box<dyn Error>> {
@@ -64,6 +70,7 @@ fn parse_csv() -> Result<Vec<Signal>, Box<dyn Error>> {
                 enumeration: record[9].into(),
                 id: record[1].into(),
                 default: None,
+                keys : Vec::new(),
             };
             signals.push(sig);
         }
@@ -104,6 +111,8 @@ fn main() {
 
         }
 
+        let g = flatten_graph(g, root_index);
+        let g = remove_duplicate_modules(g, root_index);
         graph_to_output(g, root_index);
         
         process::exit(0);
@@ -418,4 +427,128 @@ fn rustfmt_generated_code<'a>(
             },
             _ => Ok(Cow::Owned(source)),
         }
+    }
+
+    // convert 
+    fn flatten_graph(mut g: Graph<(String, Vec<Signal>), (), Directed, u32>, root: NodeIndex ) ->  Graph<(String, Vec<Signal>), (), Directed, u32> {
+
+        let mut dfs = Dfs::new(&g, root);
+        let mut nodes_for_removal = Vec::new();
+        let mut nodes_with_left_or_right = Vec::new();
+        let mut nodes_with_front_or_rear = Vec::new();
+
+        let re = Regex::new(r".*[0-9]$").unwrap();
+
+        while let Some(nx) = dfs.next(&g) {
+            
+            if re.is_match(&g[nx].0) {
+                // This is a branch we need to mark for removal
+                nodes_for_removal.push(nx);
+            }
+
+            if &g[nx].0.to_lowercase() == "left" || &g[nx].0.to_lowercase() == "right" {
+                nodes_with_left_or_right.push(nx);
+            }
+
+            if &g[nx].0.to_lowercase() == "front" || &g[nx].0.to_lowercase() == "rear" {
+                nodes_with_front_or_rear.push(nx);
+            }
+
+        }
+
+        // ok, we have marked the nodes to fix
+        //find all the child signals
+        for node in &nodes_for_removal {
+            let mut dfs = Dfs::new(&g, *node);
+
+            let num_pos = g[*node].0.chars().position(|c| c.is_numeric()).unwrap();
+            let (key_name, num) = g[*node].0.split_at(num_pos);
+            let key_name = key_name.to_owned();
+
+            while let Some(nx) = dfs.next(&g) {
+                for s in  &mut g[nx].1  {
+                    // This is a branch we need to mark for removal
+                    //inject key into this signal
+                    s.keys.push((key_name.to_owned(),quote!{u8}));
+                 }
+             }
+       }
+
+       // take care of nodes with left or right 
+       for node in &nodes_with_left_or_right {
+        let mut dfs = Dfs::new(&g, *node);
+
+        let key_name = "side";
+
+        while let Some(nx) = dfs.next(&g) {
+            for s in  &mut g[nx].1  {
+                // This is a branch we need to mark for removal
+                //inject key into this signal
+                s.keys.push((key_name.to_owned(),quote!{Side}));
+             }
+         }
+        }
+
+        // take care of nodes with left or right 
+       for node in &nodes_with_front_or_rear {
+        let mut dfs = Dfs::new(&g, *node);
+
+        let key_name = "position";
+
+        while let Some(nx) = dfs.next(&g) {
+            for s in  &mut g[nx].1  {
+                // This is a branch we need to mark for removal
+                //inject key into this signal
+                s.keys.push((key_name.to_owned(),quote!{Position}));
+             }
+        }
+        }
+
+        nodes_for_removal.extend(nodes_with_left_or_right);
+        nodes_for_removal.extend(nodes_with_front_or_rear);
+
+        let mut edges_to_add = Vec::new();
+
+        //now disconnect these nodes
+        for node in &nodes_for_removal {
+            for parent in  g.neighbors_directed(*node, Incoming ) {
+                for child in g.neighbors_directed(*node, Outgoing) {
+                    edges_to_add.push((parent,child));
+                }
+            }
+        }
+
+        //remove the key nodes
+        for node in nodes_for_removal {
+            g.remove_node(node);
+        }
+
+        for (a,b) in edges_to_add {
+            if g.node_weight(a).is_some() || g.node_weight(b).is_some() {
+                g.add_edge(a, b, ());
+            } else {
+                println!("Skipping missing node");
+            }
+        }
+       g
+    }
+
+    fn remove_duplicate_modules(mut g: Graph<(String, Vec<Signal>), (), Directed, u32>, root: NodeIndex ) ->  Graph<(String, Vec<Signal>), (), Directed, u32> {
+
+        let mut unique_children = g.neighbors_directed(root, Outgoing).into_iter().unique_by(|i| &g[*i].0);
+
+        let nodes_to_delete : Vec<NodeIndex> = g.neighbors_directed(root, Outgoing).into_iter().filter(|i| !unique_children.contains(i)).collect();
+
+        for node in nodes_to_delete {
+            g.remove_node(node);
+        }
+
+        // now for children
+        let children : Vec<NodeIndex> = g.neighbors_directed(root,Outgoing).collect();
+        
+        for child in children.iter() {
+            g = remove_duplicate_modules(g, *child);
+        }
+
+        g
     }
