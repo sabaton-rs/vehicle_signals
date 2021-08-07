@@ -264,13 +264,13 @@ fn add_signal(s : &Signal) -> TokenStream {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct #signal_name {
                 v : #ty,
-                timestamp : u64,
+                timestamp : crate::Timestamp ,
                 #( #key_attrib #key_var : #key_type),*
             }
 
             impl #signal_name {
-                pub fn timestamp(&self) -> u64 {
-                    self.timestamp
+                pub fn timestamp(&self) -> &crate::Timestamp {
+                    &self.timestamp
                 }
 
                 #get_value_function
@@ -278,7 +278,7 @@ fn add_signal(s : &Signal) -> TokenStream {
                 /// set the value. Ensure that the value is within bounds as per the
                 /// specification. This function will panic in case the value is out
                 /// of bounds.
-                pub fn set(&mut self, value: #ty,maybe_timestamp : Option<u64>, #(#key_var : #key_type),*) {
+                pub fn set(&mut self, value: #ty,maybe_timestamp : Option<crate::Timestamp>, #(#key_var : #key_type),*) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     #(self.#key_var = #key_var;)*
@@ -290,11 +290,11 @@ fn add_signal(s : &Signal) -> TokenStream {
                 #verify
 
                 /// create a new instance
-                pub fn new(value : #ty, timestamp: Option<u64>, #(#key_var : #key_type),*) -> Option<Self> {
+                pub fn new(value : #ty, timestamp: Option<crate::Timestamp>, #(#key_var : #key_type),*) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
-                            timestamp : timestamp.unwrap_or(0),
+                            timestamp : timestamp.unwrap_or(crate::Timestamp::default()),
                             #(#key_var),*
                         })
                     }   else {

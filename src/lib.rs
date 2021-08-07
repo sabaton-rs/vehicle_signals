@@ -30,6 +30,27 @@ impl Default for Position {
     }
 }
 
+/// A global IEEE 1588/802.1AS timestamp is 80 bits in total, divided into two parts
+#[repr(C)]
+#[derive(Serialize, Deserialize, PartialEq, Clone)]
+pub struct Timestamp {
+    ///seconds since epoch
+    pub sec : u64,
+    /// nanoseconds
+    pub nsec : u32,
+}
+
+impl Default for Timestamp {
+    fn default() -> Self {
+        /* TODO: Should get system time and put it here*/
+        //let now = std::time::Instant::now();
+        Self {
+            sec : 0,
+            nsec : 0,
+        }
+    }
+}
+
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
 #[cfg(test)]
