@@ -2,7 +2,7 @@
 
 This project is available under two licenses.
 
-1. A commercial license. This is work in progress, please contact the author.
+1. A commercial license. This is work in progress, please contact the author for more details on alternate licenses.
 
 2. GNU GPL V3
 
