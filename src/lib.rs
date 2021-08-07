@@ -2,6 +2,8 @@ use serde_derive::{Deserialize, Serialize};
 
 #[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
+/// The side of the vehicle an attribute or signal is related to.
+/// This type is used as a key inside topics.
 pub enum Side {
     Left = 1,
     Right = 2,
@@ -15,6 +17,8 @@ impl Default for Side {
 
 #[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
+/// Front or Rear of the vehicle
+/// This type is used as a key inside topics. 
 pub enum Position {
     Front = 1,
     Rear = 2,

@@ -20,6 +20,7 @@ use quote::{quote,format_ident,TokenStreamExt};
 use proc_macro2::TokenStream;
 use itertools::Itertools;
 use std::hash::{Hash, Hasher};
+use joinery::Joinable;
 
 //use petgraph::algo::{dijkstra, min_spanning_tree};
 //use petgraph::data::FromElements;
@@ -189,9 +190,13 @@ fn add_signal(s : &Signal) -> TokenStream {
             const fn bounds_check(_v : &#ty) -> bool { true}
         }
     };
+    let tuple_list = key_var.clone().join_with(", ").to_string();
+    let tuple_doc = format!("(value,{})",tuple_list);
 
     if s.kind == "attribute" {
         // attributes don't have timestamps
+
+
         quote!{
             #[doc=#documentation]
             #[allow(non_camel_case_types)]
@@ -203,8 +208,12 @@ fn add_signal(s : &Signal) -> TokenStream {
 
             impl #signal_name {
                 /// Get the value stored in this type
-                pub fn value(&self) -> &#ty {
-                    &self.v
+                /// The return value is a tuple that contains a 
+                /// reference to the value and the additional keys the topic 
+                /// may have. The value is always the first entry
+                #[doc = #tuple_doc]
+                pub fn value(&self) -> (&#ty,#(&#key_type),*) {
+                    (&self.v,#(&self.#key_var),*)
                 }
 
                 /// set the value. Ensure that the value is within bounds as per the
@@ -250,8 +259,12 @@ fn add_signal(s : &Signal) -> TokenStream {
                 }
 
                 /// Get the value stored in this type
-                pub fn value(&self) -> &#ty {
-                    &self.v
+                /// The return value is a tuple that contains a 
+                /// reference to the value and the additional keys the topic 
+                /// may have. The value is always the first entry
+                #[doc = #tuple_doc]
+                pub fn value(&self) -> (&#ty,#(&#key_type),*) {
+                    (&self.v,#(&self.#key_var),*)
                 }
 
                 /// set the value. Ensure that the value is within bounds as per the
