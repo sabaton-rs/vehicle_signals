@@ -40,8 +40,9 @@ struct Signal {
     enumeration : String,
     id : String,
     default: Option<String>,
-    // key types to include into this type
-    keys : Vec<(String,TokenStream)>
+    // key types to include into this type. The boolean indicates
+    // whether this key is an enum or not. Enums need the #[topic_key_enum] attribute
+    keys : Vec<(String,TokenStream, bool)>
 }
 
 impl PartialEq for Signal {
@@ -161,9 +162,11 @@ fn add_signal(s : &Signal) -> TokenStream {
 
     let mut key_type = Vec::new();
     let mut key_var = Vec::new();
-    for (k,ty) in &s.keys {
+    let mut key_attrib = Vec::new();
+    for (k,ty, is_enum) in &s.keys {
         key_type.push(quote::quote!{#ty});
         key_var.push(quote::format_ident!("{}",k));
+        key_attrib.push(if *is_enum { quote::quote!{#[topic_key_enum]} } else { quote::quote!{#[topic_key]} });
     }
 
     let verify = 
@@ -195,7 +198,7 @@ fn add_signal(s : &Signal) -> TokenStream {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct #signal_name {
                 v : #ty,
-                #(#[topic_key] #key_var : #key_type),*
+                #(#key_attrib #key_var : #key_type),*
             }
 
             impl #signal_name {
@@ -238,7 +241,7 @@ fn add_signal(s : &Signal) -> TokenStream {
             pub struct #signal_name {
                 v : #ty,
                 timestamp : u64,
-                #( #[topic_key] #key_var : #key_type),*
+                #( #key_attrib #key_var : #key_type),*
             }
 
             impl #signal_name {
@@ -497,7 +500,7 @@ fn rustfmt_generated_code<'a>(
                 for s in  &mut g[nx].1  {
                     // This is a branch we need to mark for removal
                     //inject key into this signal
-                    s.keys.push((key_name.to_owned().to_lowercase(),quote!{u8}));
+                    s.keys.push((key_name.to_owned().to_lowercase(),quote!{u8}, false));
                  }
              }
        }
@@ -512,7 +515,7 @@ fn rustfmt_generated_code<'a>(
             for s in  &mut g[nx].1  {
                 // This is a branch we need to mark for removal
                 //inject key into this signal
-                s.keys.push((key_name.to_owned(),quote!{crate::Side}));
+                s.keys.push((key_name.to_owned(),quote!{crate::Side}, true));
              }
          }
         }
@@ -527,7 +530,7 @@ fn rustfmt_generated_code<'a>(
             for s in  &mut g[nx].1  {
                 // This is a branch we need to mark for removal
                 //inject key into this signal
-                s.keys.push((key_name.to_owned(),quote!{crate::Position}));
+                s.keys.push((key_name.to_owned(),quote!{crate::Position}, true));
              }
         }
         }

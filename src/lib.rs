@@ -1,9 +1,10 @@
 use serde_derive::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[repr(C)]
+#[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub enum Side {
-    Left,
-    Right,
+    Left = 1,
+    Right = 2,
 }
 
 impl Default for Side {
@@ -12,10 +13,11 @@ impl Default for Side {
     }
 }
 
-#[derive(Serialize, Deserialize)]
+#[repr(C)]
+#[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub enum Position {
-    Front,
-    Rear,
+    Front = 1,
+    Rear = 2,
 }
 
 impl Default for Position {
