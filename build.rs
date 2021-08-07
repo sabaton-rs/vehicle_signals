@@ -1,3 +1,6 @@
+// Check project root for LICENCE
+// Generate DDS Types from VSS Specification
+
 use core::panic;
 use std::borrow::Cow;
 use std::convert::TryFrom;

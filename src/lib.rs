@@ -1,4 +1,5 @@
 #![doc = include_str!("../README.md")]
+// Check project root for LICENCE
 use serde_derive::{Deserialize, Serialize};
 
 
