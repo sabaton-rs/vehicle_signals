@@ -1,4 +1,7 @@
+#![doc = include_str!("../README.md")]
 use serde_derive::{Deserialize, Serialize};
+
+
 
 #[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
