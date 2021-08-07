@@ -14,7 +14,7 @@ use which;
 use regex::{self, Regex};
 
 use petgraph::Directed;
-use petgraph::graph::{NodeIndex, Graph};
+use petgraph::graph::{Graph, Node, NodeIndex};
 use petgraph::visit::Dfs;
 use quote::{quote,format_ident,TokenStreamExt};
 use proc_macro2::TokenStream;
@@ -136,6 +136,7 @@ fn main() {
     }
 }
 
+
 fn add_signal(s : &Signal) -> TokenStream {
     let signal_name =  quote::format_ident!("{}",&s.name);
     let documentation =  format!("{}",&s.description);
@@ -193,6 +194,27 @@ fn add_signal(s : &Signal) -> TokenStream {
     let tuple_list = key_var.clone().join_with(", ").to_string();
     let tuple_doc = format!("(value,{})",tuple_list);
 
+    let get_value_function = if key_var.len() > 0 {
+            quote::quote!{
+                /// Get the value stored in this type
+                /// The return value is a tuple that contains a 
+                /// reference to the value and the additional keys the topic 
+                /// may have. The value is always the first entry
+                #[doc = #tuple_doc]
+                pub fn value(&self) -> (&#ty,#(&#key_type),*) {
+                    (&self.v,#(&self.#key_var),*)
+                }
+            }
+    } else {
+        quote::quote!{
+            /// Get the value stored in this type
+            pub fn value(&self) -> &#ty {
+                &self.v
+            }
+        }
+    };
+
+
     if s.kind == "attribute" {
         // attributes don't have timestamps
 
@@ -207,14 +229,7 @@ fn add_signal(s : &Signal) -> TokenStream {
             }
 
             impl #signal_name {
-                /// Get the value stored in this type
-                /// The return value is a tuple that contains a 
-                /// reference to the value and the additional keys the topic 
-                /// may have. The value is always the first entry
-                #[doc = #tuple_doc]
-                pub fn value(&self) -> (&#ty,#(&#key_type),*) {
-                    (&self.v,#(&self.#key_var),*)
-                }
+                #get_value_function
 
                 /// set the value. Ensure that the value is within bounds as per the
                 /// specification. This function will panic in case the value is out
@@ -258,14 +273,7 @@ fn add_signal(s : &Signal) -> TokenStream {
                     self.timestamp
                 }
 
-                /// Get the value stored in this type
-                /// The return value is a tuple that contains a 
-                /// reference to the value and the additional keys the topic 
-                /// may have. The value is always the first entry
-                #[doc = #tuple_doc]
-                pub fn value(&self) -> (&#ty,#(&#key_type),*) {
-                    (&self.v,#(&self.#key_var),*)
-                }
+                #get_value_function
 
                 /// set the value. Ensure that the value is within bounds as per the
                 /// specification. This function will panic in case the value is out
@@ -484,8 +492,8 @@ fn rustfmt_generated_code<'a>(
         let re = Regex::new(r".*[0-9]$").unwrap();
 
         while let Some(nx) = dfs.next(&g) {
-            
-            if re.is_match(&g[nx].0) {
+            // Yikes - O2 is oxygen and not a key. :-)
+            if  &g[nx].0 != "O2" && re.is_match(&g[nx].0) {
                 // This is a branch we need to mark for removal
                 nodes_for_removal.push(nx);
             }
@@ -503,6 +511,7 @@ fn rustfmt_generated_code<'a>(
         // ok, we have marked the nodes to fix
         //find all the child signals
         for node in &nodes_for_removal {
+            println!("Removing node {}", &mut g[*node].0);
             let mut dfs = Dfs::new(&g, *node);
 
             let num_pos = g[*node].0.chars().position(|c| c.is_numeric()).unwrap();
@@ -513,6 +522,7 @@ fn rustfmt_generated_code<'a>(
                 for s in  &mut g[nx].1  {
                     // This is a branch we need to mark for removal
                     //inject key into this signal
+                    println!("Injecting key {} into signal:{}",&key_name,&s.name);
                     s.keys.push((key_name.to_owned().to_lowercase(),quote!{u8}, false));
                  }
              }
@@ -553,26 +563,43 @@ fn rustfmt_generated_code<'a>(
 
         let mut edges_to_add = Vec::new();
 
+        fn find_undeleted_parent(g: &Graph<(String, Vec<Signal>), (), Directed, u32>, parent:NodeIndex, removed_nodes: &Vec<NodeIndex>) -> NodeIndex {
+            if !removed_nodes.contains(&parent) 
+            { 
+                return parent 
+            } else {
+                let mut parents = g.neighbors_directed(parent, Incoming);
+                let p = parents.next().unwrap();
+                return find_undeleted_parent(g,p, removed_nodes)
+
+            }
+       }
+
         //now disconnect these nodes
         for node in &nodes_for_removal {
             for parent in  g.neighbors_directed(*node, Incoming ) {
+                // the parent could be marked for delete, check and find a parent that is not marked for
+                // deletion
+                let p = find_undeleted_parent(&g,parent,&nodes_for_removal);
                 for child in g.neighbors_directed(*node, Outgoing) {
-                    edges_to_add.push((parent,child));
+                    println!("Connecting parent:{} to child:{}",&g[p].0,&g[child].0);
+                    edges_to_add.push((p,child));
                 }
+            }
+        }
+
+        // add before removing
+        for (a,b) in edges_to_add {
+            if g.node_weight(a).is_some() || g.node_weight(b).is_some() {
+                g.add_edge(a, b, ());
+            } else {
+                panic!("missing node");
             }
         }
 
         //remove the key nodes
         for node in nodes_for_removal {
             g.remove_node(node);
-        }
-
-        for (a,b) in edges_to_add {
-            if g.node_weight(a).is_some() || g.node_weight(b).is_some() {
-                g.add_edge(a, b, ());
-            } else {
-                println!("Skipping missing node");
-            }
         }
        g
     }
