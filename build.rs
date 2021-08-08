@@ -36,6 +36,7 @@ struct Signal {
     name: String,
     kind: String,
     datatype: TokenStream,
+    vss_unit_type : TokenStream,
     complex: String,
     unit: Option<String>,
     min: Option<String>,
@@ -75,11 +76,14 @@ fn parse_csv() -> Result<Vec<Signal>, Box<dyn Error>> {
         } else {
             let (mod_path, name) = name_to_module_and_typename(record[0].into());
 
+            let unit = record[5].to_owned();
+
             let sig = Signal {
                 module: mod_path,
                 name,
                 kind: record[1].into(),
                 datatype: vss_type_to_rust_type(record[2].into()),
+                vss_unit_type : vss_type_to_unit_type(record[2].into(), &unit),
                 complex: record[4].into(),
                 unit: if record[5].len() > 0 {
                     Some(record[5].into())
@@ -152,6 +156,7 @@ fn add_signal(s: &Signal) -> TokenStream {
     let unit_doc = if let Some(unit) = &s.unit { format!("The unit of this type is {}",unit)} else { "This type has no unit defined".to_owned()};
     documentation.push_str(&unit_doc );
     let ty = &s.datatype;
+    let unit_ty = &s.vss_unit_type;
 
     let max_in_range = if s.max.is_some() {
         let max_with_type = format!("{}{}", s.max.as_ref().unwrap(), ty);
@@ -177,7 +182,7 @@ fn add_signal(s: &Signal) -> TokenStream {
     let mut key_var = Vec::new();
     let mut key_attrib = Vec::new();
     for (k, ty, is_enum) in &s.keys {
-        key_type.push(quote::quote! {#ty});
+        key_type.push(quote::quote! {#unit_ty});
         key_var.push(quote::format_ident!("{}", k));
         key_attrib.push(if *is_enum {
             quote::quote! {#[topic_key_enum]}
@@ -375,6 +380,24 @@ fn graph_to_output(g: Graph<(String, Vec<Signal>), (), Directed, u32>, root_inde
     let generated_code = rustfmt_generated_code(&generated_code).expect("Unable to run rustfmt");
 
     file.write_all(generated_code.as_bytes()).unwrap();
+}
+
+fn vss_type_to_unit_type(vss_type:&str, vss_data_unit_type:&str) -> TokenStream {
+    let rust_type = vss_type_to_rust_type(vss_type);
+
+    /*
+    let uom_data_unit_type = match vss_data_unit_type {
+        
+        "km/h" => quote! {crate::v2::units::KilometrePerHour<#rust_type>},
+        "m/s" => quote! {crate::v2::units::MetrePerSec<#rust_type>},
+        "celsius" => quote! {crate::v2::units::Celsius<#rust_type>},
+        _ => rust_type
+    };
+
+    uom_data_unit_type
+    */
+    rust_type
+
 }
 
 fn vss_type_to_rust_type(vss_type: &str) -> TokenStream {

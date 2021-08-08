@@ -1,10 +1,12 @@
 #![doc = include_str!("../README.md")]
 
+pub mod units;
 /// This is version 2 of the Vehicle Signal Interface.
 /// The major number of the interface is part of the module path.
 pub mod v2 {
     // Check project root for LICENCE
     use serde_derive::{Deserialize, Serialize};
+    pub use crate::units;
 
     #[repr(C)]
     #[derive(Serialize, Deserialize, PartialEq, Clone)]
