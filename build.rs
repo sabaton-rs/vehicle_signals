@@ -36,7 +36,7 @@ struct Signal {
     name: String,
     kind: String,
     datatype: TokenStream,
-    vss_unit_type : TokenStream,
+    vss_unit_type : Option<TokenStream>,
     complex: String,
     unit: Option<String>,
     min: Option<String>,
@@ -153,16 +153,23 @@ fn main() {
 fn add_signal(s: &Signal) -> TokenStream {
     let signal_name = quote::format_ident!("{}", &s.name);
     let mut documentation = format!("{}", &s.description);
-    let unit_doc = if let Some(unit) = &s.unit { format!("The unit of this type is {}",unit)} else { "This type has no unit defined".to_owned()};
+    let unit_doc = if let Some(unit) = &s.unit { format!(". The unit of this type is {}",unit)} else { ". This type has no unit defined".to_owned()};
     documentation.push_str(&unit_doc );
     let ty = &s.datatype;
-    let unit_ty = &s.vss_unit_type;
+    let unit_ty = if s.vss_unit_type.is_some() { s.vss_unit_type.as_ref().unwrap()} else { ty};
+    let value_access = if s.vss_unit_type.is_none() {
+        quote!{value}
+    } else { quote!{value.0}};
 
     let max_in_range = if s.max.is_some() {
         let max_with_type = format!("{}{}", s.max.as_ref().unwrap(), ty);
         let max = TokenStream::from_str(&max_with_type).unwrap();
+        let value_access = if s.vss_unit_type.is_none() {
+            quote!{*v}
+        } else { quote!{v.0}};
+        
         quote! {
-            *v <= #max
+            #value_access <= #max
         }
     } else {
         quote! {true}
@@ -171,8 +178,12 @@ fn add_signal(s: &Signal) -> TokenStream {
     let min_in_range = if s.min.is_some() {
         let min_with_type = format!("{}{}", s.min.as_ref().unwrap(), ty);
         let min = TokenStream::from_str(&min_with_type).unwrap();
+        let value_access = if s.vss_unit_type.is_none() {
+            quote!{*v}
+        } else { quote!{v.0}};
+
         quote! {
-            *v >= #min
+            #value_access >= #min
         }
     } else {
         quote! {true}
@@ -182,7 +193,7 @@ fn add_signal(s: &Signal) -> TokenStream {
     let mut key_var = Vec::new();
     let mut key_attrib = Vec::new();
     for (k, ty, is_enum) in &s.keys {
-        key_type.push(quote::quote! {#unit_ty});
+        key_type.push(quote::quote! {#ty});
         key_var.push(quote::format_ident!("{}", k));
         key_attrib.push(if *is_enum {
             quote::quote! {#[topic_key_enum]}
@@ -196,7 +207,7 @@ fn add_signal(s: &Signal) -> TokenStream {
             ///check if the given value is within the limits defined
             ///in the specification. Return true if the value is
             ///within bounds.
-            pub fn bounds_check(v : &#ty) -> bool {
+            pub fn bounds_check(v : &#unit_ty) -> bool {
                 #max_in_range && #min_in_range
             }
         }
@@ -206,7 +217,7 @@ fn add_signal(s: &Signal) -> TokenStream {
             ///in the specification. This particular type has not
             ///specified the min or max limits so the function just
             /// returns true
-            const fn bounds_check(_v : &#ty) -> bool { true}
+            const fn bounds_check(_v : &#unit_ty) -> bool { true}
         }
     };
     let tuple_list = key_var.clone().join_with(", ").to_string();
@@ -223,7 +234,7 @@ fn add_signal(s: &Signal) -> TokenStream {
             /// reference to the value and the additional keys the topic
             /// may have. The value is always the first entry and is
             #[doc = #tuple_doc]
-            pub fn value(&self) -> (&#ty,#(&#key_type),*) {
+            pub fn value(&self) -> (&#unit_ty,#(&#key_type),*) {
                 (&self.v,#(&self.#key_var),*)
             }
         }
@@ -231,7 +242,7 @@ fn add_signal(s: &Signal) -> TokenStream {
         quote::quote! {
             /// Get the 
             #[doc = #documentation]
-            pub fn value(&self) -> &#ty {
+            pub fn value(&self) -> &#unit_ty {
                 &self.v
             }
         }
@@ -245,7 +256,7 @@ fn add_signal(s: &Signal) -> TokenStream {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct #signal_name {
-                v : #ty,
+                v : #unit_ty,
                 #(#key_attrib #key_var : #key_type),*
             }
 
@@ -257,7 +268,7 @@ fn add_signal(s: &Signal) -> TokenStream {
                 /// Ensure that the value is within bounds as per the
                 /// specification. This function will panic in case the value is out
                 /// of bounds.
-                pub fn set(&mut self, value: #ty,#(#key_var : #key_type),*) {
+                pub fn set(&mut self, value: #unit_ty,#(#key_var : #key_type),*) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     #(self.#key_var = #key_var);*
@@ -266,7 +277,7 @@ fn add_signal(s: &Signal) -> TokenStream {
                 #verify
 
                 /// create a new instance
-                pub fn new(value : #ty, #(#key_var : #key_type),*) -> Option<Self> {
+                pub fn new(value : #unit_ty, #(#key_var : #key_type),*) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -284,7 +295,7 @@ fn add_signal(s: &Signal) -> TokenStream {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct #signal_name {
-                v : #ty,
+                v : #unit_ty,
                 timestamp : crate::v2::Timestamp ,
                 #( #key_attrib #key_var : #key_type),*
             }
@@ -301,7 +312,7 @@ fn add_signal(s: &Signal) -> TokenStream {
                 /// . Ensure that the value is within bounds as per the
                 /// specification. This function will panic in case the value is out
                 /// of bounds.
-                pub fn set(&mut self, value: #ty,maybe_timestamp : Option<crate::v2::Timestamp>, #(#key_var : #key_type),*) {
+                pub fn set(&mut self, value: #unit_ty,maybe_timestamp : Option<crate::v2::Timestamp>, #(#key_var : #key_type),*) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     #(self.#key_var = #key_var;)*
@@ -313,7 +324,7 @@ fn add_signal(s: &Signal) -> TokenStream {
                 #verify
 
                 /// create a new instance
-                pub fn new(value : #ty, timestamp: Option<crate::v2::Timestamp>, #(#key_var : #key_type),*) -> Option<Self> {
+                pub fn new(value : #unit_ty, timestamp: Option<crate::v2::Timestamp>, #(#key_var : #key_type),*) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -382,22 +393,55 @@ fn graph_to_output(g: Graph<(String, Vec<Signal>), (), Directed, u32>, root_inde
     file.write_all(generated_code.as_bytes()).unwrap();
 }
 
-fn vss_type_to_unit_type(vss_type:&str, vss_data_unit_type:&str) -> TokenStream {
+fn vss_type_to_unit_type(vss_type:&str, vss_data_unit_type:&str) -> Option<TokenStream> {
     let rust_type = vss_type_to_rust_type(vss_type);
 
-    /*
+    
     let uom_data_unit_type = match vss_data_unit_type {
         
-        "km/h" => quote! {crate::v2::units::KilometrePerHour<#rust_type>},
-        "m/s" => quote! {crate::v2::units::MetrePerSec<#rust_type>},
-        "celsius" => quote! {crate::v2::units::Celsius<#rust_type>},
-        _ => rust_type
+        "km/h" => Some(quote! {crate::v2::units::KilometrePerHour<#rust_type>}),
+        "m/s" => Some(quote! {crate::v2::units::MetrePerSec<#rust_type>}),
+        "celsius" => Some(quote! {crate::v2::units::Celsius<#rust_type>}),
+        "mbar" => Some(quote! {crate::v2::units::Millibar<#rust_type>}),
+        "Pa" => Some(quote! {crate::v2::units::Pascal<#rust_type>}),
+        "kPa" => Some(quote! {crate::v2::units::KiloPascal<#rust_type>}),
+        "percent" => Some(quote! {crate::v2::units::Percent<#rust_type>}),
+        "ratio" => Some(quote! {crate::v2::units::Ratio<#rust_type>}),
+        "lat" => Some(quote! {crate::v2::units::Latitude<#rust_type>}),
+        "lon" => Some(quote! {crate::v2::units::Longitude<#rust_type>}),
+        "inch" => Some(quote! {crate::v2::units::Inch<#rust_type>}),
+        "mm" => Some(quote! {crate::v2::units::Millimetre<#rust_type>}),
+        "m" => Some(quote! {crate::v2::units::Metre<#rust_type>}),
+        "km" => Some(quote! {crate::v2::units::Kilometre<#rust_type>}),
+        "rpm" => Some(quote! {crate::v2::units::RPM<#rust_type>}),
+        "Hz" => Some(quote! {crate::v2::units::Hertz<#rust_type>}),
+        "W" => Some(quote! {crate::v2::units::Watt<#rust_type>}),
+        "kW" => Some(quote! {crate::v2::units::Kilowatt<#rust_type>}),
+        "kWh" => Some(quote! {crate::v2::units::KilowattHour<#rust_type>}),
+        "ms" => Some(quote! {crate::v2::units::Millisecond<#rust_type>}),
+        "s" => Some(quote! {crate::v2::units::Second<#rust_type>}),
+        "min" => Some(quote! {crate::v2::units::Minute<#rust_type>}),
+        "h" => Some(quote! {crate::v2::units::Hour<#rust_type>}),
+        "g" => Some(quote! {crate::v2::units::Gram<#rust_type>}),
+        "kg" => Some(quote! {crate::v2::units::Kilogram<#rust_type>}),
+        "g/s" => Some(quote! {crate::v2::units::GramPerSec<#rust_type>}),
+        "l/h" => Some(quote! {crate::v2::units::LiterPerHour<#rust_type>}),
+        "m/s^2" => Some(quote! {crate::v2::units::MeterPerSecondSq<#rust_type>}),
+        "cm/s^2" => Some(quote! {crate::v2::units::CentimeterPerSecondSq<#rust_type>}),
+        "N" => Some(quote! {crate::v2::units::Newton<#rust_type>}),
+        "Nm" => Some(quote! {crate::v2::units::NewtonMetre<#rust_type>}),
+        "l" => Some(quote! {crate::v2::units::Litre<#rust_type>}),
+        "ml" => Some(quote! {crate::v2::units::Millilitre<#rust_type>}),
+        "degree" => Some(quote! {crate::v2::units::Degree<#rust_type>}),
+        "degree/s" => Some(quote! {crate::v2::units::DegreePerSecond<#rust_type>}),
+        "l/100km" => Some(quote! {crate::v2::units::LiterPerHundredKm<#rust_type>}),
+        "ml/100km" => Some(quote! {crate::v2::units::MilliliterPerHundredKm<#rust_type>}),
+        "V" => Some(quote! {crate::v2::units::Volt<#rust_type>}),
+        "A" => Some(quote! {crate::v2::units::Amp<#rust_type>}),
+        _ => None
     };
 
     uom_data_unit_type
-    */
-    rust_type
-
 }
 
 fn vss_type_to_rust_type(vss_type: &str) -> TokenStream {
