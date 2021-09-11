@@ -3,6 +3,8 @@
 This crate generates the DDS Topic types for use in an automotive platform. The types are
 based on the GENIVI VSS Specification. The aim of the Vehicle Signal Specification (VSS) is to create a common understanding of vehicle signals independent of the protocol or serialization format.
 
+This crate depends on cyclonedds-rs, the safe Rust binding for cyclonedds.
+
 ## Version
 
 The current Version used is <https://github.com/GENIVI/vehicle_signal_specification/commit/e851f5aa9a31e0ec836061bb263a215eae46a24d>
@@ -26,6 +28,7 @@ The Row and the Side of the window is converted into values within the Position 
 The signals are generated from the CSV output of the GENIVI vehicle signal specification. Copy the generated CSV file into this repo and update the build.rs to reflect the correct file.
 
 Vehicle signal specification : https://github.com/GENIVI/vehicle_signal_specification/
+
 
 
 
