@@ -1,9 +1,9 @@
 [package]
-name = "vehicle_signals"
+name = "vehicle-signals"
 version = "0.1.0"
 edition = "2018"
 build = "build.rs"
-description = "CycloneDDS-rs topics created from GENIVI/W3C Vehicle Signal Specification"
+description = "DDS topics (for cyclonedds-rs) created from GENIVI/W3C Vehicle Signal Specification"
 authors = ["Sojan James <Sojan.James@gmail.com>"]
 homepage = "https://github.com/sabaton-rs/vehicle_signals"
 license-file = "LICENSE.md"
