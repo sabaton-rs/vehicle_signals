@@ -30,6 +30,10 @@ The signals are generated from the CSV output of the GENIVI vehicle signal speci
 
 Vehicle signal specification : https://github.com/GENIVI/vehicle_signal_specification/
 
+## Examples
+
+1. Vehicle Speed Publisher https://github.com/sjames/demo-vehicle-speed-publisher.git
+2. Vehicle Speed Subscriber (async support) https://github.com/sjames/demo-vehicle-speed-subscriber.git
 
 
 
