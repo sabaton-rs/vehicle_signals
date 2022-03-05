@@ -28,7 +28,7 @@ use std::hash::{Hash, Hasher};
 //use petgraph::algo::{dijkstra, min_spanning_tree};
 //use petgraph::data::FromElements;
 
-const VSS_CSV_FILE: &str = "vss_rel_2.2-develop.csv";
+const VSS_CSV_FILE: &str = "vss_rel_2.2.csv";
 
 #[derive(Debug, Clone)]
 struct Signal {
@@ -42,6 +42,7 @@ struct Signal {
     min: Option<String>,
     max: Option<String>,
     description: String,
+    comment : String,
     enumeration: String,
     id: String,
     default: Option<String>,
@@ -84,25 +85,26 @@ fn parse_csv() -> Result<Vec<Signal>, Box<dyn Error>> {
                 kind: record[1].into(),
                 datatype: vss_type_to_rust_type(record[2].into()),
                 vss_unit_type : vss_type_to_unit_type(record[2].into(), &unit),
-                complex: record[4].into(),
-                unit: if record[5].len() > 0 {
+                complex: String::new(),
+                unit: if record[4].len() > 0 {
+                    Some(record[4].into())
+                } else {
+                    None
+                },
+                min: if record[5].len() > 0 {
                     Some(record[5].into())
                 } else {
                     None
                 },
-                min: if record[6].len() > 0 {
+                max: if record[6].len() > 0 {
                     Some(record[6].into())
                 } else {
                     None
                 },
-                max: if record[7].len() > 0 {
-                    Some(record[7].into())
-                } else {
-                    None
-                },
-                description: record[8].into(),
+                description: record[7].into(),
+                comment : record[8].into(),
                 enumeration: record[9].into(),
-                id: record[1].into(),
+                id: record[10].into(),
                 default: None,
                 keys: Vec::new(),
             };
