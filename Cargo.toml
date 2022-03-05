@@ -1,6 +1,6 @@
 [package]
 name = "vehicle-signals"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2018"
 build = "build.rs"
 description = "DDS topics (for cyclonedds-rs) created from GENIVI/W3C Vehicle Signal Specification"
