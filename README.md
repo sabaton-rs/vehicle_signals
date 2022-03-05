@@ -7,8 +7,7 @@ This crate depends on cyclonedds-rs, the safe Rust binding for cyclonedds.
 
 ## Version
 
-The current Version used is <https://github.com/GENIVI/vehicle_signal_specification/commit/e851f5aa9a31e0ec836061bb263a215eae46a24d>
-Version 2 of the VSS is not yet released, so please expect changes.
+Version 2.2 of the specification is used. https://github.com/COVESA/vehicle_signal_specification/commit/1741945d2cf0dbe75735123306626276eac31890
 
 ## Usage of DDS Keys
 
