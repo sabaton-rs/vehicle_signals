@@ -77,7 +77,7 @@ fn parse_csv() -> Result<Vec<Signal>, Box<dyn Error>> {
         } else {
             let (mod_path, name) = name_to_module_and_typename(record[0].into());
 
-            let unit = record[5].to_owned();
+            let unit = record[4].to_owned();
 
             let sig = Signal {
                 module: mod_path,
