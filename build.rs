@@ -361,7 +361,7 @@ fn add_module(
     }
 
     let import_cyclonedds_rs = if g[module_index].1.len() > 0 {
-        quote! {use cyclonedds_rs::{*};}
+        quote! {use cyclonedds_rs::{*};use cdds_derive::Topic;}
     } else {
         quote! {}
     };
