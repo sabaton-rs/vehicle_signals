@@ -306,12 +306,12 @@ fn add_signal(s: &Signal) -> TokenStream {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct #signal_name {
                 v : #unit_ty,
-                timestamp : crate::v2::Timestamp ,
+                timestamp : crate::v3::Timestamp ,
                 #( #key_attrib #key_var : #key_type),*
             }
 
             impl #signal_name {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
 
@@ -322,7 +322,7 @@ fn add_signal(s: &Signal) -> TokenStream {
                 /// . Ensure that the value is within bounds as per the
                 /// specification. This function will panic in case the value is out
                 /// of bounds.
-                pub fn set(&mut self, value: #unit_ty,maybe_timestamp : Option<crate::v2::Timestamp>, #(#key_var : #key_type),*) {
+                pub fn set(&mut self, value: #unit_ty,maybe_timestamp : Option<crate::v3::Timestamp>, #(#key_var : #key_type),*) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     #(self.#key_var = #key_var;)*
@@ -334,7 +334,7 @@ fn add_signal(s: &Signal) -> TokenStream {
                 #verify
 
                 /// create a new instance
-                pub fn new(value : #unit_ty, timestamp: Option<crate::v2::Timestamp>, #(#key_var : #key_type),*) -> Option<Self> {
+                pub fn new(value : #unit_ty, timestamp: Option<crate::v3::Timestamp>, #(#key_var : #key_type),*) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -411,45 +411,45 @@ fn vss_type_to_unit_type(vss_type:&str, vss_data_unit_type:&str) -> Option<Token
     
     let uom_data_unit_type = match vss_data_unit_type {
         
-        "km/h" => Some(quote! {crate::v2::units::KilometrePerHour<#rust_type>}),
-        "m/s" => Some(quote! {crate::v2::units::MetrePerSec<#rust_type>}),
-        "celsius" => Some(quote! {crate::v2::units::Celsius<#rust_type>}),
-        "mbar" => Some(quote! {crate::v2::units::Millibar<#rust_type>}),
-        "Pa" => Some(quote! {crate::v2::units::Pascal<#rust_type>}),
-        "kPa" => Some(quote! {crate::v2::units::KiloPascal<#rust_type>}),
-        "percent" => Some(quote! {crate::v2::units::Percent<#rust_type>}),
-        "ratio" => Some(quote! {crate::v2::units::Ratio<#rust_type>}),
-        "lat" => Some(quote! {crate::v2::units::Latitude<#rust_type>}),
-        "lon" => Some(quote! {crate::v2::units::Longitude<#rust_type>}),
-        "inch" => Some(quote! {crate::v2::units::Inch<#rust_type>}),
-        "mm" => Some(quote! {crate::v2::units::Millimetre<#rust_type>}),
-        "m" => Some(quote! {crate::v2::units::Metre<#rust_type>}),
-        "km" => Some(quote! {crate::v2::units::Kilometre<#rust_type>}),
-        "rpm" => Some(quote! {crate::v2::units::RPM<#rust_type>}),
-        "Hz" => Some(quote! {crate::v2::units::Hertz<#rust_type>}),
-        "W" => Some(quote! {crate::v2::units::Watt<#rust_type>}),
-        "kW" => Some(quote! {crate::v2::units::Kilowatt<#rust_type>}),
-        "kWh" => Some(quote! {crate::v2::units::KilowattHour<#rust_type>}),
-        "ms" => Some(quote! {crate::v2::units::Millisecond<#rust_type>}),
-        "s" => Some(quote! {crate::v2::units::Second<#rust_type>}),
-        "min" => Some(quote! {crate::v2::units::Minute<#rust_type>}),
-        "h" => Some(quote! {crate::v2::units::Hour<#rust_type>}),
-        "g" => Some(quote! {crate::v2::units::Gram<#rust_type>}),
-        "kg" => Some(quote! {crate::v2::units::Kilogram<#rust_type>}),
-        "g/s" => Some(quote! {crate::v2::units::GramPerSec<#rust_type>}),
-        "l/h" => Some(quote! {crate::v2::units::LiterPerHour<#rust_type>}),
-        "m/s^2" => Some(quote! {crate::v2::units::MeterPerSecondSq<#rust_type>}),
-        "cm/s^2" => Some(quote! {crate::v2::units::CentimeterPerSecondSq<#rust_type>}),
-        "N" => Some(quote! {crate::v2::units::Newton<#rust_type>}),
-        "Nm" => Some(quote! {crate::v2::units::NewtonMetre<#rust_type>}),
-        "l" => Some(quote! {crate::v2::units::Litre<#rust_type>}),
-        "ml" => Some(quote! {crate::v2::units::Millilitre<#rust_type>}),
-        "degree" => Some(quote! {crate::v2::units::Degree<#rust_type>}),
-        "degree/s" => Some(quote! {crate::v2::units::DegreePerSecond<#rust_type>}),
-        "l/100km" => Some(quote! {crate::v2::units::LiterPerHundredKm<#rust_type>}),
-        "ml/100km" => Some(quote! {crate::v2::units::MilliliterPerHundredKm<#rust_type>}),
-        "V" => Some(quote! {crate::v2::units::Volt<#rust_type>}),
-        "A" => Some(quote! {crate::v2::units::Amp<#rust_type>}),
+        "km/h" => Some(quote! {crate::v3::units::KilometrePerHour<#rust_type>}),
+        "m/s" => Some(quote! {crate::v3::units::MetrePerSec<#rust_type>}),
+        "celsius" => Some(quote! {crate::v3::units::Celsius<#rust_type>}),
+        "mbar" => Some(quote! {crate::v3::units::Millibar<#rust_type>}),
+        "Pa" => Some(quote! {crate::v3::units::Pascal<#rust_type>}),
+        "kPa" => Some(quote! {crate::v3::units::KiloPascal<#rust_type>}),
+        "percent" => Some(quote! {crate::v3::units::Percent<#rust_type>}),
+        "ratio" => Some(quote! {crate::v3::units::Ratio<#rust_type>}),
+        "lat" => Some(quote! {crate::v3::units::Latitude<#rust_type>}),
+        "lon" => Some(quote! {crate::v3::units::Longitude<#rust_type>}),
+        "inch" => Some(quote! {crate::v3::units::Inch<#rust_type>}),
+        "mm" => Some(quote! {crate::v3::units::Millimetre<#rust_type>}),
+        "m" => Some(quote! {crate::v3::units::Metre<#rust_type>}),
+        "km" => Some(quote! {crate::v3::units::Kilometre<#rust_type>}),
+        "rpm" => Some(quote! {crate::v3::units::RPM<#rust_type>}),
+        "Hz" => Some(quote! {crate::v3::units::Hertz<#rust_type>}),
+        "W" => Some(quote! {crate::v3::units::Watt<#rust_type>}),
+        "kW" => Some(quote! {crate::v3::units::Kilowatt<#rust_type>}),
+        "kWh" => Some(quote! {crate::v3::units::KilowattHour<#rust_type>}),
+        "ms" => Some(quote! {crate::v3::units::Millisecond<#rust_type>}),
+        "s" => Some(quote! {crate::v3::units::Second<#rust_type>}),
+        "min" => Some(quote! {crate::v3::units::Minute<#rust_type>}),
+        "h" => Some(quote! {crate::v3::units::Hour<#rust_type>}),
+        "g" => Some(quote! {crate::v3::units::Gram<#rust_type>}),
+        "kg" => Some(quote! {crate::v3::units::Kilogram<#rust_type>}),
+        "g/s" => Some(quote! {crate::v3::units::GramPerSec<#rust_type>}),
+        "l/h" => Some(quote! {crate::v3::units::LiterPerHour<#rust_type>}),
+        "m/s^2" => Some(quote! {crate::v3::units::MeterPerSecondSq<#rust_type>}),
+        "cm/s^2" => Some(quote! {crate::v3::units::CentimeterPerSecondSq<#rust_type>}),
+        "N" => Some(quote! {crate::v3::units::Newton<#rust_type>}),
+        "Nm" => Some(quote! {crate::v3::units::NewtonMetre<#rust_type>}),
+        "l" => Some(quote! {crate::v3::units::Litre<#rust_type>}),
+        "ml" => Some(quote! {crate::v3::units::Millilitre<#rust_type>}),
+        "degree" => Some(quote! {crate::v3::units::Degree<#rust_type>}),
+        "degree/s" => Some(quote! {crate::v3::units::DegreePerSecond<#rust_type>}),
+        "l/100km" => Some(quote! {crate::v3::units::LiterPerHundredKm<#rust_type>}),
+        "ml/100km" => Some(quote! {crate::v3::units::MilliliterPerHundredKm<#rust_type>}),
+        "V" => Some(quote! {crate::v3::units::Volt<#rust_type>}),
+        "A" => Some(quote! {crate::v3::units::Amp<#rust_type>}),
         _ => None
     };
 
@@ -628,7 +628,7 @@ fn flatten_graph(
                 // This is a branch we need to mark for removal
                 //inject key into this signal
                 s.keys
-                    .push((key_name.to_owned(), quote! {crate::v2::Side}, true));
+                    .push((key_name.to_owned(), quote! {crate::v3::Side}, true));
             }
         }
     }
@@ -644,7 +644,7 @@ fn flatten_graph(
                 // This is a branch we need to mark for removal
                 //inject key into this signal
                 s.keys
-                    .push((key_name.to_owned(), quote! {crate::v2::Position}, true));
+                    .push((key_name.to_owned(), quote! {crate::v3::Position}, true));
             }
         }
     }

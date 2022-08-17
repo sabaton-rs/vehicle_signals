@@ -7,10 +7,10 @@ pub mod vehicle {
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct LowVoltageSystemState {
         v: String,
-        timestamp: crate::v2::Timestamp,
+        timestamp: crate::v3::Timestamp,
     }
     impl LowVoltageSystemState {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+        pub fn timestamp(&self) -> &crate::v3::Timestamp {
             &self.timestamp
         }
         #[doc = r" Get the "]
@@ -23,7 +23,7 @@ pub mod vehicle {
         #[doc = r" . Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v2::Timestamp>) {
+        pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v3::Timestamp>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
             if let Some(ts) = maybe_timestamp {
@@ -38,7 +38,7 @@ pub mod vehicle {
             true
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+        pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self {
                     v: value,
@@ -53,16 +53,16 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct Speed {
-        v: crate::v2::units::KilometrePerHour<f32>,
-        timestamp: crate::v2::Timestamp,
+        v: crate::v3::units::KilometrePerHour<f32>,
+        timestamp: crate::v3::Timestamp,
     }
     impl Speed {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+        pub fn timestamp(&self) -> &crate::v3::Timestamp {
             &self.timestamp
         }
         #[doc = r" Get the "]
         #[doc = "Vehicle speed.. The unit of this type is km/h"]
-        pub fn value(&self) -> &crate::v2::units::KilometrePerHour<f32> {
+        pub fn value(&self) -> &crate::v3::units::KilometrePerHour<f32> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -72,8 +72,8 @@ pub mod vehicle {
         #[doc = r" of bounds."]
         pub fn set(
             &mut self,
-            value: crate::v2::units::KilometrePerHour<f32>,
-            maybe_timestamp: Option<crate::v2::Timestamp>,
+            value: crate::v3::units::KilometrePerHour<f32>,
+            maybe_timestamp: Option<crate::v3::Timestamp>,
         ) {
             assert!(Self::bounds_check(&value));
             self.v = value;
@@ -85,13 +85,13 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::KilometrePerHour<f32>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::KilometrePerHour<f32>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
         pub fn new(
-            value: crate::v2::units::KilometrePerHour<f32>,
-            timestamp: Option<crate::v2::Timestamp>,
+            value: crate::v3::units::KilometrePerHour<f32>,
+            timestamp: Option<crate::v3::Timestamp>,
         ) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self {
@@ -107,16 +107,16 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct TravelledDistance {
-        v: crate::v2::units::Kilometre<f32>,
-        timestamp: crate::v2::Timestamp,
+        v: crate::v3::units::Kilometre<f32>,
+        timestamp: crate::v3::Timestamp,
     }
     impl TravelledDistance {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+        pub fn timestamp(&self) -> &crate::v3::Timestamp {
             &self.timestamp
         }
         #[doc = r" Get the "]
         #[doc = "Odometer reading, total distance travelled during the lifetime of the vehicle.. The unit of this type is km"]
-        pub fn value(&self) -> &crate::v2::units::Kilometre<f32> {
+        pub fn value(&self) -> &crate::v3::units::Kilometre<f32> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -126,8 +126,8 @@ pub mod vehicle {
         #[doc = r" of bounds."]
         pub fn set(
             &mut self,
-            value: crate::v2::units::Kilometre<f32>,
-            maybe_timestamp: Option<crate::v2::Timestamp>,
+            value: crate::v3::units::Kilometre<f32>,
+            maybe_timestamp: Option<crate::v3::Timestamp>,
         ) {
             assert!(Self::bounds_check(&value));
             self.v = value;
@@ -139,13 +139,13 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Kilometre<f32>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::Kilometre<f32>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
         pub fn new(
-            value: crate::v2::units::Kilometre<f32>,
-            timestamp: Option<crate::v2::Timestamp>,
+            value: crate::v3::units::Kilometre<f32>,
+            timestamp: Option<crate::v3::Timestamp>,
         ) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self {
@@ -161,16 +161,16 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct TripMeterReading {
-        v: crate::v2::units::Kilometre<f32>,
-        timestamp: crate::v2::Timestamp,
+        v: crate::v3::units::Kilometre<f32>,
+        timestamp: crate::v3::Timestamp,
     }
     impl TripMeterReading {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+        pub fn timestamp(&self) -> &crate::v3::Timestamp {
             &self.timestamp
         }
         #[doc = r" Get the "]
         #[doc = "Current trip meter reading.. The unit of this type is km"]
-        pub fn value(&self) -> &crate::v2::units::Kilometre<f32> {
+        pub fn value(&self) -> &crate::v3::units::Kilometre<f32> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -180,8 +180,8 @@ pub mod vehicle {
         #[doc = r" of bounds."]
         pub fn set(
             &mut self,
-            value: crate::v2::units::Kilometre<f32>,
-            maybe_timestamp: Option<crate::v2::Timestamp>,
+            value: crate::v3::units::Kilometre<f32>,
+            maybe_timestamp: Option<crate::v3::Timestamp>,
         ) {
             assert!(Self::bounds_check(&value));
             self.v = value;
@@ -193,13 +193,13 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Kilometre<f32>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::Kilometre<f32>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
         pub fn new(
-            value: crate::v2::units::Kilometre<f32>,
-            timestamp: Option<crate::v2::Timestamp>,
+            value: crate::v3::units::Kilometre<f32>,
+            timestamp: Option<crate::v3::Timestamp>,
         ) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self {
@@ -216,10 +216,10 @@ pub mod vehicle {
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct IsBrokenDown {
         v: bool,
-        timestamp: crate::v2::Timestamp,
+        timestamp: crate::v3::Timestamp,
     }
     impl IsBrokenDown {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+        pub fn timestamp(&self) -> &crate::v3::Timestamp {
             &self.timestamp
         }
         #[doc = r" Get the "]
@@ -232,7 +232,7 @@ pub mod vehicle {
         #[doc = r" . Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+        pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
             if let Some(ts) = maybe_timestamp {
@@ -247,7 +247,7 @@ pub mod vehicle {
             true
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+        pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self {
                     v: value,
@@ -263,10 +263,10 @@ pub mod vehicle {
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct IsMoving {
         v: bool,
-        timestamp: crate::v2::Timestamp,
+        timestamp: crate::v3::Timestamp,
     }
     impl IsMoving {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+        pub fn timestamp(&self) -> &crate::v3::Timestamp {
             &self.timestamp
         }
         #[doc = r" Get the "]
@@ -279,7 +279,7 @@ pub mod vehicle {
         #[doc = r" . Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+        pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
             if let Some(ts) = maybe_timestamp {
@@ -294,7 +294,7 @@ pub mod vehicle {
             true
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+        pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self {
                     v: value,
@@ -309,16 +309,16 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct AverageSpeed {
-        v: crate::v2::units::KilometrePerHour<f32>,
-        timestamp: crate::v2::Timestamp,
+        v: crate::v3::units::KilometrePerHour<f32>,
+        timestamp: crate::v3::Timestamp,
     }
     impl AverageSpeed {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+        pub fn timestamp(&self) -> &crate::v3::Timestamp {
             &self.timestamp
         }
         #[doc = r" Get the "]
         #[doc = "Average speed for the current trip.. The unit of this type is km/h"]
-        pub fn value(&self) -> &crate::v2::units::KilometrePerHour<f32> {
+        pub fn value(&self) -> &crate::v3::units::KilometrePerHour<f32> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -328,8 +328,8 @@ pub mod vehicle {
         #[doc = r" of bounds."]
         pub fn set(
             &mut self,
-            value: crate::v2::units::KilometrePerHour<f32>,
-            maybe_timestamp: Option<crate::v2::Timestamp>,
+            value: crate::v3::units::KilometrePerHour<f32>,
+            maybe_timestamp: Option<crate::v3::Timestamp>,
         ) {
             assert!(Self::bounds_check(&value));
             self.v = value;
@@ -341,13 +341,13 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::KilometrePerHour<f32>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::KilometrePerHour<f32>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
         pub fn new(
-            value: crate::v2::units::KilometrePerHour<f32>,
-            timestamp: Option<crate::v2::Timestamp>,
+            value: crate::v3::units::KilometrePerHour<f32>,
+            timestamp: Option<crate::v3::Timestamp>,
         ) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self {
@@ -363,12 +363,12 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct RoofLoad {
-        v: crate::v2::units::Kilogram<i16>,
+        v: crate::v3::units::Kilogram<i16>,
     }
     impl RoofLoad {
         #[doc = r" Get the "]
         #[doc = "The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.. The unit of this type is kg"]
-        pub fn value(&self) -> &crate::v2::units::Kilogram<i16> {
+        pub fn value(&self) -> &crate::v3::units::Kilogram<i16> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -376,7 +376,7 @@ pub mod vehicle {
         #[doc = r" Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: crate::v2::units::Kilogram<i16>) {
+        pub fn set(&mut self, value: crate::v3::units::Kilogram<i16>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
         }
@@ -384,11 +384,11 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Kilogram<i16>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::Kilogram<i16>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: crate::v2::units::Kilogram<i16>) -> Option<Self> {
+        pub fn new(value: crate::v3::units::Kilogram<i16>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self { v: value })
             } else {
@@ -400,12 +400,12 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct CargoVolume {
-        v: crate::v2::units::Litre<f32>,
+        v: crate::v3::units::Litre<f32>,
     }
     impl CargoVolume {
         #[doc = r" Get the "]
         #[doc = "The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.. The unit of this type is l"]
-        pub fn value(&self) -> &crate::v2::units::Litre<f32> {
+        pub fn value(&self) -> &crate::v3::units::Litre<f32> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -413,18 +413,18 @@ pub mod vehicle {
         #[doc = r" Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: crate::v2::units::Litre<f32>) {
+        pub fn set(&mut self, value: crate::v3::units::Litre<f32>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
         }
         #[doc = r"check if the given value is within the limits defined"]
         #[doc = r"in the specification. Return true if the value is"]
         #[doc = r"within bounds."]
-        pub fn bounds_check(v: &crate::v2::units::Litre<f32>) -> bool {
+        pub fn bounds_check(v: &crate::v3::units::Litre<f32>) -> bool {
             true && v.0 >= 0f32
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: crate::v2::units::Litre<f32>) -> Option<Self> {
+        pub fn new(value: crate::v3::units::Litre<f32>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self { v: value })
             } else {
@@ -473,16 +473,16 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct CurrentOverallWeight {
-        v: crate::v2::units::Kilogram<u16>,
-        timestamp: crate::v2::Timestamp,
+        v: crate::v3::units::Kilogram<u16>,
+        timestamp: crate::v3::Timestamp,
     }
     impl CurrentOverallWeight {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+        pub fn timestamp(&self) -> &crate::v3::Timestamp {
             &self.timestamp
         }
         #[doc = r" Get the "]
         #[doc = "Current overall Vehicle weight. Including passengers, cargo and other load inside the car.. The unit of this type is kg"]
-        pub fn value(&self) -> &crate::v2::units::Kilogram<u16> {
+        pub fn value(&self) -> &crate::v3::units::Kilogram<u16> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -492,8 +492,8 @@ pub mod vehicle {
         #[doc = r" of bounds."]
         pub fn set(
             &mut self,
-            value: crate::v2::units::Kilogram<u16>,
-            maybe_timestamp: Option<crate::v2::Timestamp>,
+            value: crate::v3::units::Kilogram<u16>,
+            maybe_timestamp: Option<crate::v3::Timestamp>,
         ) {
             assert!(Self::bounds_check(&value));
             self.v = value;
@@ -505,13 +505,13 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Kilogram<u16>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::Kilogram<u16>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
         pub fn new(
-            value: crate::v2::units::Kilogram<u16>,
-            timestamp: Option<crate::v2::Timestamp>,
+            value: crate::v3::units::Kilogram<u16>,
+            timestamp: Option<crate::v3::Timestamp>,
         ) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self {
@@ -527,12 +527,12 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct CurbWeight {
-        v: crate::v2::units::Kilogram<u16>,
+        v: crate::v3::units::Kilogram<u16>,
     }
     impl CurbWeight {
         #[doc = r" Get the "]
         #[doc = "Vehicle curb weight, including all liquids and full tank of fuel, but no cargo or passengers.. The unit of this type is kg"]
-        pub fn value(&self) -> &crate::v2::units::Kilogram<u16> {
+        pub fn value(&self) -> &crate::v3::units::Kilogram<u16> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -540,7 +540,7 @@ pub mod vehicle {
         #[doc = r" Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: crate::v2::units::Kilogram<u16>) {
+        pub fn set(&mut self, value: crate::v3::units::Kilogram<u16>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
         }
@@ -548,11 +548,11 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Kilogram<u16>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::Kilogram<u16>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: crate::v2::units::Kilogram<u16>) -> Option<Self> {
+        pub fn new(value: crate::v3::units::Kilogram<u16>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self { v: value })
             } else {
@@ -564,12 +564,12 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct GrossWeight {
-        v: crate::v2::units::Kilogram<u16>,
+        v: crate::v3::units::Kilogram<u16>,
     }
     impl GrossWeight {
         #[doc = r" Get the "]
         #[doc = "Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.. The unit of this type is kg"]
-        pub fn value(&self) -> &crate::v2::units::Kilogram<u16> {
+        pub fn value(&self) -> &crate::v3::units::Kilogram<u16> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -577,7 +577,7 @@ pub mod vehicle {
         #[doc = r" Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: crate::v2::units::Kilogram<u16>) {
+        pub fn set(&mut self, value: crate::v3::units::Kilogram<u16>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
         }
@@ -585,11 +585,11 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Kilogram<u16>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::Kilogram<u16>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: crate::v2::units::Kilogram<u16>) -> Option<Self> {
+        pub fn new(value: crate::v3::units::Kilogram<u16>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self { v: value })
             } else {
@@ -601,12 +601,12 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct MaxTowWeight {
-        v: crate::v2::units::Kilogram<u16>,
+        v: crate::v3::units::Kilogram<u16>,
     }
     impl MaxTowWeight {
         #[doc = r" Get the "]
         #[doc = "Maximum weight of trailer.. The unit of this type is kg"]
-        pub fn value(&self) -> &crate::v2::units::Kilogram<u16> {
+        pub fn value(&self) -> &crate::v3::units::Kilogram<u16> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -614,7 +614,7 @@ pub mod vehicle {
         #[doc = r" Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: crate::v2::units::Kilogram<u16>) {
+        pub fn set(&mut self, value: crate::v3::units::Kilogram<u16>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
         }
@@ -622,11 +622,11 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Kilogram<u16>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::Kilogram<u16>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: crate::v2::units::Kilogram<u16>) -> Option<Self> {
+        pub fn new(value: crate::v3::units::Kilogram<u16>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self { v: value })
             } else {
@@ -638,12 +638,12 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct MaxTowBallWeight {
-        v: crate::v2::units::Kilogram<u16>,
+        v: crate::v3::units::Kilogram<u16>,
     }
     impl MaxTowBallWeight {
         #[doc = r" Get the "]
         #[doc = "Maximum vertical weight on the tow ball of a trailer.. The unit of this type is kg"]
-        pub fn value(&self) -> &crate::v2::units::Kilogram<u16> {
+        pub fn value(&self) -> &crate::v3::units::Kilogram<u16> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -651,7 +651,7 @@ pub mod vehicle {
         #[doc = r" Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: crate::v2::units::Kilogram<u16>) {
+        pub fn set(&mut self, value: crate::v3::units::Kilogram<u16>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
         }
@@ -659,11 +659,11 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Kilogram<u16>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::Kilogram<u16>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: crate::v2::units::Kilogram<u16>) -> Option<Self> {
+        pub fn new(value: crate::v3::units::Kilogram<u16>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self { v: value })
             } else {
@@ -675,12 +675,12 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct Length {
-        v: crate::v2::units::Millimetre<u16>,
+        v: crate::v3::units::Millimetre<u16>,
     }
     impl Length {
         #[doc = r" Get the "]
         #[doc = "Overall vehicle length.. The unit of this type is mm"]
-        pub fn value(&self) -> &crate::v2::units::Millimetre<u16> {
+        pub fn value(&self) -> &crate::v3::units::Millimetre<u16> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -688,7 +688,7 @@ pub mod vehicle {
         #[doc = r" Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: crate::v2::units::Millimetre<u16>) {
+        pub fn set(&mut self, value: crate::v3::units::Millimetre<u16>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
         }
@@ -696,11 +696,11 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Millimetre<u16>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::Millimetre<u16>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: crate::v2::units::Millimetre<u16>) -> Option<Self> {
+        pub fn new(value: crate::v3::units::Millimetre<u16>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self { v: value })
             } else {
@@ -712,12 +712,12 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct Height {
-        v: crate::v2::units::Millimetre<u16>,
+        v: crate::v3::units::Millimetre<u16>,
     }
     impl Height {
         #[doc = r" Get the "]
         #[doc = "Overall vehicle height.. The unit of this type is mm"]
-        pub fn value(&self) -> &crate::v2::units::Millimetre<u16> {
+        pub fn value(&self) -> &crate::v3::units::Millimetre<u16> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -725,7 +725,7 @@ pub mod vehicle {
         #[doc = r" Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: crate::v2::units::Millimetre<u16>) {
+        pub fn set(&mut self, value: crate::v3::units::Millimetre<u16>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
         }
@@ -733,11 +733,11 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Millimetre<u16>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::Millimetre<u16>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: crate::v2::units::Millimetre<u16>) -> Option<Self> {
+        pub fn new(value: crate::v3::units::Millimetre<u16>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self { v: value })
             } else {
@@ -749,12 +749,12 @@ pub mod vehicle {
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct Width {
-        v: crate::v2::units::Millimetre<u16>,
+        v: crate::v3::units::Millimetre<u16>,
     }
     impl Width {
         #[doc = r" Get the "]
         #[doc = "Overall vehicle width.. The unit of this type is mm"]
-        pub fn value(&self) -> &crate::v2::units::Millimetre<u16> {
+        pub fn value(&self) -> &crate::v3::units::Millimetre<u16> {
             &self.v
         }
         #[doc = r" Set the"]
@@ -762,7 +762,7 @@ pub mod vehicle {
         #[doc = r" Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
-        pub fn set(&mut self, value: crate::v2::units::Millimetre<u16>) {
+        pub fn set(&mut self, value: crate::v3::units::Millimetre<u16>) {
             assert!(Self::bounds_check(&value));
             self.v = value;
         }
@@ -770,11 +770,11 @@ pub mod vehicle {
         #[doc = r"in the specification. This particular type has not"]
         #[doc = r"specified the min or max limits so the function just"]
         #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Millimetre<u16>) -> bool {
+        const fn bounds_check(_v: &crate::v3::units::Millimetre<u16>) -> bool {
             true
         }
         #[doc = r" create a new instance"]
-        pub fn new(value: crate::v2::units::Millimetre<u16>) -> Option<Self> {
+        pub fn new(value: crate::v3::units::Millimetre<u16>) -> Option<Self> {
             if Self::bounds_check(&value) {
                 Some(Self { v: value })
             } else {
@@ -791,10 +791,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct IsConnectivityAvailable {
             v: bool,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl IsConnectivityAvailable {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -807,7 +807,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -822,7 +822,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -843,10 +843,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct IsServiceDue {
             v: bool,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl IsServiceDue {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -859,7 +859,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -874,7 +874,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -889,16 +889,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct DistanceToService {
-            v: crate::v2::units::Kilometre<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Kilometre<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl DistanceToService {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Remaining distance to service (of any kind). Negative values indicate service overdue.. The unit of this type is km"]
-            pub fn value(&self) -> &crate::v2::units::Kilometre<f32> {
+            pub fn value(&self) -> &crate::v3::units::Kilometre<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -908,8 +908,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Kilometre<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Kilometre<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -921,13 +921,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Kilometre<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Kilometre<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Kilometre<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Kilometre<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -943,16 +943,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct TimeToService {
-            v: crate::v2::units::Second<i32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Second<i32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl TimeToService {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Remaining time to service (of any kind). Negative values indicate service overdue.. The unit of this type is s"]
-            pub fn value(&self) -> &crate::v2::units::Second<i32> {
+            pub fn value(&self) -> &crate::v3::units::Second<i32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -962,8 +962,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Second<i32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Second<i32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -975,13 +975,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Second<i32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Second<i32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Second<i32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Second<i32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1002,16 +1002,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct AirTemperature {
-            v: crate::v2::units::Celsius<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Celsius<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl AirTemperature {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Air temperature outside the vehicle.. The unit of this type is celsius"]
-            pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+            pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -1021,8 +1021,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Celsius<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Celsius<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1034,13 +1034,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Celsius<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Celsius<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1056,16 +1056,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Humidity {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl Humidity {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Relative humidity outside the vehicle. 0 = Dry, 100 = Air fully saturated.. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -1075,8 +1075,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1087,13 +1087,13 @@ pub mod vehicle {
             #[doc = r"check if the given value is within the limits defined"]
             #[doc = r"in the specification. Return true if the value is"]
             #[doc = r"within bounds."]
-            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+            pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                 v.0 <= 100f32 && v.0 >= 0f32
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1109,16 +1109,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct LightIntensity {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl LightIntensity {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Light intensity outside the vehicle. 0 = No light detected, 100 = Fully lit.. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -1128,8 +1128,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1140,13 +1140,13 @@ pub mod vehicle {
             #[doc = r"check if the given value is within the limits defined"]
             #[doc = r"in the specification. Return true if the value is"]
             #[doc = r"within bounds."]
-            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+            pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                 v.0 <= 100f32 && v.0 >= 0f32
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1167,16 +1167,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct DistractionLevel {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl DistractionLevel {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls.. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -1186,8 +1186,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1198,13 +1198,13 @@ pub mod vehicle {
             #[doc = r"check if the given value is within the limits defined"]
             #[doc = r"in the specification. Return true if the value is"]
             #[doc = r"within bounds."]
-            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+            pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                 v.0 <= 100f32 && v.0 >= 0f32
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1221,10 +1221,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct IsEyesOnRoad {
             v: bool,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl IsEyesOnRoad {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -1237,7 +1237,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -1252,7 +1252,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -1267,16 +1267,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct AttentiveProbability {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl AttentiveProbability {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Probability of attentiveness of the driver.. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -1286,8 +1286,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1298,13 +1298,13 @@ pub mod vehicle {
             #[doc = r"check if the given value is within the limits defined"]
             #[doc = r"in the specification. Return true if the value is"]
             #[doc = r"within bounds."]
-            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+            pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                 v.0 <= 100f32 && v.0 >= 0f32
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1320,16 +1320,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct FatigueLevel {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl FatigueLevel {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Fatigueness level of driver. Evaluated by multiple factors like trip time, behaviour of steering, eye status.. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -1339,8 +1339,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1351,13 +1351,13 @@ pub mod vehicle {
             #[doc = r"check if the given value is within the limits defined"]
             #[doc = r"in the specification. Return true if the value is"]
             #[doc = r"within bounds."]
-            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+            pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                 v.0 <= 100f32 && v.0 >= 0f32
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1374,10 +1374,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct HeartRate {
             v: u16,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl HeartRate {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -1390,7 +1390,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: u16, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: u16, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -1405,7 +1405,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: u16, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: u16, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -1425,10 +1425,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Subject {
                 v: String,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl Subject {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -1444,7 +1444,7 @@ pub mod vehicle {
                 pub fn set(
                     &mut self,
                     value: String,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -1460,7 +1460,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -1476,10 +1476,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Issuer {
                 v: String,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl Issuer {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -1495,7 +1495,7 @@ pub mod vehicle {
                 pub fn set(
                     &mut self,
                     value: String,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -1511,7 +1511,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -1533,10 +1533,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct PidsA {
             v: u32,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl PidsA {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -1549,7 +1549,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: u32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: u32, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -1564,7 +1564,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: u32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: u32, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -1580,10 +1580,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct DTCList {
             v: Vec<String>,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl DTCList {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -1599,7 +1599,7 @@ pub mod vehicle {
             pub fn set(
                 &mut self,
                 value: Vec<String>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1617,7 +1617,7 @@ pub mod vehicle {
             #[doc = r" create a new instance"]
             pub fn new(
                 value: Vec<String>,
-                timestamp: Option<crate::v2::Timestamp>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1634,10 +1634,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct FreezeDTC {
             v: String,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl FreezeDTC {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -1650,7 +1650,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -1665,7 +1665,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -1681,10 +1681,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct FuelStatus {
             v: String,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl FuelStatus {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -1697,7 +1697,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -1712,7 +1712,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -1727,16 +1727,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct EngineLoad {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl EngineLoad {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 04 - Engine load in percent - 0 = no load, 100 = full load. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -1746,8 +1746,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1759,13 +1759,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1781,16 +1781,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct CoolantTemperature {
-            v: crate::v2::units::Celsius<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Celsius<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl CoolantTemperature {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 05 - Coolant temperature. The unit of this type is celsius"]
-            pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+            pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -1800,8 +1800,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Celsius<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Celsius<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1813,13 +1813,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Celsius<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Celsius<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1835,16 +1835,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ShortTermFuelTrim1 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl ShortTermFuelTrim1 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 06 - Short Term (immediate) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -1854,8 +1854,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1867,13 +1867,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1889,16 +1889,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct LongTermFuelTrim1 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl LongTermFuelTrim1 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 07 - Long Term (learned) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -1908,8 +1908,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1921,13 +1921,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1943,16 +1943,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ShortTermFuelTrim2 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl ShortTermFuelTrim2 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 08 - Short Term (immediate) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -1962,8 +1962,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -1975,13 +1975,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -1997,16 +1997,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct LongTermFuelTrim2 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl LongTermFuelTrim2 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 09 - Long Term (learned) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2016,8 +2016,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2029,13 +2029,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2051,16 +2051,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct FuelPressure {
-            v: crate::v2::units::KiloPascal<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::KiloPascal<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl FuelPressure {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 0A - Fuel pressure. The unit of this type is kPa"]
-            pub fn value(&self) -> &crate::v2::units::KiloPascal<f32> {
+            pub fn value(&self) -> &crate::v3::units::KiloPascal<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2070,8 +2070,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::KiloPascal<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2083,13 +2083,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::KiloPascal<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::KiloPascal<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::KiloPascal<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2105,16 +2105,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct MAP {
-            v: crate::v2::units::KiloPascal<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::KiloPascal<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl MAP {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 0B - Intake manifold pressure. The unit of this type is kPa"]
-            pub fn value(&self) -> &crate::v2::units::KiloPascal<f32> {
+            pub fn value(&self) -> &crate::v3::units::KiloPascal<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2124,8 +2124,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::KiloPascal<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2137,13 +2137,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::KiloPascal<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::KiloPascal<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::KiloPascal<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2159,16 +2159,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct EngineSpeed {
-            v: crate::v2::units::RPM<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::RPM<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl EngineSpeed {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 0C - Engine speed measured as rotations per minute. The unit of this type is rpm"]
-            pub fn value(&self) -> &crate::v2::units::RPM<f32> {
+            pub fn value(&self) -> &crate::v3::units::RPM<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2178,8 +2178,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::RPM<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::RPM<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2191,13 +2191,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::RPM<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::RPM<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::RPM<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::RPM<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2213,16 +2213,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Speed {
-            v: crate::v2::units::KilometrePerHour<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::KilometrePerHour<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl Speed {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 0D - Vehicle speed. The unit of this type is km/h"]
-            pub fn value(&self) -> &crate::v2::units::KilometrePerHour<f32> {
+            pub fn value(&self) -> &crate::v3::units::KilometrePerHour<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2232,8 +2232,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::KilometrePerHour<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KilometrePerHour<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2245,13 +2245,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::KilometrePerHour<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::KilometrePerHour<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::KilometrePerHour<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KilometrePerHour<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2268,10 +2268,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct TimingAdvance {
             v: f32,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl TimingAdvance {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -2284,7 +2284,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -2299,7 +2299,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: f32, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -2314,16 +2314,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct IntakeTemp {
-            v: crate::v2::units::Celsius<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Celsius<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl IntakeTemp {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 0F - Intake temperature. The unit of this type is celsius"]
-            pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+            pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2333,8 +2333,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Celsius<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Celsius<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2346,13 +2346,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Celsius<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Celsius<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2368,16 +2368,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct MAF {
-            v: crate::v2::units::GramPerSec<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::GramPerSec<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl MAF {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 10 - Grams of air drawn into engine per second. The unit of this type is g/s"]
-            pub fn value(&self) -> &crate::v2::units::GramPerSec<f32> {
+            pub fn value(&self) -> &crate::v3::units::GramPerSec<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2387,8 +2387,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::GramPerSec<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::GramPerSec<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2400,13 +2400,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::GramPerSec<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::GramPerSec<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::GramPerSec<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::GramPerSec<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2422,16 +2422,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ThrottlePosition {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl ThrottlePosition {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 11 - Throttle position - 0 = closed throttle, 100 = open throttle. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2441,8 +2441,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2454,13 +2454,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2477,10 +2477,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct AirStatus {
             v: String,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl AirStatus {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -2493,7 +2493,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -2508,7 +2508,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -2524,10 +2524,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct OxygenSensorsIn2Banks {
             v: u8,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl OxygenSensorsIn2Banks {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -2540,7 +2540,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: u8, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: u8, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -2555,7 +2555,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: u8, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: u8, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -2608,10 +2608,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct OxygenSensorsIn4Banks {
             v: u8,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl OxygenSensorsIn4Banks {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -2624,7 +2624,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: u8, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: u8, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -2639,7 +2639,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: u8, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: u8, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -2655,10 +2655,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct IsPTOActive {
             v: bool,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl IsPTOActive {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -2671,7 +2671,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -2686,7 +2686,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -2701,16 +2701,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct RunTime {
-            v: crate::v2::units::Second<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Second<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl RunTime {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 1F - Engine run time. The unit of this type is s"]
-            pub fn value(&self) -> &crate::v2::units::Second<f32> {
+            pub fn value(&self) -> &crate::v3::units::Second<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2720,8 +2720,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Second<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Second<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2733,13 +2733,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Second<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Second<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Second<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Second<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2756,10 +2756,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct PidsB {
             v: u32,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl PidsB {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -2772,7 +2772,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: u32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: u32, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -2787,7 +2787,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: u32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: u32, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -2802,16 +2802,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct DistanceWithMIL {
-            v: crate::v2::units::Kilometre<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Kilometre<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl DistanceWithMIL {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 21 - Distance traveled with MIL on. The unit of this type is km"]
-            pub fn value(&self) -> &crate::v2::units::Kilometre<f32> {
+            pub fn value(&self) -> &crate::v3::units::Kilometre<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2821,8 +2821,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Kilometre<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Kilometre<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2834,13 +2834,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Kilometre<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Kilometre<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Kilometre<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Kilometre<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2856,16 +2856,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct FuelRailPressureVac {
-            v: crate::v2::units::KiloPascal<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::KiloPascal<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl FuelRailPressureVac {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 22 - Fuel rail pressure relative to vacuum. The unit of this type is kPa"]
-            pub fn value(&self) -> &crate::v2::units::KiloPascal<f32> {
+            pub fn value(&self) -> &crate::v3::units::KiloPascal<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2875,8 +2875,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::KiloPascal<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2888,13 +2888,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::KiloPascal<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::KiloPascal<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::KiloPascal<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2910,16 +2910,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct FuelRailPressureDirect {
-            v: crate::v2::units::KiloPascal<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::KiloPascal<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl FuelRailPressureDirect {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 23 - Fuel rail pressure direct inject. The unit of this type is kPa"]
-            pub fn value(&self) -> &crate::v2::units::KiloPascal<f32> {
+            pub fn value(&self) -> &crate::v3::units::KiloPascal<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2929,8 +2929,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::KiloPascal<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2942,13 +2942,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::KiloPascal<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::KiloPascal<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::KiloPascal<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -2964,16 +2964,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct CommandedEGR {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl CommandedEGR {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 2C - Commanded exhaust gas recirculation (EGR). The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -2983,8 +2983,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -2996,13 +2996,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3018,16 +3018,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct EGRError {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl EGRError {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 2D - Exhaust gas recirculation (EGR) error. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3037,8 +3037,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3050,13 +3050,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3072,16 +3072,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct CommandedEVAP {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl CommandedEVAP {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 2E - Commanded evaporative purge (EVAP) valve. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3091,8 +3091,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3104,13 +3104,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3126,16 +3126,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct FuelLevel {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl FuelLevel {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 2F - Fuel level in the fuel tank. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3145,8 +3145,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3158,13 +3158,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3181,10 +3181,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct WarmupsSinceDTCClear {
             v: u8,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl WarmupsSinceDTCClear {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -3197,7 +3197,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: u8, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: u8, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -3212,7 +3212,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: u8, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: u8, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -3227,16 +3227,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct DistanceSinceDTCClear {
-            v: crate::v2::units::Kilometre<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Kilometre<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl DistanceSinceDTCClear {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 31 - Distance traveled since codes cleared. The unit of this type is km"]
-            pub fn value(&self) -> &crate::v2::units::Kilometre<f32> {
+            pub fn value(&self) -> &crate::v3::units::Kilometre<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3246,8 +3246,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Kilometre<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Kilometre<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3259,13 +3259,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Kilometre<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Kilometre<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Kilometre<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Kilometre<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3281,16 +3281,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct EVAPVaporPressure {
-            v: crate::v2::units::Pascal<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Pascal<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl EVAPVaporPressure {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 32 - Evaporative purge (EVAP) system pressure. The unit of this type is Pa"]
-            pub fn value(&self) -> &crate::v2::units::Pascal<f32> {
+            pub fn value(&self) -> &crate::v3::units::Pascal<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3300,8 +3300,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Pascal<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Pascal<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3313,13 +3313,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Pascal<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Pascal<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Pascal<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Pascal<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3335,16 +3335,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct BarometricPressure {
-            v: crate::v2::units::KiloPascal<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::KiloPascal<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl BarometricPressure {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 33 - Barometric pressure. The unit of this type is kPa"]
-            pub fn value(&self) -> &crate::v2::units::KiloPascal<f32> {
+            pub fn value(&self) -> &crate::v3::units::KiloPascal<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3354,8 +3354,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::KiloPascal<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3367,13 +3367,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::KiloPascal<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::KiloPascal<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::KiloPascal<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3390,10 +3390,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct PidsC {
             v: u32,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl PidsC {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -3406,7 +3406,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: u32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: u32, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -3421,7 +3421,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: u32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: u32, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -3436,16 +3436,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ControlModuleVoltage {
-            v: crate::v2::units::Volt<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Volt<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl ControlModuleVoltage {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 42 - Control module voltage. The unit of this type is V"]
-            pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+            pub fn value(&self) -> &crate::v3::units::Volt<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3455,8 +3455,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Volt<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Volt<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3468,13 +3468,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Volt<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Volt<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3490,16 +3490,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct AbsoluteLoad {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl AbsoluteLoad {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 43 - Absolute load value. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3509,8 +3509,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3522,13 +3522,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3544,16 +3544,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct CommandedEquivalenceRatio {
-            v: crate::v2::units::Ratio<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Ratio<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl CommandedEquivalenceRatio {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 44 - Commanded equivalence ratio. The unit of this type is ratio"]
-            pub fn value(&self) -> &crate::v2::units::Ratio<f32> {
+            pub fn value(&self) -> &crate::v3::units::Ratio<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3563,8 +3563,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Ratio<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Ratio<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3576,13 +3576,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Ratio<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Ratio<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Ratio<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Ratio<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3598,16 +3598,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct RelativeThrottlePosition {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl RelativeThrottlePosition {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 45 - Relative throttle position. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3617,8 +3617,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3630,13 +3630,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3652,16 +3652,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct AmbientAirTemperature {
-            v: crate::v2::units::Celsius<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Celsius<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl AmbientAirTemperature {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 46 - Ambient air temperature. The unit of this type is celsius"]
-            pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+            pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3671,8 +3671,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Celsius<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Celsius<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3684,13 +3684,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Celsius<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Celsius<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3706,16 +3706,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ThrottlePositionB {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl ThrottlePositionB {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 47 - Absolute throttle position B. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3725,8 +3725,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3738,13 +3738,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3760,16 +3760,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ThrottlePositionC {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl ThrottlePositionC {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 48 - Absolute throttle position C. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3779,8 +3779,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3792,13 +3792,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3814,16 +3814,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct AcceleratorPositionD {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl AcceleratorPositionD {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 49 - Accelerator pedal position D. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3833,8 +3833,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3846,13 +3846,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3868,16 +3868,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct AcceleratorPositionE {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl AcceleratorPositionE {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 4A - Accelerator pedal position E. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3887,8 +3887,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3900,13 +3900,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3922,16 +3922,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct AcceleratorPositionF {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl AcceleratorPositionF {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 4B - Accelerator pedal position F. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3941,8 +3941,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -3954,13 +3954,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -3976,16 +3976,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ThrottleActuator {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl ThrottleActuator {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 4C - Commanded throttle actuator. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -3995,8 +3995,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4008,13 +4008,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4030,16 +4030,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct RunTimeMIL {
-            v: crate::v2::units::Minute<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Minute<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl RunTimeMIL {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 4D - Run time with MIL on. The unit of this type is min"]
-            pub fn value(&self) -> &crate::v2::units::Minute<f32> {
+            pub fn value(&self) -> &crate::v3::units::Minute<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4049,8 +4049,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Minute<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Minute<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4062,13 +4062,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Minute<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Minute<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Minute<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Minute<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4084,16 +4084,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct TimeSinceDTCCleared {
-            v: crate::v2::units::Minute<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Minute<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl TimeSinceDTCCleared {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 4E - Time since trouble codes cleared. The unit of this type is min"]
-            pub fn value(&self) -> &crate::v2::units::Minute<f32> {
+            pub fn value(&self) -> &crate::v3::units::Minute<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4103,8 +4103,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Minute<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Minute<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4116,13 +4116,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Minute<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Minute<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Minute<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Minute<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4138,16 +4138,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct MaxMAF {
-            v: crate::v2::units::GramPerSec<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::GramPerSec<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl MaxMAF {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 50 - Maximum flow for mass air flow sensor. The unit of this type is g/s"]
-            pub fn value(&self) -> &crate::v2::units::GramPerSec<f32> {
+            pub fn value(&self) -> &crate::v3::units::GramPerSec<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4157,8 +4157,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::GramPerSec<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::GramPerSec<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4170,13 +4170,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::GramPerSec<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::GramPerSec<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::GramPerSec<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::GramPerSec<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4193,10 +4193,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct FuelType {
             v: String,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl FuelType {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -4209,7 +4209,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -4224,7 +4224,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -4239,16 +4239,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct EthanolPercent {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl EthanolPercent {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 52 - Percentage of ethanol in the fuel. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4258,8 +4258,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4271,13 +4271,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4293,16 +4293,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct EVAPVaporPressureAbsolute {
-            v: crate::v2::units::KiloPascal<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::KiloPascal<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl EVAPVaporPressureAbsolute {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 53 - Absolute evaporative purge (EVAP) system pressure. The unit of this type is kPa"]
-            pub fn value(&self) -> &crate::v2::units::KiloPascal<f32> {
+            pub fn value(&self) -> &crate::v3::units::KiloPascal<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4312,8 +4312,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::KiloPascal<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4325,13 +4325,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::KiloPascal<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::KiloPascal<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::KiloPascal<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4347,16 +4347,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct EVAPVaporPressureAlternate {
-            v: crate::v2::units::Pascal<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Pascal<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl EVAPVaporPressureAlternate {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 54 - Alternate evaporative purge (EVAP) system pressure. The unit of this type is Pa"]
-            pub fn value(&self) -> &crate::v2::units::Pascal<f32> {
+            pub fn value(&self) -> &crate::v3::units::Pascal<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4366,8 +4366,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Pascal<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Pascal<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4379,13 +4379,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Pascal<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Pascal<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Pascal<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Pascal<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4401,16 +4401,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ShortTermO2Trim1 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl ShortTermO2Trim1 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 55 (byte A) - Short term secondary O2 trim - Bank 1. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4420,8 +4420,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4433,13 +4433,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4455,16 +4455,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ShortTermO2Trim3 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl ShortTermO2Trim3 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 55 (byte B) - Short term secondary O2 trim - Bank 3. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4474,8 +4474,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4487,13 +4487,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4509,16 +4509,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct LongTermO2Trim1 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl LongTermO2Trim1 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 56 (byte A) - Long term secondary O2 trim - Bank 1. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4528,8 +4528,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4541,13 +4541,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4563,16 +4563,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct LongTermO2Trim3 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl LongTermO2Trim3 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 56 (byte B) - Long term secondary O2 trim - Bank 3. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4582,8 +4582,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4595,13 +4595,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4617,16 +4617,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ShortTermO2Trim2 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl ShortTermO2Trim2 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 57 (byte A) - Short term secondary O2 trim - Bank 2. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4636,8 +4636,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4649,13 +4649,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4671,16 +4671,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ShortTermO2Trim4 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl ShortTermO2Trim4 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 57 (byte B) - Short term secondary O2 trim - Bank 4. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4690,8 +4690,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4703,13 +4703,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4725,16 +4725,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct LongTermO2Trim2 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl LongTermO2Trim2 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 58 (byte A) - Long term secondary O2 trim - Bank 2. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4744,8 +4744,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4757,13 +4757,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4779,16 +4779,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct LongTermO2Trim4 {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl LongTermO2Trim4 {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 58 (byte B) - Long term secondary O2 trim - Bank 4. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4798,8 +4798,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4811,13 +4811,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4833,16 +4833,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct FuelRailPressureAbsolute {
-            v: crate::v2::units::KiloPascal<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::KiloPascal<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl FuelRailPressureAbsolute {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 59 - Absolute fuel rail pressure. The unit of this type is kPa"]
-            pub fn value(&self) -> &crate::v2::units::KiloPascal<f32> {
+            pub fn value(&self) -> &crate::v3::units::KiloPascal<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4852,8 +4852,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::KiloPascal<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4865,13 +4865,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::KiloPascal<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::KiloPascal<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::KiloPascal<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KiloPascal<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4887,16 +4887,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct RelativeAcceleratorPosition {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl RelativeAcceleratorPosition {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 5A - Relative accelerator pedal position. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4906,8 +4906,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4919,13 +4919,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4941,16 +4941,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct HybridBatteryRemaining {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl HybridBatteryRemaining {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 5B - Remaining life of hybrid battery. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -4960,8 +4960,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -4973,13 +4973,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -4995,16 +4995,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct OilTemperature {
-            v: crate::v2::units::Celsius<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Celsius<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl OilTemperature {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 5C - Engine oil temperature. The unit of this type is celsius"]
-            pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+            pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -5014,8 +5014,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Celsius<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Celsius<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -5027,13 +5027,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Celsius<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Celsius<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -5050,10 +5050,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct FuelInjectionTiming {
             v: f32,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl FuelInjectionTiming {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -5066,7 +5066,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -5081,7 +5081,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: f32, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -5096,16 +5096,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct FuelRate {
-            v: crate::v2::units::LiterPerHour<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::LiterPerHour<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl FuelRate {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "PID 5E - Engine fuel rate. The unit of this type is l/h"]
-            pub fn value(&self) -> &crate::v2::units::LiterPerHour<f32> {
+            pub fn value(&self) -> &crate::v3::units::LiterPerHour<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -5115,8 +5115,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::LiterPerHour<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::LiterPerHour<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -5128,13 +5128,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::LiterPerHour<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::LiterPerHour<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::LiterPerHour<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::LiterPerHour<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -5155,10 +5155,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsMILOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsMILOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -5171,7 +5171,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -5186,7 +5186,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -5202,10 +5202,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct DTCCount {
                 v: u8,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl DTCCount {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -5218,7 +5218,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: u8, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: u8, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -5233,7 +5233,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: u8, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: u8, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -5249,10 +5249,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IgnitionType {
                 v: String,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IgnitionType {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -5268,7 +5268,7 @@ pub mod vehicle {
                 pub fn set(
                     &mut self,
                     value: String,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -5284,7 +5284,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -5306,13 +5306,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Temperature1 {
-                    v: crate::v2::units::Celsius<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Celsius<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     bank: u8,
                 }
                 impl Temperature1 {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -5321,7 +5321,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,bank)"]
-                    pub fn value(&self) -> (&crate::v2::units::Celsius<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Celsius<f32>, &u8) {
                         (&self.v, &self.bank)
                     }
                     #[doc = r" Set the"]
@@ -5331,8 +5331,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         bank: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -5346,13 +5346,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         bank: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -5370,13 +5370,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Temperature2 {
-                    v: crate::v2::units::Celsius<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Celsius<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     bank: u8,
                 }
                 impl Temperature2 {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -5385,7 +5385,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,bank)"]
-                    pub fn value(&self) -> (&crate::v2::units::Celsius<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Celsius<f32>, &u8) {
                         (&self.v, &self.bank)
                     }
                     #[doc = r" Set the"]
@@ -5395,8 +5395,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         bank: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -5410,13 +5410,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         bank: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -5439,13 +5439,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Temperature1 {
-                    v: crate::v2::units::Celsius<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Celsius<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     bank: u8,
                 }
                 impl Temperature1 {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -5454,7 +5454,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,bank)"]
-                    pub fn value(&self) -> (&crate::v2::units::Celsius<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Celsius<f32>, &u8) {
                         (&self.v, &self.bank)
                     }
                     #[doc = r" Set the"]
@@ -5464,8 +5464,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         bank: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -5479,13 +5479,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         bank: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -5503,13 +5503,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Temperature2 {
-                    v: crate::v2::units::Celsius<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Celsius<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     bank: u8,
                 }
                 impl Temperature2 {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -5518,7 +5518,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,bank)"]
-                    pub fn value(&self) -> (&crate::v2::units::Celsius<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Celsius<f32>, &u8) {
                         (&self.v, &self.bank)
                     }
                     #[doc = r" Set the"]
@@ -5528,8 +5528,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         bank: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -5543,13 +5543,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         bank: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -5576,12 +5576,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Lambda {
                     v: f32,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Lambda {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -5601,7 +5601,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: f32,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -5621,7 +5621,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: f32,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -5639,13 +5639,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -5654,7 +5654,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -5664,8 +5664,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -5679,13 +5679,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -5703,13 +5703,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Current {
-                    v: crate::v2::units::Amp<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Amp<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Current {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -5718,7 +5718,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Amp<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Amp<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -5728,8 +5728,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Amp<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -5743,13 +5743,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Amp<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -5773,12 +5773,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Lambda {
                     v: f32,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Lambda {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -5798,7 +5798,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: f32,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -5818,7 +5818,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: f32,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -5836,13 +5836,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -5851,7 +5851,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -5861,8 +5861,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -5876,13 +5876,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -5900,13 +5900,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Current {
-                    v: crate::v2::units::Amp<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Amp<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Current {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -5915,7 +5915,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Amp<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Amp<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -5925,8 +5925,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Amp<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -5940,13 +5940,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Amp<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -5970,12 +5970,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Lambda {
                     v: f32,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Lambda {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -5995,7 +5995,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: f32,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6015,7 +6015,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: f32,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6033,13 +6033,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6048,7 +6048,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -6058,8 +6058,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6073,13 +6073,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6097,13 +6097,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Current {
-                    v: crate::v2::units::Amp<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Amp<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Current {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6112,7 +6112,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Amp<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Amp<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -6122,8 +6122,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Amp<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6137,13 +6137,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Amp<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6167,12 +6167,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Lambda {
                     v: f32,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Lambda {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6192,7 +6192,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: f32,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6212,7 +6212,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: f32,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6230,13 +6230,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6245,7 +6245,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -6255,8 +6255,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6270,13 +6270,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6294,13 +6294,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Current {
-                    v: crate::v2::units::Amp<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Amp<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Current {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6309,7 +6309,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Amp<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Amp<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -6319,8 +6319,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Amp<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6334,13 +6334,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Amp<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6364,12 +6364,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Lambda {
                     v: f32,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Lambda {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6389,7 +6389,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: f32,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6409,7 +6409,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: f32,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6427,13 +6427,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6442,7 +6442,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -6452,8 +6452,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6467,13 +6467,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6491,13 +6491,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Current {
-                    v: crate::v2::units::Amp<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Amp<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Current {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6506,7 +6506,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Amp<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Amp<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -6516,8 +6516,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Amp<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6531,13 +6531,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Amp<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6561,12 +6561,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Lambda {
                     v: f32,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Lambda {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6586,7 +6586,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: f32,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6606,7 +6606,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: f32,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6624,13 +6624,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6639,7 +6639,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -6649,8 +6649,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6664,13 +6664,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6688,13 +6688,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Current {
-                    v: crate::v2::units::Amp<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Amp<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Current {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6703,7 +6703,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Amp<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Amp<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -6713,8 +6713,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Amp<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6728,13 +6728,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Amp<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6758,12 +6758,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Lambda {
                     v: f32,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Lambda {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6783,7 +6783,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: f32,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6803,7 +6803,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: f32,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6821,13 +6821,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6836,7 +6836,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -6846,8 +6846,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6861,13 +6861,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6885,13 +6885,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Current {
-                    v: crate::v2::units::Amp<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Amp<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Current {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6900,7 +6900,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Amp<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Amp<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -6910,8 +6910,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Amp<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -6925,13 +6925,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Amp<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -6955,12 +6955,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Lambda {
                     v: f32,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Lambda {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -6980,7 +6980,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: f32,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7000,7 +7000,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: f32,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7018,13 +7018,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7033,7 +7033,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7043,8 +7043,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7058,13 +7058,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7082,13 +7082,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Current {
-                    v: crate::v2::units::Amp<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Amp<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Current {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7097,7 +7097,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Amp<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Amp<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7107,8 +7107,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Amp<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7122,13 +7122,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Amp<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Amp<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7154,13 +7154,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7169,7 +7169,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7179,8 +7179,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7194,13 +7194,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7218,13 +7218,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct ShortTermFuelTrim {
-                    v: crate::v2::units::Percent<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl ShortTermFuelTrim {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7233,7 +7233,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Percent<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Percent<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7243,8 +7243,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7258,13 +7258,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7287,13 +7287,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7302,7 +7302,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7312,8 +7312,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7327,13 +7327,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7351,13 +7351,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct ShortTermFuelTrim {
-                    v: crate::v2::units::Percent<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl ShortTermFuelTrim {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7366,7 +7366,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Percent<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Percent<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7376,8 +7376,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7391,13 +7391,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7420,13 +7420,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7435,7 +7435,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7445,8 +7445,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7460,13 +7460,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7484,13 +7484,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct ShortTermFuelTrim {
-                    v: crate::v2::units::Percent<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl ShortTermFuelTrim {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7499,7 +7499,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Percent<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Percent<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7509,8 +7509,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7524,13 +7524,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7553,13 +7553,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7568,7 +7568,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7578,8 +7578,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7593,13 +7593,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7617,13 +7617,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct ShortTermFuelTrim {
-                    v: crate::v2::units::Percent<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl ShortTermFuelTrim {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7632,7 +7632,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Percent<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Percent<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7642,8 +7642,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7657,13 +7657,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7686,13 +7686,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Volt<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7701,7 +7701,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Volt<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7711,8 +7711,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7726,13 +7726,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Volt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7750,13 +7750,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct ShortTermFuelTrim {
-                    v: crate::v2::units::Percent<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<f32>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     sensor: u8,
                 }
                 impl ShortTermFuelTrim {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -7765,7 +7765,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Percent<f32>, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Percent<f32>, &u8) {
                         (&self.v, &self.sensor)
                     }
                     #[doc = r" Set the"]
@@ -7775,8 +7775,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -7790,13 +7790,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Percent<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         sensor: u8,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -7821,10 +7821,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsMILOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsMILOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -7837,7 +7837,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -7852,7 +7852,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -7868,10 +7868,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct DTCCount {
                 v: u8,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl DTCCount {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -7884,7 +7884,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: u8, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: u8, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -7899,7 +7899,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: u8, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: u8, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -7915,10 +7915,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IgnitionType {
                 v: String,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IgnitionType {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -7934,7 +7934,7 @@ pub mod vehicle {
                 pub fn set(
                     &mut self,
                     value: String,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -7950,7 +7950,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -7971,12 +7971,12 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Wheelbase {
-            v: crate::v2::units::Millimetre<u16>,
+            v: crate::v3::units::Millimetre<u16>,
         }
         impl Wheelbase {
             #[doc = r" Get the "]
             #[doc = "Overall wheel base, in mm.. The unit of this type is mm"]
-            pub fn value(&self) -> &crate::v2::units::Millimetre<u16> {
+            pub fn value(&self) -> &crate::v3::units::Millimetre<u16> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -7984,7 +7984,7 @@ pub mod vehicle {
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: crate::v2::units::Millimetre<u16>) {
+            pub fn set(&mut self, value: crate::v3::units::Millimetre<u16>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
             }
@@ -7992,11 +7992,11 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Millimetre<u16>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Millimetre<u16>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: crate::v2::units::Millimetre<u16>) -> Option<Self> {
+            pub fn new(value: crate::v3::units::Millimetre<u16>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self { v: value })
                 } else {
@@ -8008,12 +8008,12 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Track {
-            v: crate::v2::units::Millimetre<u16>,
+            v: crate::v3::units::Millimetre<u16>,
         }
         impl Track {
             #[doc = r" Get the "]
             #[doc = "Overall wheel tracking, in mm.. The unit of this type is mm"]
-            pub fn value(&self) -> &crate::v2::units::Millimetre<u16> {
+            pub fn value(&self) -> &crate::v3::units::Millimetre<u16> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -8021,7 +8021,7 @@ pub mod vehicle {
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: crate::v2::units::Millimetre<u16>) {
+            pub fn set(&mut self, value: crate::v3::units::Millimetre<u16>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
             }
@@ -8029,11 +8029,11 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Millimetre<u16>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Millimetre<u16>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: crate::v2::units::Millimetre<u16>) -> Option<Self> {
+            pub fn new(value: crate::v3::units::Millimetre<u16>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self { v: value })
                 } else {
@@ -8086,16 +8086,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct PedalPosition {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl PedalPosition {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Brake pedal position as percent. 0 = Not depressed. 100 = Fully depressed.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -8105,8 +8105,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -8117,13 +8117,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && v.0 >= 0u8
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -8140,10 +8140,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsDriverEmergencyBrakingDetected {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsDriverEmergencyBrakingDetected {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -8156,7 +8156,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -8171,7 +8171,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -8191,16 +8191,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct PedalPosition {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl PedalPosition {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Accelerator pedal position as percent. 0 = Not depressed. 100 = Fully depressed.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -8210,8 +8210,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -8222,13 +8222,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && v.0 >= 0u8
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -8250,10 +8250,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Angle {
                 v: i16,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl Angle {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -8266,7 +8266,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: i16, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: i16, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -8281,7 +8281,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: i16, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: i16, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -8296,16 +8296,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Tilt {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Tilt {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Steering wheel column tilt. 0 = Lowest position. 100 = Highest position.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -8315,8 +8315,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -8327,13 +8327,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && v.0 >= 0u8
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -8349,16 +8349,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Extension {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Extension {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Steering wheel column extension from dashboard. 0 = Closest to dashboard. 100 = Furthest from dashboard.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -8368,8 +8368,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -8380,13 +8380,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && v.0 >= 0u8
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -8445,10 +8445,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEngaged {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEngaged {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -8461,7 +8461,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -8476,7 +8476,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -8500,15 +8500,15 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct FluidLevel {
-                        v: crate::v2::units::Percent<u8>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Percent<u8>,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key_enum]
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     }
                     impl FluidLevel {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -8519,7 +8519,7 @@ pub mod vehicle {
                         #[doc = "(value,row, side)"]
                         pub fn value(
                             &self,
-                        ) -> (&crate::v2::units::Percent<u8>, &u8, &crate::v2::Side)
+                        ) -> (&crate::v3::units::Percent<u8>, &u8, &crate::v3::Side)
                         {
                             (&self.v, &self.row, &self.side)
                         }
@@ -8530,10 +8530,10 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Percent<u8>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Percent<u8>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -8546,15 +8546,15 @@ pub mod vehicle {
                         #[doc = r"check if the given value is within the limits defined"]
                         #[doc = r"in the specification. Return true if the value is"]
                         #[doc = r"within bounds."]
-                        pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                        pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                             v.0 <= 100u8 && true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Percent<u8>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Percent<u8>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -8573,14 +8573,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsFluidLevelLow {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key_enum]
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     }
                     impl IsFluidLevelLow {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -8589,7 +8589,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,row, side)"]
-                        pub fn value(&self) -> (&bool, &u8, &crate::v2::Side) {
+                        pub fn value(&self) -> (&bool, &u8, &crate::v3::Side) {
                             (&self.v, &self.row, &self.side)
                         }
                         #[doc = r" Set the"]
@@ -8600,9 +8600,9 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -8622,9 +8622,9 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -8642,15 +8642,15 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct PadWear {
-                        v: crate::v2::units::Percent<u8>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Percent<u8>,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key_enum]
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     }
                     impl PadWear {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -8661,7 +8661,7 @@ pub mod vehicle {
                         #[doc = "(value,row, side)"]
                         pub fn value(
                             &self,
-                        ) -> (&crate::v2::units::Percent<u8>, &u8, &crate::v2::Side)
+                        ) -> (&crate::v3::units::Percent<u8>, &u8, &crate::v3::Side)
                         {
                             (&self.v, &self.row, &self.side)
                         }
@@ -8672,10 +8672,10 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Percent<u8>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Percent<u8>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -8688,15 +8688,15 @@ pub mod vehicle {
                         #[doc = r"check if the given value is within the limits defined"]
                         #[doc = r"in the specification. Return true if the value is"]
                         #[doc = r"within bounds."]
-                        pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                        pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                             v.0 <= 100u8 && true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Percent<u8>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Percent<u8>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -8715,14 +8715,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsBrakesWorn {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key_enum]
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     }
                     impl IsBrakesWorn {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -8731,7 +8731,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,row, side)"]
-                        pub fn value(&self) -> (&bool, &u8, &crate::v2::Side) {
+                        pub fn value(&self) -> (&bool, &u8, &crate::v3::Side) {
                             (&self.v, &self.row, &self.side)
                         }
                         #[doc = r" Set the"]
@@ -8742,9 +8742,9 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -8764,9 +8764,9 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -8789,15 +8789,15 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Pressure {
-                        v: crate::v2::units::KiloPascal<u16>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::KiloPascal<u16>,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key_enum]
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     }
                     impl Pressure {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -8808,7 +8808,7 @@ pub mod vehicle {
                         #[doc = "(value,row, side)"]
                         pub fn value(
                             &self,
-                        ) -> (&crate::v2::units::KiloPascal<u16>, &u8, &crate::v2::Side)
+                        ) -> (&crate::v3::units::KiloPascal<u16>, &u8, &crate::v3::Side)
                         {
                             (&self.v, &self.row, &self.side)
                         }
@@ -8819,10 +8819,10 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::KiloPascal<u16>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::KiloPascal<u16>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -8836,15 +8836,15 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::KiloPascal<u16>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::KiloPascal<u16>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::KiloPascal<u16>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::KiloPascal<u16>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -8863,14 +8863,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsPressureLow {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key_enum]
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     }
                     impl IsPressureLow {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -8879,7 +8879,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,row, side)"]
-                        pub fn value(&self) -> (&bool, &u8, &crate::v2::Side) {
+                        pub fn value(&self) -> (&bool, &u8, &crate::v3::Side) {
                             (&self.v, &self.row, &self.side)
                         }
                         #[doc = r" Set the"]
@@ -8890,9 +8890,9 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -8912,9 +8912,9 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -8932,15 +8932,15 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Temperature {
-                        v: crate::v2::units::Celsius<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Celsius<f32>,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key_enum]
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     }
                     impl Temperature {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -8951,7 +8951,7 @@ pub mod vehicle {
                         #[doc = "(value,row, side)"]
                         pub fn value(
                             &self,
-                        ) -> (&crate::v2::units::Celsius<f32>, &u8, &crate::v2::Side)
+                        ) -> (&crate::v3::units::Celsius<f32>, &u8, &crate::v3::Side)
                         {
                             (&self.v, &self.row, &self.side)
                         }
@@ -8962,10 +8962,10 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Celsius<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Celsius<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -8979,15 +8979,15 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Celsius<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Celsius<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
-                            side: crate::v2::Side,
+                            side: crate::v3::Side,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -9014,10 +9014,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct ActiveAutonomyLevel {
             v: String,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl ActiveAutonomyLevel {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -9030,7 +9030,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -9045,7 +9045,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -9102,10 +9102,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEnabled {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEnabled {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9118,7 +9118,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9133,7 +9133,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9149,10 +9149,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsError {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsError {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9165,7 +9165,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9180,7 +9180,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9196,10 +9196,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEngaged {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEngaged {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9212,7 +9212,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9227,7 +9227,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9248,10 +9248,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEnabled {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEnabled {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9264,7 +9264,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9279,7 +9279,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9295,10 +9295,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsError {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsError {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9311,7 +9311,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9326,7 +9326,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9342,10 +9342,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEngaged {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEngaged {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9358,7 +9358,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9373,7 +9373,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9394,10 +9394,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEnabled {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEnabled {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9410,7 +9410,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9425,7 +9425,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9441,10 +9441,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsError {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsError {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9457,7 +9457,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9472,7 +9472,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9488,10 +9488,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEngaged {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEngaged {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9504,7 +9504,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9519,7 +9519,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9535,10 +9535,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsStrongCrossWindDetected {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsStrongCrossWindDetected {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9551,7 +9551,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9566,7 +9566,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9585,16 +9585,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct MostProbable {
-                    v: crate::v2::units::Percent<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl MostProbable {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Most probable road friction, as calculated by the ESC system. Exact meaning of most probable is implementation specific. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
-                    pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -9604,8 +9604,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -9616,13 +9616,13 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                         v.0 <= 100f32 && v.0 >= 0f32
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -9638,16 +9638,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct LowerBound {
-                    v: crate::v2::units::Percent<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl LowerBound {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Lower bound road friction, as calculated by the ESC system. 5% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
-                    pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -9657,8 +9657,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -9669,13 +9669,13 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                         v.0 <= 100f32 && v.0 >= 0f32
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -9691,16 +9691,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct UpperBound {
-                    v: crate::v2::units::Percent<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl UpperBound {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Upper bound road friction, as calculated by the ESC system. 95% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
-                    pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -9710,8 +9710,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -9722,13 +9722,13 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                         v.0 <= 100f32 && v.0 >= 0f32
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -9751,10 +9751,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEnabled {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEnabled {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9767,7 +9767,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9782,7 +9782,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9798,10 +9798,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsError {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsError {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9814,7 +9814,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9829,7 +9829,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9845,10 +9845,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEngaged {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEngaged {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9861,7 +9861,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9876,7 +9876,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9897,10 +9897,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEnabled {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEnabled {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9913,7 +9913,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9928,7 +9928,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9944,10 +9944,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsError {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsError {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -9960,7 +9960,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -9975,7 +9975,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -9991,10 +9991,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEngaged {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEngaged {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -10007,7 +10007,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -10022,7 +10022,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -10043,10 +10043,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEnabled {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEnabled {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -10059,7 +10059,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -10074,7 +10074,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -10090,10 +10090,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsWarning {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsWarning {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -10106,7 +10106,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -10121,7 +10121,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -10137,10 +10137,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsError {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsError {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -10153,7 +10153,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -10168,7 +10168,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -10189,10 +10189,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEnabled {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEnabled {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -10205,7 +10205,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -10220,7 +10220,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -10236,10 +10236,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsWarning {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsWarning {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -10252,7 +10252,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -10267,7 +10267,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -10283,10 +10283,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsError {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsError {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -10299,7 +10299,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -10314,7 +10314,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -10335,10 +10335,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEnabled {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEnabled {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -10351,7 +10351,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -10366,7 +10366,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -10382,10 +10382,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsActive {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsActive {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -10398,7 +10398,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -10413,7 +10413,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -10428,16 +10428,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct SpeedSet {
-                v: crate::v2::units::KilometrePerHour<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::KilometrePerHour<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl SpeedSet {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Set cruise control speed in kilometers per hour.. The unit of this type is km/h"]
-                pub fn value(&self) -> &crate::v2::units::KilometrePerHour<f32> {
+                pub fn value(&self) -> &crate::v3::units::KilometrePerHour<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -10447,8 +10447,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::KilometrePerHour<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KilometrePerHour<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -10460,13 +10460,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::KilometrePerHour<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::KilometrePerHour<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::KilometrePerHour<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KilometrePerHour<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -10483,10 +10483,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsError {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsError {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -10499,7 +10499,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -10514,7 +10514,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -10688,10 +10688,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Status {
                 v: String,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl Status {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -10707,7 +10707,7 @@ pub mod vehicle {
                 pub fn set(
                     &mut self,
                     value: String,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -10723,7 +10723,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -10748,14 +10748,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Subject {
                         v: String,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl Subject {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -10775,7 +10775,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: String,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -10797,7 +10797,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: String,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -10818,14 +10818,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Issuer {
                         v: String,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl Issuer {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -10845,7 +10845,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: String,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -10867,7 +10867,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: String,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -10894,14 +10894,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Recline {
                     v: f32,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl Recline {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -10921,7 +10921,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: f32,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -10943,7 +10943,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: f32,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -10967,15 +10967,15 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Support {
-                        v: crate::v2::units::Percent<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Percent<f32>,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl Support {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -10984,7 +10984,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&crate::v2::units::Percent<f32>, &u8, &u8) {
+                        pub fn value(&self) -> (&crate::v3::units::Percent<f32>, &u8, &u8) {
                             (&self.v, &self.row, &self.pos)
                         }
                         #[doc = r" Set the"]
@@ -10994,8 +10994,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Percent<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Percent<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -11010,13 +11010,13 @@ pub mod vehicle {
                         #[doc = r"check if the given value is within the limits defined"]
                         #[doc = r"in the specification. Return true if the value is"]
                         #[doc = r"within bounds."]
-                        pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                        pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                             v.0 <= 100f32 && v.0 >= 0f32
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Percent<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Percent<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -11041,15 +11041,15 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Support {
-                        v: crate::v2::units::Percent<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Percent<f32>,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl Support {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -11058,7 +11058,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&crate::v2::units::Percent<f32>, &u8, &u8) {
+                        pub fn value(&self) -> (&crate::v3::units::Percent<f32>, &u8, &u8) {
                             (&self.v, &self.row, &self.pos)
                         }
                         #[doc = r" Set the"]
@@ -11068,8 +11068,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Percent<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Percent<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -11084,13 +11084,13 @@ pub mod vehicle {
                         #[doc = r"check if the given value is within the limits defined"]
                         #[doc = r"in the specification. Return true if the value is"]
                         #[doc = r"within bounds."]
-                        pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                        pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                             v.0 <= 100f32 && v.0 >= 0f32
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Percent<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Percent<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -11110,15 +11110,15 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Height {
-                        v: crate::v2::units::Millimetre<u8>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Millimetre<u8>,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl Height {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -11127,7 +11127,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&crate::v2::units::Millimetre<u8>, &u8, &u8) {
+                        pub fn value(&self) -> (&crate::v3::units::Millimetre<u8>, &u8, &u8) {
                             (&self.v, &self.row, &self.pos)
                         }
                         #[doc = r" Set the"]
@@ -11137,8 +11137,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Millimetre<u8>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Millimetre<u8>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -11153,13 +11153,13 @@ pub mod vehicle {
                         #[doc = r"check if the given value is within the limits defined"]
                         #[doc = r"in the specification. Return true if the value is"]
                         #[doc = r"within bounds."]
-                        pub fn bounds_check(v: &crate::v2::units::Millimetre<u8>) -> bool {
+                        pub fn bounds_check(v: &crate::v3::units::Millimetre<u8>) -> bool {
                             true && v.0 >= 0u8
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Millimetre<u8>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Millimetre<u8>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -11185,15 +11185,15 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Length {
-                    v: crate::v2::units::Millimetre<u16>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Millimetre<u16>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl Length {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11202,7 +11202,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,row, pos)"]
-                    pub fn value(&self) -> (&crate::v2::units::Millimetre<u16>, &u8, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Millimetre<u16>, &u8, &u8) {
                         (&self.v, &self.row, &self.pos)
                     }
                     #[doc = r" Set the"]
@@ -11212,8 +11212,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Millimetre<u16>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Millimetre<u16>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -11228,13 +11228,13 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Millimetre<u16>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Millimetre<u16>) -> bool {
                         true && v.0 >= 0u16
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Millimetre<u16>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Millimetre<u16>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -11259,15 +11259,15 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Height {
-                    v: crate::v2::units::Millimetre<u8>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Millimetre<u8>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl Height {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11276,7 +11276,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,row, pos)"]
-                    pub fn value(&self) -> (&crate::v2::units::Millimetre<u8>, &u8, &u8) {
+                    pub fn value(&self) -> (&crate::v3::units::Millimetre<u8>, &u8, &u8) {
                         (&self.v, &self.row, &self.pos)
                     }
                     #[doc = r" Set the"]
@@ -11286,8 +11286,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Millimetre<u8>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Millimetre<u8>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -11302,13 +11302,13 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Millimetre<u8>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Millimetre<u8>) -> bool {
                         true && v.0 >= 0u8
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Millimetre<u8>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Millimetre<u8>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -11329,14 +11329,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Angle {
                     v: f32,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl Angle {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11356,7 +11356,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: f32,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -11378,7 +11378,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: f32,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -11404,14 +11404,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsDeployed {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl IsDeployed {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11431,7 +11431,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -11453,7 +11453,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -11479,14 +11479,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsWarmerEngaged {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl IsWarmerEngaged {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11506,7 +11506,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -11528,7 +11528,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -11549,14 +11549,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsCoolerEngaged {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl IsCoolerEngaged {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11576,7 +11576,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -11598,7 +11598,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -11619,14 +11619,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsForwardEngaged {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl IsForwardEngaged {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11646,7 +11646,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -11668,7 +11668,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -11689,14 +11689,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsBackwardEngaged {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl IsBackwardEngaged {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11716,7 +11716,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -11738,7 +11738,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -11759,14 +11759,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsUpEngaged {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl IsUpEngaged {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11786,7 +11786,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -11808,7 +11808,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -11829,14 +11829,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsDownEngaged {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl IsDownEngaged {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11856,7 +11856,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -11878,7 +11878,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -11899,14 +11899,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsTiltForwardEngaged {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl IsTiltForwardEngaged {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11926,7 +11926,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -11948,7 +11948,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -11969,14 +11969,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsTiltBackwardEngaged {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
                 impl IsTiltBackwardEngaged {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -11996,7 +11996,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) {
@@ -12018,7 +12018,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
                         pos: u8,
                     ) -> Option<Self> {
@@ -12043,14 +12043,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsIncreaseEngaged {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl IsIncreaseEngaged {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -12070,7 +12070,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -12092,7 +12092,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -12113,14 +12113,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsDecreaseEngaged {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl IsDecreaseEngaged {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -12140,7 +12140,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -12162,7 +12162,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -12188,14 +12188,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsUpEngaged {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl IsUpEngaged {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -12215,7 +12215,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -12237,7 +12237,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -12258,14 +12258,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsDownEngaged {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl IsDownEngaged {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -12285,7 +12285,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -12307,7 +12307,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -12328,14 +12328,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsForwardEngaged {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl IsForwardEngaged {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -12355,7 +12355,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -12377,7 +12377,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -12398,14 +12398,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsBackwardEngaged {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl IsBackwardEngaged {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -12425,7 +12425,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -12447,7 +12447,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -12473,14 +12473,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsForwardEngaged {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl IsForwardEngaged {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -12500,7 +12500,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -12522,7 +12522,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -12543,14 +12543,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsBackwardEngaged {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl IsBackwardEngaged {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -12570,7 +12570,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -12592,7 +12592,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -12618,14 +12618,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsReclineForwardEngaged {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl IsReclineForwardEngaged {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -12645,7 +12645,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -12667,7 +12667,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -12688,14 +12688,14 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsReclineBackwardEngaged {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key]
                         row: u8,
                         #[topic_key]
                         pos: u8,
                     }
                     impl IsReclineBackwardEngaged {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -12715,7 +12715,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) {
@@ -12737,7 +12737,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                             row: u8,
                             pos: u8,
                         ) -> Option<Self> {
@@ -12762,14 +12762,14 @@ pub mod vehicle {
                         #[derive(Default, Deserialize, Serialize, Topic)]
                         pub struct IsMoreSupportEngaged {
                             v: bool,
-                            timestamp: crate::v2::Timestamp,
+                            timestamp: crate::v3::Timestamp,
                             #[topic_key]
                             row: u8,
                             #[topic_key]
                             pos: u8,
                         }
                         impl IsMoreSupportEngaged {
-                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                                 &self.timestamp
                             }
                             #[doc = r" Get the "]
@@ -12789,7 +12789,7 @@ pub mod vehicle {
                             pub fn set(
                                 &mut self,
                                 value: bool,
-                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                maybe_timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) {
@@ -12811,7 +12811,7 @@ pub mod vehicle {
                             #[doc = r" create a new instance"]
                             pub fn new(
                                 value: bool,
-                                timestamp: Option<crate::v2::Timestamp>,
+                                timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) -> Option<Self> {
@@ -12832,14 +12832,14 @@ pub mod vehicle {
                         #[derive(Default, Deserialize, Serialize, Topic)]
                         pub struct IsLessSupportEngaged {
                             v: bool,
-                            timestamp: crate::v2::Timestamp,
+                            timestamp: crate::v3::Timestamp,
                             #[topic_key]
                             row: u8,
                             #[topic_key]
                             pos: u8,
                         }
                         impl IsLessSupportEngaged {
-                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                                 &self.timestamp
                             }
                             #[doc = r" Get the "]
@@ -12859,7 +12859,7 @@ pub mod vehicle {
                             pub fn set(
                                 &mut self,
                                 value: bool,
-                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                maybe_timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) {
@@ -12881,7 +12881,7 @@ pub mod vehicle {
                             #[doc = r" create a new instance"]
                             pub fn new(
                                 value: bool,
-                                timestamp: Option<crate::v2::Timestamp>,
+                                timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) -> Option<Self> {
@@ -12907,14 +12907,14 @@ pub mod vehicle {
                         #[derive(Default, Deserialize, Serialize, Topic)]
                         pub struct IsMoreSupportEngaged {
                             v: bool,
-                            timestamp: crate::v2::Timestamp,
+                            timestamp: crate::v3::Timestamp,
                             #[topic_key]
                             row: u8,
                             #[topic_key]
                             pos: u8,
                         }
                         impl IsMoreSupportEngaged {
-                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                                 &self.timestamp
                             }
                             #[doc = r" Get the "]
@@ -12934,7 +12934,7 @@ pub mod vehicle {
                             pub fn set(
                                 &mut self,
                                 value: bool,
-                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                maybe_timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) {
@@ -12956,7 +12956,7 @@ pub mod vehicle {
                             #[doc = r" create a new instance"]
                             pub fn new(
                                 value: bool,
-                                timestamp: Option<crate::v2::Timestamp>,
+                                timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) -> Option<Self> {
@@ -12977,14 +12977,14 @@ pub mod vehicle {
                         #[derive(Default, Deserialize, Serialize, Topic)]
                         pub struct IsLessSupportEngaged {
                             v: bool,
-                            timestamp: crate::v2::Timestamp,
+                            timestamp: crate::v3::Timestamp,
                             #[topic_key]
                             row: u8,
                             #[topic_key]
                             pos: u8,
                         }
                         impl IsLessSupportEngaged {
-                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                                 &self.timestamp
                             }
                             #[doc = r" Get the "]
@@ -13004,7 +13004,7 @@ pub mod vehicle {
                             pub fn set(
                                 &mut self,
                                 value: bool,
-                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                maybe_timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) {
@@ -13026,7 +13026,7 @@ pub mod vehicle {
                             #[doc = r" create a new instance"]
                             pub fn new(
                                 value: bool,
-                                timestamp: Option<crate::v2::Timestamp>,
+                                timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) -> Option<Self> {
@@ -13047,14 +13047,14 @@ pub mod vehicle {
                         #[derive(Default, Deserialize, Serialize, Topic)]
                         pub struct IsUpEngaged {
                             v: bool,
-                            timestamp: crate::v2::Timestamp,
+                            timestamp: crate::v3::Timestamp,
                             #[topic_key]
                             row: u8,
                             #[topic_key]
                             pos: u8,
                         }
                         impl IsUpEngaged {
-                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                                 &self.timestamp
                             }
                             #[doc = r" Get the "]
@@ -13074,7 +13074,7 @@ pub mod vehicle {
                             pub fn set(
                                 &mut self,
                                 value: bool,
-                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                maybe_timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) {
@@ -13096,7 +13096,7 @@ pub mod vehicle {
                             #[doc = r" create a new instance"]
                             pub fn new(
                                 value: bool,
-                                timestamp: Option<crate::v2::Timestamp>,
+                                timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) -> Option<Self> {
@@ -13117,14 +13117,14 @@ pub mod vehicle {
                         #[derive(Default, Deserialize, Serialize, Topic)]
                         pub struct IsDownEngaged {
                             v: bool,
-                            timestamp: crate::v2::Timestamp,
+                            timestamp: crate::v3::Timestamp,
                             #[topic_key]
                             row: u8,
                             #[topic_key]
                             pos: u8,
                         }
                         impl IsDownEngaged {
-                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                                 &self.timestamp
                             }
                             #[doc = r" Get the "]
@@ -13144,7 +13144,7 @@ pub mod vehicle {
                             pub fn set(
                                 &mut self,
                                 value: bool,
-                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                maybe_timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) {
@@ -13166,7 +13166,7 @@ pub mod vehicle {
                             #[doc = r" create a new instance"]
                             pub fn new(
                                 value: bool,
-                                timestamp: Option<crate::v2::Timestamp>,
+                                timestamp: Option<crate::v3::Timestamp>,
                                 row: u8,
                                 pos: u8,
                             ) -> Option<Self> {
@@ -13197,14 +13197,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsOpen {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key_enum]
-                    side: crate::v2::Side,
+                    side: crate::v3::Side,
                 }
                 impl IsOpen {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -13213,7 +13213,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,row, side)"]
-                    pub fn value(&self) -> (&bool, &u8, &crate::v2::Side) {
+                    pub fn value(&self) -> (&bool, &u8, &crate::v3::Side) {
                         (&self.v, &self.row, &self.side)
                     }
                     #[doc = r" Set the"]
@@ -13224,9 +13224,9 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -13246,9 +13246,9 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -13266,15 +13266,15 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Position {
-                    v: crate::v2::units::Percent<u8>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<u8>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key_enum]
-                    side: crate::v2::Side,
+                    side: crate::v3::Side,
                 }
                 impl Position {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -13283,7 +13283,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,row, side)"]
-                    pub fn value(&self) -> (&crate::v2::units::Percent<u8>, &u8, &crate::v2::Side) {
+                    pub fn value(&self) -> (&crate::v3::units::Percent<u8>, &u8, &crate::v3::Side) {
                         (&self.v, &self.row, &self.side)
                     }
                     #[doc = r" Set the"]
@@ -13293,10 +13293,10 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<u8>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<u8>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -13309,15 +13309,15 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                         v.0 <= 100u8 && v.0 >= 0u8
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<u8>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<u8>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -13336,14 +13336,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsChildLockEngaged {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key_enum]
-                    side: crate::v2::Side,
+                    side: crate::v3::Side,
                 }
                 impl IsChildLockEngaged {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -13352,7 +13352,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,row, side)"]
-                    pub fn value(&self) -> (&bool, &u8, &crate::v2::Side) {
+                    pub fn value(&self) -> (&bool, &u8, &crate::v3::Side) {
                         (&self.v, &self.row, &self.side)
                     }
                     #[doc = r" Set the"]
@@ -13363,9 +13363,9 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -13385,9 +13385,9 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -13406,14 +13406,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Switch {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key_enum]
-                    side: crate::v2::Side,
+                    side: crate::v3::Side,
                 }
                 impl Switch {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -13422,7 +13422,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,row, side)"]
-                    pub fn value(&self) -> (&String, &u8, &crate::v2::Side) {
+                    pub fn value(&self) -> (&String, &u8, &crate::v3::Side) {
                         (&self.v, &self.row, &self.side)
                     }
                     #[doc = r" Set the"]
@@ -13433,9 +13433,9 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -13455,9 +13455,9 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -13481,14 +13481,14 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Switch {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key_enum]
-                    side: crate::v2::Side,
+                    side: crate::v3::Side,
                 }
                 impl Switch {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -13497,7 +13497,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,row, side)"]
-                    pub fn value(&self) -> (&String, &u8, &crate::v2::Side) {
+                    pub fn value(&self) -> (&String, &u8, &crate::v3::Side) {
                         (&self.v, &self.row, &self.side)
                     }
                     #[doc = r" Set the"]
@@ -13508,9 +13508,9 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -13530,9 +13530,9 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -13550,15 +13550,15 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Position {
-                    v: crate::v2::units::Percent<u8>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<u8>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key_enum]
-                    side: crate::v2::Side,
+                    side: crate::v3::Side,
                 }
                 impl Position {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -13567,7 +13567,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,row, side)"]
-                    pub fn value(&self) -> (&crate::v2::units::Percent<u8>, &u8, &crate::v2::Side) {
+                    pub fn value(&self) -> (&crate::v3::units::Percent<u8>, &u8, &crate::v3::Side) {
                         (&self.v, &self.row, &self.side)
                     }
                     #[doc = r" Set the"]
@@ -13577,10 +13577,10 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<u8>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<u8>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -13593,15 +13593,15 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                         v.0 <= 100u8 && v.0 >= 0u8
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<u8>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<u8>,
+                        timestamp: Option<crate::v3::Timestamp>,
                         row: u8,
-                        side: crate::v2::Side,
+                        side: crate::v3::Side,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -13626,10 +13626,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsGloveBoxOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsGloveBoxOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -13642,7 +13642,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -13657,7 +13657,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -13673,10 +13673,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsTrunkOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsTrunkOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -13689,7 +13689,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -13704,7 +13704,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -13720,10 +13720,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsDomeOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsDomeOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -13736,7 +13736,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -13751,7 +13751,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -13766,16 +13766,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct AmbientLight {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl AmbientLight {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -13785,8 +13785,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -13797,13 +13797,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && v.0 >= 0u8
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -13819,16 +13819,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct LightIntensity {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl LightIntensity {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Intensity of the interior lights. 0 = Off. 100 = Full brightness.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -13838,8 +13838,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -13850,13 +13850,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && v.0 >= 0u8
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -13879,16 +13879,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct DimmingLevel {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl DimmingLevel {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -13898,8 +13898,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -13910,13 +13910,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -13938,10 +13938,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Position {
                 v: i8,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl Position {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -13954,7 +13954,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: i8, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: i8, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -13968,7 +13968,7 @@ pub mod vehicle {
                     *v <= 100i8 && *v >= -100i8
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: i8, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: i8, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -13984,10 +13984,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Switch {
                 v: String,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl Switch {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -14003,7 +14003,7 @@ pub mod vehicle {
                 pub fn set(
                     &mut self,
                     value: String,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -14019,7 +14019,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -14039,10 +14039,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Switch {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Switch {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14058,7 +14058,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14076,7 +14076,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14092,16 +14092,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Position {
-                    v: crate::v2::units::Percent<u8>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<u8>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Position {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Position of window blind. 0 = Fully retracted. 100 = Fully deployed.. The unit of this type is percent"]
-                    pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                    pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -14111,8 +14111,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<u8>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<u8>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14123,13 +14123,13 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                         v.0 <= 100u8 && v.0 >= 0u8
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<u8>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<u8>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14154,10 +14154,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct CurrentLanguage {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl CurrentLanguage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14173,7 +14173,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14191,7 +14191,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14208,10 +14208,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct DateFormat {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl DateFormat {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14227,7 +14227,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14245,7 +14245,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14262,10 +14262,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct TimeFormat {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl TimeFormat {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14281,7 +14281,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14299,7 +14299,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14316,10 +14316,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct DistanceUnit {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl DistanceUnit {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14335,7 +14335,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14353,7 +14353,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14370,10 +14370,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct FuelEconomyUnits {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl FuelEconomyUnits {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14389,7 +14389,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14407,7 +14407,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14424,10 +14424,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct EVEconomyUnits {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl EVEconomyUnits {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14443,7 +14443,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14461,7 +14461,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14478,10 +14478,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct TemperatureUnit {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl TemperatureUnit {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14497,7 +14497,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14515,7 +14515,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14532,10 +14532,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct DayNightMode {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl DayNightMode {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14551,7 +14551,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14569,7 +14569,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14593,10 +14593,10 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Latitude {
                         v: f64,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Latitude {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -14612,7 +14612,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: f64,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -14629,7 +14629,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: f64,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -14646,10 +14646,10 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Longitude {
                         v: f64,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Longitude {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -14665,7 +14665,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: f64,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -14682,7 +14682,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: f64,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -14705,10 +14705,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Action {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Action {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14724,7 +14724,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14742,7 +14742,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14759,10 +14759,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct DeclinedURI {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl DeclinedURI {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14778,7 +14778,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14796,7 +14796,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14813,10 +14813,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct SelectedURI {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl SelectedURI {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14832,7 +14832,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14850,7 +14850,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -14867,10 +14867,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Volume {
                     v: u8,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Volume {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -14886,7 +14886,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: u8,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -14901,7 +14901,7 @@ pub mod vehicle {
                         *v <= 100u8 && *v >= 0u8
                     }
                     #[doc = r" create a new instance"]
-                    pub fn new(value: u8, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    pub fn new(value: u8, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
                                 v: value,
@@ -14921,10 +14921,10 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Source {
                         v: String,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Source {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -14940,7 +14940,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: String,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -14958,7 +14958,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: String,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -14975,10 +14975,10 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Artist {
                         v: String,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Artist {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -14994,7 +14994,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: String,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -15012,7 +15012,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: String,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -15029,10 +15029,10 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Album {
                         v: String,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Album {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -15048,7 +15048,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: String,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -15066,7 +15066,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: String,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -15083,10 +15083,10 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Track {
                         v: String,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Track {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -15102,7 +15102,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: String,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -15120,7 +15120,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: String,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -15137,10 +15137,10 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct URI {
                         v: String,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl URI {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -15156,7 +15156,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: String,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -15174,7 +15174,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: String,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -15198,10 +15198,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsRecirculationActive {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsRecirculationActive {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15214,7 +15214,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -15229,7 +15229,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -15245,10 +15245,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsFrontDefrosterActive {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsFrontDefrosterActive {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15261,7 +15261,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -15276,7 +15276,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -15292,10 +15292,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsRearDefrosterActive {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsRearDefrosterActive {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15308,7 +15308,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -15323,7 +15323,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -15339,10 +15339,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsAirConditioningActive {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsAirConditioningActive {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15355,7 +15355,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -15370,7 +15370,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -15385,16 +15385,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct AmbientAirTemperature {
-                v: crate::v2::units::Celsius<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Celsius<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl AmbientAirTemperature {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Ambient air temperature inside the vehicle.. The unit of this type is celsius"]
-                pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -15404,8 +15404,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Celsius<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -15417,13 +15417,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Celsius<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -15447,10 +15447,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Switch {
                 v: String,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl Switch {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15466,7 +15466,7 @@ pub mod vehicle {
                 pub fn set(
                     &mut self,
                     value: String,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -15482,7 +15482,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -15497,16 +15497,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Position {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Position {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Position of window blind. 0 = Fully retracted. 100 = Fully deployed.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -15516,8 +15516,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -15528,13 +15528,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && v.0 >= 0u8
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -15630,16 +15630,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct RearMainSpoilerPosition {
-            v: crate::v2::units::Percent<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Percent<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl RearMainSpoilerPosition {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Rear spoiler position, 0% = Spoiler fully stowed. 100% = Spoiler fully exposed.. The unit of this type is percent"]
-            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+            pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -15649,8 +15649,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Percent<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -15661,13 +15661,13 @@ pub mod vehicle {
             #[doc = r"check if the given value is within the limits defined"]
             #[doc = r"in the specification. Return true if the value is"]
             #[doc = r"within bounds."]
-            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+            pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                 v.0 <= 100f32 && v.0 >= 0f32
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Percent<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Percent<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -15690,10 +15690,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsHighBeamOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsHighBeamOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15706,7 +15706,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -15721,7 +15721,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -15737,10 +15737,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsLowBeamOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsLowBeamOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15753,7 +15753,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -15768,7 +15768,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -15784,10 +15784,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsRunningOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsRunningOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15800,7 +15800,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -15815,7 +15815,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -15831,10 +15831,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsBackupOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsBackupOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15847,7 +15847,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -15862,7 +15862,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -15878,10 +15878,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsParkingOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsParkingOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15894,7 +15894,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -15909,7 +15909,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -15925,10 +15925,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsBrakeOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsBrakeOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15941,7 +15941,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -15956,7 +15956,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -15972,10 +15972,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsRearFogOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsRearFogOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -15988,7 +15988,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -16003,7 +16003,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -16019,10 +16019,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsFrontFogOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsFrontFogOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -16035,7 +16035,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -16050,7 +16050,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -16066,10 +16066,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsHazardOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsHazardOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -16082,7 +16082,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -16097,7 +16097,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -16113,10 +16113,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsLeftIndicatorOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsLeftIndicatorOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -16129,7 +16129,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -16144,7 +16144,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -16160,10 +16160,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsRightIndicatorOn {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsRightIndicatorOn {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -16176,7 +16176,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -16191,7 +16191,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -16214,12 +16214,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Mode {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key_enum]
-                    position: crate::v2::Position,
+                    position: crate::v3::Position,
                 }
                 impl Mode {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -16228,7 +16228,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,position)"]
-                    pub fn value(&self) -> (&String, &crate::v2::Position) {
+                    pub fn value(&self) -> (&String, &crate::v3::Position) {
                         (&self.v, &self.position)
                     }
                     #[doc = r" Set the"]
@@ -16239,8 +16239,8 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -16259,8 +16259,8 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -16278,12 +16278,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Intensity {
                     v: u8,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key_enum]
-                    position: crate::v2::Position,
+                    position: crate::v3::Position,
                 }
                 impl Intensity {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -16292,7 +16292,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,position)"]
-                    pub fn value(&self) -> (&u8, &crate::v2::Position) {
+                    pub fn value(&self) -> (&u8, &crate::v3::Position) {
                         (&self.v, &self.position)
                     }
                     #[doc = r" Set the"]
@@ -16303,8 +16303,8 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: u8,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -16323,8 +16323,8 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: u8,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -16342,12 +16342,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct WiperWear {
                     v: u8,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key_enum]
-                    position: crate::v2::Position,
+                    position: crate::v3::Position,
                 }
                 impl WiperWear {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -16356,7 +16356,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,position)"]
-                    pub fn value(&self) -> (&u8, &crate::v2::Position) {
+                    pub fn value(&self) -> (&u8, &crate::v3::Position) {
                         (&self.v, &self.position)
                     }
                     #[doc = r" Set the"]
@@ -16367,8 +16367,8 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: u8,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -16386,8 +16386,8 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: u8,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -16405,12 +16405,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsWipersWorn {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key_enum]
-                    position: crate::v2::Position,
+                    position: crate::v3::Position,
                 }
                 impl IsWipersWorn {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -16419,7 +16419,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,position)"]
-                    pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                    pub fn value(&self) -> (&bool, &crate::v3::Position) {
                         (&self.v, &self.position)
                     }
                     #[doc = r" Set the"]
@@ -16430,8 +16430,8 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -16450,8 +16450,8 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -16473,12 +16473,12 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Mode {
                         v: String,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key_enum]
-                        position: crate::v2::Position,
+                        position: crate::v3::Position,
                     }
                     impl Mode {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -16487,7 +16487,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,position)"]
-                        pub fn value(&self) -> (&String, &crate::v2::Position) {
+                        pub fn value(&self) -> (&String, &crate::v3::Position) {
                             (&self.v, &self.position)
                         }
                         #[doc = r" Set the"]
@@ -16498,8 +16498,8 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: String,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -16518,8 +16518,8 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: String,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -16537,12 +16537,12 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Frequency {
                         v: u8,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key_enum]
-                        position: crate::v2::Position,
+                        position: crate::v3::Position,
                     }
                     impl Frequency {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -16551,7 +16551,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,position)"]
-                        pub fn value(&self) -> (&u8, &crate::v2::Position) {
+                        pub fn value(&self) -> (&u8, &crate::v3::Position) {
                             (&self.v, &self.position)
                         }
                         #[doc = r" Set the"]
@@ -16562,8 +16562,8 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: u8,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -16582,8 +16582,8 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: u8,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -16601,12 +16601,12 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct TargetPosition {
                         v: f32,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key_enum]
-                        position: crate::v2::Position,
+                        position: crate::v3::Position,
                     }
                     impl TargetPosition {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -16615,7 +16615,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,position)"]
-                        pub fn value(&self) -> (&f32, &crate::v2::Position) {
+                        pub fn value(&self) -> (&f32, &crate::v3::Position) {
                             (&self.v, &self.position)
                         }
                         #[doc = r" Set the"]
@@ -16626,8 +16626,8 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: f32,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -16646,8 +16646,8 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: f32,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -16665,12 +16665,12 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct ActualPosition {
                         v: f32,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key_enum]
-                        position: crate::v2::Position,
+                        position: crate::v3::Position,
                     }
                     impl ActualPosition {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -16679,7 +16679,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,position)"]
-                        pub fn value(&self) -> (&f32, &crate::v2::Position) {
+                        pub fn value(&self) -> (&f32, &crate::v3::Position) {
                             (&self.v, &self.position)
                         }
                         #[doc = r" Set the"]
@@ -16690,8 +16690,8 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: f32,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -16710,8 +16710,8 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: f32,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -16728,13 +16728,13 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct DriveCurrent {
-                        v: crate::v2::units::Amp<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Amp<f32>,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key_enum]
-                        position: crate::v2::Position,
+                        position: crate::v3::Position,
                     }
                     impl DriveCurrent {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -16743,7 +16743,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,position)"]
-                        pub fn value(&self) -> (&crate::v2::units::Amp<f32>, &crate::v2::Position) {
+                        pub fn value(&self) -> (&crate::v3::units::Amp<f32>, &crate::v3::Position) {
                             (&self.v, &self.position)
                         }
                         #[doc = r" Set the"]
@@ -16753,9 +16753,9 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Amp<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            value: crate::v3::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -16768,14 +16768,14 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Amp<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            value: crate::v3::units::Amp<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -16793,12 +16793,12 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsWiping {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key_enum]
-                        position: crate::v2::Position,
+                        position: crate::v3::Position,
                     }
                     impl IsWiping {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -16807,7 +16807,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,position)"]
-                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                        pub fn value(&self) -> (&bool, &crate::v3::Position) {
                             (&self.v, &self.position)
                         }
                         #[doc = r" Set the"]
@@ -16818,8 +16818,8 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -16838,8 +16838,8 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -16857,12 +16857,12 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsEndingWipeCycle {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key_enum]
-                        position: crate::v2::Position,
+                        position: crate::v3::Position,
                     }
                     impl IsEndingWipeCycle {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -16871,7 +16871,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,position)"]
-                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                        pub fn value(&self) -> (&bool, &crate::v3::Position) {
                             (&self.v, &self.position)
                         }
                         #[doc = r" Set the"]
@@ -16882,8 +16882,8 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -16902,8 +16902,8 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -16921,12 +16921,12 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsWiperError {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key_enum]
-                        position: crate::v2::Position,
+                        position: crate::v3::Position,
                     }
                     impl IsWiperError {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -16935,7 +16935,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,position)"]
-                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                        pub fn value(&self) -> (&bool, &crate::v3::Position) {
                             (&self.v, &self.position)
                         }
                         #[doc = r" Set the"]
@@ -16946,8 +16946,8 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -16966,8 +16966,8 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -16985,12 +16985,12 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsPositionReached {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key_enum]
-                        position: crate::v2::Position,
+                        position: crate::v3::Position,
                     }
                     impl IsPositionReached {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -16999,7 +16999,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,position)"]
-                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                        pub fn value(&self) -> (&bool, &crate::v3::Position) {
                             (&self.v, &self.position)
                         }
                         #[doc = r" Set the"]
@@ -17010,8 +17010,8 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -17030,8 +17030,8 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -17049,12 +17049,12 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsBlocked {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key_enum]
-                        position: crate::v2::Position,
+                        position: crate::v3::Position,
                     }
                     impl IsBlocked {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -17063,7 +17063,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,position)"]
-                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                        pub fn value(&self) -> (&bool, &crate::v3::Position) {
                             (&self.v, &self.position)
                         }
                         #[doc = r" Set the"]
@@ -17074,8 +17074,8 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -17094,8 +17094,8 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -17113,12 +17113,12 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct IsOverheated {
                         v: bool,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                         #[topic_key_enum]
-                        position: crate::v2::Position,
+                        position: crate::v3::Position,
                     }
                     impl IsOverheated {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -17127,7 +17127,7 @@ pub mod vehicle {
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,position)"]
-                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                        pub fn value(&self) -> (&bool, &crate::v3::Position) {
                             (&self.v, &self.position)
                         }
                         #[doc = r" Set the"]
@@ -17138,8 +17138,8 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -17158,8 +17158,8 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            position: crate::v2::Position,
+                            timestamp: Option<crate::v3::Timestamp>,
+                            position: crate::v3::Position,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -17183,12 +17183,12 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsLevelLow {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key_enum]
-                    position: crate::v2::Position,
+                    position: crate::v3::Position,
                 }
                 impl IsLevelLow {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -17197,7 +17197,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,position)"]
-                    pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                    pub fn value(&self) -> (&bool, &crate::v3::Position) {
                         (&self.v, &self.position)
                     }
                     #[doc = r" Set the"]
@@ -17208,8 +17208,8 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -17228,8 +17228,8 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -17246,13 +17246,13 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Level {
-                    v: crate::v2::units::Percent<u8>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<u8>,
+                    timestamp: crate::v3::Timestamp,
                     #[topic_key_enum]
-                    position: crate::v2::Position,
+                    position: crate::v3::Position,
                 }
                 impl Level {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -17261,7 +17261,7 @@ pub mod vehicle {
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,position)"]
-                    pub fn value(&self) -> (&crate::v2::units::Percent<u8>, &crate::v2::Position) {
+                    pub fn value(&self) -> (&crate::v3::units::Percent<u8>, &crate::v3::Position) {
                         (&self.v, &self.position)
                     }
                     #[doc = r" Set the"]
@@ -17271,9 +17271,9 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<u8>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        value: crate::v3::units::Percent<u8>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -17285,14 +17285,14 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                         v.0 <= 100u8 && true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<u8>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        position: crate::v2::Position,
+                        value: crate::v3::units::Percent<u8>,
+                        timestamp: Option<crate::v3::Timestamp>,
+                        position: crate::v3::Position,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -17315,16 +17315,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Intensity {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Intensity {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Rain intensity. 0 = Dry, No Rain. 100 = Covered.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -17334,8 +17334,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -17346,13 +17346,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -17374,10 +17374,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsActive {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsActive {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -17390,7 +17390,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -17405,7 +17405,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -17428,10 +17428,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsOpen {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsOpen {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -17444,7 +17444,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -17459,7 +17459,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -17480,16 +17480,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct AccumulatedBrakingEnergy {
-            v: crate::v2::units::KilowattHour<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::KilowattHour<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl AccumulatedBrakingEnergy {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "The accumulated energy from regenerative braking over lifetime.. The unit of this type is kWh"]
-            pub fn value(&self) -> &crate::v2::units::KilowattHour<f32> {
+            pub fn value(&self) -> &crate::v3::units::KilowattHour<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -17499,8 +17499,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::KilowattHour<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KilowattHour<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -17512,13 +17512,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::KilowattHour<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::KilowattHour<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::KilowattHour<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::KilowattHour<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -17534,16 +17534,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Range {
-            v: crate::v2::units::Metre<u32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Metre<u32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl Range {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Remaining range in meters using all energy sources available in the vehicle.. The unit of this type is m"]
-            pub fn value(&self) -> &crate::v2::units::Metre<u32> {
+            pub fn value(&self) -> &crate::v3::units::Metre<u32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -17553,8 +17553,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Metre<u32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Metre<u32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -17566,13 +17566,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Metre<u32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Metre<u32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Metre<u32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Metre<u32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -17740,12 +17740,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct TankCapacity {
-                v: crate::v2::units::Litre<f32>,
+                v: crate::v3::units::Litre<f32>,
             }
             impl TankCapacity {
                 #[doc = r" Get the "]
                 #[doc = "Capacity of the fuel tank in liters.. The unit of this type is l"]
-                pub fn value(&self) -> &crate::v2::units::Litre<f32> {
+                pub fn value(&self) -> &crate::v3::units::Litre<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -17753,7 +17753,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::Litre<f32>) {
+                pub fn set(&mut self, value: crate::v3::units::Litre<f32>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -17761,11 +17761,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Litre<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Litre<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::Litre<f32>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::Litre<f32>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -17777,16 +17777,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Level {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Level {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Level in fuel tank as percent of capacity. 0 = empty. 100 = full.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -17796,8 +17796,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -17808,13 +17808,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && v.0 >= 0u8
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -17830,16 +17830,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Range {
-                v: crate::v2::units::Metre<u32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Metre<u32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Range {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Remaining range in meters using only liquid fuel.. The unit of this type is m"]
-                pub fn value(&self) -> &crate::v2::units::Metre<u32> {
+                pub fn value(&self) -> &crate::v3::units::Metre<u32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -17849,8 +17849,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Metre<u32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Metre<u32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -17862,13 +17862,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Metre<u32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Metre<u32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Metre<u32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Metre<u32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -17884,16 +17884,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct InstantConsumption {
-                v: crate::v2::units::LiterPerHundredKm<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::LiterPerHundredKm<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl InstantConsumption {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Current consumption in liters per 100 km.. The unit of this type is l/100km"]
-                pub fn value(&self) -> &crate::v2::units::LiterPerHundredKm<f32> {
+                pub fn value(&self) -> &crate::v3::units::LiterPerHundredKm<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -17903,8 +17903,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::LiterPerHundredKm<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::LiterPerHundredKm<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -17915,13 +17915,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::LiterPerHundredKm<f32>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::LiterPerHundredKm<f32>) -> bool {
                     true && v.0 >= 0f32
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::LiterPerHundredKm<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::LiterPerHundredKm<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -17937,16 +17937,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct AverageConsumption {
-                v: crate::v2::units::LiterPerHundredKm<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::LiterPerHundredKm<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl AverageConsumption {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Average consumption in liters per 100 km.. The unit of this type is l/100km"]
-                pub fn value(&self) -> &crate::v2::units::LiterPerHundredKm<f32> {
+                pub fn value(&self) -> &crate::v3::units::LiterPerHundredKm<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -17956,8 +17956,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::LiterPerHundredKm<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::LiterPerHundredKm<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -17968,13 +17968,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::LiterPerHundredKm<f32>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::LiterPerHundredKm<f32>) -> bool {
                     true && v.0 >= 0f32
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::LiterPerHundredKm<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::LiterPerHundredKm<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -17990,16 +17990,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct ConsumptionSinceStart {
-                v: crate::v2::units::Litre<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Litre<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl ConsumptionSinceStart {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Fuel amount in liters consumed since start of current trip.. The unit of this type is l"]
-                pub fn value(&self) -> &crate::v2::units::Litre<f32> {
+                pub fn value(&self) -> &crate::v3::units::Litre<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18009,8 +18009,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Litre<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Litre<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -18022,13 +18022,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Litre<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Litre<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Litre<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Litre<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -18044,16 +18044,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct TimeSinceStart {
-                v: crate::v2::units::Second<u32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Second<u32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl TimeSinceStart {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Time in seconds elapsed since start of current trip.. The unit of this type is s"]
-                pub fn value(&self) -> &crate::v2::units::Second<u32> {
+                pub fn value(&self) -> &crate::v3::units::Second<u32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18063,8 +18063,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Second<u32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Second<u32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -18076,13 +18076,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Second<u32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Second<u32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Second<u32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Second<u32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -18099,10 +18099,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsEngineStopStartEnabled {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsEngineStopStartEnabled {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -18115,7 +18115,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -18130,7 +18130,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -18146,10 +18146,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsFuelLevelLow {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsFuelLevelLow {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -18162,7 +18162,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -18177,7 +18177,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -18272,10 +18272,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsPowerConnected {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsPowerConnected {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -18288,7 +18288,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -18303,7 +18303,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -18319,10 +18319,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsGroundConnected {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsGroundConnected {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -18335,7 +18335,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -18350,7 +18350,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -18365,12 +18365,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct GrossCapacity {
-                v: crate::v2::units::KilowattHour<u16>,
+                v: crate::v3::units::KilowattHour<u16>,
             }
             impl GrossCapacity {
                 #[doc = r" Get the "]
                 #[doc = "Gross capacity of the battery.. The unit of this type is kWh"]
-                pub fn value(&self) -> &crate::v2::units::KilowattHour<u16> {
+                pub fn value(&self) -> &crate::v3::units::KilowattHour<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18378,7 +18378,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::KilowattHour<u16>) {
+                pub fn set(&mut self, value: crate::v3::units::KilowattHour<u16>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -18386,11 +18386,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::KilowattHour<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::KilowattHour<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::KilowattHour<u16>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::KilowattHour<u16>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -18402,16 +18402,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct NetCapacity {
-                v: crate::v2::units::KilowattHour<u16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::KilowattHour<u16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl NetCapacity {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Total net capacity of the battery considering aging.. The unit of this type is kWh"]
-                pub fn value(&self) -> &crate::v2::units::KilowattHour<u16> {
+                pub fn value(&self) -> &crate::v3::units::KilowattHour<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18421,8 +18421,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::KilowattHour<u16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KilowattHour<u16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -18434,13 +18434,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::KilowattHour<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::KilowattHour<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::KilowattHour<u16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KilowattHour<u16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -18456,16 +18456,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct StateOfHealth {
-                v: crate::v2::units::Percent<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl StateOfHealth {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Calculated battery state of health at standard conditions.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18475,8 +18475,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -18487,13 +18487,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                     v.0 <= 100f32 && v.0 >= 0f32
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -18509,12 +18509,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct NominalVoltage {
-                v: crate::v2::units::Volt<u16>,
+                v: crate::v3::units::Volt<u16>,
             }
             impl NominalVoltage {
                 #[doc = r" Get the "]
                 #[doc = "Nominal Voltage of the battery.. The unit of this type is V"]
-                pub fn value(&self) -> &crate::v2::units::Volt<u16> {
+                pub fn value(&self) -> &crate::v3::units::Volt<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18522,7 +18522,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::Volt<u16>) {
+                pub fn set(&mut self, value: crate::v3::units::Volt<u16>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -18530,11 +18530,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Volt<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Volt<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::Volt<u16>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::Volt<u16>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -18546,12 +18546,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct MaxVoltage {
-                v: crate::v2::units::Volt<u16>,
+                v: crate::v3::units::Volt<u16>,
             }
             impl MaxVoltage {
                 #[doc = r" Get the "]
                 #[doc = "Max allowed voltage of the battery, e.g. during charging.. The unit of this type is V"]
-                pub fn value(&self) -> &crate::v2::units::Volt<u16> {
+                pub fn value(&self) -> &crate::v3::units::Volt<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18559,7 +18559,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::Volt<u16>) {
+                pub fn set(&mut self, value: crate::v3::units::Volt<u16>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -18567,11 +18567,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Volt<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Volt<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::Volt<u16>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::Volt<u16>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -18583,16 +18583,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct CurrentVoltage {
-                v: crate::v2::units::Volt<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Volt<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl CurrentVoltage {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Current Voltage of the battery.. The unit of this type is V"]
-                pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+                pub fn value(&self) -> &crate::v3::units::Volt<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18602,8 +18602,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Volt<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Volt<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -18615,13 +18615,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Volt<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Volt<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -18637,16 +18637,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct CurrentCurrent {
-                v: crate::v2::units::Amp<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Amp<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl CurrentCurrent {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Current current flowing in/out of battery. Positive = Current flowing in to battery, e.g. during charging. Negative = Current flowing out of battery, e.g. during driving.. The unit of this type is A"]
-                pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                pub fn value(&self) -> &crate::v3::units::Amp<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18656,8 +18656,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Amp<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Amp<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -18669,13 +18669,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Amp<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Amp<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -18691,16 +18691,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct CurrentPower {
-                v: crate::v2::units::Watt<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Watt<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl CurrentPower {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Current electrical energy flowing in/out of battery. Positive = Energy flowing in to battery, e.g. during charging. Negative = Energy flowing out of battery, e.g. during driving.. The unit of this type is W"]
-                pub fn value(&self) -> &crate::v2::units::Watt<f32> {
+                pub fn value(&self) -> &crate::v3::units::Watt<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18710,8 +18710,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Watt<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Watt<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -18723,13 +18723,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Watt<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Watt<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Watt<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Watt<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -18745,16 +18745,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct AccumulatedChargedEnergy {
-                v: crate::v2::units::KilowattHour<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::KilowattHour<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl AccumulatedChargedEnergy {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "The accumulated energy delivered to the battery during charging over lifetime of the battery.. The unit of this type is kWh"]
-                pub fn value(&self) -> &crate::v2::units::KilowattHour<f32> {
+                pub fn value(&self) -> &crate::v3::units::KilowattHour<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18764,8 +18764,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::KilowattHour<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KilowattHour<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -18777,13 +18777,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::KilowattHour<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::KilowattHour<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::KilowattHour<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KilowattHour<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -18799,16 +18799,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct AccumulatedConsumedEnergy {
-                v: crate::v2::units::KilowattHour<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::KilowattHour<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl AccumulatedConsumedEnergy {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.. The unit of this type is kWh"]
-                pub fn value(&self) -> &crate::v2::units::KilowattHour<f32> {
+                pub fn value(&self) -> &crate::v3::units::KilowattHour<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18818,8 +18818,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::KilowattHour<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KilowattHour<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -18831,13 +18831,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::KilowattHour<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::KilowattHour<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::KilowattHour<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KilowattHour<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -18854,10 +18854,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct AccumulatedChargedThroughput {
                 v: f32,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl AccumulatedChargedThroughput {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -18870,7 +18870,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -18885,7 +18885,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: f32, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -18901,10 +18901,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct AccumulatedConsumedThroughput {
                 v: f32,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl AccumulatedConsumedThroughput {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -18917,7 +18917,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -18932,7 +18932,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: f32, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -18947,16 +18947,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct PowerLoss {
-                v: crate::v2::units::Watt<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Watt<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl PowerLoss {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Electrical energy lost by power dissipation to heat inside the battery.. The unit of this type is W"]
-                pub fn value(&self) -> &crate::v2::units::Watt<f32> {
+                pub fn value(&self) -> &crate::v3::units::Watt<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -18966,8 +18966,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Watt<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Watt<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -18979,13 +18979,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Watt<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Watt<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Watt<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Watt<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -19001,16 +19001,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Range {
-                v: crate::v2::units::Metre<u32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Metre<u32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Range {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Remaining range in meters using only battery.. The unit of this type is m"]
-                pub fn value(&self) -> &crate::v2::units::Metre<u32> {
+                pub fn value(&self) -> &crate::v3::units::Metre<u32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -19020,8 +19020,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Metre<u32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Metre<u32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -19033,13 +19033,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Metre<u32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Metre<u32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Metre<u32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Metre<u32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -19059,16 +19059,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct PowerLoss {
-                    v: crate::v2::units::Watt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Watt<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl PowerLoss {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Electrical energy lost by power dissipation to heat inside DC/DC converter.. The unit of this type is W"]
-                    pub fn value(&self) -> &crate::v2::units::Watt<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Watt<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -19078,8 +19078,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Watt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Watt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19091,13 +19091,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Watt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Watt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Watt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Watt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19113,16 +19113,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Temperature {
-                    v: crate::v2::units::Celsius<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Celsius<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Temperature {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Current temperature of DC/DC converter converting battery high voltage to vehicle low voltage (typically 12 Volts).. The unit of this type is celsius"]
-                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -19132,8 +19132,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19145,13 +19145,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19172,16 +19172,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct ChargeLimit {
-                    v: crate::v2::units::Percent<u8>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<u8>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl ChargeLimit {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Target charge limit (state of charge) for battery.. The unit of this type is percent"]
-                    pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                    pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -19191,8 +19191,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<u8>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<u8>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19203,13 +19203,13 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                         v.0 <= 100u8 && v.0 >= 0u8
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<u8>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<u8>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19226,10 +19226,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct ChargePortFlap {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl ChargePortFlap {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -19245,7 +19245,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19263,7 +19263,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19280,10 +19280,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsChargingCableConnected {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl IsChargingCableConnected {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -19299,7 +19299,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19317,7 +19317,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19334,10 +19334,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsChargingCableLocked {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl IsChargingCableLocked {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -19353,7 +19353,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19371,7 +19371,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19425,10 +19425,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Mode {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Mode {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -19444,7 +19444,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19462,7 +19462,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19479,10 +19479,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsCharging {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl IsCharging {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -19498,7 +19498,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19516,7 +19516,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19533,10 +19533,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsDischarging {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl IsDischarging {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -19552,7 +19552,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19570,7 +19570,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19587,10 +19587,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct StartStopCharging {
                     v: String,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl StartStopCharging {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -19606,7 +19606,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: String,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19624,7 +19624,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: String,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19640,16 +19640,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct PowerLoss {
-                    v: crate::v2::units::Watt<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Watt<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl PowerLoss {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Electrical energy lost by power dissipation to heat inside the AC/DC converter.. The unit of this type is W"]
-                    pub fn value(&self) -> &crate::v2::units::Watt<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Watt<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -19659,8 +19659,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Watt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Watt<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19672,13 +19672,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Watt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Watt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Watt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Watt<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19694,16 +19694,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Temperature {
-                    v: crate::v2::units::Celsius<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Celsius<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Temperature {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Current temperature of AC/DC converter converting grid voltage to battery voltage.. The unit of this type is celsius"]
-                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -19713,8 +19713,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19726,13 +19726,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19748,16 +19748,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct ChargeRate {
-                    v: crate::v2::units::KilometrePerHour<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::KilometrePerHour<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl ChargeRate {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Current charging rate, as in kilometers of range added per hour.. The unit of this type is km/h"]
-                    pub fn value(&self) -> &crate::v2::units::KilometrePerHour<f32> {
+                    pub fn value(&self) -> &crate::v3::units::KilometrePerHour<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -19767,8 +19767,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::KilometrePerHour<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::KilometrePerHour<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19780,13 +19780,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::KilometrePerHour<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::KilometrePerHour<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::KilometrePerHour<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::KilometrePerHour<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19802,16 +19802,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct TimeToComplete {
-                    v: crate::v2::units::Second<u32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Second<u32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl TimeToComplete {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "The time needed for the current charging process to reach Charging.ChargeLimit. 0 if charging is complete or no charging process is active or planned.. The unit of this type is s"]
-                    pub fn value(&self) -> &crate::v2::units::Second<u32> {
+                    pub fn value(&self) -> &crate::v3::units::Second<u32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -19821,8 +19821,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Second<u32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Second<u32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -19834,13 +19834,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Second<u32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Second<u32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Second<u32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Second<u32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -19861,10 +19861,10 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Mode {
                         v: String,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Mode {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -19880,7 +19880,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: String,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -19898,7 +19898,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: String,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -19915,10 +19915,10 @@ pub mod vehicle {
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Time {
                         v: String,
-                        timestamp: crate::v2::Timestamp,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Time {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
@@ -19934,7 +19934,7 @@ pub mod vehicle {
                         pub fn set(
                             &mut self,
                             value: String,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -19952,7 +19952,7 @@ pub mod vehicle {
                         #[doc = r" create a new instance"]
                         pub fn new(
                             value: String,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -19973,16 +19973,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct DC {
-                        v: crate::v2::units::Volt<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Volt<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl DC {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Current DC charging voltage at charging inlet.. The unit of this type is V"]
-                        pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Volt<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -19992,8 +19992,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Volt<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Volt<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20005,13 +20005,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Volt<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Volt<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20027,16 +20027,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Phase1 {
-                        v: crate::v2::units::Volt<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Volt<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Phase1 {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Current AC charging voltage (rms) at inlet for Phase 1.. The unit of this type is V"]
-                        pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Volt<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -20046,8 +20046,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Volt<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Volt<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20059,13 +20059,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Volt<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Volt<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20081,16 +20081,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Phase2 {
-                        v: crate::v2::units::Volt<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Volt<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Phase2 {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Current AC charging voltage (rms) at inlet for Phase 2.. The unit of this type is V"]
-                        pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Volt<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -20100,8 +20100,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Volt<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Volt<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20113,13 +20113,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Volt<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Volt<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20135,16 +20135,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Phase3 {
-                        v: crate::v2::units::Volt<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Volt<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Phase3 {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Current AC charging voltage (rms) at inlet for Phase 3.. The unit of this type is V"]
-                        pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Volt<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -20154,8 +20154,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Volt<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Volt<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20167,13 +20167,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Volt<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Volt<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Volt<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20194,16 +20194,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct DC {
-                        v: crate::v2::units::Amp<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Amp<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl DC {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Current DC charging current at inlet. Negative if returning energy to grid.. The unit of this type is A"]
-                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Amp<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -20213,8 +20213,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Amp<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20226,13 +20226,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Amp<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20248,16 +20248,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Phase1 {
-                        v: crate::v2::units::Amp<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Amp<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Phase1 {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Current AC charging current (rms) at inlet for Phase 1. Negative if returning energy to grid.. The unit of this type is A"]
-                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Amp<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -20267,8 +20267,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Amp<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20280,13 +20280,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Amp<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20302,16 +20302,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Phase2 {
-                        v: crate::v2::units::Amp<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Amp<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Phase2 {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Current AC charging current (rms) at inlet for Phase 2. Negative if returning energy to grid.. The unit of this type is A"]
-                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Amp<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -20321,8 +20321,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Amp<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20334,13 +20334,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Amp<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20356,16 +20356,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Phase3 {
-                        v: crate::v2::units::Amp<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Amp<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Phase3 {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Current AC charging current (rms) at inlet for Phase 3. Negative if returning energy to grid.. The unit of this type is A"]
-                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Amp<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -20375,8 +20375,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Amp<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20388,13 +20388,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Amp<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20415,16 +20415,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct DC {
-                        v: crate::v2::units::Amp<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Amp<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl DC {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Maximum DC charging current at inlet that can be accepted by the system.. The unit of this type is A"]
-                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Amp<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -20434,8 +20434,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Amp<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20447,13 +20447,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Amp<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20469,16 +20469,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Phase1 {
-                        v: crate::v2::units::Amp<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Amp<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Phase1 {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Maximum AC charging current (rms) at inlet for Phase 1 that can be accepted by the system.. The unit of this type is A"]
-                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Amp<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -20488,8 +20488,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Amp<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20501,13 +20501,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Amp<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20523,16 +20523,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Phase2 {
-                        v: crate::v2::units::Amp<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Amp<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Phase2 {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Maximum AC charging current (rms) at inlet for Phase 2 that can be accepted by the system.. The unit of this type is A"]
-                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Amp<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -20542,8 +20542,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Amp<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20555,13 +20555,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Amp<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20577,16 +20577,16 @@ pub mod vehicle {
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Phase3 {
-                        v: crate::v2::units::Amp<f32>,
-                        timestamp: crate::v2::Timestamp,
+                        v: crate::v3::units::Amp<f32>,
+                        timestamp: crate::v3::Timestamp,
                     }
                     impl Phase3 {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        pub fn timestamp(&self) -> &crate::v3::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
                         #[doc = "Maximum AC charging current (rms) at inlet for Phase 3 that can be accepted by the system.. The unit of this type is A"]
-                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                        pub fn value(&self) -> &crate::v3::units::Amp<f32> {
                             &self.v
                         }
                         #[doc = r" Set the"]
@@ -20596,8 +20596,8 @@ pub mod vehicle {
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Amp<f32>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v3::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
                             self.v = value;
@@ -20609,13 +20609,13 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                        const fn bounds_check(_v: &crate::v3::units::Amp<f32>) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Amp<f32>,
-                            timestamp: Option<crate::v2::Timestamp>,
+                            value: crate::v3::units::Amp<f32>,
+                            timestamp: Option<crate::v3::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
                                 Some(Self {
@@ -20637,16 +20637,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Current {
-                    v: crate::v2::units::Percent<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Current {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.. The unit of this type is percent"]
-                    pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -20656,8 +20656,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -20668,13 +20668,13 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                         v.0 <= 100.0f32 && v.0 >= 0f32
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -20690,16 +20690,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Displayed {
-                    v: crate::v2::units::Percent<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Displayed {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "State of charge displayed to the customer.. The unit of this type is percent"]
-                    pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -20709,8 +20709,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -20721,13 +20721,13 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                         v.0 <= 100.0f32 && v.0 >= 0f32
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -20748,16 +20748,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Average {
-                    v: crate::v2::units::Celsius<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Celsius<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Average {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Current average temperature of the battery cells.. The unit of this type is celsius"]
-                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -20767,8 +20767,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -20780,13 +20780,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -20802,16 +20802,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Min {
-                    v: crate::v2::units::Celsius<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Celsius<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Min {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Current minimum temperature of the battery cells, i.e. temperature of the coldest cell.. The unit of this type is celsius"]
-                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -20821,8 +20821,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -20834,13 +20834,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -20856,16 +20856,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Max {
-                    v: crate::v2::units::Celsius<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Celsius<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Max {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Current maximum temperature of the battery cells, i.e. temperature of the hottest cell.. The unit of this type is celsius"]
-                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -20875,8 +20875,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -20888,13 +20888,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -20953,12 +20953,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct MaxPower {
-                v: crate::v2::units::Kilowatt<u16>,
+                v: crate::v3::units::Kilowatt<u16>,
             }
             impl MaxPower {
                 #[doc = r" Get the "]
                 #[doc = "Peak power, in kilowatts, that motor(s) can generate.. The unit of this type is kW"]
-                pub fn value(&self) -> &crate::v2::units::Kilowatt<u16> {
+                pub fn value(&self) -> &crate::v3::units::Kilowatt<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -20966,7 +20966,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::Kilowatt<u16>) {
+                pub fn set(&mut self, value: crate::v3::units::Kilowatt<u16>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -20974,11 +20974,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Kilowatt<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Kilowatt<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::Kilowatt<u16>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::Kilowatt<u16>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -20990,12 +20990,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct MaxTorque {
-                v: crate::v2::units::NewtonMetre<u16>,
+                v: crate::v3::units::NewtonMetre<u16>,
             }
             impl MaxTorque {
                 #[doc = r" Get the "]
                 #[doc = "Peak power, in newton meter, that the motor(s) can generate.. The unit of this type is Nm"]
-                pub fn value(&self) -> &crate::v2::units::NewtonMetre<u16> {
+                pub fn value(&self) -> &crate::v3::units::NewtonMetre<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -21003,7 +21003,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::NewtonMetre<u16>) {
+                pub fn set(&mut self, value: crate::v3::units::NewtonMetre<u16>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -21011,11 +21011,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::NewtonMetre<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::NewtonMetre<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::NewtonMetre<u16>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::NewtonMetre<u16>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -21027,12 +21027,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct MaxRegenPower {
-                v: crate::v2::units::Kilowatt<u16>,
+                v: crate::v3::units::Kilowatt<u16>,
             }
             impl MaxRegenPower {
                 #[doc = r" Get the "]
                 #[doc = "Peak regen/brake power, in kilowatts, that motor(s) can generate.. The unit of this type is kW"]
-                pub fn value(&self) -> &crate::v2::units::Kilowatt<u16> {
+                pub fn value(&self) -> &crate::v3::units::Kilowatt<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -21040,7 +21040,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::Kilowatt<u16>) {
+                pub fn set(&mut self, value: crate::v3::units::Kilowatt<u16>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -21048,11 +21048,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Kilowatt<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Kilowatt<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::Kilowatt<u16>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::Kilowatt<u16>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -21064,12 +21064,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct MaxRegenTorque {
-                v: crate::v2::units::NewtonMetre<u16>,
+                v: crate::v3::units::NewtonMetre<u16>,
             }
             impl MaxRegenTorque {
                 #[doc = r" Get the "]
                 #[doc = "Peak regen/brake torque, in newton meter, that the motor(s) can generate.. The unit of this type is Nm"]
-                pub fn value(&self) -> &crate::v2::units::NewtonMetre<u16> {
+                pub fn value(&self) -> &crate::v3::units::NewtonMetre<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -21077,7 +21077,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::NewtonMetre<u16>) {
+                pub fn set(&mut self, value: crate::v3::units::NewtonMetre<u16>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -21085,11 +21085,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::NewtonMetre<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::NewtonMetre<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::NewtonMetre<u16>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::NewtonMetre<u16>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -21101,16 +21101,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Speed {
-                v: crate::v2::units::RPM<i32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::RPM<i32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Speed {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.. The unit of this type is rpm"]
-                pub fn value(&self) -> &crate::v2::units::RPM<i32> {
+                pub fn value(&self) -> &crate::v3::units::RPM<i32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -21120,8 +21120,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::RPM<i32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::RPM<i32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -21133,13 +21133,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::RPM<i32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::RPM<i32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::RPM<i32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::RPM<i32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -21155,16 +21155,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Temperature {
-                v: crate::v2::units::Celsius<i16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Celsius<i16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Temperature {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Motor temperature.. The unit of this type is celsius"]
-                pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
+                pub fn value(&self) -> &crate::v3::units::Celsius<i16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -21174,8 +21174,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Celsius<i16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<i16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -21187,13 +21187,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Celsius<i16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Celsius<i16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Celsius<i16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<i16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -21209,16 +21209,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct CoolantTemperature {
-                v: crate::v2::units::Celsius<i16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Celsius<i16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl CoolantTemperature {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Motor coolant temperature (if applicable).. The unit of this type is celsius"]
-                pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
+                pub fn value(&self) -> &crate::v3::units::Celsius<i16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -21228,8 +21228,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Celsius<i16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<i16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -21241,13 +21241,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Celsius<i16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Celsius<i16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Celsius<i16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<i16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -21263,16 +21263,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Power {
-                v: crate::v2::units::Kilowatt<i16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Kilowatt<i16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Power {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Current motor power output. Negative values indicate regen mode.. The unit of this type is kW"]
-                pub fn value(&self) -> &crate::v2::units::Kilowatt<i16> {
+                pub fn value(&self) -> &crate::v3::units::Kilowatt<i16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -21282,8 +21282,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Kilowatt<i16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Kilowatt<i16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -21295,13 +21295,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Kilowatt<i16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Kilowatt<i16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Kilowatt<i16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Kilowatt<i16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -21317,16 +21317,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Torque {
-                v: crate::v2::units::NewtonMetre<i16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::NewtonMetre<i16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Torque {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Current motor torque. Negative values indicate regen mode.. The unit of this type is Nm"]
-                pub fn value(&self) -> &crate::v2::units::NewtonMetre<i16> {
+                pub fn value(&self) -> &crate::v3::units::NewtonMetre<i16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -21336,8 +21336,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::NewtonMetre<i16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::NewtonMetre<i16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -21349,13 +21349,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::NewtonMetre<i16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::NewtonMetre<i16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::NewtonMetre<i16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::NewtonMetre<i16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -21487,16 +21487,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct TravelledDistance {
-                v: crate::v2::units::Kilometre<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Kilometre<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl TravelledDistance {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Odometer reading, total distance travelled during the lifetime of the transmission.. The unit of this type is km"]
-                pub fn value(&self) -> &crate::v2::units::Kilometre<f32> {
+                pub fn value(&self) -> &crate::v3::units::Kilometre<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -21506,8 +21506,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Kilometre<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Kilometre<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -21519,13 +21519,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Kilometre<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Kilometre<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Kilometre<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Kilometre<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -21542,10 +21542,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct CurrentGear {
                 v: i8,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl CurrentGear {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -21558,7 +21558,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: i8, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: i8, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -21573,7 +21573,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: i8, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: i8, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -21589,10 +21589,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct SelectedGear {
                 v: i8,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl SelectedGear {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -21605,7 +21605,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: i8, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: i8, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -21620,7 +21620,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: i8, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: i8, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -21636,10 +21636,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsParkLockEngaged {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsParkLockEngaged {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -21652,7 +21652,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -21667,7 +21667,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -21683,10 +21683,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsLowRangeEngaged {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsLowRangeEngaged {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -21699,7 +21699,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -21714,7 +21714,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -21730,10 +21730,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsElectricalPowertrainEngaged {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsElectricalPowertrainEngaged {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -21746,7 +21746,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -21761,7 +21761,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -21777,10 +21777,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct PerformanceMode {
                 v: String,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl PerformanceMode {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -21796,7 +21796,7 @@ pub mod vehicle {
                 pub fn set(
                     &mut self,
                     value: String,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -21812,7 +21812,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -21828,10 +21828,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct GearChangeMode {
                 v: String,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl GearChangeMode {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -21847,7 +21847,7 @@ pub mod vehicle {
                 pub fn set(
                     &mut self,
                     value: String,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -21863,7 +21863,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -21878,16 +21878,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Temperature {
-                v: crate::v2::units::Celsius<i16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Celsius<i16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Temperature {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "The current gearbox temperature.. The unit of this type is celsius"]
-                pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
+                pub fn value(&self) -> &crate::v3::units::Celsius<i16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -21897,8 +21897,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Celsius<i16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<i16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -21910,13 +21910,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Celsius<i16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Celsius<i16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Celsius<i16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<i16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -21932,16 +21932,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct ClutchEngagement {
-                v: crate::v2::units::Percent<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl ClutchEngagement {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Clutch engagement. 0% = Clutch fully disengaged. 100% = Clutch fully engaged.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -21951,8 +21951,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -21963,13 +21963,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                     v.0 <= 100f32 && v.0 >= 0f32
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -21985,16 +21985,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct ClutchWear {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl ClutchWear {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Clutch wear as a percent. 0 = no wear. 100 = worn.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22004,8 +22004,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -22016,13 +22016,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -22038,16 +22038,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct DiffLockFrontEngagement {
-                v: crate::v2::units::Percent<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl DiffLockFrontEngagement {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Front Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22057,8 +22057,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -22069,13 +22069,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                     v.0 <= 100f32 && v.0 >= 0f32
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -22091,16 +22091,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct DiffLockRearEngagement {
-                v: crate::v2::units::Percent<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl DiffLockRearEngagement {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Rear Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22110,8 +22110,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -22122,13 +22122,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                     v.0 <= 100f32 && v.0 >= 0f32
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -22144,16 +22144,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct TorqueDistribution {
-                v: crate::v2::units::Percent<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl TorqueDistribution {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Torque distribution between front and rear axle in percent. -100% = Full torque to front axle, 0% = 50:50 Front/Rear, 100% = Full torque to rear axle.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                pub fn value(&self) -> &crate::v3::units::Percent<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22163,8 +22163,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -22175,13 +22175,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<f32>) -> bool {
                     v.0 <= 100f32 && v.0 >= -100f32
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -22276,12 +22276,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct StrokeLength {
-                v: crate::v2::units::Millimetre<f32>,
+                v: crate::v3::units::Millimetre<f32>,
             }
             impl StrokeLength {
                 #[doc = r" Get the "]
                 #[doc = "Stroke length in millimetres.. The unit of this type is mm"]
-                pub fn value(&self) -> &crate::v2::units::Millimetre<f32> {
+                pub fn value(&self) -> &crate::v3::units::Millimetre<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22289,7 +22289,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::Millimetre<f32>) {
+                pub fn set(&mut self, value: crate::v3::units::Millimetre<f32>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -22297,11 +22297,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Millimetre<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Millimetre<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::Millimetre<f32>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::Millimetre<f32>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -22313,12 +22313,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Bore {
-                v: crate::v2::units::Millimetre<f32>,
+                v: crate::v3::units::Millimetre<f32>,
             }
             impl Bore {
                 #[doc = r" Get the "]
                 #[doc = "Bore in millimetres.. The unit of this type is mm"]
-                pub fn value(&self) -> &crate::v2::units::Millimetre<f32> {
+                pub fn value(&self) -> &crate::v3::units::Millimetre<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22326,7 +22326,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::Millimetre<f32>) {
+                pub fn set(&mut self, value: crate::v3::units::Millimetre<f32>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -22334,11 +22334,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Millimetre<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Millimetre<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::Millimetre<f32>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::Millimetre<f32>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -22498,12 +22498,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct EngineOilCapacity {
-                v: crate::v2::units::Litre<f32>,
+                v: crate::v3::units::Litre<f32>,
             }
             impl EngineOilCapacity {
                 #[doc = r" Get the "]
                 #[doc = "Engine oil capacity in liters.. The unit of this type is l"]
-                pub fn value(&self) -> &crate::v2::units::Litre<f32> {
+                pub fn value(&self) -> &crate::v3::units::Litre<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22511,7 +22511,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::Litre<f32>) {
+                pub fn set(&mut self, value: crate::v3::units::Litre<f32>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -22519,11 +22519,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Litre<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Litre<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::Litre<f32>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::Litre<f32>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -22535,12 +22535,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct EngineCoolantCapacity {
-                v: crate::v2::units::Litre<f32>,
+                v: crate::v3::units::Litre<f32>,
             }
             impl EngineCoolantCapacity {
                 #[doc = r" Get the "]
                 #[doc = "Engine coolant capacity in liters.. The unit of this type is l"]
-                pub fn value(&self) -> &crate::v2::units::Litre<f32> {
+                pub fn value(&self) -> &crate::v3::units::Litre<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22548,7 +22548,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::Litre<f32>) {
+                pub fn set(&mut self, value: crate::v3::units::Litre<f32>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -22556,11 +22556,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Litre<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Litre<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::Litre<f32>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::Litre<f32>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -22572,12 +22572,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct MaxPower {
-                v: crate::v2::units::Kilowatt<u16>,
+                v: crate::v3::units::Kilowatt<u16>,
             }
             impl MaxPower {
                 #[doc = r" Get the "]
                 #[doc = "Peak power, in kilowatts, that engine can generate.. The unit of this type is kW"]
-                pub fn value(&self) -> &crate::v2::units::Kilowatt<u16> {
+                pub fn value(&self) -> &crate::v3::units::Kilowatt<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22585,7 +22585,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::Kilowatt<u16>) {
+                pub fn set(&mut self, value: crate::v3::units::Kilowatt<u16>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -22593,11 +22593,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Kilowatt<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Kilowatt<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::Kilowatt<u16>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::Kilowatt<u16>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -22609,12 +22609,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct MaxTorque {
-                v: crate::v2::units::NewtonMetre<u16>,
+                v: crate::v3::units::NewtonMetre<u16>,
             }
             impl MaxTorque {
                 #[doc = r" Get the "]
                 #[doc = "Peak torque, in newton meter, that the engine can generate.. The unit of this type is Nm"]
-                pub fn value(&self) -> &crate::v2::units::NewtonMetre<u16> {
+                pub fn value(&self) -> &crate::v3::units::NewtonMetre<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22622,7 +22622,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::NewtonMetre<u16>) {
+                pub fn set(&mut self, value: crate::v3::units::NewtonMetre<u16>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -22630,11 +22630,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::NewtonMetre<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::NewtonMetre<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::NewtonMetre<u16>) -> Option<Self> {
+                pub fn new(value: crate::v3::units::NewtonMetre<u16>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -22684,10 +22684,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct EngineOilLevel {
                 v: String,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl EngineOilLevel {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -22703,7 +22703,7 @@ pub mod vehicle {
                 pub fn set(
                     &mut self,
                     value: String,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -22719,7 +22719,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -22734,16 +22734,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct OilLifeRemaining {
-                v: crate::v2::units::Second<i32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Second<i32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl OilLifeRemaining {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.. The unit of this type is s"]
-                pub fn value(&self) -> &crate::v2::units::Second<i32> {
+                pub fn value(&self) -> &crate::v3::units::Second<i32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22753,8 +22753,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Second<i32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Second<i32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -22766,13 +22766,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Second<i32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Second<i32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Second<i32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Second<i32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -22789,10 +22789,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsRunning {
                 v: bool,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl IsRunning {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -22805,7 +22805,7 @@ pub mod vehicle {
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                     if let Some(ts) = maybe_timestamp {
@@ -22820,7 +22820,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -22835,16 +22835,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Speed {
-                v: crate::v2::units::RPM<u16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::RPM<u16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Speed {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Engine speed measured as rotations per minute.. The unit of this type is rpm"]
-                pub fn value(&self) -> &crate::v2::units::RPM<u16> {
+                pub fn value(&self) -> &crate::v3::units::RPM<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22854,8 +22854,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::RPM<u16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::RPM<u16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -22867,13 +22867,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::RPM<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::RPM<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::RPM<u16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::RPM<u16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -22889,16 +22889,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct EngineHours {
-                v: crate::v2::units::Hour<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Hour<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl EngineHours {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Accumulated time during engine lifetime with 'engine speed (rpm) > 0'.. The unit of this type is h"]
-                pub fn value(&self) -> &crate::v2::units::Hour<f32> {
+                pub fn value(&self) -> &crate::v3::units::Hour<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22908,8 +22908,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Hour<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Hour<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -22921,13 +22921,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Hour<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Hour<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Hour<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Hour<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -22943,16 +22943,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IdleHours {
-                v: crate::v2::units::Hour<f32>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Hour<f32>,
+                timestamp: crate::v3::Timestamp,
             }
             impl IdleHours {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Accumulated idling time during engine lifetime. Definition of idling is not standardized.. The unit of this type is h"]
-                pub fn value(&self) -> &crate::v2::units::Hour<f32> {
+                pub fn value(&self) -> &crate::v3::units::Hour<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -22962,8 +22962,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Hour<f32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Hour<f32>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -22975,13 +22975,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Hour<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Hour<f32>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Hour<f32>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Hour<f32>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -22997,16 +22997,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct ECT {
-                v: crate::v2::units::Celsius<i16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Celsius<i16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl ECT {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Engine coolant temperature.. The unit of this type is celsius"]
-                pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
+                pub fn value(&self) -> &crate::v3::units::Celsius<i16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -23016,8 +23016,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Celsius<i16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<i16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -23029,13 +23029,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Celsius<i16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Celsius<i16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Celsius<i16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<i16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -23051,16 +23051,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct EOT {
-                v: crate::v2::units::Celsius<i16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Celsius<i16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl EOT {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Engine oil temperature.. The unit of this type is celsius"]
-                pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
+                pub fn value(&self) -> &crate::v3::units::Celsius<i16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -23070,8 +23070,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Celsius<i16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<i16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -23083,13 +23083,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Celsius<i16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Celsius<i16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Celsius<i16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Celsius<i16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -23105,16 +23105,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct MAP {
-                v: crate::v2::units::KiloPascal<u16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::KiloPascal<u16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl MAP {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Manifold absolute pressure possibly boosted using forced induction.. The unit of this type is kPa"]
-                pub fn value(&self) -> &crate::v2::units::KiloPascal<u16> {
+                pub fn value(&self) -> &crate::v3::units::KiloPascal<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -23124,8 +23124,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::KiloPascal<u16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KiloPascal<u16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -23137,13 +23137,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::KiloPascal<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::KiloPascal<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::KiloPascal<u16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KiloPascal<u16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -23159,16 +23159,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct MAF {
-                v: crate::v2::units::GramPerSec<u16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::GramPerSec<u16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl MAF {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Grams of air drawn into engine per second.. The unit of this type is g/s"]
-                pub fn value(&self) -> &crate::v2::units::GramPerSec<u16> {
+                pub fn value(&self) -> &crate::v3::units::GramPerSec<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -23178,8 +23178,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::GramPerSec<u16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::GramPerSec<u16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -23191,13 +23191,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::GramPerSec<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::GramPerSec<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::GramPerSec<u16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::GramPerSec<u16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -23213,16 +23213,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct TPS {
-                v: crate::v2::units::Percent<u8>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Percent<u8>,
+                timestamp: crate::v3::Timestamp,
             }
             impl TPS {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Current throttle position.. The unit of this type is percent"]
-                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -23232,8 +23232,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Percent<u8>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -23244,13 +23244,13 @@ pub mod vehicle {
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. Return true if the value is"]
                 #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                     v.0 <= 100u8 && true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Percent<u8>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Percent<u8>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -23266,16 +23266,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct EOP {
-                v: crate::v2::units::KiloPascal<u16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::KiloPascal<u16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl EOP {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Engine oil pressure.. The unit of this type is kPa"]
-                pub fn value(&self) -> &crate::v2::units::KiloPascal<u16> {
+                pub fn value(&self) -> &crate::v3::units::KiloPascal<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -23285,8 +23285,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::KiloPascal<u16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KiloPascal<u16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -23298,13 +23298,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::KiloPascal<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::KiloPascal<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::KiloPascal<u16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::KiloPascal<u16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -23320,16 +23320,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Power {
-                v: crate::v2::units::Kilowatt<u16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::Kilowatt<u16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Power {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Current engine power output. Shall be reported as 0 during engine breaking.. The unit of this type is kW"]
-                pub fn value(&self) -> &crate::v2::units::Kilowatt<u16> {
+                pub fn value(&self) -> &crate::v3::units::Kilowatt<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -23339,8 +23339,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Kilowatt<u16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Kilowatt<u16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -23352,13 +23352,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Kilowatt<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::Kilowatt<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Kilowatt<u16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::Kilowatt<u16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -23374,16 +23374,16 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Torque {
-                v: crate::v2::units::NewtonMetre<u16>,
-                timestamp: crate::v2::Timestamp,
+                v: crate::v3::units::NewtonMetre<u16>,
+                timestamp: crate::v3::Timestamp,
             }
             impl Torque {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
                 #[doc = "Current engine torque. Shall be reported as 0 during engine breaking.. The unit of this type is Nm"]
-                pub fn value(&self) -> &crate::v2::units::NewtonMetre<u16> {
+                pub fn value(&self) -> &crate::v3::units::NewtonMetre<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -23393,8 +23393,8 @@ pub mod vehicle {
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::NewtonMetre<u16>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::NewtonMetre<u16>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -23406,13 +23406,13 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::NewtonMetre<u16>) -> bool {
+                const fn bounds_check(_v: &crate::v3::units::NewtonMetre<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::NewtonMetre<u16>,
-                    timestamp: Option<crate::v2::Timestamp>,
+                    value: crate::v3::units::NewtonMetre<u16>,
+                    timestamp: Option<crate::v3::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
@@ -23432,16 +23432,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct InletTemperature {
-                    v: crate::v2::units::Celsius<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Celsius<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl InletTemperature {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Inlet temperature of Diesel Particulate Filter.. The unit of this type is celsius"]
-                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -23451,8 +23451,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -23464,13 +23464,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -23486,16 +23486,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct OutletTemperature {
-                    v: crate::v2::units::Celsius<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Celsius<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl OutletTemperature {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Outlet temperature of Diesel Particulate Filter.. The unit of this type is celsius"]
-                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Celsius<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -23505,8 +23505,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -23518,13 +23518,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Celsius<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -23540,16 +23540,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct DeltaPressure {
-                    v: crate::v2::units::Pascal<f32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Pascal<f32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl DeltaPressure {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Delta Pressure of Diesel Particulate Filter.. The unit of this type is Pa"]
-                    pub fn value(&self) -> &crate::v2::units::Pascal<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Pascal<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -23559,8 +23559,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Pascal<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Pascal<f32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -23572,13 +23572,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Pascal<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Pascal<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Pascal<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Pascal<f32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -23599,12 +23599,12 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Capacity {
-                    v: crate::v2::units::Litre<f32>,
+                    v: crate::v3::units::Litre<f32>,
                 }
                 impl Capacity {
                     #[doc = r" Get the "]
                     #[doc = "Capacity in liters of the Diesel Exhaust Fluid Tank.. The unit of this type is l"]
-                    pub fn value(&self) -> &crate::v2::units::Litre<f32> {
+                    pub fn value(&self) -> &crate::v3::units::Litre<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -23612,7 +23612,7 @@ pub mod vehicle {
                     #[doc = r" Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
-                    pub fn set(&mut self, value: crate::v2::units::Litre<f32>) {
+                    pub fn set(&mut self, value: crate::v3::units::Litre<f32>) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
                     }
@@ -23620,11 +23620,11 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Litre<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Litre<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
-                    pub fn new(value: crate::v2::units::Litre<f32>) -> Option<Self> {
+                    pub fn new(value: crate::v3::units::Litre<f32>) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self { v: value })
                         } else {
@@ -23636,16 +23636,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Level {
-                    v: crate::v2::units::Percent<u8>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Percent<u8>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Level {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Level of the Diesel Exhaust Fluid tank as percent of capacity. 0 = empty. 100 = full.. The unit of this type is percent"]
-                    pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                    pub fn value(&self) -> &crate::v3::units::Percent<u8> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -23655,8 +23655,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<u8>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<u8>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -23667,13 +23667,13 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                    pub fn bounds_check(v: &crate::v3::units::Percent<u8>) -> bool {
                         v.0 <= 100u8 && v.0 >= 0u8
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<u8>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Percent<u8>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -23689,16 +23689,16 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Range {
-                    v: crate::v2::units::Metre<u32>,
-                    timestamp: crate::v2::Timestamp,
+                    v: crate::v3::units::Metre<u32>,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl Range {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
                     #[doc = "Remaining range in meters of the Diesel Exhaust Fluid present in the vehicle.. The unit of this type is m"]
-                    pub fn value(&self) -> &crate::v2::units::Metre<u32> {
+                    pub fn value(&self) -> &crate::v3::units::Metre<u32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -23708,8 +23708,8 @@ pub mod vehicle {
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Metre<u32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Metre<u32>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -23721,13 +23721,13 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Metre<u32>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Metre<u32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Metre<u32>,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        value: crate::v3::units::Metre<u32>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -23744,10 +23744,10 @@ pub mod vehicle {
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct IsLevelLow {
                     v: bool,
-                    timestamp: crate::v2::Timestamp,
+                    timestamp: crate::v3::Timestamp,
                 }
                 impl IsLevelLow {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    pub fn timestamp(&self) -> &crate::v3::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
@@ -23763,7 +23763,7 @@ pub mod vehicle {
                     pub fn set(
                         &mut self,
                         value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        maybe_timestamp: Option<crate::v3::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
@@ -23781,7 +23781,7 @@ pub mod vehicle {
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
+                        timestamp: Option<crate::v3::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self {
@@ -23805,10 +23805,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Timestamp {
             v: String,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl Timestamp {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -23821,7 +23821,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -23836,7 +23836,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -23852,10 +23852,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Latitude {
             v: f64,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl Latitude {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -23868,7 +23868,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: f64, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: f64, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -23882,7 +23882,7 @@ pub mod vehicle {
                 *v <= 90f64 && *v >= -90f64
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: f64, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: f64, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -23898,10 +23898,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Longitude {
             v: f64,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl Longitude {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -23914,7 +23914,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: f64, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: f64, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -23928,7 +23928,7 @@ pub mod vehicle {
                 *v <= 180f64 && *v >= -180f64
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: f64, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: f64, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -23944,10 +23944,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Heading {
             v: f64,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl Heading {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -23960,7 +23960,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: f64, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: f64, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -23974,7 +23974,7 @@ pub mod vehicle {
                 *v <= 360f64 && *v >= 0f64
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: f64, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: f64, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -23989,16 +23989,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct HorizontalAccuracy {
-            v: crate::v2::units::Metre<f64>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Metre<f64>,
+            timestamp: crate::v3::Timestamp,
         }
         impl HorizontalAccuracy {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Accuracy of the latitude and longitude coordinates.. The unit of this type is m"]
-            pub fn value(&self) -> &crate::v2::units::Metre<f64> {
+            pub fn value(&self) -> &crate::v3::units::Metre<f64> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -24008,8 +24008,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Metre<f64>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Metre<f64>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -24021,13 +24021,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Metre<f64>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Metre<f64>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Metre<f64>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Metre<f64>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -24043,16 +24043,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Altitude {
-            v: crate::v2::units::Metre<f64>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Metre<f64>,
+            timestamp: crate::v3::Timestamp,
         }
         impl Altitude {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Current altitude relative to WGS 84 reference ellipsoid, as measured at the position of GNSS receiver antenna.. The unit of this type is m"]
-            pub fn value(&self) -> &crate::v2::units::Metre<f64> {
+            pub fn value(&self) -> &crate::v3::units::Metre<f64> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -24062,8 +24062,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Metre<f64>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Metre<f64>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -24075,13 +24075,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Metre<f64>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Metre<f64>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Metre<f64>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Metre<f64>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -24097,16 +24097,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct VerticalAccuracy {
-            v: crate::v2::units::Metre<f64>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::Metre<f64>,
+            timestamp: crate::v3::Timestamp,
         }
         impl VerticalAccuracy {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Accuracy of altitude.. The unit of this type is m"]
-            pub fn value(&self) -> &crate::v2::units::Metre<f64> {
+            pub fn value(&self) -> &crate::v3::units::Metre<f64> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -24116,8 +24116,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::Metre<f64>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Metre<f64>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -24129,13 +24129,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Metre<f64>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::Metre<f64>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::Metre<f64>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::Metre<f64>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -24156,10 +24156,10 @@ pub mod vehicle {
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct FixType {
                 v: String,
-                timestamp: crate::v2::Timestamp,
+                timestamp: crate::v3::Timestamp,
             }
             impl FixType {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                pub fn timestamp(&self) -> &crate::v3::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
@@ -24175,7 +24175,7 @@ pub mod vehicle {
                 pub fn set(
                     &mut self,
                     value: String,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                    maybe_timestamp: Option<crate::v3::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
@@ -24191,7 +24191,7 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -24210,12 +24210,12 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct X {
-                    v: crate::v2::units::Millimetre<i16>,
+                    v: crate::v3::units::Millimetre<i16>,
                 }
                 impl X {
                     #[doc = r" Get the "]
                     #[doc = "Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = forward of rear axle. Negative values = backward of rear axle.. The unit of this type is mm"]
-                    pub fn value(&self) -> &crate::v2::units::Millimetre<i16> {
+                    pub fn value(&self) -> &crate::v3::units::Millimetre<i16> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -24223,7 +24223,7 @@ pub mod vehicle {
                     #[doc = r" Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
-                    pub fn set(&mut self, value: crate::v2::units::Millimetre<i16>) {
+                    pub fn set(&mut self, value: crate::v3::units::Millimetre<i16>) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
                     }
@@ -24231,11 +24231,11 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Millimetre<i16>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Millimetre<i16>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
-                    pub fn new(value: crate::v2::units::Millimetre<i16>) -> Option<Self> {
+                    pub fn new(value: crate::v3::units::Millimetre<i16>) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self { v: value })
                         } else {
@@ -24247,12 +24247,12 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Y {
-                    v: crate::v2::units::Millimetre<i16>,
+                    v: crate::v3::units::Millimetre<i16>,
                 }
                 impl Y {
                     #[doc = r" Get the "]
                     #[doc = "Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = left of origin. Negative values = right of origin. Left/Right is as seen from driver perspective, i.e. by a person looking forward.. The unit of this type is mm"]
-                    pub fn value(&self) -> &crate::v2::units::Millimetre<i16> {
+                    pub fn value(&self) -> &crate::v3::units::Millimetre<i16> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -24260,7 +24260,7 @@ pub mod vehicle {
                     #[doc = r" Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
-                    pub fn set(&mut self, value: crate::v2::units::Millimetre<i16>) {
+                    pub fn set(&mut self, value: crate::v3::units::Millimetre<i16>) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
                     }
@@ -24268,11 +24268,11 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Millimetre<i16>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Millimetre<i16>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
-                    pub fn new(value: crate::v2::units::Millimetre<i16>) -> Option<Self> {
+                    pub fn new(value: crate::v3::units::Millimetre<i16>) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self { v: value })
                         } else {
@@ -24284,12 +24284,12 @@ pub mod vehicle {
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Z {
-                    v: crate::v2::units::Millimetre<i16>,
+                    v: crate::v3::units::Millimetre<i16>,
                 }
                 impl Z {
                     #[doc = r" Get the "]
                     #[doc = "Mounting position of GNSS receiver on Z-axis. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = above center of rear axle. Negative values = below center of rear axle.. The unit of this type is mm"]
-                    pub fn value(&self) -> &crate::v2::units::Millimetre<i16> {
+                    pub fn value(&self) -> &crate::v3::units::Millimetre<i16> {
                         &self.v
                     }
                     #[doc = r" Set the"]
@@ -24297,7 +24297,7 @@ pub mod vehicle {
                     #[doc = r" Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
-                    pub fn set(&mut self, value: crate::v2::units::Millimetre<i16>) {
+                    pub fn set(&mut self, value: crate::v3::units::Millimetre<i16>) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
                     }
@@ -24305,11 +24305,11 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Millimetre<i16>) -> bool {
+                    const fn bounds_check(_v: &crate::v3::units::Millimetre<i16>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
-                    pub fn new(value: crate::v2::units::Millimetre<i16>) -> Option<Self> {
+                    pub fn new(value: crate::v3::units::Millimetre<i16>) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self { v: value })
                         } else {
@@ -24329,10 +24329,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct IsConnected {
             v: bool,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl IsConnected {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -24345,7 +24345,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -24360,7 +24360,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: bool, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -24381,10 +24381,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Roll {
             v: f32,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl Roll {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -24397,7 +24397,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -24412,7 +24412,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: f32, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -24428,10 +24428,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Pitch {
             v: f32,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl Pitch {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -24444,7 +24444,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -24459,7 +24459,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: f32, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -24475,10 +24475,10 @@ pub mod vehicle {
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Yaw {
             v: f32,
-            timestamp: crate::v2::Timestamp,
+            timestamp: crate::v3::Timestamp,
         }
         impl Yaw {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
@@ -24491,7 +24491,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v3::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -24506,7 +24506,7 @@ pub mod vehicle {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: f32, timestamp: Option<crate::v3::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -24526,16 +24526,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Longitudinal {
-            v: crate::v2::units::MeterPerSecondSq<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::MeterPerSecondSq<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl Longitudinal {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Vehicle acceleration in X (longitudinal acceleration).. The unit of this type is m/s^2"]
-            pub fn value(&self) -> &crate::v2::units::MeterPerSecondSq<f32> {
+            pub fn value(&self) -> &crate::v3::units::MeterPerSecondSq<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -24545,8 +24545,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::MeterPerSecondSq<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::MeterPerSecondSq<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -24558,13 +24558,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::MeterPerSecondSq<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::MeterPerSecondSq<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::MeterPerSecondSq<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::MeterPerSecondSq<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -24580,16 +24580,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Lateral {
-            v: crate::v2::units::MeterPerSecondSq<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::MeterPerSecondSq<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl Lateral {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Vehicle acceleration in Y (lateral acceleration).. The unit of this type is m/s^2"]
-            pub fn value(&self) -> &crate::v2::units::MeterPerSecondSq<f32> {
+            pub fn value(&self) -> &crate::v3::units::MeterPerSecondSq<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -24599,8 +24599,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::MeterPerSecondSq<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::MeterPerSecondSq<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -24612,13 +24612,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::MeterPerSecondSq<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::MeterPerSecondSq<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::MeterPerSecondSq<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::MeterPerSecondSq<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
@@ -24634,16 +24634,16 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Vertical {
-            v: crate::v2::units::MeterPerSecondSq<f32>,
-            timestamp: crate::v2::Timestamp,
+            v: crate::v3::units::MeterPerSecondSq<f32>,
+            timestamp: crate::v3::Timestamp,
         }
         impl Vertical {
-            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            pub fn timestamp(&self) -> &crate::v3::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
             #[doc = "Vehicle acceleration in Z (vertical acceleration).. The unit of this type is m/s^2"]
-            pub fn value(&self) -> &crate::v2::units::MeterPerSecondSq<f32> {
+            pub fn value(&self) -> &crate::v3::units::MeterPerSecondSq<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -24653,8 +24653,8 @@ pub mod vehicle {
             #[doc = r" of bounds."]
             pub fn set(
                 &mut self,
-                value: crate::v2::units::MeterPerSecondSq<f32>,
-                maybe_timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::MeterPerSecondSq<f32>,
+                maybe_timestamp: Option<crate::v3::Timestamp>,
             ) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
@@ -24666,13 +24666,13 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::MeterPerSecondSq<f32>) -> bool {
+            const fn bounds_check(_v: &crate::v3::units::MeterPerSecondSq<f32>) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
             pub fn new(
-                value: crate::v2::units::MeterPerSecondSq<f32>,
-                timestamp: Option<crate::v2::Timestamp>,
+                value: crate::v3::units::MeterPerSecondSq<f32>,
+                timestamp: Option<crate::v3::Timestamp>,
             ) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
