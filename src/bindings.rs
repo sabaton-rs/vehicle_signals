@@ -49,270 +49,7 @@ pub mod vehicle {
             }
         }
     }
-    #[doc = "Indicates whether the vehicle ignition is on or off.. This type has no unit defined"]
-    #[allow(non_camel_case_types)]
-    #[derive(Default, Deserialize, Serialize, Topic)]
-    pub struct IgnitionOn {
-        v: bool,
-        timestamp: crate::v2::Timestamp,
-    }
-    impl IgnitionOn {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-            &self.timestamp
-        }
-        #[doc = r" Get the "]
-        #[doc = "Indicates whether the vehicle ignition is on or off.. This type has no unit defined"]
-        pub fn value(&self) -> &bool {
-            &self.v
-        }
-        #[doc = r" Set the"]
-        #[doc = "Indicates whether the vehicle ignition is on or off.. This type has no unit defined"]
-        #[doc = r" . Ensure that the value is within bounds as per the"]
-        #[doc = r" specification. This function will panic in case the value is out"]
-        #[doc = r" of bounds."]
-        pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
-            assert!(Self::bounds_check(&value));
-            self.v = value;
-            if let Some(ts) = maybe_timestamp {
-                self.timestamp = ts;
-            }
-        }
-        #[doc = r"check if the given value is within the limits defined"]
-        #[doc = r"in the specification. This particular type has not"]
-        #[doc = r"specified the min or max limits so the function just"]
-        #[doc = r" returns true"]
-        const fn bounds_check(_v: &bool) -> bool {
-            true
-        }
-        #[doc = r" create a new instance"]
-        pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
-            if Self::bounds_check(&value) {
-                Some(Self {
-                    v: value,
-                    timestamp: timestamp.unwrap_or_default(),
-                })
-            } else {
-                None
-            }
-        }
-    }
-    #[doc = "Accumulated ignition on time in seconds.. The unit of this type is s"]
-    #[allow(non_camel_case_types)]
-    #[derive(Default, Deserialize, Serialize, Topic)]
-    pub struct IgnitionOnTime {
-        v: crate::v2::units::Second<u32>,
-        timestamp: crate::v2::Timestamp,
-    }
-    impl IgnitionOnTime {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-            &self.timestamp
-        }
-        #[doc = r" Get the "]
-        #[doc = "Accumulated ignition on time in seconds.. The unit of this type is s"]
-        pub fn value(&self) -> &crate::v2::units::Second<u32> {
-            &self.v
-        }
-        #[doc = r" Set the"]
-        #[doc = "Accumulated ignition on time in seconds.. The unit of this type is s"]
-        #[doc = r" . Ensure that the value is within bounds as per the"]
-        #[doc = r" specification. This function will panic in case the value is out"]
-        #[doc = r" of bounds."]
-        pub fn set(
-            &mut self,
-            value: crate::v2::units::Second<u32>,
-            maybe_timestamp: Option<crate::v2::Timestamp>,
-        ) {
-            assert!(Self::bounds_check(&value));
-            self.v = value;
-            if let Some(ts) = maybe_timestamp {
-                self.timestamp = ts;
-            }
-        }
-        #[doc = r"check if the given value is within the limits defined"]
-        #[doc = r"in the specification. This particular type has not"]
-        #[doc = r"specified the min or max limits so the function just"]
-        #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Second<u32>) -> bool {
-            true
-        }
-        #[doc = r" create a new instance"]
-        pub fn new(
-            value: crate::v2::units::Second<u32>,
-            timestamp: Option<crate::v2::Timestamp>,
-        ) -> Option<Self> {
-            if Self::bounds_check(&value) {
-                Some(Self {
-                    v: value,
-                    timestamp: timestamp.unwrap_or_default(),
-                })
-            } else {
-                None
-            }
-        }
-    }
-    #[doc = "Accumulated ignition off time in seconds.. The unit of this type is s"]
-    #[allow(non_camel_case_types)]
-    #[derive(Default, Deserialize, Serialize, Topic)]
-    pub struct IgnitionOffTime {
-        v: crate::v2::units::Second<u32>,
-        timestamp: crate::v2::Timestamp,
-    }
-    impl IgnitionOffTime {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-            &self.timestamp
-        }
-        #[doc = r" Get the "]
-        #[doc = "Accumulated ignition off time in seconds.. The unit of this type is s"]
-        pub fn value(&self) -> &crate::v2::units::Second<u32> {
-            &self.v
-        }
-        #[doc = r" Set the"]
-        #[doc = "Accumulated ignition off time in seconds.. The unit of this type is s"]
-        #[doc = r" . Ensure that the value is within bounds as per the"]
-        #[doc = r" specification. This function will panic in case the value is out"]
-        #[doc = r" of bounds."]
-        pub fn set(
-            &mut self,
-            value: crate::v2::units::Second<u32>,
-            maybe_timestamp: Option<crate::v2::Timestamp>,
-        ) {
-            assert!(Self::bounds_check(&value));
-            self.v = value;
-            if let Some(ts) = maybe_timestamp {
-                self.timestamp = ts;
-            }
-        }
-        #[doc = r"check if the given value is within the limits defined"]
-        #[doc = r"in the specification. This particular type has not"]
-        #[doc = r"specified the min or max limits so the function just"]
-        #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Second<u32>) -> bool {
-            true
-        }
-        #[doc = r" create a new instance"]
-        pub fn new(
-            value: crate::v2::units::Second<u32>,
-            timestamp: Option<crate::v2::Timestamp>,
-        ) -> Option<Self> {
-            if Self::bounds_check(&value) {
-                Some(Self {
-                    v: value,
-                    timestamp: timestamp.unwrap_or_default(),
-                })
-            } else {
-                None
-            }
-        }
-    }
-    #[doc = "Accumulated drive time in seconds.. The unit of this type is s"]
-    #[allow(non_camel_case_types)]
-    #[derive(Default, Deserialize, Serialize, Topic)]
-    pub struct DriveTime {
-        v: crate::v2::units::Second<u32>,
-        timestamp: crate::v2::Timestamp,
-    }
-    impl DriveTime {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-            &self.timestamp
-        }
-        #[doc = r" Get the "]
-        #[doc = "Accumulated drive time in seconds.. The unit of this type is s"]
-        pub fn value(&self) -> &crate::v2::units::Second<u32> {
-            &self.v
-        }
-        #[doc = r" Set the"]
-        #[doc = "Accumulated drive time in seconds.. The unit of this type is s"]
-        #[doc = r" . Ensure that the value is within bounds as per the"]
-        #[doc = r" specification. This function will panic in case the value is out"]
-        #[doc = r" of bounds."]
-        pub fn set(
-            &mut self,
-            value: crate::v2::units::Second<u32>,
-            maybe_timestamp: Option<crate::v2::Timestamp>,
-        ) {
-            assert!(Self::bounds_check(&value));
-            self.v = value;
-            if let Some(ts) = maybe_timestamp {
-                self.timestamp = ts;
-            }
-        }
-        #[doc = r"check if the given value is within the limits defined"]
-        #[doc = r"in the specification. This particular type has not"]
-        #[doc = r"specified the min or max limits so the function just"]
-        #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Second<u32>) -> bool {
-            true
-        }
-        #[doc = r" create a new instance"]
-        pub fn new(
-            value: crate::v2::units::Second<u32>,
-            timestamp: Option<crate::v2::Timestamp>,
-        ) -> Option<Self> {
-            if Self::bounds_check(&value) {
-                Some(Self {
-                    v: value,
-                    timestamp: timestamp.unwrap_or_default(),
-                })
-            } else {
-                None
-            }
-        }
-    }
-    #[doc = "Accumulated idle time in seconds.. The unit of this type is s"]
-    #[allow(non_camel_case_types)]
-    #[derive(Default, Deserialize, Serialize, Topic)]
-    pub struct IdleTime {
-        v: crate::v2::units::Second<u32>,
-        timestamp: crate::v2::Timestamp,
-    }
-    impl IdleTime {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-            &self.timestamp
-        }
-        #[doc = r" Get the "]
-        #[doc = "Accumulated idle time in seconds.. The unit of this type is s"]
-        pub fn value(&self) -> &crate::v2::units::Second<u32> {
-            &self.v
-        }
-        #[doc = r" Set the"]
-        #[doc = "Accumulated idle time in seconds.. The unit of this type is s"]
-        #[doc = r" . Ensure that the value is within bounds as per the"]
-        #[doc = r" specification. This function will panic in case the value is out"]
-        #[doc = r" of bounds."]
-        pub fn set(
-            &mut self,
-            value: crate::v2::units::Second<u32>,
-            maybe_timestamp: Option<crate::v2::Timestamp>,
-        ) {
-            assert!(Self::bounds_check(&value));
-            self.v = value;
-            if let Some(ts) = maybe_timestamp {
-                self.timestamp = ts;
-            }
-        }
-        #[doc = r"check if the given value is within the limits defined"]
-        #[doc = r"in the specification. This particular type has not"]
-        #[doc = r"specified the min or max limits so the function just"]
-        #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Second<u32>) -> bool {
-            true
-        }
-        #[doc = r" create a new instance"]
-        pub fn new(
-            value: crate::v2::units::Second<u32>,
-            timestamp: Option<crate::v2::Timestamp>,
-        ) -> Option<Self> {
-            if Self::bounds_check(&value) {
-                Some(Self {
-                    v: value,
-                    timestamp: timestamp.unwrap_or_default(),
-                })
-            } else {
-                None
-            }
-        }
-    }
-    #[doc = "Vehicle speed. The unit of this type is km/h"]
+    #[doc = "Vehicle speed.. The unit of this type is km/h"]
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct Speed {
@@ -324,12 +61,12 @@ pub mod vehicle {
             &self.timestamp
         }
         #[doc = r" Get the "]
-        #[doc = "Vehicle speed. The unit of this type is km/h"]
+        #[doc = "Vehicle speed.. The unit of this type is km/h"]
         pub fn value(&self) -> &crate::v2::units::KilometrePerHour<f32> {
             &self.v
         }
         #[doc = r" Set the"]
-        #[doc = "Vehicle speed. The unit of this type is km/h"]
+        #[doc = "Vehicle speed.. The unit of this type is km/h"]
         #[doc = r" . Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
@@ -420,7 +157,7 @@ pub mod vehicle {
             }
         }
     }
-    #[doc = "Current trip meter reading. The unit of this type is km"]
+    #[doc = "Current trip meter reading.. The unit of this type is km"]
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct TripMeterReading {
@@ -432,12 +169,12 @@ pub mod vehicle {
             &self.timestamp
         }
         #[doc = r" Get the "]
-        #[doc = "Current trip meter reading. The unit of this type is km"]
+        #[doc = "Current trip meter reading.. The unit of this type is km"]
         pub fn value(&self) -> &crate::v2::units::Kilometre<f32> {
             &self.v
         }
         #[doc = r" Set the"]
-        #[doc = "Current trip meter reading. The unit of this type is km"]
+        #[doc = "Current trip meter reading.. The unit of this type is km"]
         #[doc = r" . Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
@@ -474,78 +211,24 @@ pub mod vehicle {
             }
         }
     }
-    #[doc = "Ambient air temperature outside the vehicle.. The unit of this type is celsius"]
+    #[doc = "Vehicle breakdown or any similar event causing vehicle to stop on the road, that might pose a risk to other road users. True = Vehicle broken down on the road, due to e.g. engine problems, flat tire, out of gas, brake problems. False = Vehicle not broken down.. This type has no unit defined"]
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
-    pub struct AmbientAirTemperature {
-        v: crate::v2::units::Celsius<f32>,
-        timestamp: crate::v2::Timestamp,
-    }
-    impl AmbientAirTemperature {
-        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-            &self.timestamp
-        }
-        #[doc = r" Get the "]
-        #[doc = "Ambient air temperature outside the vehicle.. The unit of this type is celsius"]
-        pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
-            &self.v
-        }
-        #[doc = r" Set the"]
-        #[doc = "Ambient air temperature outside the vehicle.. The unit of this type is celsius"]
-        #[doc = r" . Ensure that the value is within bounds as per the"]
-        #[doc = r" specification. This function will panic in case the value is out"]
-        #[doc = r" of bounds."]
-        pub fn set(
-            &mut self,
-            value: crate::v2::units::Celsius<f32>,
-            maybe_timestamp: Option<crate::v2::Timestamp>,
-        ) {
-            assert!(Self::bounds_check(&value));
-            self.v = value;
-            if let Some(ts) = maybe_timestamp {
-                self.timestamp = ts;
-            }
-        }
-        #[doc = r"check if the given value is within the limits defined"]
-        #[doc = r"in the specification. This particular type has not"]
-        #[doc = r"specified the min or max limits so the function just"]
-        #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
-            true
-        }
-        #[doc = r" create a new instance"]
-        pub fn new(
-            value: crate::v2::units::Celsius<f32>,
-            timestamp: Option<crate::v2::Timestamp>,
-        ) -> Option<Self> {
-            if Self::bounds_check(&value) {
-                Some(Self {
-                    v: value,
-                    timestamp: timestamp.unwrap_or_default(),
-                })
-            } else {
-                None
-            }
-        }
-    }
-    #[doc = "Indicates whether the vehicle is stationary or moving. This type has no unit defined"]
-    #[allow(non_camel_case_types)]
-    #[derive(Default, Deserialize, Serialize, Topic)]
-    pub struct IsMoving {
+    pub struct IsBrokenDown {
         v: bool,
         timestamp: crate::v2::Timestamp,
     }
-    impl IsMoving {
+    impl IsBrokenDown {
         pub fn timestamp(&self) -> &crate::v2::Timestamp {
             &self.timestamp
         }
         #[doc = r" Get the "]
-        #[doc = "Indicates whether the vehicle is stationary or moving. This type has no unit defined"]
+        #[doc = "Vehicle breakdown or any similar event causing vehicle to stop on the road, that might pose a risk to other road users. True = Vehicle broken down on the road, due to e.g. engine problems, flat tire, out of gas, brake problems. False = Vehicle not broken down.. This type has no unit defined"]
         pub fn value(&self) -> &bool {
             &self.v
         }
         #[doc = r" Set the"]
-        #[doc = "Indicates whether the vehicle is stationary or moving. This type has no unit defined"]
+        #[doc = "Vehicle breakdown or any similar event causing vehicle to stop on the road, that might pose a risk to other road users. True = Vehicle broken down on the road, due to e.g. engine problems, flat tire, out of gas, brake problems. False = Vehicle not broken down.. This type has no unit defined"]
         #[doc = r" . Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
@@ -575,7 +258,54 @@ pub mod vehicle {
             }
         }
     }
-    #[doc = "Average speed for the current trip. The unit of this type is km/h"]
+    #[doc = "Indicates whether the vehicle is stationary or moving.. This type has no unit defined"]
+    #[allow(non_camel_case_types)]
+    #[derive(Default, Deserialize, Serialize, Topic)]
+    pub struct IsMoving {
+        v: bool,
+        timestamp: crate::v2::Timestamp,
+    }
+    impl IsMoving {
+        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+            &self.timestamp
+        }
+        #[doc = r" Get the "]
+        #[doc = "Indicates whether the vehicle is stationary or moving.. This type has no unit defined"]
+        pub fn value(&self) -> &bool {
+            &self.v
+        }
+        #[doc = r" Set the"]
+        #[doc = "Indicates whether the vehicle is stationary or moving.. This type has no unit defined"]
+        #[doc = r" . Ensure that the value is within bounds as per the"]
+        #[doc = r" specification. This function will panic in case the value is out"]
+        #[doc = r" of bounds."]
+        pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            assert!(Self::bounds_check(&value));
+            self.v = value;
+            if let Some(ts) = maybe_timestamp {
+                self.timestamp = ts;
+            }
+        }
+        #[doc = r"check if the given value is within the limits defined"]
+        #[doc = r"in the specification. This particular type has not"]
+        #[doc = r"specified the min or max limits so the function just"]
+        #[doc = r" returns true"]
+        const fn bounds_check(_v: &bool) -> bool {
+            true
+        }
+        #[doc = r" create a new instance"]
+        pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            if Self::bounds_check(&value) {
+                Some(Self {
+                    v: value,
+                    timestamp: timestamp.unwrap_or_default(),
+                })
+            } else {
+                None
+            }
+        }
+    }
+    #[doc = "Average speed for the current trip.. The unit of this type is km/h"]
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
     pub struct AverageSpeed {
@@ -587,12 +317,12 @@ pub mod vehicle {
             &self.timestamp
         }
         #[doc = r" Get the "]
-        #[doc = "Average speed for the current trip. The unit of this type is km/h"]
+        #[doc = "Average speed for the current trip.. The unit of this type is km/h"]
         pub fn value(&self) -> &crate::v2::units::KilometrePerHour<f32> {
             &self.v
         }
         #[doc = r" Set the"]
-        #[doc = "Average speed for the current trip. The unit of this type is km/h"]
+        #[doc = "Average speed for the current trip.. The unit of this type is km/h"]
         #[doc = r" . Ensure that the value is within bounds as per the"]
         #[doc = r" specification. This function will panic in case the value is out"]
         #[doc = r" of bounds."]
@@ -666,50 +396,13 @@ pub mod vehicle {
             }
         }
     }
-    #[doc = "The time needed to accelerate the vehicle from a given start velocity to a given target velocity.. The unit of this type is s"]
-    #[allow(non_camel_case_types)]
-    #[derive(Default, Deserialize, Serialize, Topic)]
-    pub struct accelerationTime {
-        v: crate::v2::units::Second<i16>,
-    }
-    impl accelerationTime {
-        #[doc = r" Get the "]
-        #[doc = "The time needed to accelerate the vehicle from a given start velocity to a given target velocity.. The unit of this type is s"]
-        pub fn value(&self) -> &crate::v2::units::Second<i16> {
-            &self.v
-        }
-        #[doc = r" Set the"]
-        #[doc = "The time needed to accelerate the vehicle from a given start velocity to a given target velocity.. The unit of this type is s"]
-        #[doc = r" Ensure that the value is within bounds as per the"]
-        #[doc = r" specification. This function will panic in case the value is out"]
-        #[doc = r" of bounds."]
-        pub fn set(&mut self, value: crate::v2::units::Second<i16>) {
-            assert!(Self::bounds_check(&value));
-            self.v = value;
-        }
-        #[doc = r"check if the given value is within the limits defined"]
-        #[doc = r"in the specification. This particular type has not"]
-        #[doc = r"specified the min or max limits so the function just"]
-        #[doc = r" returns true"]
-        const fn bounds_check(_v: &crate::v2::units::Second<i16>) -> bool {
-            true
-        }
-        #[doc = r" create a new instance"]
-        pub fn new(value: crate::v2::units::Second<i16>) -> Option<Self> {
-            if Self::bounds_check(&value) {
-                Some(Self { v: value })
-            } else {
-                None
-            }
-        }
-    }
     #[doc = "The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.. The unit of this type is l"]
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
-    pub struct cargoVolume {
+    pub struct CargoVolume {
         v: crate::v2::units::Litre<f32>,
     }
-    impl cargoVolume {
+    impl CargoVolume {
         #[doc = r" Get the "]
         #[doc = "The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.. The unit of this type is l"]
         pub fn value(&self) -> &crate::v2::units::Litre<f32> {
@@ -742,10 +435,10 @@ pub mod vehicle {
     #[doc = "The CO2 emissions.. The unit of this type is g/km"]
     #[allow(non_camel_case_types)]
     #[derive(Default, Deserialize, Serialize, Topic)]
-    pub struct emissionsCO2 {
+    pub struct EmissionsCO2 {
         v: i16,
     }
-    impl emissionsCO2 {
+    impl EmissionsCO2 {
         #[doc = r" Get the "]
         #[doc = "The CO2 emissions.. The unit of this type is g/km"]
         pub fn value(&self) -> &i16 {
@@ -1090,17 +783,69 @@ pub mod vehicle {
         }
     }
     #[allow(non_snake_case)]
+    pub mod connectivity {
+        use cdds_derive::Topic;
+        use cyclonedds_rs::*;
+        #[doc = "Indicates if connectivity between vehicle and cloud is available. True = Connectivity is available. False = Connectivity is not available.. This type has no unit defined"]
+        #[allow(non_camel_case_types)]
+        #[derive(Default, Deserialize, Serialize, Topic)]
+        pub struct IsConnectivityAvailable {
+            v: bool,
+            timestamp: crate::v2::Timestamp,
+        }
+        impl IsConnectivityAvailable {
+            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                &self.timestamp
+            }
+            #[doc = r" Get the "]
+            #[doc = "Indicates if connectivity between vehicle and cloud is available. True = Connectivity is available. False = Connectivity is not available.. This type has no unit defined"]
+            pub fn value(&self) -> &bool {
+                &self.v
+            }
+            #[doc = r" Set the"]
+            #[doc = "Indicates if connectivity between vehicle and cloud is available. True = Connectivity is available. False = Connectivity is not available.. This type has no unit defined"]
+            #[doc = r" . Ensure that the value is within bounds as per the"]
+            #[doc = r" specification. This function will panic in case the value is out"]
+            #[doc = r" of bounds."]
+            pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                assert!(Self::bounds_check(&value));
+                self.v = value;
+                if let Some(ts) = maybe_timestamp {
+                    self.timestamp = ts;
+                }
+            }
+            #[doc = r"check if the given value is within the limits defined"]
+            #[doc = r"in the specification. This particular type has not"]
+            #[doc = r"specified the min or max limits so the function just"]
+            #[doc = r" returns true"]
+            const fn bounds_check(_v: &bool) -> bool {
+                true
+            }
+            #[doc = r" create a new instance"]
+            pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                if Self::bounds_check(&value) {
+                    Some(Self {
+                        v: value,
+                        timestamp: timestamp.unwrap_or_default(),
+                    })
+                } else {
+                    None
+                }
+            }
+        }
+    }
+    #[allow(non_snake_case)]
     pub mod service {
         use cdds_derive::Topic;
         use cyclonedds_rs::*;
         #[doc = "Indicates if vehicle needs service (of any kind). True = Service needed now or in the near future. False = No known need for service.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct ServiceDue {
+        pub struct IsServiceDue {
             v: bool,
             timestamp: crate::v2::Timestamp,
         }
-        impl ServiceDue {
+        impl IsServiceDue {
             pub fn timestamp(&self) -> &crate::v2::Timestamp {
                 &self.timestamp
             }
@@ -1250,27 +995,81 @@ pub mod vehicle {
         }
     }
     #[allow(non_snake_case)]
-    pub mod driver {
+    pub mod exterior {
         use cdds_derive::Topic;
         use cyclonedds_rs::*;
-        #[doc = "Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls. The unit of this type is percent"]
+        #[doc = "Air temperature outside the vehicle.. The unit of this type is celsius"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct DistractionLevel {
-            v: crate::v2::units::Percent<f32>,
+        pub struct AirTemperature {
+            v: crate::v2::units::Celsius<f32>,
             timestamp: crate::v2::Timestamp,
         }
-        impl DistractionLevel {
+        impl AirTemperature {
             pub fn timestamp(&self) -> &crate::v2::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
-            #[doc = "Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls. The unit of this type is percent"]
+            #[doc = "Air temperature outside the vehicle.. The unit of this type is celsius"]
+            pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                &self.v
+            }
+            #[doc = r" Set the"]
+            #[doc = "Air temperature outside the vehicle.. The unit of this type is celsius"]
+            #[doc = r" . Ensure that the value is within bounds as per the"]
+            #[doc = r" specification. This function will panic in case the value is out"]
+            #[doc = r" of bounds."]
+            pub fn set(
+                &mut self,
+                value: crate::v2::units::Celsius<f32>,
+                maybe_timestamp: Option<crate::v2::Timestamp>,
+            ) {
+                assert!(Self::bounds_check(&value));
+                self.v = value;
+                if let Some(ts) = maybe_timestamp {
+                    self.timestamp = ts;
+                }
+            }
+            #[doc = r"check if the given value is within the limits defined"]
+            #[doc = r"in the specification. This particular type has not"]
+            #[doc = r"specified the min or max limits so the function just"]
+            #[doc = r" returns true"]
+            const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                true
+            }
+            #[doc = r" create a new instance"]
+            pub fn new(
+                value: crate::v2::units::Celsius<f32>,
+                timestamp: Option<crate::v2::Timestamp>,
+            ) -> Option<Self> {
+                if Self::bounds_check(&value) {
+                    Some(Self {
+                        v: value,
+                        timestamp: timestamp.unwrap_or_default(),
+                    })
+                } else {
+                    None
+                }
+            }
+        }
+        #[doc = "Relative humidity outside the vehicle. 0 = Dry, 100 = Air fully saturated.. The unit of this type is percent"]
+        #[allow(non_camel_case_types)]
+        #[derive(Default, Deserialize, Serialize, Topic)]
+        pub struct Humidity {
+            v: crate::v2::units::Percent<f32>,
+            timestamp: crate::v2::Timestamp,
+        }
+        impl Humidity {
+            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                &self.timestamp
+            }
+            #[doc = r" Get the "]
+            #[doc = "Relative humidity outside the vehicle. 0 = Dry, 100 = Air fully saturated.. The unit of this type is percent"]
             pub fn value(&self) -> &crate::v2::units::Percent<f32> {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls. The unit of this type is percent"]
+            #[doc = "Relative humidity outside the vehicle. 0 = Dry, 100 = Air fully saturated.. The unit of this type is percent"]
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -1286,11 +1085,121 @@ pub mod vehicle {
                 }
             }
             #[doc = r"check if the given value is within the limits defined"]
-            #[doc = r"in the specification. This particular type has not"]
-            #[doc = r"specified the min or max limits so the function just"]
-            #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
-                true
+            #[doc = r"in the specification. Return true if the value is"]
+            #[doc = r"within bounds."]
+            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                v.0 <= 100f32 && v.0 >= 0f32
+            }
+            #[doc = r" create a new instance"]
+            pub fn new(
+                value: crate::v2::units::Percent<f32>,
+                timestamp: Option<crate::v2::Timestamp>,
+            ) -> Option<Self> {
+                if Self::bounds_check(&value) {
+                    Some(Self {
+                        v: value,
+                        timestamp: timestamp.unwrap_or_default(),
+                    })
+                } else {
+                    None
+                }
+            }
+        }
+        #[doc = "Light intensity outside the vehicle. 0 = No light detected, 100 = Fully lit.. The unit of this type is percent"]
+        #[allow(non_camel_case_types)]
+        #[derive(Default, Deserialize, Serialize, Topic)]
+        pub struct LightIntensity {
+            v: crate::v2::units::Percent<f32>,
+            timestamp: crate::v2::Timestamp,
+        }
+        impl LightIntensity {
+            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                &self.timestamp
+            }
+            #[doc = r" Get the "]
+            #[doc = "Light intensity outside the vehicle. 0 = No light detected, 100 = Fully lit.. The unit of this type is percent"]
+            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                &self.v
+            }
+            #[doc = r" Set the"]
+            #[doc = "Light intensity outside the vehicle. 0 = No light detected, 100 = Fully lit.. The unit of this type is percent"]
+            #[doc = r" . Ensure that the value is within bounds as per the"]
+            #[doc = r" specification. This function will panic in case the value is out"]
+            #[doc = r" of bounds."]
+            pub fn set(
+                &mut self,
+                value: crate::v2::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v2::Timestamp>,
+            ) {
+                assert!(Self::bounds_check(&value));
+                self.v = value;
+                if let Some(ts) = maybe_timestamp {
+                    self.timestamp = ts;
+                }
+            }
+            #[doc = r"check if the given value is within the limits defined"]
+            #[doc = r"in the specification. Return true if the value is"]
+            #[doc = r"within bounds."]
+            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                v.0 <= 100f32 && v.0 >= 0f32
+            }
+            #[doc = r" create a new instance"]
+            pub fn new(
+                value: crate::v2::units::Percent<f32>,
+                timestamp: Option<crate::v2::Timestamp>,
+            ) -> Option<Self> {
+                if Self::bounds_check(&value) {
+                    Some(Self {
+                        v: value,
+                        timestamp: timestamp.unwrap_or_default(),
+                    })
+                } else {
+                    None
+                }
+            }
+        }
+    }
+    #[allow(non_snake_case)]
+    pub mod driver {
+        use cdds_derive::Topic;
+        use cyclonedds_rs::*;
+        #[doc = "Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls.. The unit of this type is percent"]
+        #[allow(non_camel_case_types)]
+        #[derive(Default, Deserialize, Serialize, Topic)]
+        pub struct DistractionLevel {
+            v: crate::v2::units::Percent<f32>,
+            timestamp: crate::v2::Timestamp,
+        }
+        impl DistractionLevel {
+            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                &self.timestamp
+            }
+            #[doc = r" Get the "]
+            #[doc = "Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls.. The unit of this type is percent"]
+            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                &self.v
+            }
+            #[doc = r" Set the"]
+            #[doc = "Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls.. The unit of this type is percent"]
+            #[doc = r" . Ensure that the value is within bounds as per the"]
+            #[doc = r" specification. This function will panic in case the value is out"]
+            #[doc = r" of bounds."]
+            pub fn set(
+                &mut self,
+                value: crate::v2::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v2::Timestamp>,
+            ) {
+                assert!(Self::bounds_check(&value));
+                self.v = value;
+                if let Some(ts) = maybe_timestamp {
+                    self.timestamp = ts;
+                }
+            }
+            #[doc = r"check if the given value is within the limits defined"]
+            #[doc = r"in the specification. Return true if the value is"]
+            #[doc = r"within bounds."]
+            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                v.0 <= 100f32 && v.0 >= 0f32
             }
             #[doc = r" create a new instance"]
             pub fn new(
@@ -1310,11 +1219,11 @@ pub mod vehicle {
         #[doc = "Has driver the eyes on road or not?. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct EyesOnRoad {
+        pub struct IsEyesOnRoad {
             v: bool,
             timestamp: crate::v2::Timestamp,
         }
-        impl EyesOnRoad {
+        impl IsEyesOnRoad {
             pub fn timestamp(&self) -> &crate::v2::Timestamp {
                 &self.timestamp
             }
@@ -1387,11 +1296,10 @@ pub mod vehicle {
                 }
             }
             #[doc = r"check if the given value is within the limits defined"]
-            #[doc = r"in the specification. This particular type has not"]
-            #[doc = r"specified the min or max limits so the function just"]
-            #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
-                true
+            #[doc = r"in the specification. Return true if the value is"]
+            #[doc = r"within bounds."]
+            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                v.0 <= 100f32 && v.0 >= 0f32
             }
             #[doc = r" create a new instance"]
             pub fn new(
@@ -1441,11 +1349,10 @@ pub mod vehicle {
                 }
             }
             #[doc = r"check if the given value is within the limits defined"]
-            #[doc = r"in the specification. This particular type has not"]
-            #[doc = r"specified the min or max limits so the function just"]
-            #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
-                true
+            #[doc = r"in the specification. Return true if the value is"]
+            #[doc = r"within bounds."]
+            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                v.0 <= 100f32 && v.0 >= 0f32
             }
             #[doc = r" create a new instance"]
             pub fn new(
@@ -1513,7 +1420,7 @@ pub mod vehicle {
         pub mod identifier {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
-            #[doc = "Subject for the authentification of the occupant. E.g. UserID 7331677. This type has no unit defined"]
+            #[doc = "Subject for the authentication of the occupant. E.g. UserID 7331677.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Subject {
@@ -1525,12 +1432,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Subject for the authentification of the occupant. E.g. UserID 7331677. This type has no unit defined"]
+                #[doc = "Subject for the authentication of the occupant. E.g. UserID 7331677.. This type has no unit defined"]
                 pub fn value(&self) -> &String {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Subject for the authentification of the occupant. E.g. UserID 7331677. This type has no unit defined"]
+                #[doc = "Subject for the authentication of the occupant. E.g. UserID 7331677.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -1564,7 +1471,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com. This type has no unit defined"]
+            #[doc = "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Issuer {
@@ -1576,12 +1483,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com. This type has no unit defined"]
+                #[doc = "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.. This type has no unit defined"]
                 pub fn value(&self) -> &String {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com. This type has no unit defined"]
+                #[doc = "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -2746,11 +2653,11 @@ pub mod vehicle {
         #[doc = "PID 1E - Auxiliary input status (power take off). This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct AuxInputStatus {
+        pub struct IsPTOActive {
             v: bool,
             timestamp: crate::v2::Timestamp,
         }
-        impl AuxInputStatus {
+        impl IsPTOActive {
             pub fn timestamp(&self) -> &crate::v2::Timestamp {
                 &self.timestamp
             }
@@ -5246,11 +5153,11 @@ pub mod vehicle {
             #[doc = "Malfunction Indicator Light (MIL) - False = Off, True = On. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct MIL {
+            pub struct IsMILOn {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl MIL {
+            impl IsMILOn {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -7904,139 +7811,6 @@ pub mod vehicle {
                     }
                 }
             }
-            #[allow(non_snake_case)]
-            pub mod sensor3 {
-                use cdds_derive::Topic;
-                use cyclonedds_rs::*;
-                #[doc = "PID 1x (byte A) - Sensor voltage. The unit of this type is V"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Voltage {
-                    v: crate::v2::units::Volt<f32>,
-                    timestamp: crate::v2::Timestamp,
-                    #[topic_key]
-                    sensor: u8,
-                }
-                impl Voltage {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "PID 1x (byte A) - Sensor voltage. The unit of this type is V"]
-                    #[doc = r" The return value is a tuple that contains a"]
-                    #[doc = r" reference to the value and the additional keys the topic"]
-                    #[doc = r" may have. The value is always the first entry and is"]
-                    #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Volt<f32>, &u8) {
-                        (&self.v, &self.sensor)
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "PID 1x (byte A) - Sensor voltage. The unit of this type is V"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::Volt<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        sensor: u8,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        self.sensor = sensor;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. This particular type has not"]
-                    #[doc = r"specified the min or max limits so the function just"]
-                    #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
-                        true
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::Volt<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        sensor: u8,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                                sensor,
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-                #[doc = "PID 1x (byte B) - Short term fuel trim. The unit of this type is percent"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct ShortTermFuelTrim {
-                    v: crate::v2::units::Percent<f32>,
-                    timestamp: crate::v2::Timestamp,
-                    #[topic_key]
-                    sensor: u8,
-                }
-                impl ShortTermFuelTrim {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "PID 1x (byte B) - Short term fuel trim. The unit of this type is percent"]
-                    #[doc = r" The return value is a tuple that contains a"]
-                    #[doc = r" reference to the value and the additional keys the topic"]
-                    #[doc = r" may have. The value is always the first entry and is"]
-                    #[doc = "(value,sensor)"]
-                    pub fn value(&self) -> (&crate::v2::units::Percent<f32>, &u8) {
-                        (&self.v, &self.sensor)
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "PID 1x (byte B) - Short term fuel trim. The unit of this type is percent"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::Percent<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        sensor: u8,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        self.sensor = sensor;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. This particular type has not"]
-                    #[doc = r"specified the min or max limits so the function just"]
-                    #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Percent<f32>) -> bool {
-                        true
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::Percent<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        sensor: u8,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                                sensor,
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-            }
         }
         #[allow(non_snake_case)]
         pub mod status {
@@ -8045,11 +7819,11 @@ pub mod vehicle {
             #[doc = "Malfunction Indicator Light (MIL) False = Off, True = On. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct MIL {
+            pub struct IsMILOn {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl MIL {
+            impl IsMILOn {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -8193,228 +7967,6 @@ pub mod vehicle {
     pub mod chassis {
         use cdds_derive::Topic;
         use cyclonedds_rs::*;
-        #[doc = "Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers.. The unit of this type is kg"]
-        #[allow(non_camel_case_types)]
-        #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct CurbWeight {
-            v: crate::v2::units::Kilogram<u16>,
-        }
-        impl CurbWeight {
-            #[doc = r" Get the "]
-            #[doc = "Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers.. The unit of this type is kg"]
-            pub fn value(&self) -> &crate::v2::units::Kilogram<u16> {
-                &self.v
-            }
-            #[doc = r" Set the"]
-            #[doc = "Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers.. The unit of this type is kg"]
-            #[doc = r" Ensure that the value is within bounds as per the"]
-            #[doc = r" specification. This function will panic in case the value is out"]
-            #[doc = r" of bounds."]
-            pub fn set(&mut self, value: crate::v2::units::Kilogram<u16>) {
-                assert!(Self::bounds_check(&value));
-                self.v = value;
-            }
-            #[doc = r"check if the given value is within the limits defined"]
-            #[doc = r"in the specification. This particular type has not"]
-            #[doc = r"specified the min or max limits so the function just"]
-            #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Kilogram<u16>) -> bool {
-                true
-            }
-            #[doc = r" create a new instance"]
-            pub fn new(value: crate::v2::units::Kilogram<u16>) -> Option<Self> {
-                if Self::bounds_check(&value) {
-                    Some(Self { v: value })
-                } else {
-                    None
-                }
-            }
-        }
-        #[doc = "Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.. The unit of this type is kg"]
-        #[allow(non_camel_case_types)]
-        #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct GrossWeight {
-            v: crate::v2::units::Kilogram<u16>,
-        }
-        impl GrossWeight {
-            #[doc = r" Get the "]
-            #[doc = "Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.. The unit of this type is kg"]
-            pub fn value(&self) -> &crate::v2::units::Kilogram<u16> {
-                &self.v
-            }
-            #[doc = r" Set the"]
-            #[doc = "Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.. The unit of this type is kg"]
-            #[doc = r" Ensure that the value is within bounds as per the"]
-            #[doc = r" specification. This function will panic in case the value is out"]
-            #[doc = r" of bounds."]
-            pub fn set(&mut self, value: crate::v2::units::Kilogram<u16>) {
-                assert!(Self::bounds_check(&value));
-                self.v = value;
-            }
-            #[doc = r"check if the given value is within the limits defined"]
-            #[doc = r"in the specification. This particular type has not"]
-            #[doc = r"specified the min or max limits so the function just"]
-            #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Kilogram<u16>) -> bool {
-                true
-            }
-            #[doc = r" create a new instance"]
-            pub fn new(value: crate::v2::units::Kilogram<u16>) -> Option<Self> {
-                if Self::bounds_check(&value) {
-                    Some(Self { v: value })
-                } else {
-                    None
-                }
-            }
-        }
-        #[doc = "Maximum weight, in kilos, of trailer.. The unit of this type is kg"]
-        #[allow(non_camel_case_types)]
-        #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct TowWeight {
-            v: crate::v2::units::Kilogram<u16>,
-        }
-        impl TowWeight {
-            #[doc = r" Get the "]
-            #[doc = "Maximum weight, in kilos, of trailer.. The unit of this type is kg"]
-            pub fn value(&self) -> &crate::v2::units::Kilogram<u16> {
-                &self.v
-            }
-            #[doc = r" Set the"]
-            #[doc = "Maximum weight, in kilos, of trailer.. The unit of this type is kg"]
-            #[doc = r" Ensure that the value is within bounds as per the"]
-            #[doc = r" specification. This function will panic in case the value is out"]
-            #[doc = r" of bounds."]
-            pub fn set(&mut self, value: crate::v2::units::Kilogram<u16>) {
-                assert!(Self::bounds_check(&value));
-                self.v = value;
-            }
-            #[doc = r"check if the given value is within the limits defined"]
-            #[doc = r"in the specification. This particular type has not"]
-            #[doc = r"specified the min or max limits so the function just"]
-            #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Kilogram<u16>) -> bool {
-                true
-            }
-            #[doc = r" create a new instance"]
-            pub fn new(value: crate::v2::units::Kilogram<u16>) -> Option<Self> {
-                if Self::bounds_check(&value) {
-                    Some(Self { v: value })
-                } else {
-                    None
-                }
-            }
-        }
-        #[doc = "Overall vehicle length, in mm.. The unit of this type is mm"]
-        #[allow(non_camel_case_types)]
-        #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct Length {
-            v: crate::v2::units::Millimetre<u16>,
-        }
-        impl Length {
-            #[doc = r" Get the "]
-            #[doc = "Overall vehicle length, in mm.. The unit of this type is mm"]
-            pub fn value(&self) -> &crate::v2::units::Millimetre<u16> {
-                &self.v
-            }
-            #[doc = r" Set the"]
-            #[doc = "Overall vehicle length, in mm.. The unit of this type is mm"]
-            #[doc = r" Ensure that the value is within bounds as per the"]
-            #[doc = r" specification. This function will panic in case the value is out"]
-            #[doc = r" of bounds."]
-            pub fn set(&mut self, value: crate::v2::units::Millimetre<u16>) {
-                assert!(Self::bounds_check(&value));
-                self.v = value;
-            }
-            #[doc = r"check if the given value is within the limits defined"]
-            #[doc = r"in the specification. This particular type has not"]
-            #[doc = r"specified the min or max limits so the function just"]
-            #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Millimetre<u16>) -> bool {
-                true
-            }
-            #[doc = r" create a new instance"]
-            pub fn new(value: crate::v2::units::Millimetre<u16>) -> Option<Self> {
-                if Self::bounds_check(&value) {
-                    Some(Self { v: value })
-                } else {
-                    None
-                }
-            }
-        }
-        #[doc = "Overall vehicle height, in mm.. The unit of this type is mm"]
-        #[allow(non_camel_case_types)]
-        #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct Height {
-            v: crate::v2::units::Millimetre<u16>,
-        }
-        impl Height {
-            #[doc = r" Get the "]
-            #[doc = "Overall vehicle height, in mm.. The unit of this type is mm"]
-            pub fn value(&self) -> &crate::v2::units::Millimetre<u16> {
-                &self.v
-            }
-            #[doc = r" Set the"]
-            #[doc = "Overall vehicle height, in mm.. The unit of this type is mm"]
-            #[doc = r" Ensure that the value is within bounds as per the"]
-            #[doc = r" specification. This function will panic in case the value is out"]
-            #[doc = r" of bounds."]
-            pub fn set(&mut self, value: crate::v2::units::Millimetre<u16>) {
-                assert!(Self::bounds_check(&value));
-                self.v = value;
-            }
-            #[doc = r"check if the given value is within the limits defined"]
-            #[doc = r"in the specification. This particular type has not"]
-            #[doc = r"specified the min or max limits so the function just"]
-            #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Millimetre<u16>) -> bool {
-                true
-            }
-            #[doc = r" create a new instance"]
-            pub fn new(value: crate::v2::units::Millimetre<u16>) -> Option<Self> {
-                if Self::bounds_check(&value) {
-                    Some(Self { v: value })
-                } else {
-                    None
-                }
-            }
-        }
-        #[doc = "Overall vehicle width, in mm.. The unit of this type is mm"]
-        #[allow(non_camel_case_types)]
-        #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct Width {
-            v: crate::v2::units::Millimetre<u16>,
-        }
-        impl Width {
-            #[doc = r" Get the "]
-            #[doc = "Overall vehicle width, in mm.. The unit of this type is mm"]
-            pub fn value(&self) -> &crate::v2::units::Millimetre<u16> {
-                &self.v
-            }
-            #[doc = r" Set the"]
-            #[doc = "Overall vehicle width, in mm.. The unit of this type is mm"]
-            #[doc = r" Ensure that the value is within bounds as per the"]
-            #[doc = r" specification. This function will panic in case the value is out"]
-            #[doc = r" of bounds."]
-            pub fn set(&mut self, value: crate::v2::units::Millimetre<u16>) {
-                assert!(Self::bounds_check(&value));
-                self.v = value;
-            }
-            #[doc = r"check if the given value is within the limits defined"]
-            #[doc = r"in the specification. This particular type has not"]
-            #[doc = r"specified the min or max limits so the function just"]
-            #[doc = r" returns true"]
-            const fn bounds_check(_v: &crate::v2::units::Millimetre<u16>) -> bool {
-                true
-            }
-            #[doc = r" create a new instance"]
-            pub fn new(value: crate::v2::units::Millimetre<u16>) -> Option<Self> {
-                if Self::bounds_check(&value) {
-                    Some(Self { v: value })
-                } else {
-                    None
-                }
-            }
-        }
         #[doc = "Overall wheel base, in mm.. The unit of this type is mm"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
@@ -8527,58 +8079,6 @@ pub mod vehicle {
             }
         }
         #[allow(non_snake_case)]
-        pub mod trailer {
-            use cdds_derive::Topic;
-            use cyclonedds_rs::*;
-            #[doc = "Signal indicating if trailer is connected or not.. This type has no unit defined"]
-            #[allow(non_camel_case_types)]
-            #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Connected {
-                v: bool,
-                timestamp: crate::v2::Timestamp,
-            }
-            impl Connected {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                    &self.timestamp
-                }
-                #[doc = r" Get the "]
-                #[doc = "Signal indicating if trailer is connected or not.. This type has no unit defined"]
-                pub fn value(&self) -> &bool {
-                    &self.v
-                }
-                #[doc = r" Set the"]
-                #[doc = "Signal indicating if trailer is connected or not.. This type has no unit defined"]
-                #[doc = r" . Ensure that the value is within bounds as per the"]
-                #[doc = r" specification. This function will panic in case the value is out"]
-                #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
-                    assert!(Self::bounds_check(&value));
-                    self.v = value;
-                    if let Some(ts) = maybe_timestamp {
-                        self.timestamp = ts;
-                    }
-                }
-                #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. This particular type has not"]
-                #[doc = r"specified the min or max limits so the function just"]
-                #[doc = r" returns true"]
-                const fn bounds_check(_v: &bool) -> bool {
-                    true
-                }
-                #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
-                    if Self::bounds_check(&value) {
-                        Some(Self {
-                            v: value,
-                            timestamp: timestamp.unwrap_or_default(),
-                        })
-                    } else {
-                        None
-                    }
-                }
-            }
-        }
-        #[allow(non_snake_case)]
         pub mod brake {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
@@ -8625,6 +8125,53 @@ pub mod vehicle {
                     value: crate::v2::units::Percent<u8>,
                     timestamp: Option<crate::v2::Timestamp>,
                 ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Indicates if emergency braking initiated by driver is detected. True = Emergency braking detected. False = Emergency braking not detected.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsDriverEmergencyBrakingDetected {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsDriverEmergencyBrakingDetected {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Indicates if emergency braking initiated by driver is detected. True = Emergency braking detected. False = Emergency braking not detected.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Indicates if emergency braking initiated by driver is detected. True = Emergency braking detected. False = Emergency braking not detected.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -8997,11 +8544,10 @@ pub mod vehicle {
                             }
                         }
                         #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Percent<u8>) -> bool {
-                            true
+                        #[doc = r"in the specification. Return true if the value is"]
+                        #[doc = r"within bounds."]
+                        pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                            v.0 <= 100u8 && true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
@@ -9025,7 +8571,7 @@ pub mod vehicle {
                     #[doc = "Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK.. This type has no unit defined"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct FluidLevelLow {
+                    pub struct IsFluidLevelLow {
                         v: bool,
                         timestamp: crate::v2::Timestamp,
                         #[topic_key]
@@ -9033,7 +8579,7 @@ pub mod vehicle {
                         #[topic_key_enum]
                         side: crate::v2::Side,
                     }
-                    impl FluidLevelLow {
+                    impl IsFluidLevelLow {
                         pub fn timestamp(&self) -> &crate::v2::Timestamp {
                             &self.timestamp
                         }
@@ -9092,11 +8638,11 @@ pub mod vehicle {
                             }
                         }
                     }
-                    #[doc = "Brake pad wear as percent. 0 = No Wear. 100 = Worn.. This type has no unit defined"]
+                    #[doc = "Brake pad wear as percent. 0 = No Wear. 100 = Worn.. The unit of this type is percent"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct PadWear {
-                        v: u8,
+                        v: crate::v2::units::Percent<u8>,
                         timestamp: crate::v2::Timestamp,
                         #[topic_key]
                         row: u8,
@@ -9108,22 +8654,25 @@ pub mod vehicle {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Brake pad wear as percent. 0 = No Wear. 100 = Worn.. This type has no unit defined"]
+                        #[doc = "Brake pad wear as percent. 0 = No Wear. 100 = Worn.. The unit of this type is percent"]
                         #[doc = r" The return value is a tuple that contains a"]
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
                         #[doc = "(value,row, side)"]
-                        pub fn value(&self) -> (&u8, &u8, &crate::v2::Side) {
+                        pub fn value(
+                            &self,
+                        ) -> (&crate::v2::units::Percent<u8>, &u8, &crate::v2::Side)
+                        {
                             (&self.v, &self.row, &self.side)
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Brake pad wear as percent. 0 = No Wear. 100 = Worn.. This type has no unit defined"]
+                        #[doc = "Brake pad wear as percent. 0 = No Wear. 100 = Worn.. The unit of this type is percent"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: u8,
+                            value: crate::v2::units::Percent<u8>,
                             maybe_timestamp: Option<crate::v2::Timestamp>,
                             row: u8,
                             side: crate::v2::Side,
@@ -9137,15 +8686,14 @@ pub mod vehicle {
                             }
                         }
                         #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &u8) -> bool {
-                            true
+                        #[doc = r"in the specification. Return true if the value is"]
+                        #[doc = r"within bounds."]
+                        pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                            v.0 <= 100u8 && true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: u8,
+                            value: crate::v2::units::Percent<u8>,
                             timestamp: Option<crate::v2::Timestamp>,
                             row: u8,
                             side: crate::v2::Side,
@@ -9165,7 +8713,7 @@ pub mod vehicle {
                     #[doc = "Brake pad wear status. True = Worn. False = Not Worn.. This type has no unit defined"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct BrakesWorn {
+                    pub struct IsBrakesWorn {
                         v: bool,
                         timestamp: crate::v2::Timestamp,
                         #[topic_key]
@@ -9173,7 +8721,7 @@ pub mod vehicle {
                         #[topic_key_enum]
                         side: crate::v2::Side,
                     }
-                    impl BrakesWorn {
+                    impl IsBrakesWorn {
                         pub fn timestamp(&self) -> &crate::v2::Timestamp {
                             &self.timestamp
                         }
@@ -9237,7 +8785,7 @@ pub mod vehicle {
                 pub mod tire {
                     use cdds_derive::Topic;
                     use cyclonedds_rs::*;
-                    #[doc = "Tire pressure in kilo-Pascal. The unit of this type is kPa"]
+                    #[doc = "Tire pressure in kilo-Pascal.. The unit of this type is kPa"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Pressure {
@@ -9253,7 +8801,7 @@ pub mod vehicle {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Tire pressure in kilo-Pascal. The unit of this type is kPa"]
+                        #[doc = "Tire pressure in kilo-Pascal.. The unit of this type is kPa"]
                         #[doc = r" The return value is a tuple that contains a"]
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
@@ -9265,7 +8813,7 @@ pub mod vehicle {
                             (&self.v, &self.row, &self.side)
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Tire pressure in kilo-Pascal. The unit of this type is kPa"]
+                        #[doc = "Tire pressure in kilo-Pascal.. The unit of this type is kPa"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
@@ -9313,7 +8861,7 @@ pub mod vehicle {
                     #[doc = "Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.. This type has no unit defined"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct PressureLow {
+                    pub struct IsPressureLow {
                         v: bool,
                         timestamp: crate::v2::Timestamp,
                         #[topic_key]
@@ -9321,7 +8869,7 @@ pub mod vehicle {
                         #[topic_key_enum]
                         side: crate::v2::Side,
                     }
-                    impl PressureLow {
+                    impl IsPressureLow {
                         pub fn timestamp(&self) -> &crate::v2::Timestamp {
                             &self.timestamp
                         }
@@ -9454,35 +9002,411 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[allow(non_snake_case)]
-                pub mod left {}
             }
         }
     }
     #[allow(non_snake_case)]
     pub mod adas {
+        use cdds_derive::Topic;
+        use cyclonedds_rs::*;
+        #[doc = "Indicates the currently active level of autonomy according to SAE J3016 taxonomy.. This type has no unit defined"]
+        #[allow(non_camel_case_types)]
+        #[derive(Default, Deserialize, Serialize, Topic)]
+        pub struct ActiveAutonomyLevel {
+            v: String,
+            timestamp: crate::v2::Timestamp,
+        }
+        impl ActiveAutonomyLevel {
+            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                &self.timestamp
+            }
+            #[doc = r" Get the "]
+            #[doc = "Indicates the currently active level of autonomy according to SAE J3016 taxonomy.. This type has no unit defined"]
+            pub fn value(&self) -> &String {
+                &self.v
+            }
+            #[doc = r" Set the"]
+            #[doc = "Indicates the currently active level of autonomy according to SAE J3016 taxonomy.. This type has no unit defined"]
+            #[doc = r" . Ensure that the value is within bounds as per the"]
+            #[doc = r" specification. This function will panic in case the value is out"]
+            #[doc = r" of bounds."]
+            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                assert!(Self::bounds_check(&value));
+                self.v = value;
+                if let Some(ts) = maybe_timestamp {
+                    self.timestamp = ts;
+                }
+            }
+            #[doc = r"check if the given value is within the limits defined"]
+            #[doc = r"in the specification. This particular type has not"]
+            #[doc = r"specified the min or max limits so the function just"]
+            #[doc = r" returns true"]
+            const fn bounds_check(_v: &String) -> bool {
+                true
+            }
+            #[doc = r" create a new instance"]
+            pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                if Self::bounds_check(&value) {
+                    Some(Self {
+                        v: value,
+                        timestamp: timestamp.unwrap_or_default(),
+                    })
+                } else {
+                    None
+                }
+            }
+        }
+        #[doc = "Indicates the highest level of autonomy according to SAE J3016 taxonomy the vehicle is capable of.. This type has no unit defined"]
+        #[allow(non_camel_case_types)]
+        #[derive(Default, Deserialize, Serialize, Topic)]
+        pub struct SupportedAutonomyLevel {
+            v: String,
+        }
+        impl SupportedAutonomyLevel {
+            #[doc = r" Get the "]
+            #[doc = "Indicates the highest level of autonomy according to SAE J3016 taxonomy the vehicle is capable of.. This type has no unit defined"]
+            pub fn value(&self) -> &String {
+                &self.v
+            }
+            #[doc = r" Set the"]
+            #[doc = "Indicates the highest level of autonomy according to SAE J3016 taxonomy the vehicle is capable of.. This type has no unit defined"]
+            #[doc = r" Ensure that the value is within bounds as per the"]
+            #[doc = r" specification. This function will panic in case the value is out"]
+            #[doc = r" of bounds."]
+            pub fn set(&mut self, value: String) {
+                assert!(Self::bounds_check(&value));
+                self.v = value;
+            }
+            #[doc = r"check if the given value is within the limits defined"]
+            #[doc = r"in the specification. This particular type has not"]
+            #[doc = r"specified the min or max limits so the function just"]
+            #[doc = r" returns true"]
+            const fn bounds_check(_v: &String) -> bool {
+                true
+            }
+            #[doc = r" create a new instance"]
+            pub fn new(value: String) -> Option<Self> {
+                if Self::bounds_check(&value) {
+                    Some(Self { v: value })
+                } else {
+                    None
+                }
+            }
+        }
         #[allow(non_snake_case)]
-        pub mod esc {
+        pub mod eba {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
-            #[doc = "Indicates if ECS is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+            #[doc = "Indicates if EBA is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct IsActive {
+            pub struct IsEnabled {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl IsActive {
+            impl IsEnabled {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Indicates if ECS is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+                #[doc = "Indicates if EBA is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Indicates if ECS is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+                #[doc = "Indicates if EBA is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Indicates if EBA incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsError {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsError {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Indicates if EBA incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Indicates if EBA incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Indicates if EBA is currently regulating brake pressure. True = Engaged. False = Not Engaged.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsEngaged {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsEngaged {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Indicates if EBA is currently regulating brake pressure. True = Engaged. False = Not Engaged.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Indicates if EBA is currently regulating brake pressure. True = Engaged. False = Not Engaged.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+        }
+        #[allow(non_snake_case)]
+        pub mod ebd {
+            use cdds_derive::Topic;
+            use cyclonedds_rs::*;
+            #[doc = "Indicates if EBD is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsEnabled {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsEnabled {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Indicates if EBD is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Indicates if EBD is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Indicates if EBD incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsError {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsError {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Indicates if EBD incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Indicates if EBD incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Indicates if EBD is currently regulating vehicle brakeforce distribution. True = Engaged. False = Not Engaged.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsEngaged {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsEngaged {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Indicates if EBD is currently regulating vehicle brakeforce distribution. True = Engaged. False = Not Engaged.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Indicates if EBD is currently regulating vehicle brakeforce distribution. True = Engaged. False = Not Engaged.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+        }
+        #[allow(non_snake_case)]
+        pub mod esc {
+            use cdds_derive::Topic;
+            use cyclonedds_rs::*;
+            #[doc = "Indicates if ESC is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsEnabled {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsEnabled {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Indicates if ESC is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Indicates if ESC is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -9515,11 +9439,11 @@ pub mod vehicle {
             #[doc = "Indicates if ESC incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Error {
+            pub struct IsError {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl Error {
+            impl IsError {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -9606,6 +9530,217 @@ pub mod vehicle {
                     }
                 }
             }
+            #[doc = "Indicates if the ESC system is detecting strong cross winds. True = Strong cross winds detected. False = No strong cross winds detected.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsStrongCrossWindDetected {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsStrongCrossWindDetected {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Indicates if the ESC system is detecting strong cross winds. True = Strong cross winds detected. False = No strong cross winds detected.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Indicates if the ESC system is detecting strong cross winds. True = Strong cross winds detected. False = No strong cross winds detected.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[allow(non_snake_case)]
+            pub mod roadfriction {
+                use cdds_derive::Topic;
+                use cyclonedds_rs::*;
+                #[doc = "Most probable road friction, as calculated by the ESC system. Exact meaning of most probable is implementation specific. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct MostProbable {
+                    v: crate::v2::units::Percent<f32>,
+                    timestamp: crate::v2::Timestamp,
+                }
+                impl MostProbable {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Most probable road friction, as calculated by the ESC system. Exact meaning of most probable is implementation specific. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
+                    pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Most probable road friction, as calculated by the ESC system. Exact meaning of most probable is implementation specific. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: crate::v2::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. Return true if the value is"]
+                    #[doc = r"within bounds."]
+                    pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                        v.0 <= 100f32 && v.0 >= 0f32
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: crate::v2::units::Percent<f32>,
+                        timestamp: Option<crate::v2::Timestamp>,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Lower bound road friction, as calculated by the ESC system. 5% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct LowerBound {
+                    v: crate::v2::units::Percent<f32>,
+                    timestamp: crate::v2::Timestamp,
+                }
+                impl LowerBound {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Lower bound road friction, as calculated by the ESC system. 5% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
+                    pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Lower bound road friction, as calculated by the ESC system. 5% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: crate::v2::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. Return true if the value is"]
+                    #[doc = r"within bounds."]
+                    pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                        v.0 <= 100f32 && v.0 >= 0f32
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: crate::v2::units::Percent<f32>,
+                        timestamp: Option<crate::v2::Timestamp>,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Upper bound road friction, as calculated by the ESC system. 95% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct UpperBound {
+                    v: crate::v2::units::Percent<f32>,
+                    timestamp: crate::v2::Timestamp,
+                }
+                impl UpperBound {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Upper bound road friction, as calculated by the ESC system. 95% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
+                    pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Upper bound road friction, as calculated by the ESC system. 95% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.. The unit of this type is percent"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: crate::v2::units::Percent<f32>,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. Return true if the value is"]
+                    #[doc = r"within bounds."]
+                    pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                        v.0 <= 100f32 && v.0 >= 0f32
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: crate::v2::units::Percent<f32>,
+                        timestamp: Option<crate::v2::Timestamp>,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+            }
         }
         #[allow(non_snake_case)]
         pub mod tcs {
@@ -9614,11 +9749,11 @@ pub mod vehicle {
             #[doc = "Indicates if TCS is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct IsActive {
+            pub struct IsEnabled {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl IsActive {
+            impl IsEnabled {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -9661,11 +9796,11 @@ pub mod vehicle {
             #[doc = "Indicates if TCS incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Error {
+            pub struct IsError {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl Error {
+            impl IsError {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -9760,11 +9895,11 @@ pub mod vehicle {
             #[doc = "Indicates if ABS is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct IsActive {
+            pub struct IsEnabled {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl IsActive {
+            impl IsEnabled {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -9807,11 +9942,11 @@ pub mod vehicle {
             #[doc = "Indicates if ABS incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Error {
+            pub struct IsError {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl Error {
+            impl IsError {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -9903,24 +10038,71 @@ pub mod vehicle {
         pub mod obstacledetection {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
-            #[doc = "Indicates if obstacle sensor system is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+            #[doc = "Indicates if obstacle sensor system is enabled (i.e. monitoring for obstacles). True = Enabled. False = Disabled.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct IsActive {
+            pub struct IsEnabled {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl IsActive {
+            impl IsEnabled {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Indicates if obstacle sensor system is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+                #[doc = "Indicates if obstacle sensor system is enabled (i.e. monitoring for obstacles). True = Enabled. False = Disabled.. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Indicates if obstacle sensor system is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+                #[doc = "Indicates if obstacle sensor system is enabled (i.e. monitoring for obstacles). True = Enabled. False = Disabled.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Indicates if obstacle sensor system registered an obstacle.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsWarning {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsWarning {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Indicates if obstacle sensor system registered an obstacle.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Indicates if obstacle sensor system registered an obstacle.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -9953,11 +10135,11 @@ pub mod vehicle {
             #[doc = "Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Error {
+            pub struct IsError {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl Error {
+            impl IsError {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -10005,11 +10187,11 @@ pub mod vehicle {
             #[doc = "Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct IsActive {
+            pub struct IsEnabled {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl IsActive {
+            impl IsEnabled {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -10049,24 +10231,24 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Indicates if lane departure detection registered a lane departure. This type has no unit defined"]
+            #[doc = "Indicates if lane departure detection registered a lane departure.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Warning {
+            pub struct IsWarning {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl Warning {
+            impl IsWarning {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Indicates if lane departure detection registered a lane departure. This type has no unit defined"]
+                #[doc = "Indicates if lane departure detection registered a lane departure.. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Indicates if lane departure detection registered a lane departure. This type has no unit defined"]
+                #[doc = "Indicates if lane departure detection registered a lane departure.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -10099,11 +10281,11 @@ pub mod vehicle {
             #[doc = "Indicates if lane departure system incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Error {
+            pub struct IsError {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl Error {
+            impl IsError {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -10148,24 +10330,24 @@ pub mod vehicle {
         pub mod cruisecontrol {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
-            #[doc = "Indicates if cruise control system is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+            #[doc = "Indicates if cruise control system is enabled (e.g. ready to receive configurations and settings) True = Enabled. False = Disabled.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct IsActive {
+            pub struct IsEnabled {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl IsActive {
+            impl IsEnabled {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Indicates if cruise control system is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+                #[doc = "Indicates if cruise control system is enabled (e.g. ready to receive configurations and settings) True = Enabled. False = Disabled.. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Indicates if cruise control system is enabled. True = Enabled. False = Disabled.. This type has no unit defined"]
+                #[doc = "Indicates if cruise control system is enabled (e.g. ready to receive configurations and settings) True = Enabled. False = Disabled.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -10195,7 +10377,54 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Set cruise control speed in kilometers per hour. The unit of this type is km/h"]
+            #[doc = "Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsActive {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsActive {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Set cruise control speed in kilometers per hour.. The unit of this type is km/h"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct SpeedSet {
@@ -10207,12 +10436,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Set cruise control speed in kilometers per hour. The unit of this type is km/h"]
+                #[doc = "Set cruise control speed in kilometers per hour.. The unit of this type is km/h"]
                 pub fn value(&self) -> &crate::v2::units::KilometrePerHour<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Set cruise control speed in kilometers per hour. The unit of this type is km/h"]
+                #[doc = "Set cruise control speed in kilometers per hour.. The unit of this type is km/h"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -10249,24 +10478,24 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Indicates if cruise control system incurred and error condition. True = Error. False = NoError.. This type has no unit defined"]
+            #[doc = "Indicates if cruise control system incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Error {
+            pub struct IsError {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl Error {
+            impl IsError {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Indicates if cruise control system incurred and error condition. True = Error. False = NoError.. This type has no unit defined"]
+                #[doc = "Indicates if cruise control system incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Indicates if cruise control system incurred and error condition. True = Error. False = NoError.. This type has no unit defined"]
+                #[doc = "Indicates if cruise control system incurred an error condition. True = Error. False = No Error.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -10302,7 +10531,7 @@ pub mod vehicle {
     pub mod cabin {
         use cdds_derive::Topic;
         use cyclonedds_rs::*;
-        #[doc = "Number of doors in vehicle. This type has no unit defined"]
+        #[doc = "Number of doors in vehicle.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct DoorCount {
@@ -10310,12 +10539,12 @@ pub mod vehicle {
         }
         impl DoorCount {
             #[doc = r" Get the "]
-            #[doc = "Number of doors in vehicle. This type has no unit defined"]
+            #[doc = "Number of doors in vehicle.. This type has no unit defined"]
             pub fn value(&self) -> &u8 {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Number of doors in vehicle. This type has no unit defined"]
+            #[doc = "Number of doors in vehicle.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -10376,7 +10605,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Number of seat rows in vehicle. This type has no unit defined"]
+        #[doc = "Number of seat rows in vehicle.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct SeatRowCount {
@@ -10384,12 +10613,12 @@ pub mod vehicle {
         }
         impl SeatRowCount {
             #[doc = r" Get the "]
-            #[doc = "Number of seat rows in vehicle. This type has no unit defined"]
+            #[doc = "Number of seat rows in vehicle.. This type has no unit defined"]
             pub fn value(&self) -> &u8 {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Number of seat rows in vehicle. This type has no unit defined"]
+            #[doc = "Number of seat rows in vehicle.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -10413,7 +10642,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Number of seats across each row from the front to the rear. This type has no unit defined"]
+        #[doc = "Number of seats across each row from the front to the rear.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct SeatPosCount {
@@ -10421,12 +10650,12 @@ pub mod vehicle {
         }
         impl SeatPosCount {
             #[doc = r" Get the "]
-            #[doc = "Number of seats across each row from the front to the rear. This type has no unit defined"]
+            #[doc = "Number of seats across each row from the front to the rear.. This type has no unit defined"]
             pub fn value(&self) -> &Vec<u8> {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Number of seats across each row from the front to the rear. This type has no unit defined"]
+            #[doc = "Number of seats across each row from the front to the rear.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -10454,7 +10683,7 @@ pub mod vehicle {
         pub mod convertible {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
-            #[doc = "Roof status on convertible vehicles. This type has no unit defined"]
+            #[doc = "Roof status on convertible vehicles.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Status {
@@ -10466,12 +10695,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Roof status on convertible vehicles. This type has no unit defined"]
+                #[doc = "Roof status on convertible vehicles.. This type has no unit defined"]
                 pub fn value(&self) -> &String {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Roof status on convertible vehicles. This type has no unit defined"]
+                #[doc = "Roof status on convertible vehicles.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -10514,7 +10743,7 @@ pub mod vehicle {
                 pub mod identifier {
                     use cdds_derive::Topic;
                     use cyclonedds_rs::*;
-                    #[doc = "Subject for the authentification of the occupant. E.g. UserID 7331677. This type has no unit defined"]
+                    #[doc = "Subject for the authentication of the occupant. E.g. UserID 7331677.. This type has no unit defined"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Subject {
@@ -10530,7 +10759,7 @@ pub mod vehicle {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Subject for the authentification of the occupant. E.g. UserID 7331677. This type has no unit defined"]
+                        #[doc = "Subject for the authentication of the occupant. E.g. UserID 7331677.. This type has no unit defined"]
                         #[doc = r" The return value is a tuple that contains a"]
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
@@ -10539,7 +10768,7 @@ pub mod vehicle {
                             (&self.v, &self.row, &self.pos)
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Subject for the authentification of the occupant. E.g. UserID 7331677. This type has no unit defined"]
+                        #[doc = "Subject for the authentication of the occupant. E.g. UserID 7331677.. This type has no unit defined"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
@@ -10584,7 +10813,7 @@ pub mod vehicle {
                             }
                         }
                     }
-                    #[doc = "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com. This type has no unit defined"]
+                    #[doc = "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.. This type has no unit defined"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Issuer {
@@ -10600,7 +10829,7 @@ pub mod vehicle {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com. This type has no unit defined"]
+                        #[doc = "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.. This type has no unit defined"]
                         #[doc = r" The return value is a tuple that contains a"]
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
@@ -10609,7 +10838,7 @@ pub mod vehicle {
                             (&self.v, &self.row, &self.pos)
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com. This type has no unit defined"]
+                        #[doc = "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.. This type has no unit defined"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
@@ -10657,41 +10886,41 @@ pub mod vehicle {
                 }
             }
             #[allow(non_snake_case)]
-            pub mod cushion {
+            pub mod backrest {
                 use cdds_derive::Topic;
                 use cyclonedds_rs::*;
-                #[doc = "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost.. The unit of this type is mm"]
+                #[doc = "Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.. The unit of this type is degrees"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Height {
-                    v: crate::v2::units::Millimetre<u16>,
+                pub struct Recline {
+                    v: f32,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key]
                     row: u8,
                     #[topic_key]
                     pos: u8,
                 }
-                impl Height {
+                impl Recline {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost.. The unit of this type is mm"]
+                    #[doc = "Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.. The unit of this type is degrees"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
                     #[doc = "(value,row, pos)"]
-                    pub fn value(&self) -> (&crate::v2::units::Millimetre<u16>, &u8, &u8) {
+                    pub fn value(&self) -> (&f32, &u8, &u8) {
                         (&self.v, &self.row, &self.pos)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost.. The unit of this type is mm"]
+                    #[doc = "Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.. The unit of this type is degrees"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Millimetre<u16>,
+                        value: f32,
                         maybe_timestamp: Option<crate::v2::Timestamp>,
                         row: u8,
                         pos: u8,
@@ -10705,14 +10934,15 @@ pub mod vehicle {
                         }
                     }
                     #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Millimetre<u16>) -> bool {
-                        v.0 <= 500u16 && v.0 >= 0u16
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &f32) -> bool {
+                        true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Millimetre<u16>,
+                        value: f32,
                         timestamp: Option<crate::v2::Timestamp>,
                         row: u8,
                         pos: u8,
@@ -10729,7 +10959,229 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost.. The unit of this type is mm"]
+                #[allow(non_snake_case)]
+                pub mod sidebolster {
+                    use cdds_derive::Topic;
+                    use cyclonedds_rs::*;
+                    #[doc = "Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.. The unit of this type is percent"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Support {
+                        v: crate::v2::units::Percent<f32>,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key]
+                        row: u8,
+                        #[topic_key]
+                        pos: u8,
+                    }
+                    impl Support {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.. The unit of this type is percent"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,row, pos)"]
+                        pub fn value(&self) -> (&crate::v2::units::Percent<f32>, &u8, &u8) {
+                            (&self.v, &self.row, &self.pos)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.. The unit of this type is percent"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Percent<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.row = row;
+                            self.pos = pos;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. Return true if the value is"]
+                        #[doc = r"within bounds."]
+                        pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                            v.0 <= 100f32 && v.0 >= 0f32
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Percent<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    row,
+                                    pos,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                }
+                #[allow(non_snake_case)]
+                pub mod lumbar {
+                    use cdds_derive::Topic;
+                    use cyclonedds_rs::*;
+                    #[doc = "Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.. The unit of this type is percent"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Support {
+                        v: crate::v2::units::Percent<f32>,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key]
+                        row: u8,
+                        #[topic_key]
+                        pos: u8,
+                    }
+                    impl Support {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.. The unit of this type is percent"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,row, pos)"]
+                        pub fn value(&self) -> (&crate::v2::units::Percent<f32>, &u8, &u8) {
+                            (&self.v, &self.row, &self.pos)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.. The unit of this type is percent"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Percent<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.row = row;
+                            self.pos = pos;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. Return true if the value is"]
+                        #[doc = r"within bounds."]
+                        pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                            v.0 <= 100f32 && v.0 >= 0f32
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Percent<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    row,
+                                    pos,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.. The unit of this type is mm"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Height {
+                        v: crate::v2::units::Millimetre<u8>,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key]
+                        row: u8,
+                        #[topic_key]
+                        pos: u8,
+                    }
+                    impl Height {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.. The unit of this type is mm"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,row, pos)"]
+                        pub fn value(&self) -> (&crate::v2::units::Millimetre<u8>, &u8, &u8) {
+                            (&self.v, &self.row, &self.pos)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.. The unit of this type is mm"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Millimetre<u8>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.row = row;
+                            self.pos = pos;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. Return true if the value is"]
+                        #[doc = r"within bounds."]
+                        pub fn bounds_check(v: &crate::v2::units::Millimetre<u8>) -> bool {
+                            true && v.0 >= 0u8
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Millimetre<u8>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    row,
+                                    pos,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                }
+            }
+            #[allow(non_snake_case)]
+            pub mod seating {
+                use cdds_derive::Topic;
+                use cyclonedds_rs::*;
+                #[doc = "Length adjustment of seating. 0 = Adjustable part of seating in rearmost position (Shortest length of seating).. The unit of this type is mm"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Length {
@@ -10745,7 +11197,7 @@ pub mod vehicle {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost.. The unit of this type is mm"]
+                    #[doc = "Length adjustment of seating. 0 = Adjustable part of seating in rearmost position (Shortest length of seating).. The unit of this type is mm"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
@@ -10754,7 +11206,7 @@ pub mod vehicle {
                         (&self.v, &self.row, &self.pos)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost.. The unit of this type is mm"]
+                    #[doc = "Length adjustment of seating. 0 = Adjustable part of seating in rearmost position (Shortest length of seating).. The unit of this type is mm"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -10777,7 +11229,7 @@ pub mod vehicle {
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
                     pub fn bounds_check(v: &crate::v2::units::Millimetre<u16>) -> bool {
-                        v.0 <= 500u16 && v.0 >= 0u16
+                        true && v.0 >= 0u16
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
@@ -10800,227 +11252,10 @@ pub mod vehicle {
                 }
             }
             #[allow(non_snake_case)]
-            pub mod lumbar {
+            pub mod headrest {
                 use cdds_derive::Topic;
                 use cyclonedds_rs::*;
-                #[doc = "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.. This type has no unit defined"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Inflation {
-                    v: u8,
-                    timestamp: crate::v2::Timestamp,
-                    #[topic_key]
-                    row: u8,
-                    #[topic_key]
-                    pos: u8,
-                }
-                impl Inflation {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.. This type has no unit defined"]
-                    #[doc = r" The return value is a tuple that contains a"]
-                    #[doc = r" reference to the value and the additional keys the topic"]
-                    #[doc = r" may have. The value is always the first entry and is"]
-                    #[doc = "(value,row, pos)"]
-                    pub fn value(&self) -> (&u8, &u8, &u8) {
-                        (&self.v, &self.row, &self.pos)
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.. This type has no unit defined"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: u8,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        row: u8,
-                        pos: u8,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        self.row = row;
-                        self.pos = pos;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &u8) -> bool {
-                        *v <= 255u8 && *v >= 0u8
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: u8,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        row: u8,
-                        pos: u8,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                                row,
-                                pos,
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-                #[doc = "Lumbar support position. 0 = Lowermost. 255 = Uppermost.. This type has no unit defined"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Height {
-                    v: u8,
-                    timestamp: crate::v2::Timestamp,
-                    #[topic_key]
-                    row: u8,
-                    #[topic_key]
-                    pos: u8,
-                }
-                impl Height {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Lumbar support position. 0 = Lowermost. 255 = Uppermost.. This type has no unit defined"]
-                    #[doc = r" The return value is a tuple that contains a"]
-                    #[doc = r" reference to the value and the additional keys the topic"]
-                    #[doc = r" may have. The value is always the first entry and is"]
-                    #[doc = "(value,row, pos)"]
-                    pub fn value(&self) -> (&u8, &u8, &u8) {
-                        (&self.v, &self.row, &self.pos)
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Lumbar support position. 0 = Lowermost. 255 = Uppermost.. This type has no unit defined"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: u8,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        row: u8,
-                        pos: u8,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        self.row = row;
-                        self.pos = pos;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &u8) -> bool {
-                        *v <= 255u8 && *v >= 0u8
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: u8,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        row: u8,
-                        pos: u8,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                                row,
-                                pos,
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-            }
-            #[allow(non_snake_case)]
-            pub mod sidebolster {
-                use cdds_derive::Topic;
-                use cyclonedds_rs::*;
-                #[doc = "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated.. This type has no unit defined"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Inflation {
-                    v: u8,
-                    timestamp: crate::v2::Timestamp,
-                    #[topic_key]
-                    row: u8,
-                    #[topic_key]
-                    pos: u8,
-                }
-                impl Inflation {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated.. This type has no unit defined"]
-                    #[doc = r" The return value is a tuple that contains a"]
-                    #[doc = r" reference to the value and the additional keys the topic"]
-                    #[doc = r" may have. The value is always the first entry and is"]
-                    #[doc = "(value,row, pos)"]
-                    pub fn value(&self) -> (&u8, &u8, &u8) {
-                        (&self.v, &self.row, &self.pos)
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated.. This type has no unit defined"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: u8,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        row: u8,
-                        pos: u8,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        self.row = row;
-                        self.pos = pos;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &u8) -> bool {
-                        *v <= 255u8 && *v >= 0u8
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: u8,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        row: u8,
-                        pos: u8,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                                row,
-                                pos,
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-            }
-            #[allow(non_snake_case)]
-            pub mod headrestraint {
-                use cdds_derive::Topic;
-                use cyclonedds_rs::*;
-                #[doc = "Height of head restraint. 0 = Bottommost. 255 = Uppermost.. The unit of this type is mm"]
+                #[doc = "Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.. The unit of this type is mm"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Height {
@@ -11036,7 +11271,7 @@ pub mod vehicle {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Height of head restraint. 0 = Bottommost. 255 = Uppermost.. The unit of this type is mm"]
+                    #[doc = "Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.. The unit of this type is mm"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
@@ -11045,7 +11280,7 @@ pub mod vehicle {
                         (&self.v, &self.row, &self.pos)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Height of head restraint. 0 = Bottommost. 255 = Uppermost.. The unit of this type is mm"]
+                    #[doc = "Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.. The unit of this type is mm"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -11068,11 +11303,81 @@ pub mod vehicle {
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
                     pub fn bounds_check(v: &crate::v2::units::Millimetre<u8>) -> bool {
-                        v.0 <= 255u8 && v.0 >= 0u8
+                        true && v.0 >= 0u8
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
                         value: crate::v2::units::Millimetre<u8>,
+                        timestamp: Option<crate::v2::Timestamp>,
+                        row: u8,
+                        pos: u8,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                                row,
+                                pos,
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.. The unit of this type is degrees"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct Angle {
+                    v: f32,
+                    timestamp: crate::v2::Timestamp,
+                    #[topic_key]
+                    row: u8,
+                    #[topic_key]
+                    pos: u8,
+                }
+                impl Angle {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.. The unit of this type is degrees"]
+                    #[doc = r" The return value is a tuple that contains a"]
+                    #[doc = r" reference to the value and the additional keys the topic"]
+                    #[doc = r" may have. The value is always the first entry and is"]
+                    #[doc = "(value,row, pos)"]
+                    pub fn value(&self) -> (&f32, &u8, &u8) {
+                        (&self.v, &self.row, &self.pos)
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.. The unit of this type is degrees"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: f32,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        row: u8,
+                        pos: u8,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        self.row = row;
+                        self.pos = pos;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &f32) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: f32,
                         timestamp: Option<crate::v2::Timestamp>,
                         row: u8,
                         pos: u8,
@@ -11169,10 +11474,10 @@ pub mod vehicle {
             pub mod switch {
                 use cdds_derive::Topic;
                 use cyclonedds_rs::*;
-                #[doc = "Warmer switch for Seat heater (SingleSeat.Heating). This type has no unit defined"]
+                #[doc = "Warmer switch for Seat heater (SingleSeat.Heating).. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Warmer {
+                pub struct IsWarmerEngaged {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key]
@@ -11180,12 +11485,12 @@ pub mod vehicle {
                     #[topic_key]
                     pos: u8,
                 }
-                impl Warmer {
+                impl IsWarmerEngaged {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Warmer switch for Seat heater (SingleSeat.Heating). This type has no unit defined"]
+                    #[doc = "Warmer switch for Seat heater (SingleSeat.Heating).. This type has no unit defined"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
@@ -11194,7 +11499,7 @@ pub mod vehicle {
                         (&self.v, &self.row, &self.pos)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Warmer switch for Seat heater (SingleSeat.Heating). This type has no unit defined"]
+                    #[doc = "Warmer switch for Seat heater (SingleSeat.Heating).. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -11239,10 +11544,10 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Cooler switch for Seat heater (SingleSeat.Heating). This type has no unit defined"]
+                #[doc = "Cooler switch for Seat heater (SingleSeat.Heating).. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Cooler {
+                pub struct IsCoolerEngaged {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key]
@@ -11250,12 +11555,12 @@ pub mod vehicle {
                     #[topic_key]
                     pos: u8,
                 }
-                impl Cooler {
+                impl IsCoolerEngaged {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Cooler switch for Seat heater (SingleSeat.Heating). This type has no unit defined"]
+                    #[doc = "Cooler switch for Seat heater (SingleSeat.Heating).. This type has no unit defined"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
@@ -11264,7 +11569,7 @@ pub mod vehicle {
                         (&self.v, &self.row, &self.pos)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Cooler switch for Seat heater (SingleSeat.Heating). This type has no unit defined"]
+                    #[doc = "Cooler switch for Seat heater (SingleSeat.Heating).. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -11309,10 +11614,10 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Seat forward switch engaged (SingleSeat.Position). This type has no unit defined"]
+                #[doc = "Seat forward switch engaged (SingleSeat.Position).. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Forward {
+                pub struct IsForwardEngaged {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key]
@@ -11320,12 +11625,12 @@ pub mod vehicle {
                     #[topic_key]
                     pos: u8,
                 }
-                impl Forward {
+                impl IsForwardEngaged {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Seat forward switch engaged (SingleSeat.Position). This type has no unit defined"]
+                    #[doc = "Seat forward switch engaged (SingleSeat.Position).. This type has no unit defined"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
@@ -11334,7 +11639,7 @@ pub mod vehicle {
                         (&self.v, &self.row, &self.pos)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Seat forward switch engaged (SingleSeat.Position). This type has no unit defined"]
+                    #[doc = "Seat forward switch engaged (SingleSeat.Position).. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -11379,10 +11684,10 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Seat backward switch engaged (SingleSeat.Position). This type has no unit defined"]
+                #[doc = "Seat backward switch engaged (SingleSeat.Position).. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Backward {
+                pub struct IsBackwardEngaged {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key]
@@ -11390,12 +11695,12 @@ pub mod vehicle {
                     #[topic_key]
                     pos: u8,
                 }
-                impl Backward {
+                impl IsBackwardEngaged {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Seat backward switch engaged (SingleSeat.Position). This type has no unit defined"]
+                    #[doc = "Seat backward switch engaged (SingleSeat.Position).. This type has no unit defined"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
@@ -11404,7 +11709,7 @@ pub mod vehicle {
                         (&self.v, &self.row, &self.pos)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Seat backward switch engaged (SingleSeat.Position). This type has no unit defined"]
+                    #[doc = "Seat backward switch engaged (SingleSeat.Position).. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -11449,10 +11754,10 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Seat up switch engaged (SingleSeat.Height). This type has no unit defined"]
+                #[doc = "Seat up switch engaged (SingleSeat.Height).. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Up {
+                pub struct IsUpEngaged {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key]
@@ -11460,12 +11765,12 @@ pub mod vehicle {
                     #[topic_key]
                     pos: u8,
                 }
-                impl Up {
+                impl IsUpEngaged {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Seat up switch engaged (SingleSeat.Height). This type has no unit defined"]
+                    #[doc = "Seat up switch engaged (SingleSeat.Height).. This type has no unit defined"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
@@ -11474,7 +11779,7 @@ pub mod vehicle {
                         (&self.v, &self.row, &self.pos)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Seat up switch engaged (SingleSeat.Height). This type has no unit defined"]
+                    #[doc = "Seat up switch engaged (SingleSeat.Height).. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -11519,10 +11824,10 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Seat down switch engaged (SingleSeat.Height). This type has no unit defined"]
+                #[doc = "Seat down switch engaged (SingleSeat.Height).. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Down {
+                pub struct IsDownEngaged {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key]
@@ -11530,12 +11835,12 @@ pub mod vehicle {
                     #[topic_key]
                     pos: u8,
                 }
-                impl Down {
+                impl IsDownEngaged {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Seat down switch engaged (SingleSeat.Height). This type has no unit defined"]
+                    #[doc = "Seat down switch engaged (SingleSeat.Height).. This type has no unit defined"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
@@ -11544,7 +11849,7 @@ pub mod vehicle {
                         (&self.v, &self.row, &self.pos)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Seat down switch engaged (SingleSeat.Height). This type has no unit defined"]
+                    #[doc = "Seat down switch engaged (SingleSeat.Height).. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -11589,863 +11894,143 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[allow(non_snake_case)]
-                pub mod sidebolster {
-                    use cdds_derive::Topic;
-                    use cyclonedds_rs::*;
-                    #[doc = "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Inflate {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
+                #[doc = "Tilt forward switch engaged (SingleSeat.Tilt).. This type has no unit defined"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct IsTiltForwardEngaged {
+                    v: bool,
+                    timestamp: crate::v2::Timestamp,
+                    #[topic_key]
+                    row: u8,
+                    #[topic_key]
+                    pos: u8,
+                }
+                impl IsTiltForwardEngaged {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Tilt forward switch engaged (SingleSeat.Tilt).. This type has no unit defined"]
+                    #[doc = r" The return value is a tuple that contains a"]
+                    #[doc = r" reference to the value and the additional keys the topic"]
+                    #[doc = r" may have. The value is always the first entry and is"]
+                    #[doc = "(value,row, pos)"]
+                    pub fn value(&self) -> (&bool, &u8, &u8) {
+                        (&self.v, &self.row, &self.pos)
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Tilt forward switch engaged (SingleSeat.Tilt).. This type has no unit defined"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: bool,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
                         row: u8,
-                        #[topic_key]
                         pos: u8,
-                    }
-                    impl Inflate {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        self.row = row;
+                        self.pos = pos;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
                         }
                     }
-                    #[doc = "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Deflate {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &bool) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: bool,
+                        timestamp: Option<crate::v2::Timestamp>,
                         row: u8,
-                        #[topic_key]
                         pos: u8,
-                    }
-                    impl Deflate {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                                row,
+                                pos,
+                            })
+                        } else {
+                            None
                         }
                     }
                 }
-                #[allow(non_snake_case)]
-                pub mod lumbar {
-                    use cdds_derive::Topic;
-                    use cyclonedds_rs::*;
-                    #[doc = "Lumbar up switch engaged (SingleSeat.Lumbar.Height). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Up {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
-                        row: u8,
-                        #[topic_key]
-                        pos: u8,
-                    }
-                    impl Up {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Lumbar up switch engaged (SingleSeat.Lumbar.Height). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Lumbar up switch engaged (SingleSeat.Lumbar.Height). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                    #[doc = "Lumbar down switch engaged (SingleSeat.Lumbar.Height). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Down {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
-                        row: u8,
-                        #[topic_key]
-                        pos: u8,
-                    }
-                    impl Down {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Lumbar down switch engaged (SingleSeat.Lumbar.Height). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Lumbar down switch engaged (SingleSeat.Lumbar.Height). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                    #[doc = "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Inflate {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
-                        row: u8,
-                        #[topic_key]
-                        pos: u8,
-                    }
-                    impl Inflate {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                    #[doc = "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Deflate {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
-                        row: u8,
-                        #[topic_key]
-                        pos: u8,
-                    }
-                    impl Deflate {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
+                #[doc = "Tilt backward switch engaged (SingleSeat.Tilt).. This type has no unit defined"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct IsTiltBackwardEngaged {
+                    v: bool,
+                    timestamp: crate::v2::Timestamp,
+                    #[topic_key]
+                    row: u8,
+                    #[topic_key]
+                    pos: u8,
                 }
-                #[allow(non_snake_case)]
-                pub mod cushion {
-                    use cdds_derive::Topic;
-                    use cyclonedds_rs::*;
-                    #[doc = "Seat cushion up switch engaged (SingleSeat.Cushion.Height). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Up {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
+                impl IsTiltBackwardEngaged {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Tilt backward switch engaged (SingleSeat.Tilt).. This type has no unit defined"]
+                    #[doc = r" The return value is a tuple that contains a"]
+                    #[doc = r" reference to the value and the additional keys the topic"]
+                    #[doc = r" may have. The value is always the first entry and is"]
+                    #[doc = "(value,row, pos)"]
+                    pub fn value(&self) -> (&bool, &u8, &u8) {
+                        (&self.v, &self.row, &self.pos)
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Tilt backward switch engaged (SingleSeat.Tilt).. This type has no unit defined"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: bool,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
                         row: u8,
-                        #[topic_key]
                         pos: u8,
-                    }
-                    impl Up {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Seat cushion up switch engaged (SingleSeat.Cushion.Height). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Seat cushion up switch engaged (SingleSeat.Cushion.Height). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        self.row = row;
+                        self.pos = pos;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
                         }
                     }
-                    #[doc = "Seat cushion down switch engaged (SingleSeat.Cushion.Height). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Down {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &bool) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: bool,
+                        timestamp: Option<crate::v2::Timestamp>,
                         row: u8,
-                        #[topic_key]
                         pos: u8,
-                    }
-                    impl Down {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Seat cushion down switch engaged (SingleSeat.Cushion.Height). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Seat cushion down switch engaged (SingleSeat.Cushion.Height). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                    #[doc = "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Forward {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
-                        row: u8,
-                        #[topic_key]
-                        pos: u8,
-                    }
-                    impl Forward {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                    #[doc = "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Backward {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
-                        row: u8,
-                        #[topic_key]
-                        pos: u8,
-                    }
-                    impl Backward {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                }
-                #[allow(non_snake_case)]
-                pub mod recline {
-                    use cdds_derive::Topic;
-                    use cyclonedds_rs::*;
-                    #[doc = "Seatback recline backward switch engaged (SingleSeat.Recline). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Backward {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
-                        row: u8,
-                        #[topic_key]
-                        pos: u8,
-                    }
-                    impl Backward {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Seatback recline backward switch engaged (SingleSeat.Recline). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Seatback recline backward switch engaged (SingleSeat.Recline). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                    #[doc = "Seatback recline forward switch engaged (SingleSeat.Recline). This type has no unit defined"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Forward {
-                        v: bool,
-                        timestamp: crate::v2::Timestamp,
-                        #[topic_key]
-                        row: u8,
-                        #[topic_key]
-                        pos: u8,
-                    }
-                    impl Forward {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Seatback recline forward switch engaged (SingleSeat.Recline). This type has no unit defined"]
-                        #[doc = r" The return value is a tuple that contains a"]
-                        #[doc = r" reference to the value and the additional keys the topic"]
-                        #[doc = r" may have. The value is always the first entry and is"]
-                        #[doc = "(value,row, pos)"]
-                        pub fn value(&self) -> (&bool, &u8, &u8) {
-                            (&self.v, &self.row, &self.pos)
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Seatback recline forward switch engaged (SingleSeat.Recline). This type has no unit defined"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: bool,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            self.row = row;
-                            self.pos = pos;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &bool) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: bool,
-                            timestamp: Option<crate::v2::Timestamp>,
-                            row: u8,
-                            pos: u8,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                    row,
-                                    pos,
-                                })
-                            } else {
-                                None
-                            }
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                                row,
+                                pos,
+                            })
+                        } else {
+                            None
                         }
                     }
                 }
@@ -12453,10 +12038,10 @@ pub mod vehicle {
                 pub mod massage {
                     use cdds_derive::Topic;
                     use cyclonedds_rs::*;
-                    #[doc = "Increase massage level switch engaged (SingleSeat.Massage). This type has no unit defined"]
+                    #[doc = "Increase massage level switch engaged (SingleSeat.Massage).. This type has no unit defined"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Increase {
+                    pub struct IsIncreaseEngaged {
                         v: bool,
                         timestamp: crate::v2::Timestamp,
                         #[topic_key]
@@ -12464,12 +12049,12 @@ pub mod vehicle {
                         #[topic_key]
                         pos: u8,
                     }
-                    impl Increase {
+                    impl IsIncreaseEngaged {
                         pub fn timestamp(&self) -> &crate::v2::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Increase massage level switch engaged (SingleSeat.Massage). This type has no unit defined"]
+                        #[doc = "Increase massage level switch engaged (SingleSeat.Massage).. This type has no unit defined"]
                         #[doc = r" The return value is a tuple that contains a"]
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
@@ -12478,7 +12063,7 @@ pub mod vehicle {
                             (&self.v, &self.row, &self.pos)
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Increase massage level switch engaged (SingleSeat.Massage). This type has no unit defined"]
+                        #[doc = "Increase massage level switch engaged (SingleSeat.Massage).. This type has no unit defined"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
@@ -12523,10 +12108,10 @@ pub mod vehicle {
                             }
                         }
                     }
-                    #[doc = "Decrease massage level switch engaged (SingleSeat.Massage). This type has no unit defined"]
+                    #[doc = "Decrease massage level switch engaged (SingleSeat.Massage).. This type has no unit defined"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Decrease {
+                    pub struct IsDecreaseEngaged {
                         v: bool,
                         timestamp: crate::v2::Timestamp,
                         #[topic_key]
@@ -12534,12 +12119,12 @@ pub mod vehicle {
                         #[topic_key]
                         pos: u8,
                     }
-                    impl Decrease {
+                    impl IsDecreaseEngaged {
                         pub fn timestamp(&self) -> &crate::v2::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Decrease massage level switch engaged (SingleSeat.Massage). This type has no unit defined"]
+                        #[doc = "Decrease massage level switch engaged (SingleSeat.Massage).. This type has no unit defined"]
                         #[doc = r" The return value is a tuple that contains a"]
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
@@ -12548,7 +12133,7 @@ pub mod vehicle {
                             (&self.v, &self.row, &self.pos)
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Decrease massage level switch engaged (SingleSeat.Massage). This type has no unit defined"]
+                        #[doc = "Decrease massage level switch engaged (SingleSeat.Massage).. This type has no unit defined"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
@@ -12595,13 +12180,13 @@ pub mod vehicle {
                     }
                 }
                 #[allow(non_snake_case)]
-                pub mod headrestraint {
+                pub mod headrest {
                     use cdds_derive::Topic;
                     use cyclonedds_rs::*;
-                    #[doc = "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height). This type has no unit defined"]
+                    #[doc = "Head rest up switch engaged (SingleSeat.Headrest.Height).. This type has no unit defined"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Up {
+                    pub struct IsUpEngaged {
                         v: bool,
                         timestamp: crate::v2::Timestamp,
                         #[topic_key]
@@ -12609,12 +12194,12 @@ pub mod vehicle {
                         #[topic_key]
                         pos: u8,
                     }
-                    impl Up {
+                    impl IsUpEngaged {
                         pub fn timestamp(&self) -> &crate::v2::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height). This type has no unit defined"]
+                        #[doc = "Head rest up switch engaged (SingleSeat.Headrest.Height).. This type has no unit defined"]
                         #[doc = r" The return value is a tuple that contains a"]
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
@@ -12623,7 +12208,7 @@ pub mod vehicle {
                             (&self.v, &self.row, &self.pos)
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height). This type has no unit defined"]
+                        #[doc = "Head rest up switch engaged (SingleSeat.Headrest.Height).. This type has no unit defined"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
@@ -12668,10 +12253,10 @@ pub mod vehicle {
                             }
                         }
                     }
-                    #[doc = "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height). This type has no unit defined"]
+                    #[doc = "Head rest down switch engaged (SingleSeat.Headrest.Height).. This type has no unit defined"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Down {
+                    pub struct IsDownEngaged {
                         v: bool,
                         timestamp: crate::v2::Timestamp,
                         #[topic_key]
@@ -12679,12 +12264,12 @@ pub mod vehicle {
                         #[topic_key]
                         pos: u8,
                     }
-                    impl Down {
+                    impl IsDownEngaged {
                         pub fn timestamp(&self) -> &crate::v2::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height). This type has no unit defined"]
+                        #[doc = "Head rest down switch engaged (SingleSeat.Headrest.Height).. This type has no unit defined"]
                         #[doc = r" The return value is a tuple that contains a"]
                         #[doc = r" reference to the value and the additional keys the topic"]
                         #[doc = r" may have. The value is always the first entry and is"]
@@ -12693,7 +12278,7 @@ pub mod vehicle {
                             (&self.v, &self.row, &self.pos)
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height). This type has no unit defined"]
+                        #[doc = "Head rest down switch engaged (SingleSeat.Headrest.Height).. This type has no unit defined"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
@@ -12735,6 +12320,866 @@ pub mod vehicle {
                                 })
                             } else {
                                 None
+                            }
+                        }
+                    }
+                    #[doc = "Head rest forward switch engaged (SingleSeat.Headrest.Angle).. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsForwardEngaged {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key]
+                        row: u8,
+                        #[topic_key]
+                        pos: u8,
+                    }
+                    impl IsForwardEngaged {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Head rest forward switch engaged (SingleSeat.Headrest.Angle).. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,row, pos)"]
+                        pub fn value(&self) -> (&bool, &u8, &u8) {
+                            (&self.v, &self.row, &self.pos)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Head rest forward switch engaged (SingleSeat.Headrest.Angle).. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.row = row;
+                            self.pos = pos;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    row,
+                                    pos,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Head rest backward switch engaged (SingleSeat.Headrest.Angle).. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsBackwardEngaged {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key]
+                        row: u8,
+                        #[topic_key]
+                        pos: u8,
+                    }
+                    impl IsBackwardEngaged {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Head rest backward switch engaged (SingleSeat.Headrest.Angle).. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,row, pos)"]
+                        pub fn value(&self) -> (&bool, &u8, &u8) {
+                            (&self.v, &self.row, &self.pos)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Head rest backward switch engaged (SingleSeat.Headrest.Angle).. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.row = row;
+                            self.pos = pos;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    row,
+                                    pos,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                }
+                #[allow(non_snake_case)]
+                pub mod seating {
+                    use cdds_derive::Topic;
+                    use cyclonedds_rs::*;
+                    #[doc = "Is switch to increase seating length engaged (SingleSeat.Seating.Length).. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsForwardEngaged {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key]
+                        row: u8,
+                        #[topic_key]
+                        pos: u8,
+                    }
+                    impl IsForwardEngaged {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Is switch to increase seating length engaged (SingleSeat.Seating.Length).. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,row, pos)"]
+                        pub fn value(&self) -> (&bool, &u8, &u8) {
+                            (&self.v, &self.row, &self.pos)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Is switch to increase seating length engaged (SingleSeat.Seating.Length).. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.row = row;
+                            self.pos = pos;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    row,
+                                    pos,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Is switch to decrease seating length engaged (SingleSeat.Seating.Length).. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsBackwardEngaged {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key]
+                        row: u8,
+                        #[topic_key]
+                        pos: u8,
+                    }
+                    impl IsBackwardEngaged {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Is switch to decrease seating length engaged (SingleSeat.Seating.Length).. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,row, pos)"]
+                        pub fn value(&self) -> (&bool, &u8, &u8) {
+                            (&self.v, &self.row, &self.pos)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Is switch to decrease seating length engaged (SingleSeat.Seating.Length).. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.row = row;
+                            self.pos = pos;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    row,
+                                    pos,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                }
+                #[allow(non_snake_case)]
+                pub mod backrest {
+                    use cdds_derive::Topic;
+                    use cyclonedds_rs::*;
+                    #[doc = "Backrest recline forward switch engaged (SingleSeat.Backrest.Recline).. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsReclineForwardEngaged {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key]
+                        row: u8,
+                        #[topic_key]
+                        pos: u8,
+                    }
+                    impl IsReclineForwardEngaged {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Backrest recline forward switch engaged (SingleSeat.Backrest.Recline).. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,row, pos)"]
+                        pub fn value(&self) -> (&bool, &u8, &u8) {
+                            (&self.v, &self.row, &self.pos)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Backrest recline forward switch engaged (SingleSeat.Backrest.Recline).. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.row = row;
+                            self.pos = pos;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    row,
+                                    pos,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Backrest recline backward switch engaged (SingleSeat.Backrest.Recline).. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsReclineBackwardEngaged {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key]
+                        row: u8,
+                        #[topic_key]
+                        pos: u8,
+                    }
+                    impl IsReclineBackwardEngaged {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Backrest recline backward switch engaged (SingleSeat.Backrest.Recline).. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,row, pos)"]
+                        pub fn value(&self) -> (&bool, &u8, &u8) {
+                            (&self.v, &self.row, &self.pos)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Backrest recline backward switch engaged (SingleSeat.Backrest.Recline).. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.row = row;
+                            self.pos = pos;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            row: u8,
+                            pos: u8,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    row,
+                                    pos,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[allow(non_snake_case)]
+                    pub mod sidebolster {
+                        use cdds_derive::Topic;
+                        use cyclonedds_rs::*;
+                        #[doc = "Is switch for more side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).. This type has no unit defined"]
+                        #[allow(non_camel_case_types)]
+                        #[derive(Default, Deserialize, Serialize, Topic)]
+                        pub struct IsMoreSupportEngaged {
+                            v: bool,
+                            timestamp: crate::v2::Timestamp,
+                            #[topic_key]
+                            row: u8,
+                            #[topic_key]
+                            pos: u8,
+                        }
+                        impl IsMoreSupportEngaged {
+                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                                &self.timestamp
+                            }
+                            #[doc = r" Get the "]
+                            #[doc = "Is switch for more side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).. This type has no unit defined"]
+                            #[doc = r" The return value is a tuple that contains a"]
+                            #[doc = r" reference to the value and the additional keys the topic"]
+                            #[doc = r" may have. The value is always the first entry and is"]
+                            #[doc = "(value,row, pos)"]
+                            pub fn value(&self) -> (&bool, &u8, &u8) {
+                                (&self.v, &self.row, &self.pos)
+                            }
+                            #[doc = r" Set the"]
+                            #[doc = "Is switch for more side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).. This type has no unit defined"]
+                            #[doc = r" . Ensure that the value is within bounds as per the"]
+                            #[doc = r" specification. This function will panic in case the value is out"]
+                            #[doc = r" of bounds."]
+                            pub fn set(
+                                &mut self,
+                                value: bool,
+                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) {
+                                assert!(Self::bounds_check(&value));
+                                self.v = value;
+                                self.row = row;
+                                self.pos = pos;
+                                if let Some(ts) = maybe_timestamp {
+                                    self.timestamp = ts;
+                                }
+                            }
+                            #[doc = r"check if the given value is within the limits defined"]
+                            #[doc = r"in the specification. This particular type has not"]
+                            #[doc = r"specified the min or max limits so the function just"]
+                            #[doc = r" returns true"]
+                            const fn bounds_check(_v: &bool) -> bool {
+                                true
+                            }
+                            #[doc = r" create a new instance"]
+                            pub fn new(
+                                value: bool,
+                                timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) -> Option<Self> {
+                                if Self::bounds_check(&value) {
+                                    Some(Self {
+                                        v: value,
+                                        timestamp: timestamp.unwrap_or_default(),
+                                        row,
+                                        pos,
+                                    })
+                                } else {
+                                    None
+                                }
+                            }
+                        }
+                        #[doc = "Is switch for less side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).. This type has no unit defined"]
+                        #[allow(non_camel_case_types)]
+                        #[derive(Default, Deserialize, Serialize, Topic)]
+                        pub struct IsLessSupportEngaged {
+                            v: bool,
+                            timestamp: crate::v2::Timestamp,
+                            #[topic_key]
+                            row: u8,
+                            #[topic_key]
+                            pos: u8,
+                        }
+                        impl IsLessSupportEngaged {
+                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                                &self.timestamp
+                            }
+                            #[doc = r" Get the "]
+                            #[doc = "Is switch for less side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).. This type has no unit defined"]
+                            #[doc = r" The return value is a tuple that contains a"]
+                            #[doc = r" reference to the value and the additional keys the topic"]
+                            #[doc = r" may have. The value is always the first entry and is"]
+                            #[doc = "(value,row, pos)"]
+                            pub fn value(&self) -> (&bool, &u8, &u8) {
+                                (&self.v, &self.row, &self.pos)
+                            }
+                            #[doc = r" Set the"]
+                            #[doc = "Is switch for less side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).. This type has no unit defined"]
+                            #[doc = r" . Ensure that the value is within bounds as per the"]
+                            #[doc = r" specification. This function will panic in case the value is out"]
+                            #[doc = r" of bounds."]
+                            pub fn set(
+                                &mut self,
+                                value: bool,
+                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) {
+                                assert!(Self::bounds_check(&value));
+                                self.v = value;
+                                self.row = row;
+                                self.pos = pos;
+                                if let Some(ts) = maybe_timestamp {
+                                    self.timestamp = ts;
+                                }
+                            }
+                            #[doc = r"check if the given value is within the limits defined"]
+                            #[doc = r"in the specification. This particular type has not"]
+                            #[doc = r"specified the min or max limits so the function just"]
+                            #[doc = r" returns true"]
+                            const fn bounds_check(_v: &bool) -> bool {
+                                true
+                            }
+                            #[doc = r" create a new instance"]
+                            pub fn new(
+                                value: bool,
+                                timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) -> Option<Self> {
+                                if Self::bounds_check(&value) {
+                                    Some(Self {
+                                        v: value,
+                                        timestamp: timestamp.unwrap_or_default(),
+                                        row,
+                                        pos,
+                                    })
+                                } else {
+                                    None
+                                }
+                            }
+                        }
+                    }
+                    #[allow(non_snake_case)]
+                    pub mod lumbar {
+                        use cdds_derive::Topic;
+                        use cyclonedds_rs::*;
+                        #[doc = "Is switch for more lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                        #[allow(non_camel_case_types)]
+                        #[derive(Default, Deserialize, Serialize, Topic)]
+                        pub struct IsMoreSupportEngaged {
+                            v: bool,
+                            timestamp: crate::v2::Timestamp,
+                            #[topic_key]
+                            row: u8,
+                            #[topic_key]
+                            pos: u8,
+                        }
+                        impl IsMoreSupportEngaged {
+                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                                &self.timestamp
+                            }
+                            #[doc = r" Get the "]
+                            #[doc = "Is switch for more lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                            #[doc = r" The return value is a tuple that contains a"]
+                            #[doc = r" reference to the value and the additional keys the topic"]
+                            #[doc = r" may have. The value is always the first entry and is"]
+                            #[doc = "(value,row, pos)"]
+                            pub fn value(&self) -> (&bool, &u8, &u8) {
+                                (&self.v, &self.row, &self.pos)
+                            }
+                            #[doc = r" Set the"]
+                            #[doc = "Is switch for more lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                            #[doc = r" . Ensure that the value is within bounds as per the"]
+                            #[doc = r" specification. This function will panic in case the value is out"]
+                            #[doc = r" of bounds."]
+                            pub fn set(
+                                &mut self,
+                                value: bool,
+                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) {
+                                assert!(Self::bounds_check(&value));
+                                self.v = value;
+                                self.row = row;
+                                self.pos = pos;
+                                if let Some(ts) = maybe_timestamp {
+                                    self.timestamp = ts;
+                                }
+                            }
+                            #[doc = r"check if the given value is within the limits defined"]
+                            #[doc = r"in the specification. This particular type has not"]
+                            #[doc = r"specified the min or max limits so the function just"]
+                            #[doc = r" returns true"]
+                            const fn bounds_check(_v: &bool) -> bool {
+                                true
+                            }
+                            #[doc = r" create a new instance"]
+                            pub fn new(
+                                value: bool,
+                                timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) -> Option<Self> {
+                                if Self::bounds_check(&value) {
+                                    Some(Self {
+                                        v: value,
+                                        timestamp: timestamp.unwrap_or_default(),
+                                        row,
+                                        pos,
+                                    })
+                                } else {
+                                    None
+                                }
+                            }
+                        }
+                        #[doc = "Is switch for less lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                        #[allow(non_camel_case_types)]
+                        #[derive(Default, Deserialize, Serialize, Topic)]
+                        pub struct IsLessSupportEngaged {
+                            v: bool,
+                            timestamp: crate::v2::Timestamp,
+                            #[topic_key]
+                            row: u8,
+                            #[topic_key]
+                            pos: u8,
+                        }
+                        impl IsLessSupportEngaged {
+                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                                &self.timestamp
+                            }
+                            #[doc = r" Get the "]
+                            #[doc = "Is switch for less lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                            #[doc = r" The return value is a tuple that contains a"]
+                            #[doc = r" reference to the value and the additional keys the topic"]
+                            #[doc = r" may have. The value is always the first entry and is"]
+                            #[doc = "(value,row, pos)"]
+                            pub fn value(&self) -> (&bool, &u8, &u8) {
+                                (&self.v, &self.row, &self.pos)
+                            }
+                            #[doc = r" Set the"]
+                            #[doc = "Is switch for less lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                            #[doc = r" . Ensure that the value is within bounds as per the"]
+                            #[doc = r" specification. This function will panic in case the value is out"]
+                            #[doc = r" of bounds."]
+                            pub fn set(
+                                &mut self,
+                                value: bool,
+                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) {
+                                assert!(Self::bounds_check(&value));
+                                self.v = value;
+                                self.row = row;
+                                self.pos = pos;
+                                if let Some(ts) = maybe_timestamp {
+                                    self.timestamp = ts;
+                                }
+                            }
+                            #[doc = r"check if the given value is within the limits defined"]
+                            #[doc = r"in the specification. This particular type has not"]
+                            #[doc = r"specified the min or max limits so the function just"]
+                            #[doc = r" returns true"]
+                            const fn bounds_check(_v: &bool) -> bool {
+                                true
+                            }
+                            #[doc = r" create a new instance"]
+                            pub fn new(
+                                value: bool,
+                                timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) -> Option<Self> {
+                                if Self::bounds_check(&value) {
+                                    Some(Self {
+                                        v: value,
+                                        timestamp: timestamp.unwrap_or_default(),
+                                        row,
+                                        pos,
+                                    })
+                                } else {
+                                    None
+                                }
+                            }
+                        }
+                        #[doc = "Lumbar up switch engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                        #[allow(non_camel_case_types)]
+                        #[derive(Default, Deserialize, Serialize, Topic)]
+                        pub struct IsUpEngaged {
+                            v: bool,
+                            timestamp: crate::v2::Timestamp,
+                            #[topic_key]
+                            row: u8,
+                            #[topic_key]
+                            pos: u8,
+                        }
+                        impl IsUpEngaged {
+                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                                &self.timestamp
+                            }
+                            #[doc = r" Get the "]
+                            #[doc = "Lumbar up switch engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                            #[doc = r" The return value is a tuple that contains a"]
+                            #[doc = r" reference to the value and the additional keys the topic"]
+                            #[doc = r" may have. The value is always the first entry and is"]
+                            #[doc = "(value,row, pos)"]
+                            pub fn value(&self) -> (&bool, &u8, &u8) {
+                                (&self.v, &self.row, &self.pos)
+                            }
+                            #[doc = r" Set the"]
+                            #[doc = "Lumbar up switch engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                            #[doc = r" . Ensure that the value is within bounds as per the"]
+                            #[doc = r" specification. This function will panic in case the value is out"]
+                            #[doc = r" of bounds."]
+                            pub fn set(
+                                &mut self,
+                                value: bool,
+                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) {
+                                assert!(Self::bounds_check(&value));
+                                self.v = value;
+                                self.row = row;
+                                self.pos = pos;
+                                if let Some(ts) = maybe_timestamp {
+                                    self.timestamp = ts;
+                                }
+                            }
+                            #[doc = r"check if the given value is within the limits defined"]
+                            #[doc = r"in the specification. This particular type has not"]
+                            #[doc = r"specified the min or max limits so the function just"]
+                            #[doc = r" returns true"]
+                            const fn bounds_check(_v: &bool) -> bool {
+                                true
+                            }
+                            #[doc = r" create a new instance"]
+                            pub fn new(
+                                value: bool,
+                                timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) -> Option<Self> {
+                                if Self::bounds_check(&value) {
+                                    Some(Self {
+                                        v: value,
+                                        timestamp: timestamp.unwrap_or_default(),
+                                        row,
+                                        pos,
+                                    })
+                                } else {
+                                    None
+                                }
+                            }
+                        }
+                        #[doc = "Lumbar down switch engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                        #[allow(non_camel_case_types)]
+                        #[derive(Default, Deserialize, Serialize, Topic)]
+                        pub struct IsDownEngaged {
+                            v: bool,
+                            timestamp: crate::v2::Timestamp,
+                            #[topic_key]
+                            row: u8,
+                            #[topic_key]
+                            pos: u8,
+                        }
+                        impl IsDownEngaged {
+                            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                                &self.timestamp
+                            }
+                            #[doc = r" Get the "]
+                            #[doc = "Lumbar down switch engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                            #[doc = r" The return value is a tuple that contains a"]
+                            #[doc = r" reference to the value and the additional keys the topic"]
+                            #[doc = r" may have. The value is always the first entry and is"]
+                            #[doc = "(value,row, pos)"]
+                            pub fn value(&self) -> (&bool, &u8, &u8) {
+                                (&self.v, &self.row, &self.pos)
+                            }
+                            #[doc = r" Set the"]
+                            #[doc = "Lumbar down switch engaged (SingleSeat.Backrest.Lumbar.Support).. This type has no unit defined"]
+                            #[doc = r" . Ensure that the value is within bounds as per the"]
+                            #[doc = r" specification. This function will panic in case the value is out"]
+                            #[doc = r" of bounds."]
+                            pub fn set(
+                                &mut self,
+                                value: bool,
+                                maybe_timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) {
+                                assert!(Self::bounds_check(&value));
+                                self.v = value;
+                                self.row = row;
+                                self.pos = pos;
+                                if let Some(ts) = maybe_timestamp {
+                                    self.timestamp = ts;
+                                }
+                            }
+                            #[doc = r"check if the given value is within the limits defined"]
+                            #[doc = r"in the specification. This particular type has not"]
+                            #[doc = r"specified the min or max limits so the function just"]
+                            #[doc = r" returns true"]
+                            const fn bounds_check(_v: &bool) -> bool {
+                                true
+                            }
+                            #[doc = r" create a new instance"]
+                            pub fn new(
+                                value: bool,
+                                timestamp: Option<crate::v2::Timestamp>,
+                                row: u8,
+                                pos: u8,
+                            ) -> Option<Self> {
+                                if Self::bounds_check(&value) {
+                                    Some(Self {
+                                        v: value,
+                                        timestamp: timestamp.unwrap_or_default(),
+                                        row,
+                                        pos,
+                                    })
+                                } else {
+                                    None
+                                }
                             }
                         }
                     }
@@ -12747,10 +13192,10 @@ pub mod vehicle {
             pub mod window {
                 use cdds_derive::Topic;
                 use cyclonedds_rs::*;
-                #[doc = "Is window open or closed. This type has no unit defined"]
+                #[doc = "Is window open or closed?. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct isOpen {
+                pub struct IsOpen {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key]
@@ -12758,12 +13203,12 @@ pub mod vehicle {
                     #[topic_key_enum]
                     side: crate::v2::Side,
                 }
-                impl isOpen {
+                impl IsOpen {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Is window open or closed. This type has no unit defined"]
+                    #[doc = "Is window open or closed?. This type has no unit defined"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
@@ -12772,7 +13217,7 @@ pub mod vehicle {
                         (&self.v, &self.row, &self.side)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Is window open or closed. This type has no unit defined"]
+                    #[doc = "Is window open or closed?. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -12889,7 +13334,7 @@ pub mod vehicle {
                 #[doc = "Is window child lock engaged. True = Engaged. False = Disengaged.. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct ChildLock {
+                pub struct IsChildLockEngaged {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key]
@@ -12897,7 +13342,7 @@ pub mod vehicle {
                     #[topic_key_enum]
                     side: crate::v2::Side,
                 }
-                impl ChildLock {
+                impl IsChildLockEngaged {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
@@ -13430,7 +13875,7 @@ pub mod vehicle {
         pub mod rearviewmirror {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
-            #[doc = "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed. The unit of this type is percent"]
+            #[doc = "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed.. The unit of this type is percent"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct DimmingLevel {
@@ -13442,12 +13887,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed. The unit of this type is percent"]
+                #[doc = "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed.. The unit of this type is percent"]
                 pub fn value(&self) -> &crate::v2::units::Percent<u8> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed. The unit of this type is percent"]
+                #[doc = "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed.. The unit of this type is percent"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -13463,11 +13908,10 @@ pub mod vehicle {
                     }
                 }
                 #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. This particular type has not"]
-                #[doc = r"specified the min or max limits so the function just"]
-                #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Percent<u8>) -> bool {
-                    true
+                #[doc = r"in the specification. Return true if the value is"]
+                #[doc = r"within bounds."]
+                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                    v.0 <= 100u8 && true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
@@ -13489,7 +13933,7 @@ pub mod vehicle {
         pub mod sunroof {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
-            #[doc = "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted. This type has no unit defined"]
+            #[doc = "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Position {
@@ -13501,12 +13945,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted. This type has no unit defined"]
+                #[doc = "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted.. This type has no unit defined"]
                 pub fn value(&self) -> &i8 {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted. This type has no unit defined"]
+                #[doc = "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -14141,335 +14585,10 @@ pub mod vehicle {
             #[allow(non_snake_case)]
             pub mod navigation {
                 #[allow(non_snake_case)]
-                pub mod currentlocation {
-                    use cdds_derive::Topic;
-                    use cyclonedds_rs::*;
-                    #[doc = "Current latitude of vehicle, as reported by GPS.. The unit of this type is degrees"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Latitude {
-                        v: f64,
-                        timestamp: crate::v2::Timestamp,
-                    }
-                    impl Latitude {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Current latitude of vehicle, as reported by GPS.. The unit of this type is degrees"]
-                        pub fn value(&self) -> &f64 {
-                            &self.v
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Current latitude of vehicle, as reported by GPS.. The unit of this type is degrees"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: f64,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. Return true if the value is"]
-                        #[doc = r"within bounds."]
-                        pub fn bounds_check(v: &f64) -> bool {
-                            *v <= 90f64 && *v >= -90f64
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: f64,
-                            timestamp: Option<crate::v2::Timestamp>,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                    #[doc = "Current longitude of vehicle, as reported by GPS.. The unit of this type is degrees"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Longitude {
-                        v: f64,
-                        timestamp: crate::v2::Timestamp,
-                    }
-                    impl Longitude {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Current longitude of vehicle, as reported by GPS.. The unit of this type is degrees"]
-                        pub fn value(&self) -> &f64 {
-                            &self.v
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Current longitude of vehicle, as reported by GPS.. The unit of this type is degrees"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: f64,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. Return true if the value is"]
-                        #[doc = r"within bounds."]
-                        pub fn bounds_check(v: &f64) -> bool {
-                            *v <= 180f64 && *v >= -180f64
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: f64,
-                            timestamp: Option<crate::v2::Timestamp>,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                    #[doc = "Current magnetic compass heading, in degrees.. The unit of this type is degrees"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Heading {
-                        v: f64,
-                        timestamp: crate::v2::Timestamp,
-                    }
-                    impl Heading {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Current magnetic compass heading, in degrees.. The unit of this type is degrees"]
-                        pub fn value(&self) -> &f64 {
-                            &self.v
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Current magnetic compass heading, in degrees.. The unit of this type is degrees"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: f64,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. Return true if the value is"]
-                        #[doc = r"within bounds."]
-                        pub fn bounds_check(v: &f64) -> bool {
-                            *v <= 360f64 && *v >= 0f64
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: f64,
-                            timestamp: Option<crate::v2::Timestamp>,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                    #[doc = "Accuracy level of the latitude and longitude coordinates in meters.. The unit of this type is m"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Accuracy {
-                        v: crate::v2::units::Metre<f64>,
-                        timestamp: crate::v2::Timestamp,
-                    }
-                    impl Accuracy {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Accuracy level of the latitude and longitude coordinates in meters.. The unit of this type is m"]
-                        pub fn value(&self) -> &crate::v2::units::Metre<f64> {
-                            &self.v
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Accuracy level of the latitude and longitude coordinates in meters.. The unit of this type is m"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: crate::v2::units::Metre<f64>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Metre<f64>) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: crate::v2::units::Metre<f64>,
-                            timestamp: Option<crate::v2::Timestamp>,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                    #[doc = "Current elevation of the position in meters.. The unit of this type is m"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Altitude {
-                        v: crate::v2::units::Metre<f64>,
-                        timestamp: crate::v2::Timestamp,
-                    }
-                    impl Altitude {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Current elevation of the position in meters.. The unit of this type is m"]
-                        pub fn value(&self) -> &crate::v2::units::Metre<f64> {
-                            &self.v
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Current elevation of the position in meters.. The unit of this type is m"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: crate::v2::units::Metre<f64>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. This particular type has not"]
-                        #[doc = r"specified the min or max limits so the function just"]
-                        #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Metre<f64>) -> bool {
-                            true
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: crate::v2::units::Metre<f64>,
-                            timestamp: Option<crate::v2::Timestamp>,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                    #[doc = "Vehicle speed, as sensed by the GPS receiver.. The unit of this type is km/h"]
-                    #[allow(non_camel_case_types)]
-                    #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Speed {
-                        v: crate::v2::units::KilometrePerHour<u16>,
-                        timestamp: crate::v2::Timestamp,
-                    }
-                    impl Speed {
-                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                            &self.timestamp
-                        }
-                        #[doc = r" Get the "]
-                        #[doc = "Vehicle speed, as sensed by the GPS receiver.. The unit of this type is km/h"]
-                        pub fn value(&self) -> &crate::v2::units::KilometrePerHour<u16> {
-                            &self.v
-                        }
-                        #[doc = r" Set the"]
-                        #[doc = "Vehicle speed, as sensed by the GPS receiver.. The unit of this type is km/h"]
-                        #[doc = r" . Ensure that the value is within bounds as per the"]
-                        #[doc = r" specification. This function will panic in case the value is out"]
-                        #[doc = r" of bounds."]
-                        pub fn set(
-                            &mut self,
-                            value: crate::v2::units::KilometrePerHour<u16>,
-                            maybe_timestamp: Option<crate::v2::Timestamp>,
-                        ) {
-                            assert!(Self::bounds_check(&value));
-                            self.v = value;
-                            if let Some(ts) = maybe_timestamp {
-                                self.timestamp = ts;
-                            }
-                        }
-                        #[doc = r"check if the given value is within the limits defined"]
-                        #[doc = r"in the specification. Return true if the value is"]
-                        #[doc = r"within bounds."]
-                        pub fn bounds_check(v: &crate::v2::units::KilometrePerHour<u16>) -> bool {
-                            v.0 <= 250u16 && v.0 >= 0u16
-                        }
-                        #[doc = r" create a new instance"]
-                        pub fn new(
-                            value: crate::v2::units::KilometrePerHour<u16>,
-                            timestamp: Option<crate::v2::Timestamp>,
-                        ) -> Option<Self> {
-                            if Self::bounds_check(&value) {
-                                Some(Self {
-                                    v: value,
-                                    timestamp: timestamp.unwrap_or_default(),
-                                })
-                            } else {
-                                None
-                            }
-                        }
-                    }
-                }
-                #[allow(non_snake_case)]
                 pub mod destinationset {
                     use cdds_derive::Topic;
                     use cyclonedds_rs::*;
-                    #[doc = "Latitude of destination. The unit of this type is degrees"]
+                    #[doc = "Latitude of destination in WGS 84 geodetic coordinates.. The unit of this type is degrees"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Latitude {
@@ -14481,12 +14600,12 @@ pub mod vehicle {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Latitude of destination. The unit of this type is degrees"]
+                        #[doc = "Latitude of destination in WGS 84 geodetic coordinates.. The unit of this type is degrees"]
                         pub fn value(&self) -> &f64 {
                             &self.v
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Latitude of destination. The unit of this type is degrees"]
+                        #[doc = "Latitude of destination in WGS 84 geodetic coordinates.. The unit of this type is degrees"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
@@ -14522,7 +14641,7 @@ pub mod vehicle {
                             }
                         }
                     }
-                    #[doc = "Longitude of destination. The unit of this type is degrees"]
+                    #[doc = "Longitude of destination in WGS 84 geodetic coordinates.. The unit of this type is degrees"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
                     pub struct Longitude {
@@ -14534,12 +14653,12 @@ pub mod vehicle {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Longitude of destination. The unit of this type is degrees"]
+                        #[doc = "Longitude of destination in WGS 84 geodetic coordinates.. The unit of this type is degrees"]
                         pub fn value(&self) -> &f64 {
                             &self.v
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Longitude of destination. The unit of this type is degrees"]
+                        #[doc = "Longitude of destination in WGS 84 geodetic coordinates.. The unit of this type is degrees"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
@@ -15433,7 +15552,7 @@ pub mod vehicle {
     pub mod body {
         use cdds_derive::Topic;
         use cyclonedds_rs::*;
-        #[doc = "Body type code as defined by ISO 3779. This type has no unit defined"]
+        #[doc = "Body type code as defined by ISO 3779.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct BodyType {
@@ -15441,12 +15560,12 @@ pub mod vehicle {
         }
         impl BodyType {
             #[doc = r" Get the "]
-            #[doc = "Body type code as defined by ISO 3779. This type has no unit defined"]
+            #[doc = "Body type code as defined by ISO 3779.. This type has no unit defined"]
             pub fn value(&self) -> &String {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Body type code as defined by ISO 3779. This type has no unit defined"]
+            #[doc = "Body type code as defined by ISO 3779.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -15470,7 +15589,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Location of the fuel cap or charge port. This type has no unit defined"]
+        #[doc = "Location of the fuel cap or charge port.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct RefuelPosition {
@@ -15478,12 +15597,12 @@ pub mod vehicle {
         }
         impl RefuelPosition {
             #[doc = r" Get the "]
-            #[doc = "Location of the fuel cap or charge port. This type has no unit defined"]
+            #[doc = "Location of the fuel cap or charge port.. This type has no unit defined"]
             pub fn value(&self) -> &String {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Location of the fuel cap or charge port. This type has no unit defined"]
+            #[doc = "Location of the fuel cap or charge port.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -15507,125 +15626,66 @@ pub mod vehicle {
                 }
             }
         }
-        #[allow(non_snake_case)]
-        pub mod chargingport {
-            use cdds_derive::Topic;
-            use cyclonedds_rs::*;
-            #[doc = "Indicates the primary charging type fitted to the vehicle. This type has no unit defined"]
-            #[allow(non_camel_case_types)]
-            #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Type {
-                v: String,
+        #[doc = "Rear spoiler position, 0% = Spoiler fully stowed. 100% = Spoiler fully exposed.. The unit of this type is percent"]
+        #[allow(non_camel_case_types)]
+        #[derive(Default, Deserialize, Serialize, Topic)]
+        pub struct RearMainSpoilerPosition {
+            v: crate::v2::units::Percent<f32>,
+            timestamp: crate::v2::Timestamp,
+        }
+        impl RearMainSpoilerPosition {
+            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                &self.timestamp
             }
-            impl Type {
-                #[doc = r" Get the "]
-                #[doc = "Indicates the primary charging type fitted to the vehicle. This type has no unit defined"]
-                pub fn value(&self) -> &String {
-                    &self.v
+            #[doc = r" Get the "]
+            #[doc = "Rear spoiler position, 0% = Spoiler fully stowed. 100% = Spoiler fully exposed.. The unit of this type is percent"]
+            pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                &self.v
+            }
+            #[doc = r" Set the"]
+            #[doc = "Rear spoiler position, 0% = Spoiler fully stowed. 100% = Spoiler fully exposed.. The unit of this type is percent"]
+            #[doc = r" . Ensure that the value is within bounds as per the"]
+            #[doc = r" specification. This function will panic in case the value is out"]
+            #[doc = r" of bounds."]
+            pub fn set(
+                &mut self,
+                value: crate::v2::units::Percent<f32>,
+                maybe_timestamp: Option<crate::v2::Timestamp>,
+            ) {
+                assert!(Self::bounds_check(&value));
+                self.v = value;
+                if let Some(ts) = maybe_timestamp {
+                    self.timestamp = ts;
                 }
-                #[doc = r" Set the"]
-                #[doc = "Indicates the primary charging type fitted to the vehicle. This type has no unit defined"]
-                #[doc = r" Ensure that the value is within bounds as per the"]
-                #[doc = r" specification. This function will panic in case the value is out"]
-                #[doc = r" of bounds."]
-                pub fn set(&mut self, value: String) {
-                    assert!(Self::bounds_check(&value));
-                    self.v = value;
-                }
-                #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. This particular type has not"]
-                #[doc = r"specified the min or max limits so the function just"]
-                #[doc = r" returns true"]
-                const fn bounds_check(_v: &String) -> bool {
-                    true
-                }
-                #[doc = r" create a new instance"]
-                pub fn new(value: String) -> Option<Self> {
-                    if Self::bounds_check(&value) {
-                        Some(Self { v: value })
-                    } else {
-                        None
-                    }
+            }
+            #[doc = r"check if the given value is within the limits defined"]
+            #[doc = r"in the specification. Return true if the value is"]
+            #[doc = r"within bounds."]
+            pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                v.0 <= 100f32 && v.0 >= 0f32
+            }
+            #[doc = r" create a new instance"]
+            pub fn new(
+                value: crate::v2::units::Percent<f32>,
+                timestamp: Option<crate::v2::Timestamp>,
+            ) -> Option<Self> {
+                if Self::bounds_check(&value) {
+                    Some(Self {
+                        v: value,
+                        timestamp: timestamp.unwrap_or_default(),
+                    })
+                } else {
+                    None
                 }
             }
         }
         #[allow(non_snake_case)]
-        pub mod mirrors {
-            #[allow(non_snake_case)]
-            pub mod heating {
-                use cdds_derive::Topic;
-                use cyclonedds_rs::*;
-                #[doc = "Mirror Heater on or off. True = Heater On. False = Heater Off.. This type has no unit defined"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Status {
-                    v: bool,
-                    timestamp: crate::v2::Timestamp,
-                    #[topic_key_enum]
-                    side: crate::v2::Side,
-                }
-                impl Status {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Mirror Heater on or off. True = Heater On. False = Heater Off.. This type has no unit defined"]
-                    #[doc = r" The return value is a tuple that contains a"]
-                    #[doc = r" reference to the value and the additional keys the topic"]
-                    #[doc = r" may have. The value is always the first entry and is"]
-                    #[doc = "(value,side)"]
-                    pub fn value(&self) -> (&bool, &crate::v2::Side) {
-                        (&self.v, &self.side)
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Mirror Heater on or off. True = Heater On. False = Heater Off.. This type has no unit defined"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: bool,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                        side: crate::v2::Side,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        self.side = side;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. This particular type has not"]
-                    #[doc = r"specified the min or max limits so the function just"]
-                    #[doc = r" returns true"]
-                    const fn bounds_check(_v: &bool) -> bool {
-                        true
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: bool,
-                        timestamp: Option<crate::v2::Timestamp>,
-                        side: crate::v2::Side,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                                side,
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-            }
-        }
+        pub mod mirrors {}
         #[allow(non_snake_case)]
         pub mod lights {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
-            #[doc = "Is high beam on. This type has no unit defined"]
+            #[doc = "Is high beam on?. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsHighBeamOn {
@@ -15637,12 +15697,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Is high beam on. This type has no unit defined"]
+                #[doc = "Is high beam on?. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Is high beam on. This type has no unit defined"]
+                #[doc = "Is high beam on?. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -15672,7 +15732,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Is low beam on. This type has no unit defined"]
+            #[doc = "Is low beam on?. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsLowBeamOn {
@@ -15684,12 +15744,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Is low beam on. This type has no unit defined"]
+                #[doc = "Is low beam on?. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Is low beam on. This type has no unit defined"]
+                #[doc = "Is low beam on?. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -15719,7 +15779,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Are running lights on. This type has no unit defined"]
+            #[doc = "Are running lights on?. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsRunningOn {
@@ -15731,12 +15791,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Are running lights on. This type has no unit defined"]
+                #[doc = "Are running lights on?. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Are running lights on. This type has no unit defined"]
+                #[doc = "Are running lights on?. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -15766,7 +15826,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Is backup (reverse) light on. This type has no unit defined"]
+            #[doc = "Is backup (reverse) light on?. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsBackupOn {
@@ -15778,12 +15838,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Is backup (reverse) light on. This type has no unit defined"]
+                #[doc = "Is backup (reverse) light on?. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Is backup (reverse) light on. This type has no unit defined"]
+                #[doc = "Is backup (reverse) light on?. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -15813,7 +15873,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Is parking light on. This type has no unit defined"]
+            #[doc = "Is parking light on?. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsParkingOn {
@@ -15825,12 +15885,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Is parking light on. This type has no unit defined"]
+                #[doc = "Is parking light on?. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Is parking light on. This type has no unit defined"]
+                #[doc = "Is parking light on?. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -15860,7 +15920,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Is brake light on. This type has no unit defined"]
+            #[doc = "Is brake light on?. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsBrakeOn {
@@ -15872,12 +15932,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Is brake light on. This type has no unit defined"]
+                #[doc = "Is brake light on?. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Is brake light on. This type has no unit defined"]
+                #[doc = "Is brake light on?. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -15907,7 +15967,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Is rear fog light on. This type has no unit defined"]
+            #[doc = "Is rear fog light on?. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsRearFogOn {
@@ -15919,12 +15979,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Is rear fog light on. This type has no unit defined"]
+                #[doc = "Is rear fog light on?. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Is rear fog light on. This type has no unit defined"]
+                #[doc = "Is rear fog light on?. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -15954,7 +16014,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Is front fog light on. This type has no unit defined"]
+            #[doc = "Is front fog light on?. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsFrontFogOn {
@@ -15966,12 +16026,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Is front fog light on. This type has no unit defined"]
+                #[doc = "Is front fog light on?. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Is front fog light on. This type has no unit defined"]
+                #[doc = "Is front fog light on?. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -16001,7 +16061,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Are hazards on. This type has no unit defined"]
+            #[doc = "Are hazards on?. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsHazardOn {
@@ -16013,12 +16073,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Are hazards on. This type has no unit defined"]
+                #[doc = "Are hazards on?. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Are hazards on. This type has no unit defined"]
+                #[doc = "Are hazards on?. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -16048,7 +16108,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Is left indicator flashing. This type has no unit defined"]
+            #[doc = "Is left indicator flashing?. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsLeftIndicatorOn {
@@ -16060,12 +16120,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Is left indicator flashing. This type has no unit defined"]
+                #[doc = "Is left indicator flashing?. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Is left indicator flashing. This type has no unit defined"]
+                #[doc = "Is left indicator flashing?. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -16095,7 +16155,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Is right indicator flashing. This type has no unit defined"]
+            #[doc = "Is right indicator flashing?. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsRightIndicatorOn {
@@ -16107,12 +16167,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Is right indicator flashing. This type has no unit defined"]
+                #[doc = "Is right indicator flashing?. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Is right indicator flashing. This type has no unit defined"]
+                #[doc = "Is right indicator flashing?. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -16149,21 +16209,21 @@ pub mod vehicle {
             pub mod wiping {
                 use cdds_derive::Topic;
                 use cyclonedds_rs::*;
-                #[doc = "Wiper status. This type has no unit defined"]
+                #[doc = "Wiper mode requested by user/driver. INTERVAL indicates intermittent wiping, with fixed time interval between each wipe. RAIN_SENSOR indicates intermittent wiping based on rain intensity.. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Status {
+                pub struct Mode {
                     v: String,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key_enum]
                     position: crate::v2::Position,
                 }
-                impl Status {
+                impl Mode {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Wiper status. This type has no unit defined"]
+                    #[doc = "Wiper mode requested by user/driver. INTERVAL indicates intermittent wiping, with fixed time interval between each wipe. RAIN_SENSOR indicates intermittent wiping based on rain intensity.. This type has no unit defined"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
@@ -16172,7 +16232,7 @@ pub mod vehicle {
                         (&self.v, &self.position)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Wiper status. This type has no unit defined"]
+                    #[doc = "Wiper mode requested by user/driver. INTERVAL indicates intermittent wiping, with fixed time interval between each wipe. RAIN_SENSOR indicates intermittent wiping based on rain intensity.. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -16213,26 +16273,148 @@ pub mod vehicle {
                         }
                     }
                 }
-            }
-            #[allow(non_snake_case)]
-            pub mod heating {
-                use cdds_derive::Topic;
-                use cyclonedds_rs::*;
-                #[doc = "Windshield heater status. 0 - off, 1 - on. This type has no unit defined"]
+                #[doc = "Relative intensity/sensitivity for interval and rain sensor mode as requested by user/driver. Has no significance if Windshield.Wiping.Mode is OFF/SLOW/MEDIUM/FAST 0 - wipers inactive. 1 - minimum intensity (lowest frequency/sensitivity, longest interval). 2/3/4/... - higher intensity (higher frequency/sensitivity, shorter interval). Maximum value supported is vehicle specific.. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Status {
+                pub struct Intensity {
+                    v: u8,
+                    timestamp: crate::v2::Timestamp,
+                    #[topic_key_enum]
+                    position: crate::v2::Position,
+                }
+                impl Intensity {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Relative intensity/sensitivity for interval and rain sensor mode as requested by user/driver. Has no significance if Windshield.Wiping.Mode is OFF/SLOW/MEDIUM/FAST 0 - wipers inactive. 1 - minimum intensity (lowest frequency/sensitivity, longest interval). 2/3/4/... - higher intensity (higher frequency/sensitivity, shorter interval). Maximum value supported is vehicle specific.. This type has no unit defined"]
+                    #[doc = r" The return value is a tuple that contains a"]
+                    #[doc = r" reference to the value and the additional keys the topic"]
+                    #[doc = r" may have. The value is always the first entry and is"]
+                    #[doc = "(value,position)"]
+                    pub fn value(&self) -> (&u8, &crate::v2::Position) {
+                        (&self.v, &self.position)
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Relative intensity/sensitivity for interval and rain sensor mode as requested by user/driver. Has no significance if Windshield.Wiping.Mode is OFF/SLOW/MEDIUM/FAST 0 - wipers inactive. 1 - minimum intensity (lowest frequency/sensitivity, longest interval). 2/3/4/... - higher intensity (higher frequency/sensitivity, shorter interval). Maximum value supported is vehicle specific.. This type has no unit defined"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: u8,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        position: crate::v2::Position,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        self.position = position;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &u8) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: u8,
+                        timestamp: Option<crate::v2::Timestamp>,
+                        position: crate::v2::Position,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                                position,
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Wiper wear as percent. 0 = No Wear. 100 = Worn. Replacement required. Method for calculating or estimating wiper wear is vehicle specific. For windshields with multiple wipers the wear reported shall correspond to the most worn wiper.. This type has no unit defined"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct WiperWear {
+                    v: u8,
+                    timestamp: crate::v2::Timestamp,
+                    #[topic_key_enum]
+                    position: crate::v2::Position,
+                }
+                impl WiperWear {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Wiper wear as percent. 0 = No Wear. 100 = Worn. Replacement required. Method for calculating or estimating wiper wear is vehicle specific. For windshields with multiple wipers the wear reported shall correspond to the most worn wiper.. This type has no unit defined"]
+                    #[doc = r" The return value is a tuple that contains a"]
+                    #[doc = r" reference to the value and the additional keys the topic"]
+                    #[doc = r" may have. The value is always the first entry and is"]
+                    #[doc = "(value,position)"]
+                    pub fn value(&self) -> (&u8, &crate::v2::Position) {
+                        (&self.v, &self.position)
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Wiper wear as percent. 0 = No Wear. 100 = Worn. Replacement required. Method for calculating or estimating wiper wear is vehicle specific. For windshields with multiple wipers the wear reported shall correspond to the most worn wiper.. This type has no unit defined"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: u8,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                        position: crate::v2::Position,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        self.position = position;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. Return true if the value is"]
+                    #[doc = r"within bounds."]
+                    pub fn bounds_check(v: &u8) -> bool {
+                        *v <= 100u8 && true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: u8,
+                        timestamp: Option<crate::v2::Timestamp>,
+                        position: crate::v2::Position,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                                position,
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Wiper wear status. True = Worn, Replacement recommended or required. False = Not Worn.. This type has no unit defined"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct IsWipersWorn {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key_enum]
                     position: crate::v2::Position,
                 }
-                impl Status {
+                impl IsWipersWorn {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Windshield heater status. 0 - off, 1 - on. This type has no unit defined"]
+                    #[doc = "Wiper wear status. True = Worn, Replacement recommended or required. False = Not Worn.. This type has no unit defined"]
                     #[doc = r" The return value is a tuple that contains a"]
                     #[doc = r" reference to the value and the additional keys the topic"]
                     #[doc = r" may have. The value is always the first entry and is"]
@@ -16241,7 +16423,7 @@ pub mod vehicle {
                         (&self.v, &self.position)
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Windshield heater status. 0 - off, 1 - on. This type has no unit defined"]
+                    #[doc = "Wiper wear status. True = Worn, Replacement recommended or required. False = Not Worn.. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -16282,6 +16464,715 @@ pub mod vehicle {
                         }
                     }
                 }
+                #[allow(non_snake_case)]
+                pub mod system {
+                    use cdds_derive::Topic;
+                    use cyclonedds_rs::*;
+                    #[doc = "Requested mode of wiper system. STOP_HOLD means that the wipers shall move to position given by TargetPosition and then hold the position. WIPE means that wipers shall move to the position given by TargetPosition and then hold the position if no new TargetPosition is requested. PLANT_MODE means that wiping is disabled. Exact behavior is vehicle specific. EMERGENCY_STOP means that wiping shall be immediately stopped without holding the position.. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Mode {
+                        v: String,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key_enum]
+                        position: crate::v2::Position,
+                    }
+                    impl Mode {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Requested mode of wiper system. STOP_HOLD means that the wipers shall move to position given by TargetPosition and then hold the position. WIPE means that wipers shall move to the position given by TargetPosition and then hold the position if no new TargetPosition is requested. PLANT_MODE means that wiping is disabled. Exact behavior is vehicle specific. EMERGENCY_STOP means that wiping shall be immediately stopped without holding the position.. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,position)"]
+                        pub fn value(&self) -> (&String, &crate::v2::Position) {
+                            (&self.v, &self.position)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Requested mode of wiper system. STOP_HOLD means that the wipers shall move to position given by TargetPosition and then hold the position. WIPE means that wipers shall move to the position given by TargetPosition and then hold the position if no new TargetPosition is requested. PLANT_MODE means that wiping is disabled. Exact behavior is vehicle specific. EMERGENCY_STOP means that wiping shall be immediately stopped without holding the position.. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: String,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.position = position;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &String) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: String,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    position,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Wiping frequency/speed, measured in cycles per minute. The signal concerns the actual speed of the wiper blades when moving. Intervals/pauses are excluded, i.e. the value corresponds to the number of cycles that would be completed in 1 minute if wiping permanently over default range.. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Frequency {
+                        v: u8,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key_enum]
+                        position: crate::v2::Position,
+                    }
+                    impl Frequency {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Wiping frequency/speed, measured in cycles per minute. The signal concerns the actual speed of the wiper blades when moving. Intervals/pauses are excluded, i.e. the value corresponds to the number of cycles that would be completed in 1 minute if wiping permanently over default range.. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,position)"]
+                        pub fn value(&self) -> (&u8, &crate::v2::Position) {
+                            (&self.v, &self.position)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Wiping frequency/speed, measured in cycles per minute. The signal concerns the actual speed of the wiper blades when moving. Intervals/pauses are excluded, i.e. the value corresponds to the number of cycles that would be completed in 1 minute if wiping permanently over default range.. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: u8,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.position = position;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &u8) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: u8,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    position,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Requested position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific. System behavior when receiving TargetPosition depends on Mode and IsEndingWipeCycle. Supported values are vehicle specific and might be dynamically corrected. If IsEndingWipeCycle=True then wipers will complete current movement before actuating new TargetPosition. If IsEndingWipeCycle=False then wipers will directly change destination if the TargetPosition is changed.. The unit of this type is degrees"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct TargetPosition {
+                        v: f32,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key_enum]
+                        position: crate::v2::Position,
+                    }
+                    impl TargetPosition {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Requested position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific. System behavior when receiving TargetPosition depends on Mode and IsEndingWipeCycle. Supported values are vehicle specific and might be dynamically corrected. If IsEndingWipeCycle=True then wipers will complete current movement before actuating new TargetPosition. If IsEndingWipeCycle=False then wipers will directly change destination if the TargetPosition is changed.. The unit of this type is degrees"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,position)"]
+                        pub fn value(&self) -> (&f32, &crate::v2::Position) {
+                            (&self.v, &self.position)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Requested position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific. System behavior when receiving TargetPosition depends on Mode and IsEndingWipeCycle. Supported values are vehicle specific and might be dynamically corrected. If IsEndingWipeCycle=True then wipers will complete current movement before actuating new TargetPosition. If IsEndingWipeCycle=False then wipers will directly change destination if the TargetPosition is changed.. The unit of this type is degrees"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: f32,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.position = position;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &f32) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: f32,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    position,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Actual position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific.. The unit of this type is degrees"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct ActualPosition {
+                        v: f32,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key_enum]
+                        position: crate::v2::Position,
+                    }
+                    impl ActualPosition {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Actual position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific.. The unit of this type is degrees"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,position)"]
+                        pub fn value(&self) -> (&f32, &crate::v2::Position) {
+                            (&self.v, &self.position)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Actual position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific.. The unit of this type is degrees"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: f32,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.position = position;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &f32) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: f32,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    position,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Actual current used by wiper drive.. The unit of this type is A"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct DriveCurrent {
+                        v: crate::v2::units::Amp<f32>,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key_enum]
+                        position: crate::v2::Position,
+                    }
+                    impl DriveCurrent {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Actual current used by wiper drive.. The unit of this type is A"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,position)"]
+                        pub fn value(&self) -> (&crate::v2::units::Amp<f32>, &crate::v2::Position) {
+                            (&self.v, &self.position)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Actual current used by wiper drive.. The unit of this type is A"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.position = position;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Amp<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    position,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Indicates wiper movement. True if wiper blades are moving. Change of direction shall be considered as IsWiping if wipers will continue to move directly after the change of direction.. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsWiping {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key_enum]
+                        position: crate::v2::Position,
+                    }
+                    impl IsWiping {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Indicates wiper movement. True if wiper blades are moving. Change of direction shall be considered as IsWiping if wipers will continue to move directly after the change of direction.. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,position)"]
+                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                            (&self.v, &self.position)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Indicates wiper movement. True if wiper blades are moving. Change of direction shall be considered as IsWiping if wipers will continue to move directly after the change of direction.. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.position = position;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    position,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Indicates if current wipe movement is completed or near completion. True = Movement is completed or near completion. Changes to RequestedPosition will be executed first after reaching previous RequestedPosition, if it has not already been reached. False = Movement is not near completion. Any change to RequestedPosition will be executed immediately. Change of direction may not be allowed.. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsEndingWipeCycle {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key_enum]
+                        position: crate::v2::Position,
+                    }
+                    impl IsEndingWipeCycle {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Indicates if current wipe movement is completed or near completion. True = Movement is completed or near completion. Changes to RequestedPosition will be executed first after reaching previous RequestedPosition, if it has not already been reached. False = Movement is not near completion. Any change to RequestedPosition will be executed immediately. Change of direction may not be allowed.. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,position)"]
+                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                            (&self.v, &self.position)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Indicates if current wipe movement is completed or near completion. True = Movement is completed or near completion. Changes to RequestedPosition will be executed first after reaching previous RequestedPosition, if it has not already been reached. False = Movement is not near completion. Any change to RequestedPosition will be executed immediately. Change of direction may not be allowed.. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.position = position;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    position,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Indicates system failure. True if wiping is disabled due to system failure.. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsWiperError {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key_enum]
+                        position: crate::v2::Position,
+                    }
+                    impl IsWiperError {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Indicates system failure. True if wiping is disabled due to system failure.. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,position)"]
+                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                            (&self.v, &self.position)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Indicates system failure. True if wiping is disabled due to system failure.. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.position = position;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    position,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Indicates if a requested position has been reached. IsPositionReached refers to the previous position in case the TargetPosition is updated while IsEndingWipeCycle=True. True = Current or Previous TargetPosition reached. False = Position not (yet) reached, or wipers have moved away from the reached position.. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsPositionReached {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key_enum]
+                        position: crate::v2::Position,
+                    }
+                    impl IsPositionReached {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Indicates if a requested position has been reached. IsPositionReached refers to the previous position in case the TargetPosition is updated while IsEndingWipeCycle=True. True = Current or Previous TargetPosition reached. False = Position not (yet) reached, or wipers have moved away from the reached position.. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,position)"]
+                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                            (&self.v, &self.position)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Indicates if a requested position has been reached. IsPositionReached refers to the previous position in case the TargetPosition is updated while IsEndingWipeCycle=True. True = Current or Previous TargetPosition reached. False = Position not (yet) reached, or wipers have moved away from the reached position.. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.position = position;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    position,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Indicates if wiper movement is blocked. True = Movement blocked. False = Movement not blocked.. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsBlocked {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key_enum]
+                        position: crate::v2::Position,
+                    }
+                    impl IsBlocked {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Indicates if wiper movement is blocked. True = Movement blocked. False = Movement not blocked.. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,position)"]
+                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                            (&self.v, &self.position)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Indicates if wiper movement is blocked. True = Movement blocked. False = Movement not blocked.. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.position = position;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    position,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Indicates if wiper system is overheated. True = Wiper system overheated. False = Wiper system not overheated.. This type has no unit defined"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct IsOverheated {
+                        v: bool,
+                        timestamp: crate::v2::Timestamp,
+                        #[topic_key_enum]
+                        position: crate::v2::Position,
+                    }
+                    impl IsOverheated {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Indicates if wiper system is overheated. True = Wiper system overheated. False = Wiper system not overheated.. This type has no unit defined"]
+                        #[doc = r" The return value is a tuple that contains a"]
+                        #[doc = r" reference to the value and the additional keys the topic"]
+                        #[doc = r" may have. The value is always the first entry and is"]
+                        #[doc = "(value,position)"]
+                        pub fn value(&self) -> (&bool, &crate::v2::Position) {
+                            (&self.v, &self.position)
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Indicates if wiper system is overheated. True = Wiper system overheated. False = Wiper system not overheated.. This type has no unit defined"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: bool,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            self.position = position;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &bool) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: bool,
+                            timestamp: Option<crate::v2::Timestamp>,
+                            position: crate::v2::Position,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                    position,
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                }
             }
             #[allow(non_snake_case)]
             pub mod washerfluid {
@@ -16290,13 +17181,13 @@ pub mod vehicle {
                 #[doc = "Low level indication for washer fluid. True = Level Low. False = Level OK.. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct LevelLow {
+                pub struct IsLevelLow {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                     #[topic_key_enum]
                     position: crate::v2::Position,
                 }
-                impl LevelLow {
+                impl IsLevelLow {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
@@ -16392,11 +17283,10 @@ pub mod vehicle {
                         }
                     }
                     #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. This particular type has not"]
-                    #[doc = r"specified the min or max limits so the function just"]
-                    #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Percent<u8>) -> bool {
-                        true
+                    #[doc = r"in the specification. Return true if the value is"]
+                    #[doc = r"within bounds."]
+                    pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                        v.0 <= 100u8 && true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
@@ -16424,11 +17314,11 @@ pub mod vehicle {
             #[doc = "Rain intensity. 0 = Dry, No Rain. 100 = Covered.. The unit of this type is percent"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct intensity {
+            pub struct Intensity {
                 v: crate::v2::units::Percent<u8>,
                 timestamp: crate::v2::Timestamp,
             }
-            impl intensity {
+            impl Intensity {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -16454,11 +17344,10 @@ pub mod vehicle {
                     }
                 }
                 #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. This particular type has not"]
-                #[doc = r"specified the min or max limits so the function just"]
-                #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Percent<u8>) -> bool {
-                    true
+                #[doc = r"in the specification. Return true if the value is"]
+                #[doc = r"within bounds."]
+                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                    v.0 <= 100u8 && true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
@@ -16529,109 +17418,12 @@ pub mod vehicle {
             }
         }
         #[allow(non_snake_case)]
-        pub mod trunk {
-            use cdds_derive::Topic;
-            use cyclonedds_rs::*;
-            #[doc = "Trunk open or closed. True = Open. False = Closed. This type has no unit defined"]
-            #[allow(non_camel_case_types)]
-            #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct IsOpen {
-                v: bool,
-                timestamp: crate::v2::Timestamp,
-            }
-            impl IsOpen {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                    &self.timestamp
-                }
-                #[doc = r" Get the "]
-                #[doc = "Trunk open or closed. True = Open. False = Closed. This type has no unit defined"]
-                pub fn value(&self) -> &bool {
-                    &self.v
-                }
-                #[doc = r" Set the"]
-                #[doc = "Trunk open or closed. True = Open. False = Closed. This type has no unit defined"]
-                #[doc = r" . Ensure that the value is within bounds as per the"]
-                #[doc = r" specification. This function will panic in case the value is out"]
-                #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
-                    assert!(Self::bounds_check(&value));
-                    self.v = value;
-                    if let Some(ts) = maybe_timestamp {
-                        self.timestamp = ts;
-                    }
-                }
-                #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. This particular type has not"]
-                #[doc = r"specified the min or max limits so the function just"]
-                #[doc = r" returns true"]
-                const fn bounds_check(_v: &bool) -> bool {
-                    true
-                }
-                #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
-                    if Self::bounds_check(&value) {
-                        Some(Self {
-                            v: value,
-                            timestamp: timestamp.unwrap_or_default(),
-                        })
-                    } else {
-                        None
-                    }
-                }
-            }
-            #[doc = "Is trunk locked or unlocked. True = Locked. False = Unlocked.. This type has no unit defined"]
-            #[allow(non_camel_case_types)]
-            #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct IsLocked {
-                v: bool,
-                timestamp: crate::v2::Timestamp,
-            }
-            impl IsLocked {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                    &self.timestamp
-                }
-                #[doc = r" Get the "]
-                #[doc = "Is trunk locked or unlocked. True = Locked. False = Unlocked.. This type has no unit defined"]
-                pub fn value(&self) -> &bool {
-                    &self.v
-                }
-                #[doc = r" Set the"]
-                #[doc = "Is trunk locked or unlocked. True = Locked. False = Unlocked.. This type has no unit defined"]
-                #[doc = r" . Ensure that the value is within bounds as per the"]
-                #[doc = r" specification. This function will panic in case the value is out"]
-                #[doc = r" of bounds."]
-                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
-                    assert!(Self::bounds_check(&value));
-                    self.v = value;
-                    if let Some(ts) = maybe_timestamp {
-                        self.timestamp = ts;
-                    }
-                }
-                #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. This particular type has not"]
-                #[doc = r"specified the min or max limits so the function just"]
-                #[doc = r" returns true"]
-                const fn bounds_check(_v: &bool) -> bool {
-                    true
-                }
-                #[doc = r" create a new instance"]
-                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
-                    if Self::bounds_check(&value) {
-                        Some(Self {
-                            v: value,
-                            timestamp: timestamp.unwrap_or_default(),
-                        })
-                    } else {
-                        None
-                    }
-                }
-            }
-        }
+        pub mod trunk {}
         #[allow(non_snake_case)]
         pub mod hood {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
-            #[doc = "hood open or closed. True = Open. False = Closed. This type has no unit defined"]
+            #[doc = "Hood open or closed. True = Open. False = Closed.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct IsOpen {
@@ -16643,12 +17435,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "hood open or closed. True = Open. False = Closed. This type has no unit defined"]
+                #[doc = "Hood open or closed. True = Open. False = Closed.. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "hood open or closed. True = Open. False = Closed. This type has no unit defined"]
+                #[doc = "Hood open or closed. True = Open. False = Closed.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -16792,28 +17584,65 @@ pub mod vehicle {
                 }
             }
         }
+        #[doc = "Defines the powertrain type of the vehicle.. This type has no unit defined"]
+        #[allow(non_camel_case_types)]
+        #[derive(Default, Deserialize, Serialize, Topic)]
+        pub struct Type {
+            v: String,
+        }
+        impl Type {
+            #[doc = r" Get the "]
+            #[doc = "Defines the powertrain type of the vehicle.. This type has no unit defined"]
+            pub fn value(&self) -> &String {
+                &self.v
+            }
+            #[doc = r" Set the"]
+            #[doc = "Defines the powertrain type of the vehicle.. This type has no unit defined"]
+            #[doc = r" Ensure that the value is within bounds as per the"]
+            #[doc = r" specification. This function will panic in case the value is out"]
+            #[doc = r" of bounds."]
+            pub fn set(&mut self, value: String) {
+                assert!(Self::bounds_check(&value));
+                self.v = value;
+            }
+            #[doc = r"check if the given value is within the limits defined"]
+            #[doc = r"in the specification. This particular type has not"]
+            #[doc = r"specified the min or max limits so the function just"]
+            #[doc = r" returns true"]
+            const fn bounds_check(_v: &String) -> bool {
+                true
+            }
+            #[doc = r" create a new instance"]
+            pub fn new(value: String) -> Option<Self> {
+                if Self::bounds_check(&value) {
+                    Some(Self { v: value })
+                } else {
+                    None
+                }
+            }
+        }
         #[allow(non_snake_case)]
         pub mod fuelsystem {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
-            #[doc = "Defines the fuel type of the vehicle. This type has no unit defined"]
+            #[doc = "High level information of fuel types supported. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct FuelType {
-                v: String,
+            pub struct SupportedFuelTypes {
+                v: Vec<String>,
             }
-            impl FuelType {
+            impl SupportedFuelTypes {
                 #[doc = r" Get the "]
-                #[doc = "Defines the fuel type of the vehicle. This type has no unit defined"]
-                pub fn value(&self) -> &String {
+                #[doc = "High level information of fuel types supported. This type has no unit defined"]
+                pub fn value(&self) -> &Vec<String> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Defines the fuel type of the vehicle. This type has no unit defined"]
+                #[doc = "High level information of fuel types supported. This type has no unit defined"]
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: String) {
+                pub fn set(&mut self, value: Vec<String>) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -16821,11 +17650,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &String) -> bool {
+                const fn bounds_check(_v: &Vec<String>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String) -> Option<Self> {
+                pub fn new(value: Vec<String>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -16833,7 +17662,44 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Defines the hybrid type of the vehicle. This type has no unit defined"]
+            #[doc = "Detailed information on fuels supported by the vehicle. Identifiers originating from DIN EN 16942:2021-08, appendix B, with additional suffix for octane (RON) where relevant.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct SupportedFuel {
+                v: Vec<String>,
+            }
+            impl SupportedFuel {
+                #[doc = r" Get the "]
+                #[doc = "Detailed information on fuels supported by the vehicle. Identifiers originating from DIN EN 16942:2021-08, appendix B, with additional suffix for octane (RON) where relevant.. This type has no unit defined"]
+                pub fn value(&self) -> &Vec<String> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Detailed information on fuels supported by the vehicle. Identifiers originating from DIN EN 16942:2021-08, appendix B, with additional suffix for octane (RON) where relevant.. This type has no unit defined"]
+                #[doc = r" Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: Vec<String>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &Vec<String>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: Vec<String>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self { v: value })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Defines the hybrid type of the vehicle.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct HybridType {
@@ -16841,12 +17707,12 @@ pub mod vehicle {
             }
             impl HybridType {
                 #[doc = r" Get the "]
-                #[doc = "Defines the hybrid type of the vehicle. This type has no unit defined"]
+                #[doc = "Defines the hybrid type of the vehicle.. This type has no unit defined"]
                 pub fn value(&self) -> &String {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Defines the hybrid type of the vehicle. This type has no unit defined"]
+                #[doc = "Defines the hybrid type of the vehicle.. This type has no unit defined"]
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -16870,7 +17736,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Capacity of the fuel tank in liters. The unit of this type is l"]
+            #[doc = "Capacity of the fuel tank in liters.. The unit of this type is l"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct TankCapacity {
@@ -16878,12 +17744,12 @@ pub mod vehicle {
             }
             impl TankCapacity {
                 #[doc = r" Get the "]
-                #[doc = "Capacity of the fuel tank in liters. The unit of this type is l"]
+                #[doc = "Capacity of the fuel tank in liters.. The unit of this type is l"]
                 pub fn value(&self) -> &crate::v2::units::Litre<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Capacity of the fuel tank in liters. The unit of this type is l"]
+                #[doc = "Capacity of the fuel tank in liters.. The unit of this type is l"]
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -17228,24 +18094,24 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Indicates whether eco start stop is currently enabled. This type has no unit defined"]
+            #[doc = "Indicates whether eco start stop is currently enabled.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct EngineStopStartEnabled {
+            pub struct IsEngineStopStartEnabled {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl EngineStopStartEnabled {
+            impl IsEngineStopStartEnabled {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Indicates whether eco start stop is currently enabled. This type has no unit defined"]
+                #[doc = "Indicates whether eco start stop is currently enabled.. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Indicates whether eco start stop is currently enabled. This type has no unit defined"]
+                #[doc = "Indicates whether eco start stop is currently enabled.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -17275,24 +18141,24 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Indicates that the fuel level is low (e.g. <50km range). This type has no unit defined"]
+            #[doc = "Indicates that the fuel level is low (e.g. <50km range).. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct LowFuelLevel {
+            pub struct IsFuelLevelLow {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl LowFuelLevel {
+            impl IsFuelLevelLow {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Indicates that the fuel level is low (e.g. <50km range). This type has no unit defined"]
+                #[doc = "Indicates that the fuel level is low (e.g. <50km range).. This type has no unit defined"]
                 pub fn value(&self) -> &bool {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Indicates that the fuel level is low (e.g. <50km range). This type has no unit defined"]
+                #[doc = "Indicates that the fuel level is low (e.g. <50km range).. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -17324,17 +18190,91 @@ pub mod vehicle {
             }
         }
         #[allow(non_snake_case)]
-        pub mod battery {
+        pub mod tractionbattery {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
+            #[doc = "Battery Identification Number as assigned by OEM.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct Id {
+                v: String,
+            }
+            impl Id {
+                #[doc = r" Get the "]
+                #[doc = "Battery Identification Number as assigned by OEM.. This type has no unit defined"]
+                pub fn value(&self) -> &String {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Battery Identification Number as assigned by OEM.. This type has no unit defined"]
+                #[doc = r" Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: String) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &String) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: String) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self { v: value })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Production date of battery in ISO8601 format, e.g. YYYY-MM-DD.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct ProductionDate {
+                v: String,
+            }
+            impl ProductionDate {
+                #[doc = r" Get the "]
+                #[doc = "Production date of battery in ISO8601 format, e.g. YYYY-MM-DD.. This type has no unit defined"]
+                pub fn value(&self) -> &String {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Production date of battery in ISO8601 format, e.g. YYYY-MM-DD.. This type has no unit defined"]
+                #[doc = r" Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: String) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &String) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: String) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self { v: value })
+                    } else {
+                        None
+                    }
+                }
+            }
             #[doc = "Indicating if the power (positive terminator) of the traction battery is connected to the powertrain.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct PowerConnected {
+            pub struct IsPowerConnected {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl PowerConnected {
+            impl IsPowerConnected {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -17377,11 +18317,11 @@ pub mod vehicle {
             #[doc = "Indicating if the ground (negative terminator) of the traction battery is connected to the powertrain.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct GroundConnected {
+            pub struct IsGroundConnected {
                 v: bool,
                 timestamp: crate::v2::Timestamp,
             }
-            impl GroundConnected {
+            impl IsGroundConnected {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
@@ -17421,30 +18361,67 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Temperature of the battery pack. The unit of this type is celsius"]
+            #[doc = "Gross capacity of the battery.. The unit of this type is kWh"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Temperature {
-                v: crate::v2::units::Celsius<f32>,
+            pub struct GrossCapacity {
+                v: crate::v2::units::KilowattHour<u16>,
+            }
+            impl GrossCapacity {
+                #[doc = r" Get the "]
+                #[doc = "Gross capacity of the battery.. The unit of this type is kWh"]
+                pub fn value(&self) -> &crate::v2::units::KilowattHour<u16> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Gross capacity of the battery.. The unit of this type is kWh"]
+                #[doc = r" Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: crate::v2::units::KilowattHour<u16>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::KilowattHour<u16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: crate::v2::units::KilowattHour<u16>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self { v: value })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Total net capacity of the battery considering aging.. The unit of this type is kWh"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct NetCapacity {
+                v: crate::v2::units::KilowattHour<u16>,
                 timestamp: crate::v2::Timestamp,
             }
-            impl Temperature {
+            impl NetCapacity {
                 pub fn timestamp(&self) -> &crate::v2::Timestamp {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "Temperature of the battery pack. The unit of this type is celsius"]
-                pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                #[doc = "Total net capacity of the battery considering aging.. The unit of this type is kWh"]
+                pub fn value(&self) -> &crate::v2::units::KilowattHour<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Temperature of the battery pack. The unit of this type is celsius"]
+                #[doc = "Total net capacity of the battery considering aging.. The unit of this type is kWh"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
                 pub fn set(
                     &mut self,
-                    value: crate::v2::units::Celsius<f32>,
+                    value: crate::v2::units::KilowattHour<u16>,
                     maybe_timestamp: Option<crate::v2::Timestamp>,
                 ) {
                     assert!(Self::bounds_check(&value));
@@ -17457,12 +18434,12 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                const fn bounds_check(_v: &crate::v2::units::KilowattHour<u16>) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
-                    value: crate::v2::units::Celsius<f32>,
+                    value: crate::v2::units::KilowattHour<u16>,
                     timestamp: Option<crate::v2::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
@@ -17475,81 +18452,60 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Gross capacity of the battery. The unit of this type is kWh"]
+            #[doc = "Calculated battery state of health at standard conditions.. The unit of this type is percent"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct GrossCapacity {
-                v: crate::v2::units::KilowattHour<u16>,
+            pub struct StateOfHealth {
+                v: crate::v2::units::Percent<f32>,
+                timestamp: crate::v2::Timestamp,
             }
-            impl GrossCapacity {
+            impl StateOfHealth {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
                 #[doc = r" Get the "]
-                #[doc = "Gross capacity of the battery. The unit of this type is kWh"]
-                pub fn value(&self) -> &crate::v2::units::KilowattHour<u16> {
+                #[doc = "Calculated battery state of health at standard conditions.. The unit of this type is percent"]
+                pub fn value(&self) -> &crate::v2::units::Percent<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Gross capacity of the battery. The unit of this type is kWh"]
-                #[doc = r" Ensure that the value is within bounds as per the"]
+                #[doc = "Calculated battery state of health at standard conditions.. The unit of this type is percent"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::KilowattHour<u16>) {
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Percent<f32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
                 }
                 #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. This particular type has not"]
-                #[doc = r"specified the min or max limits so the function just"]
-                #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::KilowattHour<u16>) -> bool {
-                    true
+                #[doc = r"in the specification. Return true if the value is"]
+                #[doc = r"within bounds."]
+                pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                    v.0 <= 100f32 && v.0 >= 0f32
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::KilowattHour<u16>) -> Option<Self> {
+                pub fn new(
+                    value: crate::v2::units::Percent<f32>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
                     if Self::bounds_check(&value) {
-                        Some(Self { v: value })
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
                     } else {
                         None
                     }
                 }
             }
-            #[doc = "Net capacity of the battery. The unit of this type is kWh"]
-            #[allow(non_camel_case_types)]
-            #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct NetCapacity {
-                v: crate::v2::units::KilowattHour<u16>,
-            }
-            impl NetCapacity {
-                #[doc = r" Get the "]
-                #[doc = "Net capacity of the battery. The unit of this type is kWh"]
-                pub fn value(&self) -> &crate::v2::units::KilowattHour<u16> {
-                    &self.v
-                }
-                #[doc = r" Set the"]
-                #[doc = "Net capacity of the battery. The unit of this type is kWh"]
-                #[doc = r" Ensure that the value is within bounds as per the"]
-                #[doc = r" specification. This function will panic in case the value is out"]
-                #[doc = r" of bounds."]
-                pub fn set(&mut self, value: crate::v2::units::KilowattHour<u16>) {
-                    assert!(Self::bounds_check(&value));
-                    self.v = value;
-                }
-                #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. This particular type has not"]
-                #[doc = r"specified the min or max limits so the function just"]
-                #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::KilowattHour<u16>) -> bool {
-                    true
-                }
-                #[doc = r" create a new instance"]
-                pub fn new(value: crate::v2::units::KilowattHour<u16>) -> Option<Self> {
-                    if Self::bounds_check(&value) {
-                        Some(Self { v: value })
-                    } else {
-                        None
-                    }
-                }
-            }
-            #[doc = "Nominal Voltage of the battery. The unit of this type is V"]
+            #[doc = "Nominal Voltage of the battery.. The unit of this type is V"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct NominalVoltage {
@@ -17557,12 +18513,12 @@ pub mod vehicle {
             }
             impl NominalVoltage {
                 #[doc = r" Get the "]
-                #[doc = "Nominal Voltage of the battery. The unit of this type is V"]
+                #[doc = "Nominal Voltage of the battery.. The unit of this type is V"]
                 pub fn value(&self) -> &crate::v2::units::Volt<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Nominal Voltage of the battery. The unit of this type is V"]
+                #[doc = "Nominal Voltage of the battery.. The unit of this type is V"]
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -17586,20 +18542,20 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Referent Voltage of the battery. The unit of this type is V"]
+            #[doc = "Max allowed voltage of the battery, e.g. during charging.. The unit of this type is V"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct ReferentVoltage {
+            pub struct MaxVoltage {
                 v: crate::v2::units::Volt<u16>,
             }
-            impl ReferentVoltage {
+            impl MaxVoltage {
                 #[doc = r" Get the "]
-                #[doc = "Referent Voltage of the battery. The unit of this type is V"]
+                #[doc = "Max allowed voltage of the battery, e.g. during charging.. The unit of this type is V"]
                 pub fn value(&self) -> &crate::v2::units::Volt<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Referent Voltage of the battery. The unit of this type is V"]
+                #[doc = "Max allowed voltage of the battery, e.g. during charging.. The unit of this type is V"]
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -17623,7 +18579,169 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "The accumulated energy delivered to the battery during charging over lifetime.. The unit of this type is kWh"]
+            #[doc = "Current Voltage of the battery.. The unit of this type is V"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct CurrentVoltage {
+                v: crate::v2::units::Volt<f32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl CurrentVoltage {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Current Voltage of the battery.. The unit of this type is V"]
+                pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Current Voltage of the battery.. The unit of this type is V"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Volt<f32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Volt<f32>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Current current flowing in/out of battery. Positive = Current flowing in to battery, e.g. during charging. Negative = Current flowing out of battery, e.g. during driving.. The unit of this type is A"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct CurrentCurrent {
+                v: crate::v2::units::Amp<f32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl CurrentCurrent {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Current current flowing in/out of battery. Positive = Current flowing in to battery, e.g. during charging. Negative = Current flowing out of battery, e.g. during driving.. The unit of this type is A"]
+                pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Current current flowing in/out of battery. Positive = Current flowing in to battery, e.g. during charging. Negative = Current flowing out of battery, e.g. during driving.. The unit of this type is A"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Amp<f32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Amp<f32>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Current electrical energy flowing in/out of battery. Positive = Energy flowing in to battery, e.g. during charging. Negative = Energy flowing out of battery, e.g. during driving.. The unit of this type is W"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct CurrentPower {
+                v: crate::v2::units::Watt<f32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl CurrentPower {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Current electrical energy flowing in/out of battery. Positive = Energy flowing in to battery, e.g. during charging. Negative = Energy flowing out of battery, e.g. during driving.. The unit of this type is W"]
+                pub fn value(&self) -> &crate::v2::units::Watt<f32> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Current electrical energy flowing in/out of battery. Positive = Energy flowing in to battery, e.g. during charging. Negative = Energy flowing out of battery, e.g. during driving.. The unit of this type is W"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Watt<f32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Watt<f32>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Watt<f32>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "The accumulated energy delivered to the battery during charging over lifetime of the battery.. The unit of this type is kWh"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct AccumulatedChargedEnergy {
@@ -17635,12 +18753,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "The accumulated energy delivered to the battery during charging over lifetime.. The unit of this type is kWh"]
+                #[doc = "The accumulated energy delivered to the battery during charging over lifetime of the battery.. The unit of this type is kWh"]
                 pub fn value(&self) -> &crate::v2::units::KilowattHour<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "The accumulated energy delivered to the battery during charging over lifetime.. The unit of this type is kWh"]
+                #[doc = "The accumulated energy delivered to the battery during charging over lifetime of the battery.. The unit of this type is kWh"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -17677,7 +18795,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime.. The unit of this type is kWh"]
+            #[doc = "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.. The unit of this type is kWh"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct AccumulatedConsumedEnergy {
@@ -17689,12 +18807,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime.. The unit of this type is kWh"]
+                #[doc = "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.. The unit of this type is kWh"]
                 pub fn value(&self) -> &crate::v2::units::KilowattHour<f32> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime.. The unit of this type is kWh"]
+                #[doc = "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.. The unit of this type is kWh"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -17719,6 +18837,154 @@ pub mod vehicle {
                 #[doc = r" create a new instance"]
                 pub fn new(
                     value: crate::v2::units::KilowattHour<f32>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "The accumulated charge throughput delivered to the battery during charging over lifetime of the battery.. The unit of this type is Ah"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct AccumulatedChargedThroughput {
+                v: f32,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl AccumulatedChargedThroughput {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "The accumulated charge throughput delivered to the battery during charging over lifetime of the battery.. The unit of this type is Ah"]
+                pub fn value(&self) -> &f32 {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "The accumulated charge throughput delivered to the battery during charging over lifetime of the battery.. The unit of this type is Ah"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &f32) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "The accumulated charge throughput leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.. The unit of this type is Ah"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct AccumulatedConsumedThroughput {
+                v: f32,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl AccumulatedConsumedThroughput {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "The accumulated charge throughput leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.. The unit of this type is Ah"]
+                pub fn value(&self) -> &f32 {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "The accumulated charge throughput leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.. The unit of this type is Ah"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &f32) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Electrical energy lost by power dissipation to heat inside the battery.. The unit of this type is W"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct PowerLoss {
+                v: crate::v2::units::Watt<f32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl PowerLoss {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Electrical energy lost by power dissipation to heat inside the battery.. The unit of this type is W"]
+                pub fn value(&self) -> &crate::v2::units::Watt<f32> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Electrical energy lost by power dissipation to heat inside the battery.. The unit of this type is W"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Watt<f32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Watt<f32>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Watt<f32>,
                     timestamp: Option<crate::v2::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
@@ -17786,10 +19052,123 @@ pub mod vehicle {
                 }
             }
             #[allow(non_snake_case)]
+            pub mod dcdc {
+                use cdds_derive::Topic;
+                use cyclonedds_rs::*;
+                #[doc = "Electrical energy lost by power dissipation to heat inside DC/DC converter.. The unit of this type is W"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct PowerLoss {
+                    v: crate::v2::units::Watt<f32>,
+                    timestamp: crate::v2::Timestamp,
+                }
+                impl PowerLoss {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Electrical energy lost by power dissipation to heat inside DC/DC converter.. The unit of this type is W"]
+                    pub fn value(&self) -> &crate::v2::units::Watt<f32> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Electrical energy lost by power dissipation to heat inside DC/DC converter.. The unit of this type is W"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: crate::v2::units::Watt<f32>,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &crate::v2::units::Watt<f32>) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: crate::v2::units::Watt<f32>,
+                        timestamp: Option<crate::v2::Timestamp>,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Current temperature of DC/DC converter converting battery high voltage to vehicle low voltage (typically 12 Volts).. The unit of this type is celsius"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct Temperature {
+                    v: crate::v2::units::Celsius<f32>,
+                    timestamp: crate::v2::Timestamp,
+                }
+                impl Temperature {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Current temperature of DC/DC converter converting battery high voltage to vehicle low voltage (typically 12 Volts).. The unit of this type is celsius"]
+                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Current temperature of DC/DC converter converting battery high voltage to vehicle low voltage (typically 12 Volts).. The unit of this type is celsius"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: crate::v2::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: crate::v2::units::Celsius<f32>,
+                        timestamp: Option<crate::v2::Timestamp>,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+            }
+            #[allow(non_snake_case)]
             pub mod charging {
                 use cdds_derive::Topic;
                 use cyclonedds_rs::*;
-                #[doc = "Maximum charge level for battery, can potentially be set manually.. The unit of this type is percent"]
+                #[doc = "Target charge limit (state of charge) for battery.. The unit of this type is percent"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct ChargeLimit {
@@ -17801,12 +19180,12 @@ pub mod vehicle {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Maximum charge level for battery, can potentially be set manually.. The unit of this type is percent"]
+                    #[doc = "Target charge limit (state of charge) for battery.. The unit of this type is percent"]
                     pub fn value(&self) -> &crate::v2::units::Percent<u8> {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Maximum charge level for battery, can potentially be set manually.. The unit of this type is percent"]
+                    #[doc = "Target charge limit (state of charge) for battery.. The unit of this type is percent"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -17842,61 +19221,7 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Maximum charging current that can be accepted by the system.. The unit of this type is A"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct MaximumChargingCurrent {
-                    v: crate::v2::units::Amp<f32>,
-                    timestamp: crate::v2::Timestamp,
-                }
-                impl MaximumChargingCurrent {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Maximum charging current that can be accepted by the system.. The unit of this type is A"]
-                    pub fn value(&self) -> &crate::v2::units::Amp<f32> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Maximum charging current that can be accepted by the system.. The unit of this type is A"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::Amp<f32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. This particular type has not"]
-                    #[doc = r"specified the min or max limits so the function just"]
-                    #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
-                        true
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::Amp<f32>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-                #[doc = "Signal indicating if charge port cover is open or closed, can potentially be controlled manually.. This type has no unit defined"]
+                #[doc = "Status of the charge port cover, can potentially be controlled manually.. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct ChargePortFlap {
@@ -17908,12 +19233,12 @@ pub mod vehicle {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Signal indicating if charge port cover is open or closed, can potentially be controlled manually.. This type has no unit defined"]
+                    #[doc = "Status of the charge port cover, can potentially be controlled manually.. This type has no unit defined"]
                     pub fn value(&self) -> &String {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Signal indicating if charge port cover is open or closed, can potentially be controlled manually.. This type has no unit defined"]
+                    #[doc = "Status of the charge port cover, can potentially be controlled manually.. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -17950,24 +19275,24 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Signal indicating if charge plug is connected or not.. This type has no unit defined"]
+                #[doc = "Indicates if a charging cable is physically connected to the vehicle or not.. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct ChargePlugStatus {
+                pub struct IsChargingCableConnected {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                 }
-                impl ChargePlugStatus {
+                impl IsChargingCableConnected {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Signal indicating if charge plug is connected or not.. This type has no unit defined"]
+                    #[doc = "Indicates if a charging cable is physically connected to the vehicle or not.. This type has no unit defined"]
                     pub fn value(&self) -> &bool {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Signal indicating if charge plug is connected or not.. This type has no unit defined"]
+                    #[doc = "Indicates if a charging cable is physically connected to the vehicle or not.. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -18004,24 +19329,78 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Type of charge plug available on the vehicle (CSS includes Type2).. This type has no unit defined"]
+                #[doc = "Is charging cable locked to prevent removal.. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct ChargePlugType {
-                    v: String,
+                pub struct IsChargingCableLocked {
+                    v: bool,
+                    timestamp: crate::v2::Timestamp,
                 }
-                impl ChargePlugType {
+                impl IsChargingCableLocked {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
                     #[doc = r" Get the "]
-                    #[doc = "Type of charge plug available on the vehicle (CSS includes Type2).. This type has no unit defined"]
-                    pub fn value(&self) -> &String {
+                    #[doc = "Is charging cable locked to prevent removal.. This type has no unit defined"]
+                    pub fn value(&self) -> &bool {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Type of charge plug available on the vehicle (CSS includes Type2).. This type has no unit defined"]
+                    #[doc = "Is charging cable locked to prevent removal.. This type has no unit defined"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: bool,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &bool) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: bool,
+                        timestamp: Option<crate::v2::Timestamp>,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Type of charge plug (charging inlet) available on the vehicle. IEC types refer to IEC 62196,  GBT refers to  GB/T 20234.. This type has no unit defined"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct ChargePlugType {
+                    v: Vec<String>,
+                }
+                impl ChargePlugType {
+                    #[doc = r" Get the "]
+                    #[doc = "Type of charge plug (charging inlet) available on the vehicle. IEC types refer to IEC 62196,  GBT refers to  GB/T 20234.. This type has no unit defined"]
+                    pub fn value(&self) -> &Vec<String> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Type of charge plug (charging inlet) available on the vehicle. IEC types refer to IEC 62196,  GBT refers to  GB/T 20234.. This type has no unit defined"]
                     #[doc = r" Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
-                    pub fn set(&mut self, value: String) {
+                    pub fn set(&mut self, value: Vec<String>) {
                         assert!(Self::bounds_check(&value));
                         self.v = value;
                     }
@@ -18029,11 +19408,11 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &String) -> bool {
+                    const fn bounds_check(_v: &Vec<String>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
-                    pub fn new(value: String) -> Option<Self> {
+                    pub fn new(value: Vec<String>) -> Option<Self> {
                         if Self::bounds_check(&value) {
                             Some(Self { v: value })
                         } else {
@@ -18041,7 +19420,7 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118).. This type has no unit defined"]
+                #[doc = "Control of the charge process. MANUAL means manually initiated (plug-in event, companion app, etc). TIMER means timer-based. GRID means grid-controlled (eg ISO 15118). PROFILE means controlled by profile download to vehicle.. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Mode {
@@ -18053,12 +19432,12 @@ pub mod vehicle {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118).. This type has no unit defined"]
+                    #[doc = "Control of the charge process. MANUAL means manually initiated (plug-in event, companion app, etc). TIMER means timer-based. GRID means grid-controlled (eg ISO 15118). PROFILE means controlled by profile download to vehicle.. This type has no unit defined"]
                     pub fn value(&self) -> &String {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118).. This type has no unit defined"]
+                    #[doc = "Control of the charge process. MANUAL means manually initiated (plug-in event, companion app, etc). TIMER means timer-based. GRID means grid-controlled (eg ISO 15118). PROFILE means controlled by profile download to vehicle.. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -18095,24 +19474,78 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "State of charging process.. This type has no unit defined"]
+                #[doc = "True if charging is ongoing. Charging is considered to be ongoing if energy is flowing from charger to vehicle.. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Status {
+                pub struct IsCharging {
                     v: bool,
                     timestamp: crate::v2::Timestamp,
                 }
-                impl Status {
+                impl IsCharging {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "State of charging process.. This type has no unit defined"]
+                    #[doc = "True if charging is ongoing. Charging is considered to be ongoing if energy is flowing from charger to vehicle.. This type has no unit defined"]
                     pub fn value(&self) -> &bool {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "State of charging process.. This type has no unit defined"]
+                    #[doc = "True if charging is ongoing. Charging is considered to be ongoing if energy is flowing from charger to vehicle.. This type has no unit defined"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: bool,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &bool) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: bool,
+                        timestamp: Option<crate::v2::Timestamp>,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "True if discharging (vehicle to grid) is ongoing. Discharging is considered to be ongoing if energy is flowing from vehicle to charger/grid.. This type has no unit defined"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct IsDischarging {
+                    v: bool,
+                    timestamp: crate::v2::Timestamp,
+                }
+                impl IsDischarging {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "True if discharging (vehicle to grid) is ongoing. Discharging is considered to be ongoing if energy is flowing from vehicle to charger/grid.. This type has no unit defined"]
+                    pub fn value(&self) -> &bool {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "True if discharging (vehicle to grid) is ongoing. Discharging is considered to be ongoing if energy is flowing from vehicle to charger/grid.. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -18203,30 +19636,30 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Current charging current.. The unit of this type is A"]
+                #[doc = "Electrical energy lost by power dissipation to heat inside the AC/DC converter.. The unit of this type is W"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct ChargeCurrent {
-                    v: crate::v2::units::Amp<f32>,
+                pub struct PowerLoss {
+                    v: crate::v2::units::Watt<f32>,
                     timestamp: crate::v2::Timestamp,
                 }
-                impl ChargeCurrent {
+                impl PowerLoss {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Current charging current.. The unit of this type is A"]
-                    pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                    #[doc = "Electrical energy lost by power dissipation to heat inside the AC/DC converter.. The unit of this type is W"]
+                    pub fn value(&self) -> &crate::v2::units::Watt<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Current charging current.. The unit of this type is A"]
+                    #[doc = "Electrical energy lost by power dissipation to heat inside the AC/DC converter.. The unit of this type is W"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Amp<f32>,
+                        value: crate::v2::units::Watt<f32>,
                         maybe_timestamp: Option<crate::v2::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -18239,12 +19672,12 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v2::units::Watt<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Amp<f32>,
+                        value: crate::v2::units::Watt<f32>,
                         timestamp: Option<crate::v2::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -18257,30 +19690,30 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Current charging voltage.. The unit of this type is V"]
+                #[doc = "Current temperature of AC/DC converter converting grid voltage to battery voltage.. The unit of this type is celsius"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct ChargeVoltage {
-                    v: crate::v2::units::Volt<f32>,
+                pub struct Temperature {
+                    v: crate::v2::units::Celsius<f32>,
                     timestamp: crate::v2::Timestamp,
                 }
-                impl ChargeVoltage {
+                impl Temperature {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Current charging voltage.. The unit of this type is V"]
-                    pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+                    #[doc = "Current temperature of AC/DC converter converting grid voltage to battery voltage.. The unit of this type is celsius"]
+                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Current charging voltage.. The unit of this type is V"]
+                    #[doc = "Current temperature of AC/DC converter converting grid voltage to battery voltage.. The unit of this type is celsius"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Volt<f32>,
+                        value: crate::v2::units::Celsius<f32>,
                         maybe_timestamp: Option<crate::v2::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -18293,12 +19726,12 @@ pub mod vehicle {
                     #[doc = r"in the specification. This particular type has not"]
                     #[doc = r"specified the min or max limits so the function just"]
                     #[doc = r" returns true"]
-                    const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
                         true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Volt<f32>,
+                        value: crate::v2::units::Celsius<f32>,
                         timestamp: Option<crate::v2::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -18365,7 +19798,7 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "The time needed to complete the current charging process to the set charge limit. 0 if charging is complete, negative number if no charging process is active.. The unit of this type is s"]
+                #[doc = "The time needed for the current charging process to reach Charging.ChargeLimit. 0 if charging is complete or no charging process is active or planned.. The unit of this type is s"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct TimeToComplete {
@@ -18377,12 +19810,12 @@ pub mod vehicle {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "The time needed to complete the current charging process to the set charge limit. 0 if charging is complete, negative number if no charging process is active.. The unit of this type is s"]
+                    #[doc = "The time needed for the current charging process to reach Charging.ChargeLimit. 0 if charging is complete or no charging process is active or planned.. The unit of this type is s"]
                     pub fn value(&self) -> &crate::v2::units::Second<u32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "The time needed to complete the current charging process to the set charge limit. 0 if charging is complete, negative number if no charging process is active.. The unit of this type is s"]
+                    #[doc = "The time needed for the current charging process to reach Charging.ChargeLimit. 0 if charging is complete or no charging process is active or planned.. The unit of this type is s"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -18423,30 +19856,30 @@ pub mod vehicle {
                 pub mod timer {
                     use cdds_derive::Topic;
                     use cyclonedds_rs::*;
-                    #[doc = "Time value for next charging-related action (Unix timestamp, seconds).. The unit of this type is s"]
+                    #[doc = "Defines timer mode for charging: INACTIVE - no timer set, charging may start as soon as battery is connected to a charger. START_TIME - charging shall start at Charging.Timer.Time. END_TIME - charging shall be finished (reach Charging.ChargeLimit) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to 'inactive' or set a new Charging.Timer.Time. Charging shall start immediately if mode is 'starttime' or 'endtime' and Charging.Timer.Time is a time in the past.. This type has no unit defined"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Time {
-                        v: crate::v2::units::Second<u32>,
+                    pub struct Mode {
+                        v: String,
                         timestamp: crate::v2::Timestamp,
                     }
-                    impl Time {
+                    impl Mode {
                         pub fn timestamp(&self) -> &crate::v2::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Time value for next charging-related action (Unix timestamp, seconds).. The unit of this type is s"]
-                        pub fn value(&self) -> &crate::v2::units::Second<u32> {
+                        #[doc = "Defines timer mode for charging: INACTIVE - no timer set, charging may start as soon as battery is connected to a charger. START_TIME - charging shall start at Charging.Timer.Time. END_TIME - charging shall be finished (reach Charging.ChargeLimit) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to 'inactive' or set a new Charging.Timer.Time. Charging shall start immediately if mode is 'starttime' or 'endtime' and Charging.Timer.Time is a time in the past.. This type has no unit defined"]
+                        pub fn value(&self) -> &String {
                             &self.v
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Time value for next charging-related action (Unix timestamp, seconds).. The unit of this type is s"]
+                        #[doc = "Defines timer mode for charging: INACTIVE - no timer set, charging may start as soon as battery is connected to a charger. START_TIME - charging shall start at Charging.Timer.Time. END_TIME - charging shall be finished (reach Charging.ChargeLimit) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to 'inactive' or set a new Charging.Timer.Time. Charging shall start immediately if mode is 'starttime' or 'endtime' and Charging.Timer.Time is a time in the past.. This type has no unit defined"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
                         pub fn set(
                             &mut self,
-                            value: crate::v2::units::Second<u32>,
+                            value: String,
                             maybe_timestamp: Option<crate::v2::Timestamp>,
                         ) {
                             assert!(Self::bounds_check(&value));
@@ -18459,12 +19892,12 @@ pub mod vehicle {
                         #[doc = r"in the specification. This particular type has not"]
                         #[doc = r"specified the min or max limits so the function just"]
                         #[doc = r" returns true"]
-                        const fn bounds_check(_v: &crate::v2::units::Second<u32>) -> bool {
+                        const fn bounds_check(_v: &String) -> bool {
                             true
                         }
                         #[doc = r" create a new instance"]
                         pub fn new(
-                            value: crate::v2::units::Second<u32>,
+                            value: String,
                             timestamp: Option<crate::v2::Timestamp>,
                         ) -> Option<Self> {
                             if Self::bounds_check(&value) {
@@ -18477,24 +19910,24 @@ pub mod vehicle {
                             }
                         }
                     }
-                    #[doc = "Defines whether Timer.Time is defining start- or endtime of a charging action; departuretime denotes that target time should be taken from vehicle-level desired departure-time setting.. This type has no unit defined"]
+                    #[doc = "Time for next charging-related action, formatted according to ISO 8601 with UTC time zone. Value has no significance if Charging.Timer.Mode is 'inactive'.. This type has no unit defined"]
                     #[allow(non_camel_case_types)]
                     #[derive(Default, Deserialize, Serialize, Topic)]
-                    pub struct Mode {
+                    pub struct Time {
                         v: String,
                         timestamp: crate::v2::Timestamp,
                     }
-                    impl Mode {
+                    impl Time {
                         pub fn timestamp(&self) -> &crate::v2::Timestamp {
                             &self.timestamp
                         }
                         #[doc = r" Get the "]
-                        #[doc = "Defines whether Timer.Time is defining start- or endtime of a charging action; departuretime denotes that target time should be taken from vehicle-level desired departure-time setting.. This type has no unit defined"]
+                        #[doc = "Time for next charging-related action, formatted according to ISO 8601 with UTC time zone. Value has no significance if Charging.Timer.Mode is 'inactive'.. This type has no unit defined"]
                         pub fn value(&self) -> &String {
                             &self.v
                         }
                         #[doc = r" Set the"]
-                        #[doc = "Defines whether Timer.Time is defining start- or endtime of a charging action; departuretime denotes that target time should be taken from vehicle-level desired departure-time setting.. This type has no unit defined"]
+                        #[doc = "Time for next charging-related action, formatted according to ISO 8601 with UTC time zone. Value has no significance if Charging.Timer.Mode is 'inactive'.. This type has no unit defined"]
                         #[doc = r" . Ensure that the value is within bounds as per the"]
                         #[doc = r" specification. This function will panic in case the value is out"]
                         #[doc = r" of bounds."]
@@ -18532,12 +19965,675 @@ pub mod vehicle {
                         }
                     }
                 }
+                #[allow(non_snake_case)]
+                pub mod chargevoltage {
+                    use cdds_derive::Topic;
+                    use cyclonedds_rs::*;
+                    #[doc = "Current DC charging voltage at charging inlet.. The unit of this type is V"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct DC {
+                        v: crate::v2::units::Volt<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl DC {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Current DC charging voltage at charging inlet.. The unit of this type is V"]
+                        pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Current DC charging voltage at charging inlet.. The unit of this type is V"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Volt<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Volt<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Current AC charging voltage (rms) at inlet for Phase 1.. The unit of this type is V"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Phase1 {
+                        v: crate::v2::units::Volt<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl Phase1 {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Current AC charging voltage (rms) at inlet for Phase 1.. The unit of this type is V"]
+                        pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Current AC charging voltage (rms) at inlet for Phase 1.. The unit of this type is V"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Volt<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Volt<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Current AC charging voltage (rms) at inlet for Phase 2.. The unit of this type is V"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Phase2 {
+                        v: crate::v2::units::Volt<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl Phase2 {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Current AC charging voltage (rms) at inlet for Phase 2.. The unit of this type is V"]
+                        pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Current AC charging voltage (rms) at inlet for Phase 2.. The unit of this type is V"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Volt<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Volt<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Current AC charging voltage (rms) at inlet for Phase 3.. The unit of this type is V"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Phase3 {
+                        v: crate::v2::units::Volt<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl Phase3 {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Current AC charging voltage (rms) at inlet for Phase 3.. The unit of this type is V"]
+                        pub fn value(&self) -> &crate::v2::units::Volt<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Current AC charging voltage (rms) at inlet for Phase 3.. The unit of this type is V"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Volt<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Volt<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Volt<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                }
+                #[allow(non_snake_case)]
+                pub mod chargecurrent {
+                    use cdds_derive::Topic;
+                    use cyclonedds_rs::*;
+                    #[doc = "Current DC charging current at inlet. Negative if returning energy to grid.. The unit of this type is A"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct DC {
+                        v: crate::v2::units::Amp<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl DC {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Current DC charging current at inlet. Negative if returning energy to grid.. The unit of this type is A"]
+                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Current DC charging current at inlet. Negative if returning energy to grid.. The unit of this type is A"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Amp<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Current AC charging current (rms) at inlet for Phase 1. Negative if returning energy to grid.. The unit of this type is A"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Phase1 {
+                        v: crate::v2::units::Amp<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl Phase1 {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Current AC charging current (rms) at inlet for Phase 1. Negative if returning energy to grid.. The unit of this type is A"]
+                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Current AC charging current (rms) at inlet for Phase 1. Negative if returning energy to grid.. The unit of this type is A"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Amp<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Current AC charging current (rms) at inlet for Phase 2. Negative if returning energy to grid.. The unit of this type is A"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Phase2 {
+                        v: crate::v2::units::Amp<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl Phase2 {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Current AC charging current (rms) at inlet for Phase 2. Negative if returning energy to grid.. The unit of this type is A"]
+                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Current AC charging current (rms) at inlet for Phase 2. Negative if returning energy to grid.. The unit of this type is A"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Amp<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Current AC charging current (rms) at inlet for Phase 3. Negative if returning energy to grid.. The unit of this type is A"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Phase3 {
+                        v: crate::v2::units::Amp<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl Phase3 {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Current AC charging current (rms) at inlet for Phase 3. Negative if returning energy to grid.. The unit of this type is A"]
+                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Current AC charging current (rms) at inlet for Phase 3. Negative if returning energy to grid.. The unit of this type is A"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Amp<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                }
+                #[allow(non_snake_case)]
+                pub mod maximumchargingcurrent {
+                    use cdds_derive::Topic;
+                    use cyclonedds_rs::*;
+                    #[doc = "Maximum DC charging current at inlet that can be accepted by the system.. The unit of this type is A"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct DC {
+                        v: crate::v2::units::Amp<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl DC {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Maximum DC charging current at inlet that can be accepted by the system.. The unit of this type is A"]
+                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Maximum DC charging current at inlet that can be accepted by the system.. The unit of this type is A"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Amp<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Maximum AC charging current (rms) at inlet for Phase 1 that can be accepted by the system.. The unit of this type is A"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Phase1 {
+                        v: crate::v2::units::Amp<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl Phase1 {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Maximum AC charging current (rms) at inlet for Phase 1 that can be accepted by the system.. The unit of this type is A"]
+                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Maximum AC charging current (rms) at inlet for Phase 1 that can be accepted by the system.. The unit of this type is A"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Amp<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Maximum AC charging current (rms) at inlet for Phase 2 that can be accepted by the system.. The unit of this type is A"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Phase2 {
+                        v: crate::v2::units::Amp<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl Phase2 {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Maximum AC charging current (rms) at inlet for Phase 2 that can be accepted by the system.. The unit of this type is A"]
+                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Maximum AC charging current (rms) at inlet for Phase 2 that can be accepted by the system.. The unit of this type is A"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Amp<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                    #[doc = "Maximum AC charging current (rms) at inlet for Phase 3 that can be accepted by the system.. The unit of this type is A"]
+                    #[allow(non_camel_case_types)]
+                    #[derive(Default, Deserialize, Serialize, Topic)]
+                    pub struct Phase3 {
+                        v: crate::v2::units::Amp<f32>,
+                        timestamp: crate::v2::Timestamp,
+                    }
+                    impl Phase3 {
+                        pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                            &self.timestamp
+                        }
+                        #[doc = r" Get the "]
+                        #[doc = "Maximum AC charging current (rms) at inlet for Phase 3 that can be accepted by the system.. The unit of this type is A"]
+                        pub fn value(&self) -> &crate::v2::units::Amp<f32> {
+                            &self.v
+                        }
+                        #[doc = r" Set the"]
+                        #[doc = "Maximum AC charging current (rms) at inlet for Phase 3 that can be accepted by the system.. The unit of this type is A"]
+                        #[doc = r" . Ensure that the value is within bounds as per the"]
+                        #[doc = r" specification. This function will panic in case the value is out"]
+                        #[doc = r" of bounds."]
+                        pub fn set(
+                            &mut self,
+                            value: crate::v2::units::Amp<f32>,
+                            maybe_timestamp: Option<crate::v2::Timestamp>,
+                        ) {
+                            assert!(Self::bounds_check(&value));
+                            self.v = value;
+                            if let Some(ts) = maybe_timestamp {
+                                self.timestamp = ts;
+                            }
+                        }
+                        #[doc = r"check if the given value is within the limits defined"]
+                        #[doc = r"in the specification. This particular type has not"]
+                        #[doc = r"specified the min or max limits so the function just"]
+                        #[doc = r" returns true"]
+                        const fn bounds_check(_v: &crate::v2::units::Amp<f32>) -> bool {
+                            true
+                        }
+                        #[doc = r" create a new instance"]
+                        pub fn new(
+                            value: crate::v2::units::Amp<f32>,
+                            timestamp: Option<crate::v2::Timestamp>,
+                        ) -> Option<Self> {
+                            if Self::bounds_check(&value) {
+                                Some(Self {
+                                    v: value,
+                                    timestamp: timestamp.unwrap_or_default(),
+                                })
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                }
             }
             #[allow(non_snake_case)]
             pub mod stateofcharge {
                 use cdds_derive::Topic;
                 use cyclonedds_rs::*;
-                #[doc = "Physical state of charge of the high voltage battery. This is not necessarily the state of charge being displayed to the customer.. The unit of this type is percent"]
+                #[doc = "Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.. The unit of this type is percent"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
                 pub struct Current {
@@ -18549,12 +20645,12 @@ pub mod vehicle {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Physical state of charge of the high voltage battery. This is not necessarily the state of charge being displayed to the customer.. The unit of this type is percent"]
+                    #[doc = "Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.. The unit of this type is percent"]
                     pub fn value(&self) -> &crate::v2::units::Percent<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Physical state of charge of the high voltage battery. This is not necessarily the state of charge being displayed to the customer.. The unit of this type is percent"]
+                    #[doc = "Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.. The unit of this type is percent"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
@@ -18643,30 +20739,35 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Target state of charge set (eg. by customer).. The unit of this type is percent"]
+            }
+            #[allow(non_snake_case)]
+            pub mod temperature {
+                use cdds_derive::Topic;
+                use cyclonedds_rs::*;
+                #[doc = "Current average temperature of the battery cells.. The unit of this type is celsius"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Target {
-                    v: crate::v2::units::Percent<u8>,
+                pub struct Average {
+                    v: crate::v2::units::Celsius<f32>,
                     timestamp: crate::v2::Timestamp,
                 }
-                impl Target {
+                impl Average {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Target state of charge set (eg. by customer).. The unit of this type is percent"]
-                    pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                    #[doc = "Current average temperature of the battery cells.. The unit of this type is celsius"]
+                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Target state of charge set (eg. by customer).. The unit of this type is percent"]
+                    #[doc = "Current average temperature of the battery cells.. The unit of this type is celsius"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Percent<u8>,
+                        value: crate::v2::units::Celsius<f32>,
                         maybe_timestamp: Option<crate::v2::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -18676,14 +20777,123 @@ pub mod vehicle {
                         }
                     }
                     #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
-                        v.0 <= 100u8 && v.0 >= 0u8
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                        true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Percent<u8>,
+                        value: crate::v2::units::Celsius<f32>,
+                        timestamp: Option<crate::v2::Timestamp>,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Current minimum temperature of the battery cells, i.e. temperature of the coldest cell.. The unit of this type is celsius"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct Min {
+                    v: crate::v2::units::Celsius<f32>,
+                    timestamp: crate::v2::Timestamp,
+                }
+                impl Min {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Current minimum temperature of the battery cells, i.e. temperature of the coldest cell.. The unit of this type is celsius"]
+                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Current minimum temperature of the battery cells, i.e. temperature of the coldest cell.. The unit of this type is celsius"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: crate::v2::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: crate::v2::units::Celsius<f32>,
+                        timestamp: Option<crate::v2::Timestamp>,
+                    ) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self {
+                                v: value,
+                                timestamp: timestamp.unwrap_or_default(),
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Current maximum temperature of the battery cells, i.e. temperature of the hottest cell.. The unit of this type is celsius"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct Max {
+                    v: crate::v2::units::Celsius<f32>,
+                    timestamp: crate::v2::Timestamp,
+                }
+                impl Max {
+                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                        &self.timestamp
+                    }
+                    #[doc = r" Get the "]
+                    #[doc = "Current maximum temperature of the battery cells, i.e. temperature of the hottest cell.. The unit of this type is celsius"]
+                    pub fn value(&self) -> &crate::v2::units::Celsius<f32> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Current maximum temperature of the battery cells, i.e. temperature of the hottest cell.. The unit of this type is celsius"]
+                    #[doc = r" . Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(
+                        &mut self,
+                        value: crate::v2::units::Celsius<f32>,
+                        maybe_timestamp: Option<crate::v2::Timestamp>,
+                    ) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                        if let Some(ts) = maybe_timestamp {
+                            self.timestamp = ts;
+                        }
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &crate::v2::units::Celsius<f32>) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(
+                        value: crate::v2::units::Celsius<f32>,
                         timestamp: Option<crate::v2::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -18702,6 +20912,43 @@ pub mod vehicle {
         pub mod electricmotor {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
+            #[doc = "Engine code designation, as specified by vehicle manufacturer.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct EngineCode {
+                v: String,
+            }
+            impl EngineCode {
+                #[doc = r" Get the "]
+                #[doc = "Engine code designation, as specified by vehicle manufacturer.. This type has no unit defined"]
+                pub fn value(&self) -> &String {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Engine code designation, as specified by vehicle manufacturer.. This type has no unit defined"]
+                #[doc = r" Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: String) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &String) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: String) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self { v: value })
+                    } else {
+                        None
+                    }
+                }
+            }
             #[doc = "Peak power, in kilowatts, that motor(s) can generate.. The unit of this type is kW"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
@@ -18850,273 +21097,273 @@ pub mod vehicle {
                     }
                 }
             }
-            #[allow(non_snake_case)]
-            pub mod motor {
-                use cdds_derive::Topic;
-                use cyclonedds_rs::*;
+            #[doc = "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.. The unit of this type is rpm"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct Speed {
+                v: crate::v2::units::RPM<i32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl Speed {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
                 #[doc = "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.. The unit of this type is rpm"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Rpm {
-                    v: crate::v2::units::RPM<i32>,
-                    timestamp: crate::v2::Timestamp,
+                pub fn value(&self) -> &crate::v2::units::RPM<i32> {
+                    &self.v
                 }
-                impl Rpm {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.. The unit of this type is rpm"]
-                    pub fn value(&self) -> &crate::v2::units::RPM<i32> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.. The unit of this type is rpm"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::RPM<i32>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::RPM<i32>) -> bool {
-                        v.0 <= 100000i32 && v.0 >= -100000i32
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::RPM<i32>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
+                #[doc = r" Set the"]
+                #[doc = "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.. The unit of this type is rpm"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::RPM<i32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
                     }
                 }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::RPM<i32>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::RPM<i32>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Motor temperature.. The unit of this type is celsius"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct Temperature {
+                v: crate::v2::units::Celsius<i16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl Temperature {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
                 #[doc = "Motor temperature.. The unit of this type is celsius"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Temperature {
-                    v: crate::v2::units::Celsius<i16>,
-                    timestamp: crate::v2::Timestamp,
+                pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
+                    &self.v
                 }
-                impl Temperature {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Motor temperature.. The unit of this type is celsius"]
-                    pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Motor temperature.. The unit of this type is celsius"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::Celsius<i16>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Celsius<i16>) -> bool {
-                        v.0 <= 200i16 && v.0 >= -50i16
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::Celsius<i16>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
+                #[doc = r" Set the"]
+                #[doc = "Motor temperature.. The unit of this type is celsius"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Celsius<i16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
                     }
                 }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Celsius<i16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Celsius<i16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Motor coolant temperature (if applicable).. The unit of this type is celsius"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct CoolantTemperature {
+                v: crate::v2::units::Celsius<i16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl CoolantTemperature {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
                 #[doc = "Motor coolant temperature (if applicable).. The unit of this type is celsius"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct CoolantTemperature {
-                    v: crate::v2::units::Celsius<i16>,
-                    timestamp: crate::v2::Timestamp,
+                pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
+                    &self.v
                 }
-                impl CoolantTemperature {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Motor coolant temperature (if applicable).. The unit of this type is celsius"]
-                    pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Motor coolant temperature (if applicable).. The unit of this type is celsius"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::Celsius<i16>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Celsius<i16>) -> bool {
-                        v.0 <= 200i16 && v.0 >= -50i16
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::Celsius<i16>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
+                #[doc = r" Set the"]
+                #[doc = "Motor coolant temperature (if applicable).. The unit of this type is celsius"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Celsius<i16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
                     }
                 }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Celsius<i16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Celsius<i16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Current motor power output. Negative values indicate regen mode.. The unit of this type is kW"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct Power {
+                v: crate::v2::units::Kilowatt<i16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl Power {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
                 #[doc = "Current motor power output. Negative values indicate regen mode.. The unit of this type is kW"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Power {
-                    v: crate::v2::units::Kilowatt<i16>,
-                    timestamp: crate::v2::Timestamp,
+                pub fn value(&self) -> &crate::v2::units::Kilowatt<i16> {
+                    &self.v
                 }
-                impl Power {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Current motor power output. Negative values indicate regen mode.. The unit of this type is kW"]
-                    pub fn value(&self) -> &crate::v2::units::Kilowatt<i16> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Current motor power output. Negative values indicate regen mode.. The unit of this type is kW"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::Kilowatt<i16>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Kilowatt<i16>) -> bool {
-                        v.0 <= 2000i16 && v.0 >= -2000i16
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::Kilowatt<i16>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
+                #[doc = r" Set the"]
+                #[doc = "Current motor power output. Negative values indicate regen mode.. The unit of this type is kW"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Kilowatt<i16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
                     }
                 }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Kilowatt<i16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Kilowatt<i16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Current motor torque. Negative values indicate regen mode.. The unit of this type is Nm"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct Torque {
+                v: crate::v2::units::NewtonMetre<i16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl Torque {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
                 #[doc = "Current motor torque. Negative values indicate regen mode.. The unit of this type is Nm"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Torque {
-                    v: crate::v2::units::NewtonMetre<i16>,
-                    timestamp: crate::v2::Timestamp,
+                pub fn value(&self) -> &crate::v2::units::NewtonMetre<i16> {
+                    &self.v
                 }
-                impl Torque {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
+                #[doc = r" Set the"]
+                #[doc = "Current motor torque. Negative values indicate regen mode.. The unit of this type is Nm"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::NewtonMetre<i16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
                     }
-                    #[doc = r" Get the "]
-                    #[doc = "Current motor torque. Negative values indicate regen mode.. The unit of this type is Nm"]
-                    pub fn value(&self) -> &crate::v2::units::NewtonMetre<i16> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Current motor torque. Negative values indicate regen mode.. The unit of this type is Nm"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::NewtonMetre<i16>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::NewtonMetre<i16>) -> bool {
-                        v.0 <= 5000i16 && v.0 >= -5000i16
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::NewtonMetre<i16>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::NewtonMetre<i16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::NewtonMetre<i16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
                     }
                 }
             }
@@ -19166,12 +21413,12 @@ pub mod vehicle {
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct GearCount {
-                v: u8,
+                v: i8,
             }
             impl GearCount {
                 #[doc = r" Get the "]
                 #[doc = "Number of forward gears in the transmission. -1 = CVT.. This type has no unit defined"]
-                pub fn value(&self) -> &u8 {
+                pub fn value(&self) -> &i8 {
                     &self.v
                 }
                 #[doc = r" Set the"]
@@ -19179,7 +21426,7 @@ pub mod vehicle {
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: u8) {
+                pub fn set(&mut self, value: i8) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
                 }
@@ -19187,11 +21434,11 @@ pub mod vehicle {
                 #[doc = r"in the specification. This particular type has not"]
                 #[doc = r"specified the min or max limits so the function just"]
                 #[doc = r" returns true"]
-                const fn bounds_check(_v: &u8) -> bool {
+                const fn bounds_check(_v: &i8) -> bool {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: u8) -> Option<Self> {
+                pub fn new(value: i8) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
                     } else {
@@ -19231,59 +21478,6 @@ pub mod vehicle {
                 pub fn new(value: String) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
-                    } else {
-                        None
-                    }
-                }
-            }
-            #[doc = "Vehicle speed, as sensed by the gearbox.. The unit of this type is km/h"]
-            #[allow(non_camel_case_types)]
-            #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Speed {
-                v: crate::v2::units::KilometrePerHour<i32>,
-                timestamp: crate::v2::Timestamp,
-            }
-            impl Speed {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                    &self.timestamp
-                }
-                #[doc = r" Get the "]
-                #[doc = "Vehicle speed, as sensed by the gearbox.. The unit of this type is km/h"]
-                pub fn value(&self) -> &crate::v2::units::KilometrePerHour<i32> {
-                    &self.v
-                }
-                #[doc = r" Set the"]
-                #[doc = "Vehicle speed, as sensed by the gearbox.. The unit of this type is km/h"]
-                #[doc = r" . Ensure that the value is within bounds as per the"]
-                #[doc = r" specification. This function will panic in case the value is out"]
-                #[doc = r" of bounds."]
-                pub fn set(
-                    &mut self,
-                    value: crate::v2::units::KilometrePerHour<i32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
-                ) {
-                    assert!(Self::bounds_check(&value));
-                    self.v = value;
-                    if let Some(ts) = maybe_timestamp {
-                        self.timestamp = ts;
-                    }
-                }
-                #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. Return true if the value is"]
-                #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::KilometrePerHour<i32>) -> bool {
-                    v.0 <= 250i32 && v.0 >= -250i32
-                }
-                #[doc = r" create a new instance"]
-                pub fn new(
-                    value: crate::v2::units::KilometrePerHour<i32>,
-                    timestamp: Option<crate::v2::Timestamp>,
-                ) -> Option<Self> {
-                    if Self::bounds_check(&value) {
-                        Some(Self {
-                            v: value,
-                            timestamp: timestamp.unwrap_or_default(),
-                        })
                     } else {
                         None
                     }
@@ -19343,53 +21537,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Current gear. 0=Neutral. -1=Reverse. This type has no unit defined"]
-            #[allow(non_camel_case_types)]
-            #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct Gear {
-                v: i8,
-                timestamp: crate::v2::Timestamp,
-            }
-            impl Gear {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                    &self.timestamp
-                }
-                #[doc = r" Get the "]
-                #[doc = "Current gear. 0=Neutral. -1=Reverse. This type has no unit defined"]
-                pub fn value(&self) -> &i8 {
-                    &self.v
-                }
-                #[doc = r" Set the"]
-                #[doc = "Current gear. 0=Neutral. -1=Reverse. This type has no unit defined"]
-                #[doc = r" . Ensure that the value is within bounds as per the"]
-                #[doc = r" specification. This function will panic in case the value is out"]
-                #[doc = r" of bounds."]
-                pub fn set(&mut self, value: i8, maybe_timestamp: Option<crate::v2::Timestamp>) {
-                    assert!(Self::bounds_check(&value));
-                    self.v = value;
-                    if let Some(ts) = maybe_timestamp {
-                        self.timestamp = ts;
-                    }
-                }
-                #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. Return true if the value is"]
-                #[doc = r"within bounds."]
-                pub fn bounds_check(v: &i8) -> bool {
-                    *v <= 16i8 && *v >= -1i8
-                }
-                #[doc = r" create a new instance"]
-                pub fn new(value: i8, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
-                    if Self::bounds_check(&value) {
-                        Some(Self {
-                            v: value,
-                            timestamp: timestamp.unwrap_or_default(),
-                        })
-                    } else {
-                        None
-                    }
-                }
-            }
-            #[doc = "The current gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse. This type has no unit defined"]
+            #[doc = "The current gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct CurrentGear {
@@ -19401,12 +21549,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "The current gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse. This type has no unit defined"]
+                #[doc = "The current gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse.. This type has no unit defined"]
                 pub fn value(&self) -> &i8 {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "The current gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse. This type has no unit defined"]
+                #[doc = "The current gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -19436,7 +21584,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "The selected gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse, 126=Park, 127=Drive. This type has no unit defined"]
+            #[doc = "The selected gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse, 126=Park, 127=Drive.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct SelectedGear {
@@ -19448,12 +21596,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "The selected gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse, 126=Park, 127=Drive. This type has no unit defined"]
+                #[doc = "The selected gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse, 126=Park, 127=Drive.. This type has no unit defined"]
                 pub fn value(&self) -> &i8 {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "The selected gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse, 126=Park, 127=Drive. This type has no unit defined"]
+                #[doc = "The selected gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse, 126=Park, 127=Drive.. This type has no unit defined"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -19473,6 +21621,147 @@ pub mod vehicle {
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(value: i8, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Is the transmission park lock engaged or not. False = Disengaged. True = Engaged.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsParkLockEngaged {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsParkLockEngaged {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Is the transmission park lock engaged or not. False = Disengaged. True = Engaged.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Is the transmission park lock engaged or not. False = Disengaged. True = Engaged.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Is gearbox in low range mode or not. False = Normal/High range engaged. True = Low range engaged.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsLowRangeEngaged {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsLowRangeEngaged {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Is gearbox in low range mode or not. False = Normal/High range engaged. True = Low range engaged.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Is gearbox in low range mode or not. False = Normal/High range engaged. True = Low range engaged.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Is electrical powertrain mechanically connected/engaged to the drivetrain or not. False = Disconnected/Disengaged. True = Connected/Engaged.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsElectricalPowertrainEngaged {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsElectricalPowertrainEngaged {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Is electrical powertrain mechanically connected/engaged to the drivetrain or not. False = Disconnected/Disengaged. True = Connected/Engaged.. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Is electrical powertrain mechanically connected/engaged to the drivetrain or not. False = Disconnected/Disengaged. True = Connected/Engaged.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
@@ -19585,7 +21874,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "The current gearbox temperature. The unit of this type is celsius"]
+            #[doc = "The current gearbox temperature.. The unit of this type is celsius"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct Temperature {
@@ -19597,12 +21886,12 @@ pub mod vehicle {
                     &self.timestamp
                 }
                 #[doc = r" Get the "]
-                #[doc = "The current gearbox temperature. The unit of this type is celsius"]
+                #[doc = "The current gearbox temperature.. The unit of this type is celsius"]
                 pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "The current gearbox temperature. The unit of this type is celsius"]
+                #[doc = "The current gearbox temperature.. The unit of this type is celsius"]
                 #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -19618,14 +21907,68 @@ pub mod vehicle {
                     }
                 }
                 #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. Return true if the value is"]
-                #[doc = r"within bounds."]
-                pub fn bounds_check(v: &crate::v2::units::Celsius<i16>) -> bool {
-                    v.0 <= 200i16 && v.0 >= -50i16
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Celsius<i16>) -> bool {
+                    true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
                     value: crate::v2::units::Celsius<i16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Clutch engagement. 0% = Clutch fully disengaged. 100% = Clutch fully engaged.. The unit of this type is percent"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct ClutchEngagement {
+                v: crate::v2::units::Percent<f32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl ClutchEngagement {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Clutch engagement. 0% = Clutch fully disengaged. 100% = Clutch fully engaged.. The unit of this type is percent"]
+                pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Clutch engagement. 0% = Clutch fully disengaged. 100% = Clutch fully engaged.. The unit of this type is percent"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Percent<f32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. Return true if the value is"]
+                #[doc = r"within bounds."]
+                pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                    v.0 <= 100f32 && v.0 >= 0f32
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Percent<f32>,
                     timestamp: Option<crate::v2::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
@@ -19671,15 +22014,173 @@ pub mod vehicle {
                     }
                 }
                 #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. This particular type has not"]
-                #[doc = r"specified the min or max limits so the function just"]
-                #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Percent<u8>) -> bool {
-                    true
+                #[doc = r"in the specification. Return true if the value is"]
+                #[doc = r"within bounds."]
+                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                    v.0 <= 100u8 && true
                 }
                 #[doc = r" create a new instance"]
                 pub fn new(
                     value: crate::v2::units::Percent<u8>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Front Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.. The unit of this type is percent"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct DiffLockFrontEngagement {
+                v: crate::v2::units::Percent<f32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl DiffLockFrontEngagement {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Front Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.. The unit of this type is percent"]
+                pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Front Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.. The unit of this type is percent"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Percent<f32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. Return true if the value is"]
+                #[doc = r"within bounds."]
+                pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                    v.0 <= 100f32 && v.0 >= 0f32
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Percent<f32>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Rear Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.. The unit of this type is percent"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct DiffLockRearEngagement {
+                v: crate::v2::units::Percent<f32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl DiffLockRearEngagement {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Rear Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.. The unit of this type is percent"]
+                pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Rear Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.. The unit of this type is percent"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Percent<f32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. Return true if the value is"]
+                #[doc = r"within bounds."]
+                pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                    v.0 <= 100f32 && v.0 >= 0f32
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Percent<f32>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Torque distribution between front and rear axle in percent. -100% = Full torque to front axle, 0% = 50:50 Front/Rear, 100% = Full torque to rear axle.. The unit of this type is percent"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct TorqueDistribution {
+                v: crate::v2::units::Percent<f32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl TorqueDistribution {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Torque distribution between front and rear axle in percent. -100% = Full torque to front axle, 0% = 50:50 Front/Rear, 100% = Full torque to rear axle.. The unit of this type is percent"]
+                pub fn value(&self) -> &crate::v2::units::Percent<f32> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Torque distribution between front and rear axle in percent. -100% = Full torque to front axle, 0% = 50:50 Front/Rear, 100% = Full torque to rear axle.. The unit of this type is percent"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Percent<f32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. Return true if the value is"]
+                #[doc = r"within bounds."]
+                pub fn bounds_check(v: &crate::v2::units::Percent<f32>) -> bool {
+                    v.0 <= 100f32 && v.0 >= -100f32
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Percent<f32>,
                     timestamp: Option<crate::v2::Timestamp>,
                 ) -> Option<Self> {
                     if Self::bounds_check(&value) {
@@ -19697,6 +22198,43 @@ pub mod vehicle {
         pub mod combustionengine {
             use cdds_derive::Topic;
             use cyclonedds_rs::*;
+            #[doc = "Engine code designation, as specified by vehicle manufacturer.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct EngineCode {
+                v: String,
+            }
+            impl EngineCode {
+                #[doc = r" Get the "]
+                #[doc = "Engine code designation, as specified by vehicle manufacturer.. This type has no unit defined"]
+                pub fn value(&self) -> &String {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Engine code designation, as specified by vehicle manufacturer.. This type has no unit defined"]
+                #[doc = r" Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: String) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &String) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: String) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self { v: value })
+                    } else {
+                        None
+                    }
+                }
+            }
             #[doc = "Displacement in cubic centimetres.. The unit of this type is cm^3"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
@@ -19919,7 +22457,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Engine compression ratio.. This type has no unit defined"]
+            #[doc = "Engine compression ratio, specified in the format 'X:1', e.g. '9.2:1'.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct CompressionRatio {
@@ -19927,12 +22465,12 @@ pub mod vehicle {
             }
             impl CompressionRatio {
                 #[doc = r" Get the "]
-                #[doc = "Engine compression ratio.. This type has no unit defined"]
+                #[doc = "Engine compression ratio, specified in the format 'X:1', e.g. '9.2:1'.. This type has no unit defined"]
                 pub fn value(&self) -> &String {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Engine compression ratio.. This type has no unit defined"]
+                #[doc = "Engine compression ratio, specified in the format 'X:1', e.g. '9.2:1'.. This type has no unit defined"]
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -19951,97 +22489,6 @@ pub mod vehicle {
                 pub fn new(value: String) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self { v: value })
-                    } else {
-                        None
-                    }
-                }
-            }
-            #[doc = "Vehicle oil level.. This type has no unit defined"]
-            #[allow(non_camel_case_types)]
-            #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct EngineOilLevel {
-                v: String,
-            }
-            impl EngineOilLevel {
-                #[doc = r" Get the "]
-                #[doc = "Vehicle oil level.. This type has no unit defined"]
-                pub fn value(&self) -> &String {
-                    &self.v
-                }
-                #[doc = r" Set the"]
-                #[doc = "Vehicle oil level.. This type has no unit defined"]
-                #[doc = r" Ensure that the value is within bounds as per the"]
-                #[doc = r" specification. This function will panic in case the value is out"]
-                #[doc = r" of bounds."]
-                pub fn set(&mut self, value: String) {
-                    assert!(Self::bounds_check(&value));
-                    self.v = value;
-                }
-                #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. This particular type has not"]
-                #[doc = r"specified the min or max limits so the function just"]
-                #[doc = r" returns true"]
-                const fn bounds_check(_v: &String) -> bool {
-                    true
-                }
-                #[doc = r" create a new instance"]
-                pub fn new(value: String) -> Option<Self> {
-                    if Self::bounds_check(&value) {
-                        Some(Self { v: value })
-                    } else {
-                        None
-                    }
-                }
-            }
-            #[doc = "Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.. The unit of this type is s"]
-            #[allow(non_camel_case_types)]
-            #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct OilLifeRemaining {
-                v: crate::v2::units::Second<i32>,
-                timestamp: crate::v2::Timestamp,
-            }
-            impl OilLifeRemaining {
-                pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                    &self.timestamp
-                }
-                #[doc = r" Get the "]
-                #[doc = "Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.. The unit of this type is s"]
-                pub fn value(&self) -> &crate::v2::units::Second<i32> {
-                    &self.v
-                }
-                #[doc = r" Set the"]
-                #[doc = "Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.. The unit of this type is s"]
-                #[doc = r" . Ensure that the value is within bounds as per the"]
-                #[doc = r" specification. This function will panic in case the value is out"]
-                #[doc = r" of bounds."]
-                pub fn set(
-                    &mut self,
-                    value: crate::v2::units::Second<i32>,
-                    maybe_timestamp: Option<crate::v2::Timestamp>,
-                ) {
-                    assert!(Self::bounds_check(&value));
-                    self.v = value;
-                    if let Some(ts) = maybe_timestamp {
-                        self.timestamp = ts;
-                    }
-                }
-                #[doc = r"check if the given value is within the limits defined"]
-                #[doc = r"in the specification. This particular type has not"]
-                #[doc = r"specified the min or max limits so the function just"]
-                #[doc = r" returns true"]
-                const fn bounds_check(_v: &crate::v2::units::Second<i32>) -> bool {
-                    true
-                }
-                #[doc = r" create a new instance"]
-                pub fn new(
-                    value: crate::v2::units::Second<i32>,
-                    timestamp: Option<crate::v2::Timestamp>,
-                ) -> Option<Self> {
-                    if Self::bounds_check(&value) {
-                        Some(Self {
-                            v: value,
-                            timestamp: timestamp.unwrap_or_default(),
-                        })
                     } else {
                         None
                     }
@@ -20158,7 +22605,7 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Peak power, in newton meter, that the engine can generate.. The unit of this type is Nm"]
+            #[doc = "Peak torque, in newton meter, that the engine can generate.. The unit of this type is Nm"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct MaxTorque {
@@ -20166,12 +22613,12 @@ pub mod vehicle {
             }
             impl MaxTorque {
                 #[doc = r" Get the "]
-                #[doc = "Peak power, in newton meter, that the engine can generate.. The unit of this type is Nm"]
+                #[doc = "Peak torque, in newton meter, that the engine can generate.. The unit of this type is Nm"]
                 pub fn value(&self) -> &crate::v2::units::NewtonMetre<u16> {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Peak power, in newton meter, that the engine can generate.. The unit of this type is Nm"]
+                #[doc = "Peak torque, in newton meter, that the engine can generate.. The unit of this type is Nm"]
                 #[doc = r" Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
@@ -20232,26 +22679,37 @@ pub mod vehicle {
                     }
                 }
             }
-            #[doc = "Type of fuel that the engine runs on.. This type has no unit defined"]
+            #[doc = "Engine oil level.. This type has no unit defined"]
             #[allow(non_camel_case_types)]
             #[derive(Default, Deserialize, Serialize, Topic)]
-            pub struct FuelType {
+            pub struct EngineOilLevel {
                 v: String,
+                timestamp: crate::v2::Timestamp,
             }
-            impl FuelType {
+            impl EngineOilLevel {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
                 #[doc = r" Get the "]
-                #[doc = "Type of fuel that the engine runs on.. This type has no unit defined"]
+                #[doc = "Engine oil level.. This type has no unit defined"]
                 pub fn value(&self) -> &String {
                     &self.v
                 }
                 #[doc = r" Set the"]
-                #[doc = "Type of fuel that the engine runs on.. This type has no unit defined"]
-                #[doc = r" Ensure that the value is within bounds as per the"]
+                #[doc = "Engine oil level.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
                 #[doc = r" specification. This function will panic in case the value is out"]
                 #[doc = r" of bounds."]
-                pub fn set(&mut self, value: String) {
+                pub fn set(
+                    &mut self,
+                    value: String,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
                     assert!(Self::bounds_check(&value));
                     self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
                 }
                 #[doc = r"check if the given value is within the limits defined"]
                 #[doc = r"in the specification. This particular type has not"]
@@ -20261,9 +22719,706 @@ pub mod vehicle {
                     true
                 }
                 #[doc = r" create a new instance"]
-                pub fn new(value: String) -> Option<Self> {
+                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
                     if Self::bounds_check(&value) {
-                        Some(Self { v: value })
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.. The unit of this type is s"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct OilLifeRemaining {
+                v: crate::v2::units::Second<i32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl OilLifeRemaining {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.. The unit of this type is s"]
+                pub fn value(&self) -> &crate::v2::units::Second<i32> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.. The unit of this type is s"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Second<i32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Second<i32>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Second<i32>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Engine Running. True if engine is rotating (Speed > 0).. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IsRunning {
+                v: bool,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IsRunning {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Engine Running. True if engine is rotating (Speed > 0).. This type has no unit defined"]
+                pub fn value(&self) -> &bool {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Engine Running. True if engine is rotating (Speed > 0).. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(&mut self, value: bool, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &bool) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: bool, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Engine speed measured as rotations per minute.. The unit of this type is rpm"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct Speed {
+                v: crate::v2::units::RPM<u16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl Speed {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Engine speed measured as rotations per minute.. The unit of this type is rpm"]
+                pub fn value(&self) -> &crate::v2::units::RPM<u16> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Engine speed measured as rotations per minute.. The unit of this type is rpm"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::RPM<u16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::RPM<u16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::RPM<u16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Accumulated time during engine lifetime with 'engine speed (rpm) > 0'.. The unit of this type is h"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct EngineHours {
+                v: crate::v2::units::Hour<f32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl EngineHours {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Accumulated time during engine lifetime with 'engine speed (rpm) > 0'.. The unit of this type is h"]
+                pub fn value(&self) -> &crate::v2::units::Hour<f32> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Accumulated time during engine lifetime with 'engine speed (rpm) > 0'.. The unit of this type is h"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Hour<f32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Hour<f32>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Hour<f32>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Accumulated idling time during engine lifetime. Definition of idling is not standardized.. The unit of this type is h"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct IdleHours {
+                v: crate::v2::units::Hour<f32>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl IdleHours {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Accumulated idling time during engine lifetime. Definition of idling is not standardized.. The unit of this type is h"]
+                pub fn value(&self) -> &crate::v2::units::Hour<f32> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Accumulated idling time during engine lifetime. Definition of idling is not standardized.. The unit of this type is h"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Hour<f32>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Hour<f32>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Hour<f32>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Engine coolant temperature.. The unit of this type is celsius"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct ECT {
+                v: crate::v2::units::Celsius<i16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl ECT {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Engine coolant temperature.. The unit of this type is celsius"]
+                pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Engine coolant temperature.. The unit of this type is celsius"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Celsius<i16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Celsius<i16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Celsius<i16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Engine oil temperature.. The unit of this type is celsius"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct EOT {
+                v: crate::v2::units::Celsius<i16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl EOT {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Engine oil temperature.. The unit of this type is celsius"]
+                pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Engine oil temperature.. The unit of this type is celsius"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Celsius<i16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Celsius<i16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Celsius<i16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Manifold absolute pressure possibly boosted using forced induction.. The unit of this type is kPa"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct MAP {
+                v: crate::v2::units::KiloPascal<u16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl MAP {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Manifold absolute pressure possibly boosted using forced induction.. The unit of this type is kPa"]
+                pub fn value(&self) -> &crate::v2::units::KiloPascal<u16> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Manifold absolute pressure possibly boosted using forced induction.. The unit of this type is kPa"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::KiloPascal<u16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::KiloPascal<u16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::KiloPascal<u16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Grams of air drawn into engine per second.. The unit of this type is g/s"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct MAF {
+                v: crate::v2::units::GramPerSec<u16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl MAF {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Grams of air drawn into engine per second.. The unit of this type is g/s"]
+                pub fn value(&self) -> &crate::v2::units::GramPerSec<u16> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Grams of air drawn into engine per second.. The unit of this type is g/s"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::GramPerSec<u16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::GramPerSec<u16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::GramPerSec<u16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Current throttle position.. The unit of this type is percent"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct TPS {
+                v: crate::v2::units::Percent<u8>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl TPS {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Current throttle position.. The unit of this type is percent"]
+                pub fn value(&self) -> &crate::v2::units::Percent<u8> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Current throttle position.. The unit of this type is percent"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Percent<u8>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. Return true if the value is"]
+                #[doc = r"within bounds."]
+                pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                    v.0 <= 100u8 && true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Percent<u8>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Engine oil pressure.. The unit of this type is kPa"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct EOP {
+                v: crate::v2::units::KiloPascal<u16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl EOP {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Engine oil pressure.. The unit of this type is kPa"]
+                pub fn value(&self) -> &crate::v2::units::KiloPascal<u16> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Engine oil pressure.. The unit of this type is kPa"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::KiloPascal<u16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::KiloPascal<u16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::KiloPascal<u16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Current engine power output. Shall be reported as 0 during engine breaking.. The unit of this type is kW"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct Power {
+                v: crate::v2::units::Kilowatt<u16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl Power {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Current engine power output. Shall be reported as 0 during engine breaking.. The unit of this type is kW"]
+                pub fn value(&self) -> &crate::v2::units::Kilowatt<u16> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Current engine power output. Shall be reported as 0 during engine breaking.. The unit of this type is kW"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::Kilowatt<u16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::Kilowatt<u16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::Kilowatt<u16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[doc = "Current engine torque. Shall be reported as 0 during engine breaking.. The unit of this type is Nm"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct Torque {
+                v: crate::v2::units::NewtonMetre<u16>,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl Torque {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Current engine torque. Shall be reported as 0 during engine breaking.. The unit of this type is Nm"]
+                pub fn value(&self) -> &crate::v2::units::NewtonMetre<u16> {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Current engine torque. Shall be reported as 0 during engine breaking.. The unit of this type is Nm"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: crate::v2::units::NewtonMetre<u16>,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &crate::v2::units::NewtonMetre<u16>) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(
+                    value: crate::v2::units::NewtonMetre<u16>,
+                    timestamp: Option<crate::v2::Timestamp>,
+                ) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
                     } else {
                         None
                     }
@@ -20437,33 +23592,70 @@ pub mod vehicle {
                 }
             }
             #[allow(non_snake_case)]
-            pub mod engine {
+            pub mod dieselexhaustfluid {
                 use cdds_derive::Topic;
                 use cyclonedds_rs::*;
-                #[doc = "Engine speed measured as rotations per minute.. The unit of this type is rpm"]
+                #[doc = "Capacity in liters of the Diesel Exhaust Fluid Tank.. The unit of this type is l"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Speed {
-                    v: crate::v2::units::RPM<u16>,
+                pub struct Capacity {
+                    v: crate::v2::units::Litre<f32>,
+                }
+                impl Capacity {
+                    #[doc = r" Get the "]
+                    #[doc = "Capacity in liters of the Diesel Exhaust Fluid Tank.. The unit of this type is l"]
+                    pub fn value(&self) -> &crate::v2::units::Litre<f32> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Capacity in liters of the Diesel Exhaust Fluid Tank.. The unit of this type is l"]
+                    #[doc = r" Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(&mut self, value: crate::v2::units::Litre<f32>) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &crate::v2::units::Litre<f32>) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(value: crate::v2::units::Litre<f32>) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self { v: value })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Level of the Diesel Exhaust Fluid tank as percent of capacity. 0 = empty. 100 = full.. The unit of this type is percent"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct Level {
+                    v: crate::v2::units::Percent<u8>,
                     timestamp: crate::v2::Timestamp,
                 }
-                impl Speed {
+                impl Level {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Engine speed measured as rotations per minute.. The unit of this type is rpm"]
-                    pub fn value(&self) -> &crate::v2::units::RPM<u16> {
+                    #[doc = "Level of the Diesel Exhaust Fluid tank as percent of capacity. 0 = empty. 100 = full.. The unit of this type is percent"]
+                    pub fn value(&self) -> &crate::v2::units::Percent<u8> {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Engine speed measured as rotations per minute.. The unit of this type is rpm"]
+                    #[doc = "Level of the Diesel Exhaust Fluid tank as percent of capacity. 0 = empty. 100 = full.. The unit of this type is percent"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::RPM<u16>,
+                        value: crate::v2::units::Percent<u8>,
                         maybe_timestamp: Option<crate::v2::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -20475,12 +23667,12 @@ pub mod vehicle {
                     #[doc = r"check if the given value is within the limits defined"]
                     #[doc = r"in the specification. Return true if the value is"]
                     #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::RPM<u16>) -> bool {
-                        v.0 <= 20000u16 && v.0 >= 0u16
+                    pub fn bounds_check(v: &crate::v2::units::Percent<u8>) -> bool {
+                        v.0 <= 100u8 && v.0 >= 0u8
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::RPM<u16>,
+                        value: crate::v2::units::Percent<u8>,
                         timestamp: Option<crate::v2::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -20493,30 +23685,30 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Engine coolant temperature.. The unit of this type is celsius"]
+                #[doc = "Remaining range in meters of the Diesel Exhaust Fluid present in the vehicle.. The unit of this type is m"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct ECT {
-                    v: crate::v2::units::Celsius<i16>,
+                pub struct Range {
+                    v: crate::v2::units::Metre<u32>,
                     timestamp: crate::v2::Timestamp,
                 }
-                impl ECT {
+                impl Range {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Engine coolant temperature.. The unit of this type is celsius"]
-                    pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
+                    #[doc = "Remaining range in meters of the Diesel Exhaust Fluid present in the vehicle.. The unit of this type is m"]
+                    pub fn value(&self) -> &crate::v2::units::Metre<u32> {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Engine coolant temperature.. The unit of this type is celsius"]
+                    #[doc = "Remaining range in meters of the Diesel Exhaust Fluid present in the vehicle.. The unit of this type is m"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<i16>,
+                        value: crate::v2::units::Metre<u32>,
                         maybe_timestamp: Option<crate::v2::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -20526,14 +23718,15 @@ pub mod vehicle {
                         }
                     }
                     #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Celsius<i16>) -> bool {
-                        v.0 <= 200i16 && v.0 >= -50i16
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &crate::v2::units::Metre<u32>) -> bool {
+                        true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<i16>,
+                        value: crate::v2::units::Metre<u32>,
                         timestamp: Option<crate::v2::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -20546,30 +23739,30 @@ pub mod vehicle {
                         }
                     }
                 }
-                #[doc = "Engine oil temperature.. The unit of this type is celsius"]
+                #[doc = "Indicates if the Diesel Exhaust Fluid level is low. True if level is low. Definition of low is vehicle dependent.. This type has no unit defined"]
                 #[allow(non_camel_case_types)]
                 #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct EOT {
-                    v: crate::v2::units::Celsius<i16>,
+                pub struct IsLevelLow {
+                    v: bool,
                     timestamp: crate::v2::Timestamp,
                 }
-                impl EOT {
+                impl IsLevelLow {
                     pub fn timestamp(&self) -> &crate::v2::Timestamp {
                         &self.timestamp
                     }
                     #[doc = r" Get the "]
-                    #[doc = "Engine oil temperature.. The unit of this type is celsius"]
-                    pub fn value(&self) -> &crate::v2::units::Celsius<i16> {
+                    #[doc = "Indicates if the Diesel Exhaust Fluid level is low. True if level is low. Definition of low is vehicle dependent.. This type has no unit defined"]
+                    pub fn value(&self) -> &bool {
                         &self.v
                     }
                     #[doc = r" Set the"]
-                    #[doc = "Engine oil temperature.. The unit of this type is celsius"]
+                    #[doc = "Indicates if the Diesel Exhaust Fluid level is low. True if level is low. Definition of low is vehicle dependent.. This type has no unit defined"]
                     #[doc = r" . Ensure that the value is within bounds as per the"]
                     #[doc = r" specification. This function will panic in case the value is out"]
                     #[doc = r" of bounds."]
                     pub fn set(
                         &mut self,
-                        value: crate::v2::units::Celsius<i16>,
+                        value: bool,
                         maybe_timestamp: Option<crate::v2::Timestamp>,
                     ) {
                         assert!(Self::bounds_check(&value));
@@ -20579,332 +23772,15 @@ pub mod vehicle {
                         }
                     }
                     #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Celsius<i16>) -> bool {
-                        v.0 <= 300i16 && v.0 >= -50i16
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &bool) -> bool {
+                        true
                     }
                     #[doc = r" create a new instance"]
                     pub fn new(
-                        value: crate::v2::units::Celsius<i16>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-                #[doc = "Manifold air pressure possibly boosted using forced induction.. The unit of this type is kPa"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct MAP {
-                    v: crate::v2::units::KiloPascal<i16>,
-                    timestamp: crate::v2::Timestamp,
-                }
-                impl MAP {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Manifold air pressure possibly boosted using forced induction.. The unit of this type is kPa"]
-                    pub fn value(&self) -> &crate::v2::units::KiloPascal<i16> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Manifold air pressure possibly boosted using forced induction.. The unit of this type is kPa"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::KiloPascal<i16>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::KiloPascal<i16>) -> bool {
-                        v.0 <= 1000i16 && v.0 >= 0i16
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::KiloPascal<i16>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-                #[doc = "Grams of air drawn into engine per second.. The unit of this type is g/s"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct MAF {
-                    v: crate::v2::units::GramPerSec<i16>,
-                    timestamp: crate::v2::Timestamp,
-                }
-                impl MAF {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Grams of air drawn into engine per second.. The unit of this type is g/s"]
-                    pub fn value(&self) -> &crate::v2::units::GramPerSec<i16> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Grams of air drawn into engine per second.. The unit of this type is g/s"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::GramPerSec<i16>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::GramPerSec<i16>) -> bool {
-                        v.0 <= 3000i16 && v.0 >= 0i16
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::GramPerSec<i16>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-                #[doc = "Current throttle position.. The unit of this type is percent"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct TPS {
-                    v: crate::v2::units::Percent<i8>,
-                    timestamp: crate::v2::Timestamp,
-                }
-                impl TPS {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Current throttle position.. The unit of this type is percent"]
-                    pub fn value(&self) -> &crate::v2::units::Percent<i8> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Current throttle position.. The unit of this type is percent"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::Percent<i8>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Percent<i8>) -> bool {
-                        v.0 <= 100i8 && v.0 >= 0i8
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::Percent<i8>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-                #[doc = "Engine oil pressure.. The unit of this type is kPa"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct EOP {
-                    v: crate::v2::units::KiloPascal<i16>,
-                    timestamp: crate::v2::Timestamp,
-                }
-                impl EOP {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Engine oil pressure.. The unit of this type is kPa"]
-                    pub fn value(&self) -> &crate::v2::units::KiloPascal<i16> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Engine oil pressure.. The unit of this type is kPa"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::KiloPascal<i16>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::KiloPascal<i16>) -> bool {
-                        v.0 <= 1000i16 && v.0 >= 0i16
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::KiloPascal<i16>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-                #[doc = "Current engine power output.. The unit of this type is kW"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Power {
-                    v: crate::v2::units::Kilowatt<i16>,
-                    timestamp: crate::v2::Timestamp,
-                }
-                impl Power {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Current engine power output.. The unit of this type is kW"]
-                    pub fn value(&self) -> &crate::v2::units::Kilowatt<i16> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Current engine power output.. The unit of this type is kW"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::Kilowatt<i16>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::Kilowatt<i16>) -> bool {
-                        v.0 <= 2000i16 && v.0 >= 0i16
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::Kilowatt<i16>,
-                        timestamp: Option<crate::v2::Timestamp>,
-                    ) -> Option<Self> {
-                        if Self::bounds_check(&value) {
-                            Some(Self {
-                                v: value,
-                                timestamp: timestamp.unwrap_or_default(),
-                            })
-                        } else {
-                            None
-                        }
-                    }
-                }
-                #[doc = "Current engine torque.. The unit of this type is Nm"]
-                #[allow(non_camel_case_types)]
-                #[derive(Default, Deserialize, Serialize, Topic)]
-                pub struct Torque {
-                    v: crate::v2::units::NewtonMetre<i16>,
-                    timestamp: crate::v2::Timestamp,
-                }
-                impl Torque {
-                    pub fn timestamp(&self) -> &crate::v2::Timestamp {
-                        &self.timestamp
-                    }
-                    #[doc = r" Get the "]
-                    #[doc = "Current engine torque.. The unit of this type is Nm"]
-                    pub fn value(&self) -> &crate::v2::units::NewtonMetre<i16> {
-                        &self.v
-                    }
-                    #[doc = r" Set the"]
-                    #[doc = "Current engine torque.. The unit of this type is Nm"]
-                    #[doc = r" . Ensure that the value is within bounds as per the"]
-                    #[doc = r" specification. This function will panic in case the value is out"]
-                    #[doc = r" of bounds."]
-                    pub fn set(
-                        &mut self,
-                        value: crate::v2::units::NewtonMetre<i16>,
-                        maybe_timestamp: Option<crate::v2::Timestamp>,
-                    ) {
-                        assert!(Self::bounds_check(&value));
-                        self.v = value;
-                        if let Some(ts) = maybe_timestamp {
-                            self.timestamp = ts;
-                        }
-                    }
-                    #[doc = r"check if the given value is within the limits defined"]
-                    #[doc = r"in the specification. Return true if the value is"]
-                    #[doc = r"within bounds."]
-                    pub fn bounds_check(v: &crate::v2::units::NewtonMetre<i16>) -> bool {
-                        v.0 <= 3000i16 && v.0 >= 0i16
-                    }
-                    #[doc = r" create a new instance"]
-                    pub fn new(
-                        value: crate::v2::units::NewtonMetre<i16>,
+                        value: bool,
                         timestamp: Option<crate::v2::Timestamp>,
                     ) -> Option<Self> {
                         if Self::bounds_check(&value) {
@@ -20924,7 +23800,54 @@ pub mod vehicle {
     pub mod currentlocation {
         use cdds_derive::Topic;
         use cyclonedds_rs::*;
-        #[doc = "Current latitude of vehicle.. The unit of this type is degrees"]
+        #[doc = "Timestamp from GNSS system for current location, formatted according to ISO 8601 with UTC time zone.. This type has no unit defined"]
+        #[allow(non_camel_case_types)]
+        #[derive(Default, Deserialize, Serialize, Topic)]
+        pub struct Timestamp {
+            v: String,
+            timestamp: crate::v2::Timestamp,
+        }
+        impl Timestamp {
+            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                &self.timestamp
+            }
+            #[doc = r" Get the "]
+            #[doc = "Timestamp from GNSS system for current location, formatted according to ISO 8601 with UTC time zone.. This type has no unit defined"]
+            pub fn value(&self) -> &String {
+                &self.v
+            }
+            #[doc = r" Set the"]
+            #[doc = "Timestamp from GNSS system for current location, formatted according to ISO 8601 with UTC time zone.. This type has no unit defined"]
+            #[doc = r" . Ensure that the value is within bounds as per the"]
+            #[doc = r" specification. This function will panic in case the value is out"]
+            #[doc = r" of bounds."]
+            pub fn set(&mut self, value: String, maybe_timestamp: Option<crate::v2::Timestamp>) {
+                assert!(Self::bounds_check(&value));
+                self.v = value;
+                if let Some(ts) = maybe_timestamp {
+                    self.timestamp = ts;
+                }
+            }
+            #[doc = r"check if the given value is within the limits defined"]
+            #[doc = r"in the specification. This particular type has not"]
+            #[doc = r"specified the min or max limits so the function just"]
+            #[doc = r" returns true"]
+            const fn bounds_check(_v: &String) -> bool {
+                true
+            }
+            #[doc = r" create a new instance"]
+            pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                if Self::bounds_check(&value) {
+                    Some(Self {
+                        v: value,
+                        timestamp: timestamp.unwrap_or_default(),
+                    })
+                } else {
+                    None
+                }
+            }
+        }
+        #[doc = "Current latitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.. The unit of this type is degrees"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Latitude {
@@ -20936,12 +23859,12 @@ pub mod vehicle {
                 &self.timestamp
             }
             #[doc = r" Get the "]
-            #[doc = "Current latitude of vehicle.. The unit of this type is degrees"]
+            #[doc = "Current latitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.. The unit of this type is degrees"]
             pub fn value(&self) -> &f64 {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Current latitude of vehicle.. The unit of this type is degrees"]
+            #[doc = "Current latitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.. The unit of this type is degrees"]
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -20970,7 +23893,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Current longitude of vehicle.. The unit of this type is degrees"]
+        #[doc = "Current longitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.. The unit of this type is degrees"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Longitude {
@@ -20982,12 +23905,12 @@ pub mod vehicle {
                 &self.timestamp
             }
             #[doc = r" Get the "]
-            #[doc = "Current longitude of vehicle.. The unit of this type is degrees"]
+            #[doc = "Current longitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.. The unit of this type is degrees"]
             pub fn value(&self) -> &f64 {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Current longitude of vehicle.. The unit of this type is degrees"]
+            #[doc = "Current longitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.. The unit of this type is degrees"]
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21016,7 +23939,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Current magnetic compass heading.. The unit of this type is degrees"]
+        #[doc = "Current heading relative to geographic north. 0 = North, 90 = East, 180 = South, 270 = West.. The unit of this type is degrees"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Heading {
@@ -21028,12 +23951,12 @@ pub mod vehicle {
                 &self.timestamp
             }
             #[doc = r" Get the "]
-            #[doc = "Current magnetic compass heading.. The unit of this type is degrees"]
+            #[doc = "Current heading relative to geographic north. 0 = North, 90 = East, 180 = South, 270 = West.. The unit of this type is degrees"]
             pub fn value(&self) -> &f64 {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Current magnetic compass heading.. The unit of this type is degrees"]
+            #[doc = "Current heading relative to geographic north. 0 = North, 90 = East, 180 = South, 270 = West.. The unit of this type is degrees"]
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21062,24 +23985,24 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Accuracy level of the latitude and longitude coordinates.. The unit of this type is m"]
+        #[doc = "Accuracy of the latitude and longitude coordinates.. The unit of this type is m"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct Accuracy {
+        pub struct HorizontalAccuracy {
             v: crate::v2::units::Metre<f64>,
             timestamp: crate::v2::Timestamp,
         }
-        impl Accuracy {
+        impl HorizontalAccuracy {
             pub fn timestamp(&self) -> &crate::v2::Timestamp {
                 &self.timestamp
             }
             #[doc = r" Get the "]
-            #[doc = "Accuracy level of the latitude and longitude coordinates.. The unit of this type is m"]
+            #[doc = "Accuracy of the latitude and longitude coordinates.. The unit of this type is m"]
             pub fn value(&self) -> &crate::v2::units::Metre<f64> {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Accuracy level of the latitude and longitude coordinates.. The unit of this type is m"]
+            #[doc = "Accuracy of the latitude and longitude coordinates.. The unit of this type is m"]
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21116,7 +24039,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Current elevation of the position.. The unit of this type is m"]
+        #[doc = "Current altitude relative to WGS 84 reference ellipsoid, as measured at the position of GNSS receiver antenna.. The unit of this type is m"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Altitude {
@@ -21128,12 +24051,12 @@ pub mod vehicle {
                 &self.timestamp
             }
             #[doc = r" Get the "]
-            #[doc = "Current elevation of the position.. The unit of this type is m"]
+            #[doc = "Current altitude relative to WGS 84 reference ellipsoid, as measured at the position of GNSS receiver antenna.. The unit of this type is m"]
             pub fn value(&self) -> &crate::v2::units::Metre<f64> {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Current elevation of the position.. The unit of this type is m"]
+            #[doc = "Current altitude relative to WGS 84 reference ellipsoid, as measured at the position of GNSS receiver antenna.. The unit of this type is m"]
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21170,6 +24093,232 @@ pub mod vehicle {
                 }
             }
         }
+        #[doc = "Accuracy of altitude.. The unit of this type is m"]
+        #[allow(non_camel_case_types)]
+        #[derive(Default, Deserialize, Serialize, Topic)]
+        pub struct VerticalAccuracy {
+            v: crate::v2::units::Metre<f64>,
+            timestamp: crate::v2::Timestamp,
+        }
+        impl VerticalAccuracy {
+            pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                &self.timestamp
+            }
+            #[doc = r" Get the "]
+            #[doc = "Accuracy of altitude.. The unit of this type is m"]
+            pub fn value(&self) -> &crate::v2::units::Metre<f64> {
+                &self.v
+            }
+            #[doc = r" Set the"]
+            #[doc = "Accuracy of altitude.. The unit of this type is m"]
+            #[doc = r" . Ensure that the value is within bounds as per the"]
+            #[doc = r" specification. This function will panic in case the value is out"]
+            #[doc = r" of bounds."]
+            pub fn set(
+                &mut self,
+                value: crate::v2::units::Metre<f64>,
+                maybe_timestamp: Option<crate::v2::Timestamp>,
+            ) {
+                assert!(Self::bounds_check(&value));
+                self.v = value;
+                if let Some(ts) = maybe_timestamp {
+                    self.timestamp = ts;
+                }
+            }
+            #[doc = r"check if the given value is within the limits defined"]
+            #[doc = r"in the specification. This particular type has not"]
+            #[doc = r"specified the min or max limits so the function just"]
+            #[doc = r" returns true"]
+            const fn bounds_check(_v: &crate::v2::units::Metre<f64>) -> bool {
+                true
+            }
+            #[doc = r" create a new instance"]
+            pub fn new(
+                value: crate::v2::units::Metre<f64>,
+                timestamp: Option<crate::v2::Timestamp>,
+            ) -> Option<Self> {
+                if Self::bounds_check(&value) {
+                    Some(Self {
+                        v: value,
+                        timestamp: timestamp.unwrap_or_default(),
+                    })
+                } else {
+                    None
+                }
+            }
+        }
+        #[allow(non_snake_case)]
+        pub mod gnssreceiver {
+            use cdds_derive::Topic;
+            use cyclonedds_rs::*;
+            #[doc = "Fix status of GNSS receiver.. This type has no unit defined"]
+            #[allow(non_camel_case_types)]
+            #[derive(Default, Deserialize, Serialize, Topic)]
+            pub struct FixType {
+                v: String,
+                timestamp: crate::v2::Timestamp,
+            }
+            impl FixType {
+                pub fn timestamp(&self) -> &crate::v2::Timestamp {
+                    &self.timestamp
+                }
+                #[doc = r" Get the "]
+                #[doc = "Fix status of GNSS receiver.. This type has no unit defined"]
+                pub fn value(&self) -> &String {
+                    &self.v
+                }
+                #[doc = r" Set the"]
+                #[doc = "Fix status of GNSS receiver.. This type has no unit defined"]
+                #[doc = r" . Ensure that the value is within bounds as per the"]
+                #[doc = r" specification. This function will panic in case the value is out"]
+                #[doc = r" of bounds."]
+                pub fn set(
+                    &mut self,
+                    value: String,
+                    maybe_timestamp: Option<crate::v2::Timestamp>,
+                ) {
+                    assert!(Self::bounds_check(&value));
+                    self.v = value;
+                    if let Some(ts) = maybe_timestamp {
+                        self.timestamp = ts;
+                    }
+                }
+                #[doc = r"check if the given value is within the limits defined"]
+                #[doc = r"in the specification. This particular type has not"]
+                #[doc = r"specified the min or max limits so the function just"]
+                #[doc = r" returns true"]
+                const fn bounds_check(_v: &String) -> bool {
+                    true
+                }
+                #[doc = r" create a new instance"]
+                pub fn new(value: String, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+                    if Self::bounds_check(&value) {
+                        Some(Self {
+                            v: value,
+                            timestamp: timestamp.unwrap_or_default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            #[allow(non_snake_case)]
+            pub mod mountingposition {
+                use cdds_derive::Topic;
+                use cyclonedds_rs::*;
+                #[doc = "Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = forward of rear axle. Negative values = backward of rear axle.. The unit of this type is mm"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct X {
+                    v: crate::v2::units::Millimetre<i16>,
+                }
+                impl X {
+                    #[doc = r" Get the "]
+                    #[doc = "Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = forward of rear axle. Negative values = backward of rear axle.. The unit of this type is mm"]
+                    pub fn value(&self) -> &crate::v2::units::Millimetre<i16> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = forward of rear axle. Negative values = backward of rear axle.. The unit of this type is mm"]
+                    #[doc = r" Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(&mut self, value: crate::v2::units::Millimetre<i16>) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &crate::v2::units::Millimetre<i16>) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(value: crate::v2::units::Millimetre<i16>) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self { v: value })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = left of origin. Negative values = right of origin. Left/Right is as seen from driver perspective, i.e. by a person looking forward.. The unit of this type is mm"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct Y {
+                    v: crate::v2::units::Millimetre<i16>,
+                }
+                impl Y {
+                    #[doc = r" Get the "]
+                    #[doc = "Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = left of origin. Negative values = right of origin. Left/Right is as seen from driver perspective, i.e. by a person looking forward.. The unit of this type is mm"]
+                    pub fn value(&self) -> &crate::v2::units::Millimetre<i16> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = left of origin. Negative values = right of origin. Left/Right is as seen from driver perspective, i.e. by a person looking forward.. The unit of this type is mm"]
+                    #[doc = r" Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(&mut self, value: crate::v2::units::Millimetre<i16>) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &crate::v2::units::Millimetre<i16>) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(value: crate::v2::units::Millimetre<i16>) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self { v: value })
+                        } else {
+                            None
+                        }
+                    }
+                }
+                #[doc = "Mounting position of GNSS receiver on Z-axis. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = above center of rear axle. Negative values = below center of rear axle.. The unit of this type is mm"]
+                #[allow(non_camel_case_types)]
+                #[derive(Default, Deserialize, Serialize, Topic)]
+                pub struct Z {
+                    v: crate::v2::units::Millimetre<i16>,
+                }
+                impl Z {
+                    #[doc = r" Get the "]
+                    #[doc = "Mounting position of GNSS receiver on Z-axis. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = above center of rear axle. Negative values = below center of rear axle.. The unit of this type is mm"]
+                    pub fn value(&self) -> &crate::v2::units::Millimetre<i16> {
+                        &self.v
+                    }
+                    #[doc = r" Set the"]
+                    #[doc = "Mounting position of GNSS receiver on Z-axis. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = above center of rear axle. Negative values = below center of rear axle.. The unit of this type is mm"]
+                    #[doc = r" Ensure that the value is within bounds as per the"]
+                    #[doc = r" specification. This function will panic in case the value is out"]
+                    #[doc = r" of bounds."]
+                    pub fn set(&mut self, value: crate::v2::units::Millimetre<i16>) {
+                        assert!(Self::bounds_check(&value));
+                        self.v = value;
+                    }
+                    #[doc = r"check if the given value is within the limits defined"]
+                    #[doc = r"in the specification. This particular type has not"]
+                    #[doc = r"specified the min or max limits so the function just"]
+                    #[doc = r" returns true"]
+                    const fn bounds_check(_v: &crate::v2::units::Millimetre<i16>) -> bool {
+                        true
+                    }
+                    #[doc = r" create a new instance"]
+                    pub fn new(value: crate::v2::units::Millimetre<i16>) -> Option<Self> {
+                        if Self::bounds_check(&value) {
+                            Some(Self { v: value })
+                        } else {
+                            None
+                        }
+                    }
+                }
+            }
+        }
     }
     #[allow(non_snake_case)]
     pub mod trailer {
@@ -21178,11 +24327,11 @@ pub mod vehicle {
         #[doc = "Signal indicating if trailer is connected or not.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct Connected {
+        pub struct IsConnected {
             v: bool,
             timestamp: crate::v2::Timestamp,
         }
-        impl Connected {
+        impl IsConnected {
             pub fn timestamp(&self) -> &crate::v2::Timestamp {
                 &self.timestamp
             }
@@ -21231,7 +24380,7 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Roll {
-            v: i16,
+            v: f32,
             timestamp: crate::v2::Timestamp,
         }
         impl Roll {
@@ -21240,7 +24389,7 @@ pub mod vehicle {
             }
             #[doc = r" Get the "]
             #[doc = "Vehicle rotation rate along X (longitudinal).. The unit of this type is degrees/s"]
-            pub fn value(&self) -> &i16 {
+            pub fn value(&self) -> &f32 {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -21248,7 +24397,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: i16, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -21259,11 +24408,11 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &i16) -> bool {
+            const fn bounds_check(_v: &f32) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: i16, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -21278,7 +24427,7 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Pitch {
-            v: i16,
+            v: f32,
             timestamp: crate::v2::Timestamp,
         }
         impl Pitch {
@@ -21287,7 +24436,7 @@ pub mod vehicle {
             }
             #[doc = r" Get the "]
             #[doc = "Vehicle rotation rate along Y (lateral).. The unit of this type is degrees/s"]
-            pub fn value(&self) -> &i16 {
+            pub fn value(&self) -> &f32 {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -21295,7 +24444,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: i16, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -21306,11 +24455,11 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &i16) -> bool {
+            const fn bounds_check(_v: &f32) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: i16, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -21325,7 +24474,7 @@ pub mod vehicle {
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Yaw {
-            v: i16,
+            v: f32,
             timestamp: crate::v2::Timestamp,
         }
         impl Yaw {
@@ -21334,7 +24483,7 @@ pub mod vehicle {
             }
             #[doc = r" Get the "]
             #[doc = "Vehicle rotation rate along Z (vertical).. The unit of this type is degrees/s"]
-            pub fn value(&self) -> &i16 {
+            pub fn value(&self) -> &f32 {
                 &self.v
             }
             #[doc = r" Set the"]
@@ -21342,7 +24491,7 @@ pub mod vehicle {
             #[doc = r" . Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
-            pub fn set(&mut self, value: i16, maybe_timestamp: Option<crate::v2::Timestamp>) {
+            pub fn set(&mut self, value: f32, maybe_timestamp: Option<crate::v2::Timestamp>) {
                 assert!(Self::bounds_check(&value));
                 self.v = value;
                 if let Some(ts) = maybe_timestamp {
@@ -21353,11 +24502,11 @@ pub mod vehicle {
             #[doc = r"in the specification. This particular type has not"]
             #[doc = r"specified the min or max limits so the function just"]
             #[doc = r" returns true"]
-            const fn bounds_check(_v: &i16) -> bool {
+            const fn bounds_check(_v: &f32) -> bool {
                 true
             }
             #[doc = r" create a new instance"]
-            pub fn new(value: i16, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
+            pub fn new(value: f32, timestamp: Option<crate::v2::Timestamp>) -> Option<Self> {
                 if Self::bounds_check(&value) {
                     Some(Self {
                         v: value,
@@ -21540,7 +24689,7 @@ pub mod vehicle {
     pub mod vehicleidentification {
         use cdds_derive::Topic;
         use cyclonedds_rs::*;
-        #[doc = "17-character Vehicle Identification Number (VIN) as defined by ISO 3779. This type has no unit defined"]
+        #[doc = "17-character Vehicle Identification Number (VIN) as defined by ISO 3779.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct VIN {
@@ -21548,12 +24697,12 @@ pub mod vehicle {
         }
         impl VIN {
             #[doc = r" Get the "]
-            #[doc = "17-character Vehicle Identification Number (VIN) as defined by ISO 3779. This type has no unit defined"]
+            #[doc = "17-character Vehicle Identification Number (VIN) as defined by ISO 3779.. This type has no unit defined"]
             pub fn value(&self) -> &String {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "17-character Vehicle Identification Number (VIN) as defined by ISO 3779. This type has no unit defined"]
+            #[doc = "17-character Vehicle Identification Number (VIN) as defined by ISO 3779.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21577,7 +24726,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "3-character World Manufacturer Identification (WMI) as defined by ISO 3780. This type has no unit defined"]
+        #[doc = "3-character World Manufacturer Identification (WMI) as defined by ISO 3780.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct WMI {
@@ -21585,12 +24734,12 @@ pub mod vehicle {
         }
         impl WMI {
             #[doc = r" Get the "]
-            #[doc = "3-character World Manufacturer Identification (WMI) as defined by ISO 3780. This type has no unit defined"]
+            #[doc = "3-character World Manufacturer Identification (WMI) as defined by ISO 3780.. This type has no unit defined"]
             pub fn value(&self) -> &String {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "3-character World Manufacturer Identification (WMI) as defined by ISO 3780. This type has no unit defined"]
+            #[doc = "3-character World Manufacturer Identification (WMI) as defined by ISO 3780.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21614,7 +24763,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Vehicle brand or manufacturer. This type has no unit defined"]
+        #[doc = "Vehicle brand or manufacturer.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Brand {
@@ -21622,12 +24771,12 @@ pub mod vehicle {
         }
         impl Brand {
             #[doc = r" Get the "]
-            #[doc = "Vehicle brand or manufacturer. This type has no unit defined"]
+            #[doc = "Vehicle brand or manufacturer.. This type has no unit defined"]
             pub fn value(&self) -> &String {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Vehicle brand or manufacturer. This type has no unit defined"]
+            #[doc = "Vehicle brand or manufacturer.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21651,7 +24800,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Vehicle model. This type has no unit defined"]
+        #[doc = "Vehicle model.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Model {
@@ -21659,12 +24808,12 @@ pub mod vehicle {
         }
         impl Model {
             #[doc = r" Get the "]
-            #[doc = "Vehicle model. This type has no unit defined"]
+            #[doc = "Vehicle model.. This type has no unit defined"]
             pub fn value(&self) -> &String {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Vehicle model. This type has no unit defined"]
+            #[doc = "Vehicle model.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21688,7 +24837,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Model year of the vehicle. This type has no unit defined"]
+        #[doc = "Model year of the vehicle.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Year {
@@ -21696,12 +24845,12 @@ pub mod vehicle {
         }
         impl Year {
             #[doc = r" Get the "]
-            #[doc = "Model year of the vehicle. This type has no unit defined"]
+            #[doc = "Model year of the vehicle.. This type has no unit defined"]
             pub fn value(&self) -> &u16 {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Model year of the vehicle. This type has no unit defined"]
+            #[doc = "Model year of the vehicle.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21728,10 +24877,10 @@ pub mod vehicle {
         #[doc = "The ACRISS Car Classification Code is a code used by many car rental companies.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct ACRISSCode {
+        pub struct AcrissCode {
             v: String,
         }
-        impl ACRISSCode {
+        impl AcrissCode {
             #[doc = r" Get the "]
             #[doc = "The ACRISS Car Classification Code is a code used by many car rental companies.. This type has no unit defined"]
             pub fn value(&self) -> &String {
@@ -21765,10 +24914,10 @@ pub mod vehicle {
         #[doc = "Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct bodyType {
+        pub struct BodyType {
             v: String,
         }
-        impl bodyType {
+        impl BodyType {
             #[doc = r" Get the "]
             #[doc = "Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).. This type has no unit defined"]
             pub fn value(&self) -> &String {
@@ -21799,20 +24948,20 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "The date of the first registration of the vehicle with the respective public authorities.. This type has no unit defined"]
+        #[doc = "The date in ISO 8601 format of the first registration of the vehicle with the respective public authorities.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct dateVehicleFirstRegistered {
+        pub struct DateVehicleFirstRegistered {
             v: String,
         }
-        impl dateVehicleFirstRegistered {
+        impl DateVehicleFirstRegistered {
             #[doc = r" Get the "]
-            #[doc = "The date of the first registration of the vehicle with the respective public authorities.. This type has no unit defined"]
+            #[doc = "The date in ISO 8601 format of the first registration of the vehicle with the respective public authorities.. This type has no unit defined"]
             pub fn value(&self) -> &String {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "The date of the first registration of the vehicle with the respective public authorities.. This type has no unit defined"]
+            #[doc = "The date in ISO 8601 format of the first registration of the vehicle with the respective public authorities.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21839,10 +24988,10 @@ pub mod vehicle {
         #[doc = "Indicates that the vehicle meets the respective emission standard.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct meetsEmissionStandard {
+        pub struct MeetsEmissionStandard {
             v: String,
         }
-        impl meetsEmissionStandard {
+        impl MeetsEmissionStandard {
             #[doc = r" Get the "]
             #[doc = "Indicates that the vehicle meets the respective emission standard.. This type has no unit defined"]
             pub fn value(&self) -> &String {
@@ -21873,20 +25022,20 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "The date of production of the item, e.g. vehicle.. This type has no unit defined"]
+        #[doc = "The date in ISO 8601 format of production of the item, e.g. vehicle.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct productionDate {
+        pub struct ProductionDate {
             v: String,
         }
-        impl productionDate {
+        impl ProductionDate {
             #[doc = r" Get the "]
-            #[doc = "The date of production of the item, e.g. vehicle.. This type has no unit defined"]
+            #[doc = "The date in ISO 8601 format of production of the item, e.g. vehicle.. This type has no unit defined"]
             pub fn value(&self) -> &String {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "The date of production of the item, e.g. vehicle.. This type has no unit defined"]
+            #[doc = "The date in ISO 8601 format of production of the item, e.g. vehicle.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21910,20 +25059,20 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "The date the item e.g. vehicle was purchased by the current owner.. This type has no unit defined"]
+        #[doc = "The date in ISO 8601 format of the item e.g. vehicle was purchased by the current owner.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct purchaseDate {
+        pub struct PurchaseDate {
             v: String,
         }
-        impl purchaseDate {
+        impl PurchaseDate {
             #[doc = r" Get the "]
-            #[doc = "The date the item e.g. vehicle was purchased by the current owner.. This type has no unit defined"]
+            #[doc = "The date in ISO 8601 format of the item e.g. vehicle was purchased by the current owner.. This type has no unit defined"]
             pub fn value(&self) -> &String {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "The date the item e.g. vehicle was purchased by the current owner.. This type has no unit defined"]
+            #[doc = "The date in ISO 8601 format of the item e.g. vehicle was purchased by the current owner.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21947,20 +25096,20 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "The release date of a vehicle model (often used to differentiate versions of the same make and model).. This type has no unit defined"]
+        #[doc = "The release date in ISO 8601 format of a vehicle model (often used to differentiate versions of the same make and model).. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct vehicleModelDate {
+        pub struct VehicleModelDate {
             v: String,
         }
-        impl vehicleModelDate {
+        impl VehicleModelDate {
             #[doc = r" Get the "]
-            #[doc = "The release date of a vehicle model (often used to differentiate versions of the same make and model).. This type has no unit defined"]
+            #[doc = "The release date in ISO 8601 format of a vehicle model (often used to differentiate versions of the same make and model).. This type has no unit defined"]
             pub fn value(&self) -> &String {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "The release date of a vehicle model (often used to differentiate versions of the same make and model).. This type has no unit defined"]
+            #[doc = "The release date in ISO 8601 format of a vehicle model (often used to differentiate versions of the same make and model).. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -21987,10 +25136,10 @@ pub mod vehicle {
         #[doc = "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct vehicleConfiguration {
+        pub struct VehicleConfiguration {
             v: String,
         }
-        impl vehicleConfiguration {
+        impl VehicleConfiguration {
             #[doc = r" Get the "]
             #[doc = "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.. This type has no unit defined"]
             pub fn value(&self) -> &String {
@@ -22024,10 +25173,10 @@ pub mod vehicle {
         #[doc = "The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct vehicleSeatingCapacity {
+        pub struct VehicleSeatingCapacity {
             v: u16,
         }
-        impl vehicleSeatingCapacity {
+        impl VehicleSeatingCapacity {
             #[doc = r" Get the "]
             #[doc = "The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.. This type has no unit defined"]
             pub fn value(&self) -> &u16 {
@@ -22061,10 +25210,10 @@ pub mod vehicle {
         #[doc = "Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct vehicleSpecialUsage {
+        pub struct VehicleSpecialUsage {
             v: String,
         }
-        impl vehicleSpecialUsage {
+        impl VehicleSpecialUsage {
             #[doc = r" Get the "]
             #[doc = "Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school.. This type has no unit defined"]
             pub fn value(&self) -> &String {
@@ -22098,10 +25247,10 @@ pub mod vehicle {
         #[doc = "The color or color combination of the interior of the vehicle.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct vehicleinteriorColor {
+        pub struct VehicleInteriorColor {
             v: String,
         }
-        impl vehicleinteriorColor {
+        impl VehicleInteriorColor {
             #[doc = r" Get the "]
             #[doc = "The color or color combination of the interior of the vehicle.. This type has no unit defined"]
             pub fn value(&self) -> &String {
@@ -22135,10 +25284,10 @@ pub mod vehicle {
         #[doc = "The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.).. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct vehicleinteriorType {
+        pub struct VehicleInteriorType {
             v: String,
         }
-        impl vehicleinteriorType {
+        impl VehicleInteriorType {
             #[doc = r" Get the "]
             #[doc = "The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.).. This type has no unit defined"]
             pub fn value(&self) -> &String {
@@ -22172,10 +25321,10 @@ pub mod vehicle {
         #[doc = "A textual description of known damages, both repaired and unrepaired.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
-        pub struct knownVehicleDamages {
+        pub struct KnownVehicleDamages {
             v: String,
         }
-        impl knownVehicleDamages {
+        impl KnownVehicleDamages {
             #[doc = r" Get the "]
             #[doc = "A textual description of known damages, both repaired and unrepaired.. This type has no unit defined"]
             pub fn value(&self) -> &String {
@@ -22211,7 +25360,7 @@ pub mod vehicle {
     pub mod versionvss {
         use cdds_derive::Topic;
         use cyclonedds_rs::*;
-        #[doc = "Supported Version of VSS - Major version. This type has no unit defined"]
+        #[doc = "Supported Version of VSS - Major version.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Major {
@@ -22219,12 +25368,12 @@ pub mod vehicle {
         }
         impl Major {
             #[doc = r" Get the "]
-            #[doc = "Supported Version of VSS - Major version. This type has no unit defined"]
+            #[doc = "Supported Version of VSS - Major version.. This type has no unit defined"]
             pub fn value(&self) -> &u32 {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Supported Version of VSS - Major version. This type has no unit defined"]
+            #[doc = "Supported Version of VSS - Major version.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -22248,7 +25397,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Supported Version of VSS - Minor version. This type has no unit defined"]
+        #[doc = "Supported Version of VSS - Minor version.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Minor {
@@ -22256,12 +25405,12 @@ pub mod vehicle {
         }
         impl Minor {
             #[doc = r" Get the "]
-            #[doc = "Supported Version of VSS - Minor version. This type has no unit defined"]
+            #[doc = "Supported Version of VSS - Minor version.. This type has no unit defined"]
             pub fn value(&self) -> &u32 {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Supported Version of VSS - Minor version. This type has no unit defined"]
+            #[doc = "Supported Version of VSS - Minor version.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -22285,7 +25434,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Supported Version of VSS - Patch version. This type has no unit defined"]
+        #[doc = "Supported Version of VSS - Patch version.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Patch {
@@ -22293,12 +25442,12 @@ pub mod vehicle {
         }
         impl Patch {
             #[doc = r" Get the "]
-            #[doc = "Supported Version of VSS - Patch version. This type has no unit defined"]
+            #[doc = "Supported Version of VSS - Patch version.. This type has no unit defined"]
             pub fn value(&self) -> &u32 {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Supported Version of VSS - Patch version. This type has no unit defined"]
+            #[doc = "Supported Version of VSS - Patch version.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]
@@ -22322,7 +25471,7 @@ pub mod vehicle {
                 }
             }
         }
-        #[doc = "Label to further describe the version. This type has no unit defined"]
+        #[doc = "Label to further describe the version.. This type has no unit defined"]
         #[allow(non_camel_case_types)]
         #[derive(Default, Deserialize, Serialize, Topic)]
         pub struct Label {
@@ -22330,12 +25479,12 @@ pub mod vehicle {
         }
         impl Label {
             #[doc = r" Get the "]
-            #[doc = "Label to further describe the version. This type has no unit defined"]
+            #[doc = "Label to further describe the version.. This type has no unit defined"]
             pub fn value(&self) -> &String {
                 &self.v
             }
             #[doc = r" Set the"]
-            #[doc = "Label to further describe the version. This type has no unit defined"]
+            #[doc = "Label to further describe the version.. This type has no unit defined"]
             #[doc = r" Ensure that the value is within bounds as per the"]
             #[doc = r" specification. This function will panic in case the value is out"]
             #[doc = r" of bounds."]

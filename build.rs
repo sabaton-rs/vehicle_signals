@@ -28,7 +28,7 @@ use std::hash::{Hash, Hasher};
 //use petgraph::algo::{dijkstra, min_spanning_tree};
 //use petgraph::data::FromElements;
 
-const VSS_CSV_FILE: &str = "vss_rel_2.2.csv";
+const VSS_CSV_FILE: &str = "vss_rel_3.0.csv";
 
 #[derive(Debug, Clone)]
 struct Signal {
