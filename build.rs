@@ -117,6 +117,14 @@ fn parse_csv() -> Result<Vec<Signal>, Box<dyn Error>> {
 }
 
 fn main() {
+
+    // Don't generate if running in Docs_rs
+    if let Ok(val) = env::var("DOCS_RS") {
+        if val == "1" {
+            return;
+        }
+    }
+
     if let Ok(s) = parse_csv() {
         let mut g = Graph::<(String, Vec<Signal>), ()>::new();
         let root_node = ("ROOT".to_owned(), vec![]);
@@ -330,7 +338,7 @@ fn add_signal(s: &Signal) -> TokenStream {
                     if Self::bounds_check(&value) {
                         Some(Self {
                             v: value,
-                            timestamp : timestamp.unwrap_or(crate::v2::Timestamp::default()),
+                            timestamp : timestamp.unwrap_or_default(),
                             #(#key_var),*
                         })
                     }   else {
@@ -380,8 +388,8 @@ fn graph_to_output(g: Graph<(String, Vec<Signal>), (), Directed, u32>, root_inde
     let outdir = env::var("OUT_DIR").expect("OUT_DIR is not set");
     let bindings_file = Path::new(&outdir).join("bindings.rs");
 
-    let mut file = std::fs::File::create(bindings_file).expect("create failed");
-
+    let mut file = std::fs::File::create(&bindings_file).expect("create failed");
+    
     let mut generated_code = String::new();
 
     for module in g.neighbors(root_index) {
@@ -393,6 +401,8 @@ fn graph_to_output(g: Graph<(String, Vec<Signal>), (), Directed, u32>, root_inde
     let generated_code = rustfmt_generated_code(&generated_code).expect("Unable to run rustfmt");
 
     file.write_all(generated_code.as_bytes()).unwrap();
+
+    std::fs::copy(PathBuf::from(&bindings_file), PathBuf::from("src/bindings.rs")).unwrap();
 }
 
 fn vss_type_to_unit_type(vss_type:&str, vss_data_unit_type:&str) -> Option<TokenStream> {

@@ -1,5 +1,7 @@
 #![doc = include_str!("../README.md")]
 
+
+
 pub mod units;
 /// This is version 2 of the Vehicle Signal Interface.
 /// The major number of the interface is part of the module path.
@@ -7,6 +9,7 @@ pub mod v2 {
     // Check project root for LICENCE
     use serde_derive::{Deserialize, Serialize};
     pub use crate::units;
+    use chrono::{Utc, Timelike};
 
     #[repr(C)]
     #[derive(Serialize, Deserialize, PartialEq, Clone)]
@@ -50,13 +53,12 @@ pub mod v2 {
 
     impl Default for Timestamp {
         fn default() -> Self {
-            /* TODO: Should get system time and put it here*/
-            //let now = std::time::Instant::now();
-            Self { sec: 0, nsec: 0 }
+            let now = Utc::now();
+            Self { sec: now.timestamp() as u64, nsec: now.timestamp_subsec_nanos() }
         }
     }
 
-    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+    include!("bindings.rs");
 }
 
 #[cfg(test)]
