@@ -1,6 +1,6 @@
 [package]
 name = "vehicle-signals"
-version = "0.3.1"
+version = "0.3.2"
 edition = "2021"
 build = "build.rs"
 description = "DDS topics (for cyclonedds-rs) created from GENIVI/W3C Vehicle Signal Specification"
@@ -11,7 +11,7 @@ license-file = "LICENSE.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-cyclonedds-rs = "0.4"
+cyclonedds-rs = "0.5"
 cdds_derive = "0.1.1"
 serde = "1.0"
 serde_derive = "1.0"

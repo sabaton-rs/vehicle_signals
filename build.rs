@@ -245,7 +245,7 @@ fn add_signal(s: &Signal) -> TokenStream {
             /// may have. The value is always the first entry and is
             #[doc = #tuple_doc]
             pub fn value(&self) -> (&#unit_ty,#(&#key_type),*) {
-                (&self.v,#(&self.#key_var),*)
+                (&self.value,#(&self.#key_var),*)
             }
         }
     } else {
@@ -253,7 +253,7 @@ fn add_signal(s: &Signal) -> TokenStream {
             /// Get the 
             #[doc = #documentation]
             pub fn value(&self) -> &#unit_ty {
-                &self.v
+                &self.value
             }
         }
     };
@@ -264,9 +264,10 @@ fn add_signal(s: &Signal) -> TokenStream {
         quote! {
             #[doc=#documentation]
             #[allow(non_camel_case_types)]
+            #[repr(C)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct #signal_name {
-                v : #unit_ty,
+                pub value : #unit_ty,
                 #(#key_attrib #key_var : #key_type),*
             }
 
@@ -280,7 +281,7 @@ fn add_signal(s: &Signal) -> TokenStream {
                 /// of bounds.
                 pub fn set(&mut self, value: #unit_ty,#(#key_var : #key_type),*) {
                     assert!(Self::bounds_check(&value));
-                    self.v = value;
+                    self.value = value;
                     #(self.#key_var = #key_var);*
                 }
 
@@ -290,7 +291,7 @@ fn add_signal(s: &Signal) -> TokenStream {
                 pub fn new(value : #unit_ty, #(#key_var : #key_type),*) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
-                            v: value,
+                            value,
                             #(#key_var),*
                         })
                     }   else {
@@ -303,11 +304,12 @@ fn add_signal(s: &Signal) -> TokenStream {
         quote! {
             #[doc=#documentation]
             #[allow(non_camel_case_types)]
+            #[repr(C)]
             #[derive(Default, Deserialize, Serialize, Topic)]
             pub struct #signal_name {
-                v : #unit_ty,
-                timestamp : crate::v3::Timestamp ,
-                #( #key_attrib #key_var : #key_type),*
+                pub value : #unit_ty,
+                pub timestamp : crate::v3::Timestamp ,
+                #( #key_attrib pub #key_var : #key_type),*
             }
 
             impl #signal_name {
@@ -324,7 +326,7 @@ fn add_signal(s: &Signal) -> TokenStream {
                 /// of bounds.
                 pub fn set(&mut self, value: #unit_ty,maybe_timestamp : Option<crate::v3::Timestamp>, #(#key_var : #key_type),*) {
                     assert!(Self::bounds_check(&value));
-                    self.v = value;
+                    self.value = value;
                     #(self.#key_var = #key_var;)*
                     if let Some(ts) = maybe_timestamp {
                         self.timestamp = ts;
@@ -337,7 +339,7 @@ fn add_signal(s: &Signal) -> TokenStream {
                 pub fn new(value : #unit_ty, timestamp: Option<crate::v3::Timestamp>, #(#key_var : #key_type),*) -> Option<Self> {
                     if Self::bounds_check(&value) {
                         Some(Self {
-                            v: value,
+                            value,
                             timestamp : timestamp.unwrap_or_default(),
                             #(#key_var),*
                         })
